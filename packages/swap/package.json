@@ -81,5 +81,6 @@
     "@cosmjs/proto-signing": "0.28.11",
     "@cosmjs/stargate": "0.28.11",
     "cosmwasm": "1.1.1"
-  }
+  },
+  "gitHead": "9dcafa4c07b68b1bfd467f02f9925d7bd1887e35"
 }
