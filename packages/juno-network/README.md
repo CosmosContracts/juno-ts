@@ -37,6 +37,21 @@ const main = async () => {
 import { contracts } from 'juno-network';
 ```
 
+### CosmWasm Messages
+
+```js
+import { cosmwasm } from "juno-network";
+
+const {
+    clearAdmin,
+    executeContract,
+    instantiateContract,
+    migrateContract,
+    storeCode,
+    updateAdmin
+} = cosmwasm.wasm.v1.MessageComposer.withTypeUrl;
+```
+
 ### IBC Messages
 
 ```js
@@ -79,22 +94,6 @@ const {
     voteWeighted
 } = cosmos.gov.v1beta1.MessageComposer.fromPartial;
 ```
-
-### CosmWasm Messages
-
-```js
-import { cosmwasm } from "osmojs";
-
-const {
-    clearAdmin,
-    executeContract,
-    instantiateContract,
-    migrateContract,
-    storeCode,
-    updateAdmin
-} = cosmwasm.wasm.v1.MessageComposer.withTypeUrl;
-```
-
 ## Credits
 
 Code built with the help of these related projects:
