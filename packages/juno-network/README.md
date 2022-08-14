@@ -12,8 +12,7 @@
    <a href="https://www.npmjs.com/package/juno-network"><img height="20" src="https://img.shields.io/github/package-json/v/CosmosContracts/typescript?filename=packages%2Fjuno-network%2Fpackage.json"></a>
 </p>
 
-JunoSwap smart contract bindings
-
+TS library with Cosmos SDK and JunoSwap smart contracts.
 
 ```
 npm install juno-network
