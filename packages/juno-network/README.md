@@ -29,6 +29,12 @@ const main = async () => {
 };
 ```
 
+### JunoSwap contracts
+
+```js
+import { contracts } from 'juno-network';
+```
+
 ### IBC Messages
 
 ```js
