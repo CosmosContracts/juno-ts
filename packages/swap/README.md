@@ -18,3 +18,45 @@ JunoSwap smart contract bindings
 npm install @juno-network/swap
 ```
 
+### JunoSwap contracts
+
+#### clients
+
+```js
+import { contracts } from '@juno-network/swap';
+const { 
+  JunoSwap: {
+        JunoSwapClient,
+        JunoSwapQueryClient
+    }
+} = contracts;
+```
+
+#### Queries 
+
+```js
+const queries = new JunoSwapQueryClient(
+  cosmwasmClient,
+  contractAddress
+);
+const amount = await queries.token1ForToken2Price({
+    token1Amount
+});
+```
+#### Mutations
+
+```js
+const client = new JunoSwapClient(
+  signingClient,
+  sender,
+  contractAddress
+);
+
+await client.addLiquidity({
+    maxToken2,
+    minLiquidity,
+    token1Amount,
+    expiration
+});
+```
+
