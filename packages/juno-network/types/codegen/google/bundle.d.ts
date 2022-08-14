@@ -1,4 +1,3 @@
-import * as _102 from "./api/http";
 import * as _103 from "./protobuf/any";
 import * as _104 from "./protobuf/descriptor";
 import * as _105 from "./protobuf/duration";
@@ -8,63 +7,7 @@ import * as _108 from "./protobuf/struct";
 import * as _109 from "./protobuf/wrappers";
 import * as _110 from "./protobuf/field_mask";
 export declare namespace google {
-    const api: {
-        Http: {
-            encode(message: _102.Http, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _102.Http;
-            fromJSON(object: any): _102.Http;
-            toJSON(message: _102.Http): unknown;
-            fromPartial(object: {
-                rules?: {
-                    selector?: string;
-                    get?: string;
-                    put?: string;
-                    post?: string;
-                    delete?: string;
-                    patch?: string;
-                    custom?: {
-                        kind?: string;
-                        path?: string;
-                    };
-                    body?: string;
-                    responseBody?: string;
-                    additionalBindings?: any[];
-                }[];
-                fullyDecodeReservedExpansion?: boolean;
-            }): _102.Http;
-        };
-        HttpRule: {
-            encode(message: _102.HttpRule, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _102.HttpRule;
-            fromJSON(object: any): _102.HttpRule;
-            toJSON(message: _102.HttpRule): unknown;
-            fromPartial(object: {
-                selector?: string;
-                get?: string;
-                put?: string;
-                post?: string;
-                delete?: string;
-                patch?: string;
-                custom?: {
-                    kind?: string;
-                    path?: string;
-                };
-                body?: string;
-                responseBody?: string;
-                additionalBindings?: any[];
-            }): _102.HttpRule;
-        };
-        CustomHttpPattern: {
-            encode(message: _102.CustomHttpPattern, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _102.CustomHttpPattern;
-            fromJSON(object: any): _102.CustomHttpPattern;
-            toJSON(message: _102.CustomHttpPattern): unknown;
-            fromPartial(object: {
-                kind?: string;
-                path?: string;
-            }): _102.CustomHttpPattern;
-        };
-    };
+    const api: any;
     const protobuf: {
         FieldMask: {
             encode(message: _110.FieldMask, writer?: import("protobufjs").Writer): import("protobufjs").Writer;

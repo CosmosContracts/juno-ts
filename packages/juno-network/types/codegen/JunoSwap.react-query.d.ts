@@ -19,22 +19,22 @@ export interface JunoSwapToken2ForToken1PriceQuery extends JunoSwapReactQuery<To
         token2Amount: Uint128;
     };
 }
-export declare function useJunoSwapToken2ForToken1PriceQuery({ client, args, options }: JunoSwapToken2ForToken1PriceQuery): any;
+export declare function useJunoSwapToken2ForToken1PriceQuery({ client, args, options }: JunoSwapToken2ForToken1PriceQuery): import("@tanstack/react-query").UseQueryResult<Token2ForToken1PriceResponse, Error>;
 export interface JunoSwapToken1ForToken2PriceQuery extends JunoSwapReactQuery<Token1ForToken2PriceResponse> {
     args: {
         token1Amount: Uint128;
     };
 }
-export declare function useJunoSwapToken1ForToken2PriceQuery({ client, args, options }: JunoSwapToken1ForToken2PriceQuery): any;
+export declare function useJunoSwapToken1ForToken2PriceQuery({ client, args, options }: JunoSwapToken1ForToken2PriceQuery): import("@tanstack/react-query").UseQueryResult<Token1ForToken2PriceResponse, Error>;
 export interface JunoSwapInfoQuery extends JunoSwapReactQuery<InfoResponse> {
 }
-export declare function useJunoSwapInfoQuery({ client, options }: JunoSwapInfoQuery): any;
+export declare function useJunoSwapInfoQuery({ client, options }: JunoSwapInfoQuery): import("@tanstack/react-query").UseQueryResult<InfoResponse, Error>;
 export interface JunoSwapBalanceQuery extends JunoSwapReactQuery<BalanceResponse> {
     args: {
         address: string;
     };
 }
-export declare function useJunoSwapBalanceQuery({ client, args, options }: JunoSwapBalanceQuery): any;
+export declare function useJunoSwapBalanceQuery({ client, args, options }: JunoSwapBalanceQuery): import("@tanstack/react-query").UseQueryResult<BalanceResponse, Error>;
 export interface JunoSwapSwapToMutation {
     client: JunoSwapClient;
     msg: {
@@ -50,7 +50,7 @@ export interface JunoSwapSwapToMutation {
         funds?: Coin[];
     };
 }
-export declare function useJunoSwapSwapToMutation(options?: Omit<UseMutationOptions<ExecuteResult, Error, JunoSwapSwapToMutation>, "mutationFn">): any;
+export declare function useJunoSwapSwapToMutation(options?: Omit<UseMutationOptions<ExecuteResult, Error, JunoSwapSwapToMutation>, "mutationFn">): import("@tanstack/react-query").UseMutationResult<ExecuteResult, Error, JunoSwapSwapToMutation, unknown>;
 export interface JunoSwapMultiContractSwapMutation {
     client: JunoSwapClient;
     msg: {
@@ -67,7 +67,7 @@ export interface JunoSwapMultiContractSwapMutation {
         funds?: Coin[];
     };
 }
-export declare function useJunoSwapMultiContractSwapMutation(options?: Omit<UseMutationOptions<ExecuteResult, Error, JunoSwapMultiContractSwapMutation>, "mutationFn">): any;
+export declare function useJunoSwapMultiContractSwapMutation(options?: Omit<UseMutationOptions<ExecuteResult, Error, JunoSwapMultiContractSwapMutation>, "mutationFn">): import("@tanstack/react-query").UseMutationResult<ExecuteResult, Error, JunoSwapMultiContractSwapMutation, unknown>;
 export interface JunoSwapSwapToken2ForToken1Mutation {
     client: JunoSwapClient;
     msg: {
@@ -81,7 +81,7 @@ export interface JunoSwapSwapToken2ForToken1Mutation {
         funds?: Coin[];
     };
 }
-export declare function useJunoSwapSwapToken2ForToken1Mutation(options?: Omit<UseMutationOptions<ExecuteResult, Error, JunoSwapSwapToken2ForToken1Mutation>, "mutationFn">): any;
+export declare function useJunoSwapSwapToken2ForToken1Mutation(options?: Omit<UseMutationOptions<ExecuteResult, Error, JunoSwapSwapToken2ForToken1Mutation>, "mutationFn">): import("@tanstack/react-query").UseMutationResult<ExecuteResult, Error, JunoSwapSwapToken2ForToken1Mutation, unknown>;
 export interface JunoSwapSwapToken1ForToken2Mutation {
     client: JunoSwapClient;
     msg: {
@@ -95,7 +95,7 @@ export interface JunoSwapSwapToken1ForToken2Mutation {
         funds?: Coin[];
     };
 }
-export declare function useJunoSwapSwapToken1ForToken2Mutation(options?: Omit<UseMutationOptions<ExecuteResult, Error, JunoSwapSwapToken1ForToken2Mutation>, "mutationFn">): any;
+export declare function useJunoSwapSwapToken1ForToken2Mutation(options?: Omit<UseMutationOptions<ExecuteResult, Error, JunoSwapSwapToken1ForToken2Mutation>, "mutationFn">): import("@tanstack/react-query").UseMutationResult<ExecuteResult, Error, JunoSwapSwapToken1ForToken2Mutation, unknown>;
 export interface JunoSwapRemoveLiquidityMutation {
     client: JunoSwapClient;
     msg: {
@@ -110,7 +110,7 @@ export interface JunoSwapRemoveLiquidityMutation {
         funds?: Coin[];
     };
 }
-export declare function useJunoSwapRemoveLiquidityMutation(options?: Omit<UseMutationOptions<ExecuteResult, Error, JunoSwapRemoveLiquidityMutation>, "mutationFn">): any;
+export declare function useJunoSwapRemoveLiquidityMutation(options?: Omit<UseMutationOptions<ExecuteResult, Error, JunoSwapRemoveLiquidityMutation>, "mutationFn">): import("@tanstack/react-query").UseMutationResult<ExecuteResult, Error, JunoSwapRemoveLiquidityMutation, unknown>;
 export interface JunoSwapAddLiquidityMutation {
     client: JunoSwapClient;
     msg: {
@@ -125,4 +125,4 @@ export interface JunoSwapAddLiquidityMutation {
         funds?: Coin[];
     };
 }
-export declare function useJunoSwapAddLiquidityMutation(options?: Omit<UseMutationOptions<ExecuteResult, Error, JunoSwapAddLiquidityMutation>, "mutationFn">): any;
+export declare function useJunoSwapAddLiquidityMutation(options?: Omit<UseMutationOptions<ExecuteResult, Error, JunoSwapAddLiquidityMutation>, "mutationFn">): import("@tanstack/react-query").UseMutationResult<ExecuteResult, Error, JunoSwapAddLiquidityMutation, unknown>;

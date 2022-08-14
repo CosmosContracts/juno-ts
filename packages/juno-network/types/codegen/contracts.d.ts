@@ -3,20 +3,21 @@
 * DO NOT MODIFY IT BY HAND. Instead, modify the source JSONSchema file,
 * and run the @cosmwasm/ts-codegen generate command to regenerate this file.
 */
+import * as _0 from "./JunoSwap.types";
 import * as _1 from "./JunoSwap.client";
 import * as _2 from "./JunoSwap.react-query";
 export declare namespace contracts {
     const JunoSwap: {
-        useJunoSwapToken2ForToken1PriceQuery({ client, args, options }: _2.JunoSwapToken2ForToken1PriceQuery): any;
-        useJunoSwapToken1ForToken2PriceQuery({ client, args, options }: _2.JunoSwapToken1ForToken2PriceQuery): any;
-        useJunoSwapInfoQuery({ client, options }: _2.JunoSwapInfoQuery): any;
-        useJunoSwapBalanceQuery({ client, args, options }: _2.JunoSwapBalanceQuery): any;
-        useJunoSwapSwapToMutation(options?: Omit<UseMutationOptions<ExecuteResult, Error, _2.JunoSwapSwapToMutation>, "mutationFn">): any;
-        useJunoSwapMultiContractSwapMutation(options?: Omit<UseMutationOptions<ExecuteResult, Error, _2.JunoSwapMultiContractSwapMutation>, "mutationFn">): any;
-        useJunoSwapSwapToken2ForToken1Mutation(options?: Omit<UseMutationOptions<ExecuteResult, Error, _2.JunoSwapSwapToken2ForToken1Mutation>, "mutationFn">): any;
-        useJunoSwapSwapToken1ForToken2Mutation(options?: Omit<UseMutationOptions<ExecuteResult, Error, _2.JunoSwapSwapToken1ForToken2Mutation>, "mutationFn">): any;
-        useJunoSwapRemoveLiquidityMutation(options?: Omit<UseMutationOptions<ExecuteResult, Error, _2.JunoSwapRemoveLiquidityMutation>, "mutationFn">): any;
-        useJunoSwapAddLiquidityMutation(options?: Omit<UseMutationOptions<ExecuteResult, Error, _2.JunoSwapAddLiquidityMutation>, "mutationFn">): any;
+        useJunoSwapToken2ForToken1PriceQuery({ client, args, options }: _2.JunoSwapToken2ForToken1PriceQuery): import("@tanstack/react-query").UseQueryResult<_0.Token2ForToken1PriceResponse, Error>;
+        useJunoSwapToken1ForToken2PriceQuery({ client, args, options }: _2.JunoSwapToken1ForToken2PriceQuery): import("@tanstack/react-query").UseQueryResult<_0.Token1ForToken2PriceResponse, Error>;
+        useJunoSwapInfoQuery({ client, options }: _2.JunoSwapInfoQuery): import("@tanstack/react-query").UseQueryResult<_0.InfoResponse, Error>;
+        useJunoSwapBalanceQuery({ client, args, options }: _2.JunoSwapBalanceQuery): import("@tanstack/react-query").UseQueryResult<_0.BalanceResponse, Error>;
+        useJunoSwapSwapToMutation(options?: Omit<import("@tanstack/react-query").UseMutationOptions<import("@cosmjs/cosmwasm-stargate").ExecuteResult, Error, _2.JunoSwapSwapToMutation, unknown>, "mutationFn">): import("@tanstack/react-query").UseMutationResult<import("@cosmjs/cosmwasm-stargate").ExecuteResult, Error, _2.JunoSwapSwapToMutation, unknown>;
+        useJunoSwapMultiContractSwapMutation(options?: Omit<import("@tanstack/react-query").UseMutationOptions<import("@cosmjs/cosmwasm-stargate").ExecuteResult, Error, _2.JunoSwapMultiContractSwapMutation, unknown>, "mutationFn">): import("@tanstack/react-query").UseMutationResult<import("@cosmjs/cosmwasm-stargate").ExecuteResult, Error, _2.JunoSwapMultiContractSwapMutation, unknown>;
+        useJunoSwapSwapToken2ForToken1Mutation(options?: Omit<import("@tanstack/react-query").UseMutationOptions<import("@cosmjs/cosmwasm-stargate").ExecuteResult, Error, _2.JunoSwapSwapToken2ForToken1Mutation, unknown>, "mutationFn">): import("@tanstack/react-query").UseMutationResult<import("@cosmjs/cosmwasm-stargate").ExecuteResult, Error, _2.JunoSwapSwapToken2ForToken1Mutation, unknown>;
+        useJunoSwapSwapToken1ForToken2Mutation(options?: Omit<import("@tanstack/react-query").UseMutationOptions<import("@cosmjs/cosmwasm-stargate").ExecuteResult, Error, _2.JunoSwapSwapToken1ForToken2Mutation, unknown>, "mutationFn">): import("@tanstack/react-query").UseMutationResult<import("@cosmjs/cosmwasm-stargate").ExecuteResult, Error, _2.JunoSwapSwapToken1ForToken2Mutation, unknown>;
+        useJunoSwapRemoveLiquidityMutation(options?: Omit<import("@tanstack/react-query").UseMutationOptions<import("@cosmjs/cosmwasm-stargate").ExecuteResult, Error, _2.JunoSwapRemoveLiquidityMutation, unknown>, "mutationFn">): import("@tanstack/react-query").UseMutationResult<import("@cosmjs/cosmwasm-stargate").ExecuteResult, Error, _2.JunoSwapRemoveLiquidityMutation, unknown>;
+        useJunoSwapAddLiquidityMutation(options?: Omit<import("@tanstack/react-query").UseMutationOptions<import("@cosmjs/cosmwasm-stargate").ExecuteResult, Error, _2.JunoSwapAddLiquidityMutation, unknown>, "mutationFn">): import("@tanstack/react-query").UseMutationResult<import("@cosmjs/cosmwasm-stargate").ExecuteResult, Error, _2.JunoSwapAddLiquidityMutation, unknown>;
         JunoSwapQueryClient: typeof _1.JunoSwapQueryClient;
         JunoSwapClient: typeof _1.JunoSwapClient;
     };

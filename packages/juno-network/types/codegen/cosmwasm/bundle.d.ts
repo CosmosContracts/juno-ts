@@ -4,15 +4,15 @@ import * as _96 from "./wasm/v1/proposal";
 import * as _97 from "./wasm/v1/query";
 import * as _98 from "./wasm/v1/tx";
 import * as _99 from "./wasm/v1/types";
-import * as _226 from "./wasm/v1/query.lcd";
-import * as _227 from "./wasm/v1/query.rpc.query";
-import * as _228 from "./wasm/v1/tx.rpc.msg";
+import * as _182 from "./wasm/v1/query.lcd";
+import * as _183 from "./wasm/v1/query.rpc.query";
+import * as _184 from "./wasm/v1/tx.rpc.msg";
 export declare namespace cosmwasm {
     namespace wasm {
         const v1: {
-            MsgClientImpl: typeof _228.MsgClientImpl;
-            QueryClientImpl: typeof _227.QueryClientImpl;
-            LCDQueryClient: typeof _226.LCDQueryClient;
+            MsgClientImpl: typeof _184.MsgClientImpl;
+            QueryClientImpl: typeof _183.QueryClientImpl;
+            LCDQueryClient: typeof _182.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
             MessageComposer: {
@@ -396,10 +396,7 @@ export declare namespace cosmwasm {
                     codeId?: any;
                     label?: string;
                     msg?: Uint8Array;
-                    funds?: {
-                        denom?: string;
-                        amount?: string;
-                    }[];
+                    funds?: any[];
                 }): _98.MsgInstantiateContract;
             };
             MsgInstantiateContractResponse: {
@@ -421,10 +418,7 @@ export declare namespace cosmwasm {
                     sender?: string;
                     contract?: string;
                     msg?: Uint8Array;
-                    funds?: {
-                        denom?: string;
-                        amount?: string;
-                    }[];
+                    funds?: any[];
                 }): _98.MsgExecuteContract;
             };
             MsgExecuteContractResponse: {
@@ -532,13 +526,7 @@ export declare namespace cosmwasm {
                 toJSON(message: _97.QueryContractHistoryRequest): unknown;
                 fromPartial(object: {
                     address?: string;
-                    pagination?: {
-                        key?: Uint8Array;
-                        offset?: any;
-                        limit?: any;
-                        countTotal?: boolean;
-                        reverse?: boolean;
-                    };
+                    pagination?: any;
                 }): _97.QueryContractHistoryRequest;
             };
             QueryContractHistoryResponse: {
@@ -556,10 +544,7 @@ export declare namespace cosmwasm {
                         };
                         msg?: Uint8Array;
                     }[];
-                    pagination?: {
-                        nextKey?: Uint8Array;
-                        total?: any;
-                    };
+                    pagination?: any;
                 }): _97.QueryContractHistoryResponse;
             };
             QueryContractsByCodeRequest: {
@@ -569,13 +554,7 @@ export declare namespace cosmwasm {
                 toJSON(message: _97.QueryContractsByCodeRequest): unknown;
                 fromPartial(object: {
                     codeId?: any;
-                    pagination?: {
-                        key?: Uint8Array;
-                        offset?: any;
-                        limit?: any;
-                        countTotal?: boolean;
-                        reverse?: boolean;
-                    };
+                    pagination?: any;
                 }): _97.QueryContractsByCodeRequest;
             };
             QueryContractsByCodeResponse: {
@@ -585,10 +564,7 @@ export declare namespace cosmwasm {
                 toJSON(message: _97.QueryContractsByCodeResponse): unknown;
                 fromPartial(object: {
                     contracts?: string[];
-                    pagination?: {
-                        nextKey?: Uint8Array;
-                        total?: any;
-                    };
+                    pagination?: any;
                 }): _97.QueryContractsByCodeResponse;
             };
             QueryAllContractStateRequest: {
@@ -598,13 +574,7 @@ export declare namespace cosmwasm {
                 toJSON(message: _97.QueryAllContractStateRequest): unknown;
                 fromPartial(object: {
                     address?: string;
-                    pagination?: {
-                        key?: Uint8Array;
-                        offset?: any;
-                        limit?: any;
-                        countTotal?: boolean;
-                        reverse?: boolean;
-                    };
+                    pagination?: any;
                 }): _97.QueryAllContractStateRequest;
             };
             QueryAllContractStateResponse: {
@@ -617,10 +587,7 @@ export declare namespace cosmwasm {
                         key?: Uint8Array;
                         value?: Uint8Array;
                     }[];
-                    pagination?: {
-                        nextKey?: Uint8Array;
-                        total?: any;
-                    };
+                    pagination?: any;
                 }): _97.QueryAllContractStateResponse;
             };
             QueryRawContractStateRequest: {
@@ -701,13 +668,7 @@ export declare namespace cosmwasm {
                 fromJSON(object: any): _97.QueryCodesRequest;
                 toJSON(message: _97.QueryCodesRequest): unknown;
                 fromPartial(object: {
-                    pagination?: {
-                        key?: Uint8Array;
-                        offset?: any;
-                        limit?: any;
-                        countTotal?: boolean;
-                        reverse?: boolean;
-                    };
+                    pagination?: any;
                 }): _97.QueryCodesRequest;
             };
             QueryCodesResponse: {
@@ -721,10 +682,7 @@ export declare namespace cosmwasm {
                         creator?: string;
                         dataHash?: Uint8Array;
                     }[];
-                    pagination?: {
-                        nextKey?: Uint8Array;
-                        total?: any;
-                    };
+                    pagination?: any;
                 }): _97.QueryCodesResponse;
             };
             QueryPinnedCodesRequest: {
@@ -733,13 +691,7 @@ export declare namespace cosmwasm {
                 fromJSON(object: any): _97.QueryPinnedCodesRequest;
                 toJSON(message: _97.QueryPinnedCodesRequest): unknown;
                 fromPartial(object: {
-                    pagination?: {
-                        key?: Uint8Array;
-                        offset?: any;
-                        limit?: any;
-                        countTotal?: boolean;
-                        reverse?: boolean;
-                    };
+                    pagination?: any;
                 }): _97.QueryPinnedCodesRequest;
             };
             QueryPinnedCodesResponse: {
@@ -749,10 +701,7 @@ export declare namespace cosmwasm {
                 toJSON(message: _97.QueryPinnedCodesResponse): unknown;
                 fromPartial(object: {
                     codeIds?: any[];
-                    pagination?: {
-                        nextKey?: Uint8Array;
-                        total?: any;
-                    };
+                    pagination?: any;
                 }): _97.QueryPinnedCodesResponse;
             };
             StoreCodeProposal: {
@@ -784,10 +733,7 @@ export declare namespace cosmwasm {
                     codeId?: any;
                     label?: string;
                     msg?: Uint8Array;
-                    funds?: {
-                        denom?: string;
-                        amount?: string;
-                    }[];
+                    funds?: any[];
                 }): _96.InstantiateContractProposal;
             };
             MigrateContractProposal: {
@@ -826,10 +772,7 @@ export declare namespace cosmwasm {
                     runAs?: string;
                     contract?: string;
                     msg?: Uint8Array;
-                    funds?: {
-                        denom?: string;
-                        amount?: string;
-                    }[];
+                    funds?: any[];
                 }): _96.ExecuteContractProposal;
             };
             UpdateAdminProposal: {
@@ -966,19 +909,13 @@ export declare namespace cosmwasm {
                             codeId?: any;
                             label?: string;
                             msg?: Uint8Array;
-                            funds?: {
-                                denom?: string;
-                                amount?: string;
-                            }[];
+                            funds?: any[];
                         };
                         executeContract?: {
                             sender?: string;
                             contract?: string;
                             msg?: Uint8Array;
-                            funds?: {
-                                denom?: string;
-                                amount?: string;
-                            }[];
+                            funds?: any[];
                         };
                     }[];
                 }): _94.GenesisState;
@@ -1003,19 +940,13 @@ export declare namespace cosmwasm {
                         codeId?: any;
                         label?: string;
                         msg?: Uint8Array;
-                        funds?: {
-                            denom?: string;
-                            amount?: string;
-                        }[];
+                        funds?: any[];
                     };
                     executeContract?: {
                         sender?: string;
                         contract?: string;
                         msg?: Uint8Array;
-                        funds?: {
-                            denom?: string;
-                            amount?: string;
-                        }[];
+                        funds?: any[];
                     };
                 }): _94.GenesisState_GenMsgs;
             };
@@ -1083,23 +1014,11 @@ export declare namespace cosmwasm {
             rpc: import("@osmonauts/helpers").Rpc;
         }) => Promise<{
             cosmos: {
-                authz: {
-                    v1beta1: import("../cosmos/authz/v1beta1/tx.rpc.msg").MsgClientImpl;
-                };
                 bank: {
                     v1beta1: import("../cosmos/bank/v1beta1/tx.rpc.msg").MsgClientImpl;
                 };
-                crisis: {
-                    v1beta1: import("../cosmos/crisis/v1beta1/tx.rpc.msg").MsgClientImpl;
-                };
                 distribution: {
                     v1beta1: import("../cosmos/distribution/v1beta1/tx.rpc.msg").MsgClientImpl;
-                };
-                evidence: {
-                    v1beta1: import("../cosmos/evidence/v1beta1/tx.rpc.msg").MsgClientImpl;
-                };
-                feegrant: {
-                    v1beta1: import("../cosmos/feegrant/v1beta1/tx.rpc.msg").MsgClientImpl;
                 };
                 gov: {
                     v1: import("../cosmos/gov/v1/tx.rpc.msg").MsgClientImpl;
@@ -1108,25 +1027,13 @@ export declare namespace cosmwasm {
                 group: {
                     v1: import("../cosmos/group/v1/tx.rpc.msg").MsgClientImpl;
                 };
-                nft: {
-                    v1beta1: import("../cosmos/nft/v1beta1/tx.rpc.msg").MsgClientImpl;
-                };
-                slashing: {
-                    v1beta1: import("../cosmos/slashing/v1beta1/tx.rpc.msg").MsgClientImpl;
-                };
                 staking: {
                     v1beta1: import("../cosmos/staking/v1beta1/tx.rpc.msg").MsgClientImpl;
-                };
-                upgrade: {
-                    v1beta1: import("../cosmos/upgrade/v1beta1/tx.rpc.msg").MsgClientImpl;
-                };
-                vesting: {
-                    v1beta1: import("../cosmos/vesting/v1beta1/tx.rpc.msg").MsgClientImpl;
                 };
             };
             cosmwasm: {
                 wasm: {
-                    v1: _228.MsgClientImpl;
+                    v1: _184.MsgClientImpl;
                 };
             };
         }>;
@@ -1134,26 +1041,11 @@ export declare namespace cosmwasm {
             rpc: import("@osmonauts/helpers").Rpc;
         }) => Promise<{
             cosmos: {
-                app: {
-                    v1alpha1: import("../cosmos/app/v1alpha1/query.rpc.query").QueryClientImpl;
-                };
-                auth: {
-                    v1beta1: import("../cosmos/auth/v1beta1/query.rpc.query").QueryClientImpl;
-                };
-                authz: {
-                    v1beta1: import("../cosmos/authz/v1beta1/query.rpc.query").QueryClientImpl;
-                };
                 bank: {
                     v1beta1: import("../cosmos/bank/v1beta1/query.rpc.query").QueryClientImpl;
                 };
                 distribution: {
                     v1beta1: import("../cosmos/distribution/v1beta1/query.rpc.query").QueryClientImpl;
-                };
-                evidence: {
-                    v1beta1: import("../cosmos/evidence/v1beta1/query.rpc.query").QueryClientImpl;
-                };
-                feegrant: {
-                    v1beta1: import("../cosmos/feegrant/v1beta1/query.rpc.query").QueryClientImpl;
                 };
                 gov: {
                     v1: import("../cosmos/gov/v1/query.rpc.query").QueryClientImpl;
@@ -1162,28 +1054,13 @@ export declare namespace cosmwasm {
                 group: {
                     v1: import("../cosmos/group/v1/query.rpc.query").QueryClientImpl;
                 };
-                mint: {
-                    v1beta1: import("../cosmos/mint/v1beta1/query.rpc.query").QueryClientImpl;
-                };
-                nft: {
-                    v1beta1: import("../cosmos/nft/v1beta1/query.rpc.query").QueryClientImpl;
-                };
-                params: {
-                    v1beta1: import("../cosmos/params/v1beta1/query.rpc.query").QueryClientImpl;
-                };
-                slashing: {
-                    v1beta1: import("../cosmos/slashing/v1beta1/query.rpc.query").QueryClientImpl;
-                };
                 staking: {
                     v1beta1: import("../cosmos/staking/v1beta1/query.rpc.query").QueryClientImpl;
-                };
-                upgrade: {
-                    v1beta1: import("../cosmos/upgrade/v1beta1/query.rpc.query").QueryClientImpl;
                 };
             };
             cosmwasm: {
                 wasm: {
-                    v1: _227.QueryClientImpl;
+                    v1: _183.QueryClientImpl;
                 };
             };
         }>;
@@ -1191,23 +1068,11 @@ export declare namespace cosmwasm {
             restEndpoint: any;
         }) => Promise<{
             cosmos: {
-                auth: {
-                    v1beta1: import("../cosmos/auth/v1beta1/query.lcd").LCDQueryClient;
-                };
-                authz: {
-                    v1beta1: import("../cosmos/authz/v1beta1/query.lcd").LCDQueryClient;
-                };
                 bank: {
                     v1beta1: import("../cosmos/bank/v1beta1/query.lcd").LCDQueryClient;
                 };
                 distribution: {
                     v1beta1: import("../cosmos/distribution/v1beta1/query.lcd").LCDQueryClient;
-                };
-                evidence: {
-                    v1beta1: import("../cosmos/evidence/v1beta1/query.lcd").LCDQueryClient;
-                };
-                feegrant: {
-                    v1beta1: import("../cosmos/feegrant/v1beta1/query.lcd").LCDQueryClient;
                 };
                 gov: {
                     v1: import("../cosmos/gov/v1/query.lcd").LCDQueryClient;
@@ -1216,28 +1081,13 @@ export declare namespace cosmwasm {
                 group: {
                     v1: import("../cosmos/group/v1/query.lcd").LCDQueryClient;
                 };
-                mint: {
-                    v1beta1: import("../cosmos/mint/v1beta1/query.lcd").LCDQueryClient;
-                };
-                nft: {
-                    v1beta1: import("../cosmos/nft/v1beta1/query.lcd").LCDQueryClient;
-                };
-                params: {
-                    v1beta1: import("../cosmos/params/v1beta1/query.lcd").LCDQueryClient;
-                };
-                slashing: {
-                    v1beta1: import("../cosmos/slashing/v1beta1/query.lcd").LCDQueryClient;
-                };
                 staking: {
                     v1beta1: import("../cosmos/staking/v1beta1/query.lcd").LCDQueryClient;
-                };
-                upgrade: {
-                    v1beta1: import("../cosmos/upgrade/v1beta1/query.lcd").LCDQueryClient;
                 };
             };
             cosmwasm: {
                 wasm: {
-                    v1: _226.LCDQueryClient;
+                    v1: _182.LCDQueryClient;
                 };
             };
         }>;
