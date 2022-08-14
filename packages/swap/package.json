@@ -57,7 +57,7 @@
     "@babel/plugin-transform-runtime": "7.18.10",
     "@babel/preset-env": "7.18.10",
     "@babel/preset-typescript": "^7.18.6",
-    "@cosmwasm/ts-codegen": "0.11.0",
+    "@cosmwasm/ts-codegen": "0.11.1",
     "@types/jest": "^28.1.6",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "28.1.3",

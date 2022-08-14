@@ -23,7 +23,8 @@
     "build": "npm run build:module && npm run build:main",
     "build:ts": "tsc --project ./tsconfig.json",
     "buidl": "npm run build && npm run build:ts",
-    "make": "babel-node ./scripts/build.js",
+    "build:pkg": "babel-node ./scripts/build.js",
+    "codegen": "npm run build:pkg && npm run format",
     "prepare": "npm run build",
     "lint": "eslint --ext .ts,.tsx,.js .",
     "format": "eslint --fix . --ext .ts,.tsx,.js",
@@ -60,7 +61,7 @@
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "28.1.1",
     "babel-watch": "^7.0.0",
-    "chain-registry": "^0.5.1",
+    "chain-registry": "^0.6.1",
     "cross-env": "^7.0.2",
     "eslint": "8.20.0",
     "eslint-config-prettier": "^8.5.0",
@@ -75,7 +76,7 @@
     "typescript": "^4.7.3"
   },
   "dependencies": {
-    "@babel/runtime": "^7.18.3"
-  },
-  "gitHead": "9377063d7a365cff5e4044ef727652026aaa34c1"
+    "@babel/runtime": "^7.18.3",
+    "@chain-registry/types": "0.4.0"
+  }
 }
