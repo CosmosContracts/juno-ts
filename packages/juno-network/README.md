@@ -18,6 +18,8 @@ TS library with Cosmos SDK and JunoSwap smart contracts.
 npm install juno-network
 ```
 
+### Cosmos SDK clients
+
 ```js
 import { juno } from 'juno-network';
 
