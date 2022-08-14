@@ -5,9 +5,9 @@
 </p>
 
 <p align="center" width="100%">
-  <a href="https://github.com/CosmosContracts/typescript/actions/workflows/run-tests.yml">
+  <!-- <a href="https://github.com/CosmosContracts/typescript/actions/workflows/run-tests.yml">
     <img height="20" src="https://github.com/CosmosContracts/typescript/actions/workflows/run-tests.yml/badge.svg" />
-  </a>
+  </a> -->
    <a href="https://github.com/CosmosContracts/typescript/blob/main/LICENSE"><img height="20" src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
 </p>
 
