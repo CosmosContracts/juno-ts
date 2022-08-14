@@ -1,4 +1,4 @@
-# @juno-network/asset
+# @juno-network/assets
 
 <p align="center" width="100%">
     <img height="90" src="https://user-images.githubusercontent.com/545047/184516834-4b8190b0-0721-4778-b4fb-fa19ed3f9279.svg" />
