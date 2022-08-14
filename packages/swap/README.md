@@ -60,3 +60,6 @@ await client.addLiquidity({
 });
 ```
 
+## Credits 
+
+Built by Cosmology — if you like our tools, please consider delegating to [our validator](https://www.mintscan.io/juno/validators/junovaloper1pr5qgj4jg47lvsnejtfvk78090shvuctgdwdm5)
