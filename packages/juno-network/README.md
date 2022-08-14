@@ -33,7 +33,7 @@ const main = async () => {
 
 ### JunoSwap contracts
 
-## clients
+#### clients
 
 ```js
 import { contracts } from 'juno-network';
@@ -45,7 +45,7 @@ const {
 } = contracts;
 ```
 
-## Queries 
+#### Queries 
 
 ```js
 const queries = new JunoSwapQueryClient(
@@ -56,7 +56,7 @@ const amount = await queries.token1ForToken2Price({
     token1Amount
 });
 ```
-## Mutations
+#### Mutations
 
 ```js
 const client = new JunoSwapClient(
