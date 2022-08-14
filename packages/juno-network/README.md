@@ -39,7 +39,7 @@ const main = async () => {
 import { contracts } from 'juno-network';
 const { 
   JunoSwap: {
-    JunoSwapClient,
+        JunoSwapClient,
         JunoSwapQueryClient
     }
 } = contracts;
@@ -48,7 +48,10 @@ const {
 ## Queries 
 
 ```js
-const queries = new JunoSwapQueryClient(cosmwasmClient, contractAddress);
+const queries = new JunoSwapQueryClient(
+  cosmwasmClient,
+  contractAddress
+);
 const amount = await queries.token1ForToken2Price({
     token1Amount
 });
