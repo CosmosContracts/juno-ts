@@ -23,6 +23,10 @@ TS library with Cosmos SDK and JunoSwap smart contracts.
 
 TS library with JunoSwap smart contracts.
 
+#### [@juno-network/assets](packages/assets/README.md)
+
+Chain Registry info for Juno, including asset lists.
+
 ## Developing
 
 Checkout the repository and bootstrap the yarn workspace:
