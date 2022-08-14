@@ -18,6 +18,75 @@ TS library with Cosmos SDK and JunoSwap smart contracts.
 npm install juno-network
 ```
 
+```js
+import { juno } from 'juno-network';
+
+const main = async () => {
+   const client = await juno.ClientFactory.createLCDClient({ restEndpoint: REST_ENDPOINT });
+
+   // now you can query the modules
+   const balance = await client.cosmos.bank.v1beta1.allBalances({ address: 'juno1addresshere' });
+};
+```
+
+### IBC Messages
+
+```js
+import { ibc } from 'juno-network';
+
+const {
+    transfer
+} = ibc.applications.transfer.v1.MessageComposer.withTypeUrl
+```
+
+### Cosmos Messages
+
+```js
+import { cosmos } from 'juno-network';
+
+const {
+    fundCommunityPool,
+    setWithdrawAddress,
+    withdrawDelegatorReward,
+    withdrawValidatorCommission
+} = cosmos.distribution.v1beta1.MessageComposer.fromPartial;
+
+const {
+    multiSend,
+    send
+} = cosmos.bank.v1beta1.MessageComposer.fromPartial;
+
+const {
+    beginRedelegate,
+    createValidator,
+    delegate,
+    editValidator,
+    undelegate
+} = cosmos.staking.v1beta1.MessageComposer.fromPartial;
+
+const {
+    deposit,
+    submitProposal,
+    vote,
+    voteWeighted
+} = cosmos.gov.v1beta1.MessageComposer.fromPartial;
+```
+
+### CosmWasm Messages
+
+```js
+import { cosmwasm } from "osmojs";
+
+const {
+    clearAdmin,
+    executeContract,
+    instantiateContract,
+    migrateContract,
+    storeCode,
+    updateAdmin
+} = cosmwasm.wasm.v1.MessageComposer.withTypeUrl;
+```
+
 ## Credits
 
 Code built with the help of these related projects:
