@@ -11,6 +11,7 @@
     "bootstrap": "lerna bootstrap --use-workspaces",
     "lint": "lerna run lint",
     "format": "lerna run format",
+    "codegen": "lerna run codegen",
     "test": "lerna run test --stream"
   },
   "devDependencies": {

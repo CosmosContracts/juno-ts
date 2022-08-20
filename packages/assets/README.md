@@ -19,11 +19,11 @@ npm install @juno-network/assets
 ```
 
 ```js
-import { chain, assets, ibc_assets } from '@juno-network/assets';
+import { chain, assets, asset_list } from '@juno-network/assets';
 ```
 
 ```js
-console.log(ibc_assets);
+console.log(asset_list);
 {
   chain_name: 'juno',
   assets: [
