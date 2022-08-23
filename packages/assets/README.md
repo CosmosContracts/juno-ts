@@ -60,4 +60,4 @@ Built by Cosmology — if you like our tools, please consider delegating to [ou
 
 Code built with the help of these related projects:
 
-* [chain-registry](https://github.com/cosmology/chain-registry) an npm module for the official Cosmos chain-registry
+* [chain-registry](https://github.com/cosmology-tech/chain-registry) an npm module for the official Cosmos chain-registry
