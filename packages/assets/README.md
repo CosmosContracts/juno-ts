@@ -19,7 +19,7 @@ npm install @juno-network/assets
 ```
 
 ```js
-import { chain, assets, asset_list } from '@juno-network/assets';
+import { chain, assets, asset_list, testnet, testnet_assets } from '@juno-network/assets';
 ```
 
 ```js
