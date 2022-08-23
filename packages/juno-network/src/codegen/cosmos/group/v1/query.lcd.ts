@@ -1,6 +1,7 @@
 import { PageRequest, PageResponse } from "../../base/query/v1beta1/pagination";
 import { GroupInfo, GroupPolicyInfo, GroupMember, Proposal, Vote, TallyResult } from "./types";
 import { LCDClient } from "@osmonauts/lcd";
+import { setPaginationParams } from "@osmonauts/helpers";
 import { QueryGroupInfoRequest, QueryGroupInfoResponse, QueryGroupPolicyInfoRequest, QueryGroupPolicyInfoResponse, QueryGroupMembersRequest, QueryGroupMembersResponse, QueryGroupsByAdminRequest, QueryGroupsByAdminResponse, QueryGroupPoliciesByGroupRequest, QueryGroupPoliciesByGroupResponse, QueryGroupPoliciesByAdminRequest, QueryGroupPoliciesByAdminResponse, QueryProposalRequest, QueryProposalResponse, QueryProposalsByGroupPolicyRequest, QueryProposalsByGroupPolicyResponse, QueryVoteByProposalVoterRequest, QueryVoteByProposalVoterResponse, QueryVotesByProposalRequest, QueryVotesByProposalResponse, QueryVotesByVoterRequest, QueryVotesByVoterResponse, QueryGroupsByMemberRequest, QueryGroupsByMemberResponse, QueryTallyResultRequest, QueryTallyResultResponse } from "./query";
 export class LCDQueryClient extends LCDClient {
   constructor({
@@ -21,14 +22,14 @@ export class LCDQueryClient extends LCDClient {
       options.params.group_id = params.groupId;
     }
 
-    const endpoint = `cosmos/group/v1/group_info/${params.group_id}`;
-    return await this.request(endpoint, options);
+    const endpoint = `cosmos/group/v1/group_info/${params.groupId}`;
+    return await this.request<QueryGroupInfoResponse>(endpoint, options);
   }
 
   /* GroupPolicyInfo queries group policy info based on account address of group policy. */
   async groupPolicyInfo(params: QueryGroupPolicyInfoRequest): Promise<QueryGroupPolicyInfoResponse> {
     const endpoint = `cosmos/group/v1/group_policy_info/${params.address}`;
-    return await this.request(endpoint);
+    return await this.request<QueryGroupPolicyInfoResponse>(endpoint);
   }
 
   /* GroupMembers queries members of a group */
@@ -42,11 +43,11 @@ export class LCDQueryClient extends LCDClient {
     }
 
     if (typeof params?.pagination !== "undefined") {
-      options.params.pagination = params.pagination;
+      setPaginationParams(options, params.pagination);
     }
 
-    const endpoint = `cosmos/group/v1/group_members/${params.group_id}`;
-    return await this.request(endpoint, options);
+    const endpoint = `cosmos/group/v1/group_members/${params.groupId}`;
+    return await this.request<QueryGroupMembersResponse>(endpoint, options);
   }
 
   /* GroupsByAdmin queries groups by admin address. */
@@ -56,11 +57,11 @@ export class LCDQueryClient extends LCDClient {
     };
 
     if (typeof params?.pagination !== "undefined") {
-      options.params.pagination = params.pagination;
+      setPaginationParams(options, params.pagination);
     }
 
     const endpoint = `cosmos/group/v1/groups_by_admin/${params.admin}`;
-    return await this.request(endpoint, options);
+    return await this.request<QueryGroupsByAdminResponse>(endpoint, options);
   }
 
   /* GroupPoliciesByGroup queries group policies by group id. */
@@ -74,11 +75,11 @@ export class LCDQueryClient extends LCDClient {
     }
 
     if (typeof params?.pagination !== "undefined") {
-      options.params.pagination = params.pagination;
+      setPaginationParams(options, params.pagination);
     }
 
-    const endpoint = `cosmos/group/v1/group_policies_by_group/${params.group_id}`;
-    return await this.request(endpoint, options);
+    const endpoint = `cosmos/group/v1/group_policies_by_group/${params.groupId}`;
+    return await this.request<QueryGroupPoliciesByGroupResponse>(endpoint, options);
   }
 
   /* GroupsByAdmin queries group policies by admin address. */
@@ -88,11 +89,11 @@ export class LCDQueryClient extends LCDClient {
     };
 
     if (typeof params?.pagination !== "undefined") {
-      options.params.pagination = params.pagination;
+      setPaginationParams(options, params.pagination);
     }
 
     const endpoint = `cosmos/group/v1/group_policies_by_admin/${params.admin}`;
-    return await this.request(endpoint, options);
+    return await this.request<QueryGroupPoliciesByAdminResponse>(endpoint, options);
   }
 
   /* Proposal queries a proposal based on proposal id. */
@@ -105,8 +106,8 @@ export class LCDQueryClient extends LCDClient {
       options.params.proposal_id = params.proposalId;
     }
 
-    const endpoint = `cosmos/group/v1/proposal/${params.proposal_id}`;
-    return await this.request(endpoint, options);
+    const endpoint = `cosmos/group/v1/proposal/${params.proposalId}`;
+    return await this.request<QueryProposalResponse>(endpoint, options);
   }
 
   /* ProposalsByGroupPolicy queries proposals based on account address of group policy. */
@@ -116,11 +117,11 @@ export class LCDQueryClient extends LCDClient {
     };
 
     if (typeof params?.pagination !== "undefined") {
-      options.params.pagination = params.pagination;
+      setPaginationParams(options, params.pagination);
     }
 
     const endpoint = `cosmos/group/v1/proposals_by_group_policy/${params.address}`;
-    return await this.request(endpoint, options);
+    return await this.request<QueryProposalsByGroupPolicyResponse>(endpoint, options);
   }
 
   /* VoteByProposalVoter queries a vote by proposal id and voter. */
@@ -133,8 +134,8 @@ export class LCDQueryClient extends LCDClient {
       options.params.proposal_id = params.proposalId;
     }
 
-    const endpoint = `cosmos/group/v1/vote_by_proposal_voter/${params.proposal_id}/${params.voter}`;
-    return await this.request(endpoint, options);
+    const endpoint = `cosmos/group/v1/vote_by_proposal_voter/${params.proposalId}/${params.voter}`;
+    return await this.request<QueryVoteByProposalVoterResponse>(endpoint, options);
   }
 
   /* VotesByProposal queries a vote by proposal. */
@@ -148,11 +149,11 @@ export class LCDQueryClient extends LCDClient {
     }
 
     if (typeof params?.pagination !== "undefined") {
-      options.params.pagination = params.pagination;
+      setPaginationParams(options, params.pagination);
     }
 
-    const endpoint = `cosmos/group/v1/votes_by_proposal/${params.proposal_id}`;
-    return await this.request(endpoint, options);
+    const endpoint = `cosmos/group/v1/votes_by_proposal/${params.proposalId}`;
+    return await this.request<QueryVotesByProposalResponse>(endpoint, options);
   }
 
   /* VotesByVoter queries a vote by voter. */
@@ -162,11 +163,11 @@ export class LCDQueryClient extends LCDClient {
     };
 
     if (typeof params?.pagination !== "undefined") {
-      options.params.pagination = params.pagination;
+      setPaginationParams(options, params.pagination);
     }
 
     const endpoint = `cosmos/group/v1/votes_by_voter/${params.voter}`;
-    return await this.request(endpoint, options);
+    return await this.request<QueryVotesByVoterResponse>(endpoint, options);
   }
 
   /* GroupsByMember queries groups by member address. */
@@ -176,11 +177,11 @@ export class LCDQueryClient extends LCDClient {
     };
 
     if (typeof params?.pagination !== "undefined") {
-      options.params.pagination = params.pagination;
+      setPaginationParams(options, params.pagination);
     }
 
     const endpoint = `cosmos/group/v1/groups_by_member/${params.address}`;
-    return await this.request(endpoint, options);
+    return await this.request<QueryGroupsByMemberResponse>(endpoint, options);
   }
 
   /* TallyResult queries the tally of a proposal votes. */
@@ -193,8 +194,8 @@ export class LCDQueryClient extends LCDClient {
       options.params.proposal_id = params.proposalId;
     }
 
-    const endpoint = `cosmos/group/v1/proposals/${params.proposal_id}/tally`;
-    return await this.request(endpoint, options);
+    const endpoint = `cosmos/group/v1/proposals/${params.proposalId}/tally`;
+    return await this.request<QueryTallyResultResponse>(endpoint, options);
   }
 
 }
