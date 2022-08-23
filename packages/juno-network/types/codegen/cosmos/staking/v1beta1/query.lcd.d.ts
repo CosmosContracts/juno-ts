@@ -16,6 +16,6 @@ export declare class LCDQueryClient extends LCDClient {
     delegatorValidators(params: QueryDelegatorValidatorsRequest): Promise<QueryDelegatorValidatorsResponse>;
     delegatorValidator(params: QueryDelegatorValidatorRequest): Promise<QueryDelegatorValidatorResponse>;
     historicalInfo(params: QueryHistoricalInfoRequest): Promise<QueryHistoricalInfoResponse>;
-    pool(params: QueryPoolRequest): Promise<QueryPoolResponse>;
-    params(params: QueryParamsRequest): Promise<QueryParamsResponse>;
+    pool(_params?: QueryPoolRequest): Promise<QueryPoolResponse>;
+    params(_params?: QueryParamsRequest): Promise<QueryParamsResponse>;
 }

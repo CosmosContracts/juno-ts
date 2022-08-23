@@ -7,10 +7,10 @@ export declare class LCDQueryClient extends LCDClient {
     balance(params: QueryBalanceRequest): Promise<QueryBalanceResponse>;
     allBalances(params: QueryAllBalancesRequest): Promise<QueryAllBalancesResponse>;
     spendableBalances(params: QuerySpendableBalancesRequest): Promise<QuerySpendableBalancesResponse>;
-    totalSupply(params: QueryTotalSupplyRequest): Promise<QueryTotalSupplyResponse>;
+    totalSupply(params?: QueryTotalSupplyRequest): Promise<QueryTotalSupplyResponse>;
     supplyOf(params: QuerySupplyOfRequest): Promise<QuerySupplyOfResponse>;
-    params(params: QueryParamsRequest): Promise<QueryParamsResponse>;
+    params(_params?: QueryParamsRequest): Promise<QueryParamsResponse>;
     denomMetadata(params: QueryDenomMetadataRequest): Promise<QueryDenomMetadataResponse>;
-    denomsMetadata(params: QueryDenomsMetadataRequest): Promise<QueryDenomsMetadataResponse>;
+    denomsMetadata(params?: QueryDenomsMetadataRequest): Promise<QueryDenomsMetadataResponse>;
     denomOwners(params: QueryDenomOwnersRequest): Promise<QueryDenomOwnersResponse>;
 }

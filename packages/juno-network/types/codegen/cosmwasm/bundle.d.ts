@@ -396,7 +396,10 @@ export declare namespace cosmwasm {
                     codeId?: any;
                     label?: string;
                     msg?: Uint8Array;
-                    funds?: any[];
+                    funds?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _98.MsgInstantiateContract;
             };
             MsgInstantiateContractResponse: {
@@ -418,7 +421,10 @@ export declare namespace cosmwasm {
                     sender?: string;
                     contract?: string;
                     msg?: Uint8Array;
-                    funds?: any[];
+                    funds?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _98.MsgExecuteContract;
             };
             MsgExecuteContractResponse: {
@@ -526,7 +532,13 @@ export declare namespace cosmwasm {
                 toJSON(message: _97.QueryContractHistoryRequest): unknown;
                 fromPartial(object: {
                     address?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _97.QueryContractHistoryRequest;
             };
             QueryContractHistoryResponse: {
@@ -544,7 +556,10 @@ export declare namespace cosmwasm {
                         };
                         msg?: Uint8Array;
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _97.QueryContractHistoryResponse;
             };
             QueryContractsByCodeRequest: {
@@ -554,7 +569,13 @@ export declare namespace cosmwasm {
                 toJSON(message: _97.QueryContractsByCodeRequest): unknown;
                 fromPartial(object: {
                     codeId?: any;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _97.QueryContractsByCodeRequest;
             };
             QueryContractsByCodeResponse: {
@@ -564,7 +585,10 @@ export declare namespace cosmwasm {
                 toJSON(message: _97.QueryContractsByCodeResponse): unknown;
                 fromPartial(object: {
                     contracts?: string[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _97.QueryContractsByCodeResponse;
             };
             QueryAllContractStateRequest: {
@@ -574,7 +598,13 @@ export declare namespace cosmwasm {
                 toJSON(message: _97.QueryAllContractStateRequest): unknown;
                 fromPartial(object: {
                     address?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _97.QueryAllContractStateRequest;
             };
             QueryAllContractStateResponse: {
@@ -587,7 +617,10 @@ export declare namespace cosmwasm {
                         key?: Uint8Array;
                         value?: Uint8Array;
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _97.QueryAllContractStateResponse;
             };
             QueryRawContractStateRequest: {
@@ -668,7 +701,13 @@ export declare namespace cosmwasm {
                 fromJSON(object: any): _97.QueryCodesRequest;
                 toJSON(message: _97.QueryCodesRequest): unknown;
                 fromPartial(object: {
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _97.QueryCodesRequest;
             };
             QueryCodesResponse: {
@@ -682,7 +721,10 @@ export declare namespace cosmwasm {
                         creator?: string;
                         dataHash?: Uint8Array;
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _97.QueryCodesResponse;
             };
             QueryPinnedCodesRequest: {
@@ -691,7 +733,13 @@ export declare namespace cosmwasm {
                 fromJSON(object: any): _97.QueryPinnedCodesRequest;
                 toJSON(message: _97.QueryPinnedCodesRequest): unknown;
                 fromPartial(object: {
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _97.QueryPinnedCodesRequest;
             };
             QueryPinnedCodesResponse: {
@@ -701,7 +749,10 @@ export declare namespace cosmwasm {
                 toJSON(message: _97.QueryPinnedCodesResponse): unknown;
                 fromPartial(object: {
                     codeIds?: any[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _97.QueryPinnedCodesResponse;
             };
             StoreCodeProposal: {
@@ -733,7 +784,10 @@ export declare namespace cosmwasm {
                     codeId?: any;
                     label?: string;
                     msg?: Uint8Array;
-                    funds?: any[];
+                    funds?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _96.InstantiateContractProposal;
             };
             MigrateContractProposal: {
@@ -772,7 +826,10 @@ export declare namespace cosmwasm {
                     runAs?: string;
                     contract?: string;
                     msg?: Uint8Array;
-                    funds?: any[];
+                    funds?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _96.ExecuteContractProposal;
             };
             UpdateAdminProposal: {
@@ -909,13 +966,19 @@ export declare namespace cosmwasm {
                             codeId?: any;
                             label?: string;
                             msg?: Uint8Array;
-                            funds?: any[];
+                            funds?: {
+                                denom?: string;
+                                amount?: string;
+                            }[];
                         };
                         executeContract?: {
                             sender?: string;
                             contract?: string;
                             msg?: Uint8Array;
-                            funds?: any[];
+                            funds?: {
+                                denom?: string;
+                                amount?: string;
+                            }[];
                         };
                     }[];
                 }): _94.GenesisState;
@@ -940,13 +1003,19 @@ export declare namespace cosmwasm {
                         codeId?: any;
                         label?: string;
                         msg?: Uint8Array;
-                        funds?: any[];
+                        funds?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                     };
                     executeContract?: {
                         sender?: string;
                         contract?: string;
                         msg?: Uint8Array;
-                        funds?: any[];
+                        funds?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                     };
                 }): _94.GenesisState_GenMsgs;
             };

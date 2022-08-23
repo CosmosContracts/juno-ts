@@ -1,12 +1,12 @@
 import * as _135 from "./mint/genesis";
 import * as _136 from "./mint/mint";
 import * as _137 from "./mint/query";
-import * as _195 from "./mint/query.lcd";
-import * as _196 from "./mint/query.rpc.query";
+import * as _200 from "./mint/query.lcd";
+import * as _201 from "./mint/query.rpc.query";
 export declare namespace juno {
     const mint: {
-        QueryClientImpl: typeof _196.QueryClientImpl;
-        LCDQueryClient: typeof _195.LCDQueryClient;
+        QueryClientImpl: typeof _201.QueryClientImpl;
+        LCDQueryClient: typeof _200.LCDQueryClient;
         QueryParamsRequest: {
             encode(_: _137.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _137.QueryParamsRequest;
@@ -122,7 +122,7 @@ export declare namespace juno {
                 };
             };
             juno: {
-                mint: _196.QueryClientImpl;
+                mint: _201.QueryClientImpl;
             };
         }>;
         createLCDClient: ({ restEndpoint }: {
@@ -147,7 +147,7 @@ export declare namespace juno {
                 };
             };
             juno: {
-                mint: _195.LCDQueryClient;
+                mint: _200.LCDQueryClient;
             };
         }>;
     };

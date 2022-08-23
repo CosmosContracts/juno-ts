@@ -3,7 +3,9 @@ import * as _14 from "./bank/v1beta1/bank";
 import * as _15 from "./bank/v1beta1/genesis";
 import * as _16 from "./bank/v1beta1/query";
 import * as _17 from "./bank/v1beta1/tx";
+import * as _20 from "./base/query/v1beta1/pagination";
 import * as _22 from "./base/reflection/v2alpha1/reflection";
+import * as _27 from "./base/v1beta1/coin";
 import * as _28 from "./capability/v1beta1/capability";
 import * as _29 from "./capability/v1beta1/genesis";
 import * as _32 from "./crypto/ed25519/keys";
@@ -190,7 +192,10 @@ export declare namespace cosmos {
                 fromPartial(object: {
                     fromAddress?: string;
                     toAddress?: string;
-                    amount?: any[];
+                    amount?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _17.MsgSend;
             };
             MsgSendResponse: {
@@ -208,11 +213,17 @@ export declare namespace cosmos {
                 fromPartial(object: {
                     inputs?: {
                         address?: string;
-                        coins?: any[];
+                        coins?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                     }[];
                     outputs?: {
                         address?: string;
-                        coins?: any[];
+                        coins?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                     }[];
                 }): _17.MsgMultiSend;
             };
@@ -239,7 +250,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _16.QueryBalanceResponse;
                 toJSON(message: _16.QueryBalanceResponse): unknown;
                 fromPartial(object: {
-                    balance?: any;
+                    balance?: {
+                        denom?: string;
+                        amount?: string;
+                    };
                 }): _16.QueryBalanceResponse;
             };
             QueryAllBalancesRequest: {
@@ -249,7 +263,13 @@ export declare namespace cosmos {
                 toJSON(message: _16.QueryAllBalancesRequest): unknown;
                 fromPartial(object: {
                     address?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _16.QueryAllBalancesRequest;
             };
             QueryAllBalancesResponse: {
@@ -258,8 +278,14 @@ export declare namespace cosmos {
                 fromJSON(object: any): _16.QueryAllBalancesResponse;
                 toJSON(message: _16.QueryAllBalancesResponse): unknown;
                 fromPartial(object: {
-                    balances?: any[];
-                    pagination?: any;
+                    balances?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _16.QueryAllBalancesResponse;
             };
             QuerySpendableBalancesRequest: {
@@ -269,7 +295,13 @@ export declare namespace cosmos {
                 toJSON(message: _16.QuerySpendableBalancesRequest): unknown;
                 fromPartial(object: {
                     address?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _16.QuerySpendableBalancesRequest;
             };
             QuerySpendableBalancesResponse: {
@@ -278,8 +310,14 @@ export declare namespace cosmos {
                 fromJSON(object: any): _16.QuerySpendableBalancesResponse;
                 toJSON(message: _16.QuerySpendableBalancesResponse): unknown;
                 fromPartial(object: {
-                    balances?: any[];
-                    pagination?: any;
+                    balances?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _16.QuerySpendableBalancesResponse;
             };
             QueryTotalSupplyRequest: {
@@ -288,7 +326,13 @@ export declare namespace cosmos {
                 fromJSON(object: any): _16.QueryTotalSupplyRequest;
                 toJSON(message: _16.QueryTotalSupplyRequest): unknown;
                 fromPartial(object: {
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _16.QueryTotalSupplyRequest;
             };
             QueryTotalSupplyResponse: {
@@ -297,8 +341,14 @@ export declare namespace cosmos {
                 fromJSON(object: any): _16.QueryTotalSupplyResponse;
                 toJSON(message: _16.QueryTotalSupplyResponse): unknown;
                 fromPartial(object: {
-                    supply?: any[];
-                    pagination?: any;
+                    supply?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _16.QueryTotalSupplyResponse;
             };
             QuerySupplyOfRequest: {
@@ -316,7 +366,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _16.QuerySupplyOfResponse;
                 toJSON(message: _16.QuerySupplyOfResponse): unknown;
                 fromPartial(object: {
-                    amount?: any;
+                    amount?: {
+                        denom?: string;
+                        amount?: string;
+                    };
                 }): _16.QuerySupplyOfResponse;
             };
             QueryParamsRequest: {
@@ -347,7 +400,13 @@ export declare namespace cosmos {
                 fromJSON(object: any): _16.QueryDenomsMetadataRequest;
                 toJSON(message: _16.QueryDenomsMetadataRequest): unknown;
                 fromPartial(object: {
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _16.QueryDenomsMetadataRequest;
             };
             QueryDenomsMetadataResponse: {
@@ -370,7 +429,10 @@ export declare namespace cosmos {
                         uri?: string;
                         uriHash?: string;
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _16.QueryDenomsMetadataResponse;
             };
             QueryDenomMetadataRequest: {
@@ -411,7 +473,13 @@ export declare namespace cosmos {
                 toJSON(message: _16.QueryDenomOwnersRequest): unknown;
                 fromPartial(object: {
                     denom?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _16.QueryDenomOwnersRequest;
             };
             DenomOwner: {
@@ -421,7 +489,10 @@ export declare namespace cosmos {
                 toJSON(message: _16.DenomOwner): unknown;
                 fromPartial(object: {
                     address?: string;
-                    balance?: any;
+                    balance?: {
+                        denom?: string;
+                        amount?: string;
+                    };
                 }): _16.DenomOwner;
             };
             QueryDenomOwnersResponse: {
@@ -432,9 +503,15 @@ export declare namespace cosmos {
                 fromPartial(object: {
                     denomOwners?: {
                         address?: string;
-                        balance?: any;
+                        balance?: {
+                            denom?: string;
+                            amount?: string;
+                        };
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _16.QueryDenomOwnersResponse;
             };
             GenesisState: {
@@ -452,9 +529,15 @@ export declare namespace cosmos {
                     };
                     balances?: {
                         address?: string;
-                        coins?: any[];
+                        coins?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                     }[];
-                    supply?: any[];
+                    supply?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                     denomMetadata?: {
                         description?: string;
                         denomUnits?: {
@@ -478,7 +561,10 @@ export declare namespace cosmos {
                 toJSON(message: _15.Balance): unknown;
                 fromPartial(object: {
                     address?: string;
-                    coins?: any[];
+                    coins?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _15.Balance;
             };
             Params: {
@@ -511,7 +597,10 @@ export declare namespace cosmos {
                 toJSON(message: _14.Input): unknown;
                 fromPartial(object: {
                     address?: string;
-                    coins?: any[];
+                    coins?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _14.Input;
             };
             Output: {
@@ -521,7 +610,10 @@ export declare namespace cosmos {
                 toJSON(message: _14.Output): unknown;
                 fromPartial(object: {
                     address?: string;
-                    coins?: any[];
+                    coins?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _14.Output;
             };
             Supply: {
@@ -530,7 +622,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _14.Supply;
                 toJSON(message: _14.Supply): unknown;
                 fromPartial(object: {
-                    total?: any[];
+                    total?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _14.Supply;
             };
             DenomUnit: {
@@ -570,7 +665,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _13.SendAuthorization;
                 toJSON(message: _13.SendAuthorization): unknown;
                 fromPartial(object: {
-                    spendLimit?: any[];
+                    spendLimit?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _13.SendAuthorization;
             };
         };
@@ -583,7 +681,31 @@ export declare namespace cosmos {
             const v1beta1: any;
         }
         namespace query {
-            const v1beta1: any;
+            const v1beta1: {
+                PageRequest: {
+                    encode(message: _20.PageRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                    decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _20.PageRequest;
+                    fromJSON(object: any): _20.PageRequest;
+                    toJSON(message: _20.PageRequest): unknown;
+                    fromPartial(object: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    }): _20.PageRequest;
+                };
+                PageResponse: {
+                    encode(message: _20.PageResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                    decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _20.PageResponse;
+                    fromJSON(object: any): _20.PageResponse;
+                    toJSON(message: _20.PageResponse): unknown;
+                    fromPartial(object: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    }): _20.PageResponse;
+                };
+            };
         }
         namespace reflection {
             const v1beta1: any;
@@ -940,7 +1062,46 @@ export declare namespace cosmos {
         namespace tendermint {
             const v1beta1: any;
         }
-        const v1beta1: any;
+        const v1beta1: {
+            Coin: {
+                encode(message: _27.Coin, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _27.Coin;
+                fromJSON(object: any): _27.Coin;
+                toJSON(message: _27.Coin): unknown;
+                fromPartial(object: {
+                    denom?: string;
+                    amount?: string;
+                }): _27.Coin;
+            };
+            DecCoin: {
+                encode(message: _27.DecCoin, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _27.DecCoin;
+                fromJSON(object: any): _27.DecCoin;
+                toJSON(message: _27.DecCoin): unknown;
+                fromPartial(object: {
+                    denom?: string;
+                    amount?: string;
+                }): _27.DecCoin;
+            };
+            IntProto: {
+                encode(message: _27.IntProto, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _27.IntProto;
+                fromJSON(object: any): _27.IntProto;
+                toJSON(message: _27.IntProto): unknown;
+                fromPartial(object: {
+                    int?: string;
+                }): _27.IntProto;
+            };
+            DecProto: {
+                encode(message: _27.DecProto, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _27.DecProto;
+                fromJSON(object: any): _27.DecProto;
+                toJSON(message: _27.DecProto): unknown;
+                fromPartial(object: {
+                    dec?: string;
+                }): _27.DecProto;
+            };
+        };
     }
     namespace capability {
         const v1beta1: {
@@ -1366,7 +1527,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _41.MsgWithdrawDelegatorRewardResponse;
                 toJSON(message: _41.MsgWithdrawDelegatorRewardResponse): unknown;
                 fromPartial(object: {
-                    amount?: any[];
+                    amount?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _41.MsgWithdrawDelegatorRewardResponse;
             };
             MsgWithdrawValidatorCommission: {
@@ -1384,7 +1548,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _41.MsgWithdrawValidatorCommissionResponse;
                 toJSON(message: _41.MsgWithdrawValidatorCommissionResponse): unknown;
                 fromPartial(object: {
-                    amount?: any[];
+                    amount?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _41.MsgWithdrawValidatorCommissionResponse;
             };
             MsgFundCommunityPool: {
@@ -1393,7 +1560,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _41.MsgFundCommunityPool;
                 toJSON(message: _41.MsgFundCommunityPool): unknown;
                 fromPartial(object: {
-                    amount?: any[];
+                    amount?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                     depositor?: string;
                 }): _41.MsgFundCommunityPool;
             };
@@ -1441,7 +1611,10 @@ export declare namespace cosmos {
                 toJSON(message: _40.QueryValidatorOutstandingRewardsResponse): unknown;
                 fromPartial(object: {
                     rewards?: {
-                        rewards?: any[];
+                        rewards?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                     };
                 }): _40.QueryValidatorOutstandingRewardsResponse;
             };
@@ -1461,7 +1634,10 @@ export declare namespace cosmos {
                 toJSON(message: _40.QueryValidatorCommissionResponse): unknown;
                 fromPartial(object: {
                     commission?: {
-                        commission?: any[];
+                        commission?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                     };
                 }): _40.QueryValidatorCommissionResponse;
             };
@@ -1474,7 +1650,13 @@ export declare namespace cosmos {
                     validatorAddress?: string;
                     startingHeight?: any;
                     endingHeight?: any;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _40.QueryValidatorSlashesRequest;
             };
             QueryValidatorSlashesResponse: {
@@ -1487,7 +1669,10 @@ export declare namespace cosmos {
                         validatorPeriod?: any;
                         fraction?: string;
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _40.QueryValidatorSlashesResponse;
             };
             QueryDelegationRewardsRequest: {
@@ -1506,7 +1691,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _40.QueryDelegationRewardsResponse;
                 toJSON(message: _40.QueryDelegationRewardsResponse): unknown;
                 fromPartial(object: {
-                    rewards?: any[];
+                    rewards?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _40.QueryDelegationRewardsResponse;
             };
             QueryDelegationTotalRewardsRequest: {
@@ -1526,9 +1714,15 @@ export declare namespace cosmos {
                 fromPartial(object: {
                     rewards?: {
                         validatorAddress?: string;
-                        reward?: any[];
+                        reward?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                     }[];
-                    total?: any[];
+                    total?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _40.QueryDelegationTotalRewardsResponse;
             };
             QueryDelegatorValidatorsRequest: {
@@ -1580,7 +1774,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _40.QueryCommunityPoolResponse;
                 toJSON(message: _40.QueryCommunityPoolResponse): unknown;
                 fromPartial(object: {
-                    pool?: any[];
+                    pool?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _40.QueryCommunityPoolResponse;
             };
             DelegatorWithdrawInfo: {
@@ -1600,7 +1797,10 @@ export declare namespace cosmos {
                 toJSON(message: _39.ValidatorOutstandingRewardsRecord): unknown;
                 fromPartial(object: {
                     validatorAddress?: string;
-                    outstandingRewards?: any[];
+                    outstandingRewards?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _39.ValidatorOutstandingRewardsRecord;
             };
             ValidatorAccumulatedCommissionRecord: {
@@ -1611,7 +1811,10 @@ export declare namespace cosmos {
                 fromPartial(object: {
                     validatorAddress?: string;
                     accumulated?: {
-                        commission?: any[];
+                        commission?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                     };
                 }): _39.ValidatorAccumulatedCommissionRecord;
             };
@@ -1624,7 +1827,10 @@ export declare namespace cosmos {
                     validatorAddress?: string;
                     period?: any;
                     rewards?: {
-                        cumulativeRewardRatio?: any[];
+                        cumulativeRewardRatio?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                         referenceCount?: number;
                     };
                 }): _39.ValidatorHistoricalRewardsRecord;
@@ -1637,7 +1843,10 @@ export declare namespace cosmos {
                 fromPartial(object: {
                     validatorAddress?: string;
                     rewards?: {
-                        rewards?: any[];
+                        rewards?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                         period?: any;
                     };
                 }): _39.ValidatorCurrentRewardsRecord;
@@ -1685,7 +1894,10 @@ export declare namespace cosmos {
                         withdrawAddrEnabled?: boolean;
                     };
                     feePool?: {
-                        communityPool?: any[];
+                        communityPool?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                     };
                     delegatorWithdrawInfos?: {
                         delegatorAddress?: string;
@@ -1694,26 +1906,38 @@ export declare namespace cosmos {
                     previousProposer?: string;
                     outstandingRewards?: {
                         validatorAddress?: string;
-                        outstandingRewards?: any[];
+                        outstandingRewards?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                     }[];
                     validatorAccumulatedCommissions?: {
                         validatorAddress?: string;
                         accumulated?: {
-                            commission?: any[];
+                            commission?: {
+                                denom?: string;
+                                amount?: string;
+                            }[];
                         };
                     }[];
                     validatorHistoricalRewards?: {
                         validatorAddress?: string;
                         period?: any;
                         rewards?: {
-                            cumulativeRewardRatio?: any[];
+                            cumulativeRewardRatio?: {
+                                denom?: string;
+                                amount?: string;
+                            }[];
                             referenceCount?: number;
                         };
                     }[];
                     validatorCurrentRewards?: {
                         validatorAddress?: string;
                         rewards?: {
-                            rewards?: any[];
+                            rewards?: {
+                                denom?: string;
+                                amount?: string;
+                            }[];
                             period?: any;
                         };
                     }[];
@@ -1755,7 +1979,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _38.ValidatorHistoricalRewards;
                 toJSON(message: _38.ValidatorHistoricalRewards): unknown;
                 fromPartial(object: {
-                    cumulativeRewardRatio?: any[];
+                    cumulativeRewardRatio?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                     referenceCount?: number;
                 }): _38.ValidatorHistoricalRewards;
             };
@@ -1765,7 +1992,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _38.ValidatorCurrentRewards;
                 toJSON(message: _38.ValidatorCurrentRewards): unknown;
                 fromPartial(object: {
-                    rewards?: any[];
+                    rewards?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                     period?: any;
                 }): _38.ValidatorCurrentRewards;
             };
@@ -1775,7 +2005,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _38.ValidatorAccumulatedCommission;
                 toJSON(message: _38.ValidatorAccumulatedCommission): unknown;
                 fromPartial(object: {
-                    commission?: any[];
+                    commission?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _38.ValidatorAccumulatedCommission;
             };
             ValidatorOutstandingRewards: {
@@ -1784,7 +2017,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _38.ValidatorOutstandingRewards;
                 toJSON(message: _38.ValidatorOutstandingRewards): unknown;
                 fromPartial(object: {
-                    rewards?: any[];
+                    rewards?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _38.ValidatorOutstandingRewards;
             };
             ValidatorSlashEvent: {
@@ -1815,7 +2051,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _38.FeePool;
                 toJSON(message: _38.FeePool): unknown;
                 fromPartial(object: {
-                    communityPool?: any[];
+                    communityPool?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _38.FeePool;
             };
             CommunityPoolSpendProposal: {
@@ -1827,7 +2066,10 @@ export declare namespace cosmos {
                     title?: string;
                     description?: string;
                     recipient?: string;
-                    amount?: any[];
+                    amount?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _38.CommunityPoolSpendProposal;
             };
             DelegatorStartingInfo: {
@@ -1848,7 +2090,10 @@ export declare namespace cosmos {
                 toJSON(message: _38.DelegationDelegatorReward): unknown;
                 fromPartial(object: {
                     validatorAddress?: string;
-                    reward?: any[];
+                    reward?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _38.DelegationDelegatorReward;
             };
             CommunityPoolSpendProposalWithDeposit: {
@@ -2105,7 +2350,10 @@ export declare namespace cosmos {
                         typeUrl?: string;
                         value?: Uint8Array;
                     }[];
-                    initialDeposit?: any[];
+                    initialDeposit?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                     proposer?: string;
                     metadata?: string;
                 }): _54.MsgSubmitProposal;
@@ -2188,7 +2436,10 @@ export declare namespace cosmos {
                 fromPartial(object: {
                     proposalId?: any;
                     depositor?: string;
-                    amount?: any[];
+                    amount?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _54.MsgDeposit;
             };
             MsgDepositResponse: {
@@ -2228,7 +2479,10 @@ export declare namespace cosmos {
                         };
                         submitTime?: Date;
                         depositEndTime?: Date;
-                        totalDeposit?: any[];
+                        totalDeposit?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                         votingStartTime?: Date;
                         votingEndTime?: Date;
                         metadata?: string;
@@ -2244,7 +2498,13 @@ export declare namespace cosmos {
                     proposalStatus?: _52.ProposalStatus;
                     voter?: string;
                     depositor?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _53.QueryProposalsRequest;
             };
             QueryProposalsResponse: {
@@ -2268,12 +2528,18 @@ export declare namespace cosmos {
                         };
                         submitTime?: Date;
                         depositEndTime?: Date;
-                        totalDeposit?: any[];
+                        totalDeposit?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                         votingStartTime?: Date;
                         votingEndTime?: Date;
                         metadata?: string;
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _53.QueryProposalsResponse;
             };
             QueryVoteRequest: {
@@ -2310,7 +2576,13 @@ export declare namespace cosmos {
                 toJSON(message: _53.QueryVotesRequest): unknown;
                 fromPartial(object: {
                     proposalId?: any;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _53.QueryVotesRequest;
             };
             QueryVotesResponse: {
@@ -2328,7 +2600,10 @@ export declare namespace cosmos {
                         }[];
                         metadata?: string;
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _53.QueryVotesResponse;
             };
             QueryParamsRequest: {
@@ -2353,7 +2628,10 @@ export declare namespace cosmos {
                         };
                     };
                     depositParams?: {
-                        minDeposit?: any[];
+                        minDeposit?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                         maxDepositPeriod?: {
                             seconds?: any;
                             nanos?: number;
@@ -2385,7 +2663,10 @@ export declare namespace cosmos {
                     deposit?: {
                         proposalId?: any;
                         depositor?: string;
-                        amount?: any[];
+                        amount?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                     };
                 }): _53.QueryDepositResponse;
             };
@@ -2396,7 +2677,13 @@ export declare namespace cosmos {
                 toJSON(message: _53.QueryDepositsRequest): unknown;
                 fromPartial(object: {
                     proposalId?: any;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _53.QueryDepositsRequest;
             };
             QueryDepositsResponse: {
@@ -2408,9 +2695,15 @@ export declare namespace cosmos {
                     deposits?: {
                         proposalId?: any;
                         depositor?: string;
-                        amount?: any[];
+                        amount?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _53.QueryDepositsResponse;
             };
             QueryTallyResultRequest: {
@@ -2460,7 +2753,10 @@ export declare namespace cosmos {
                 fromPartial(object: {
                     proposalId?: any;
                     depositor?: string;
-                    amount?: any[];
+                    amount?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _52.Deposit;
             };
             Proposal: {
@@ -2483,7 +2779,10 @@ export declare namespace cosmos {
                     };
                     submitTime?: Date;
                     depositEndTime?: Date;
-                    totalDeposit?: any[];
+                    totalDeposit?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                     votingStartTime?: Date;
                     votingEndTime?: Date;
                     metadata?: string;
@@ -2522,7 +2821,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _52.DepositParams;
                 toJSON(message: _52.DepositParams): unknown;
                 fromPartial(object: {
-                    minDeposit?: any[];
+                    minDeposit?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                     maxDepositPeriod?: {
                         seconds?: any;
                         nanos?: number;
@@ -2562,7 +2864,10 @@ export declare namespace cosmos {
                     deposits?: {
                         proposalId?: any;
                         depositor?: string;
-                        amount?: any[];
+                        amount?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                     }[];
                     votes?: {
                         proposalId?: any;
@@ -2588,13 +2893,19 @@ export declare namespace cosmos {
                         };
                         submitTime?: Date;
                         depositEndTime?: Date;
-                        totalDeposit?: any[];
+                        totalDeposit?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                         votingStartTime?: Date;
                         votingEndTime?: Date;
                         metadata?: string;
                     }[];
                     depositParams?: {
-                        minDeposit?: any[];
+                        minDeposit?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                         maxDepositPeriod?: {
                             seconds?: any;
                             nanos?: number;
@@ -2800,7 +3111,10 @@ export declare namespace cosmos {
                         typeUrl?: string;
                         value?: Uint8Array;
                     };
-                    initialDeposit?: any[];
+                    initialDeposit?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                     proposer?: string;
                 }): _58.MsgSubmitProposal;
             };
@@ -2860,7 +3174,10 @@ export declare namespace cosmos {
                 fromPartial(object: {
                     proposalId?: any;
                     depositor?: string;
-                    amount?: any[];
+                    amount?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _58.MsgDeposit;
             };
             MsgDepositResponse: {
@@ -2900,7 +3217,10 @@ export declare namespace cosmos {
                         };
                         submitTime?: Date;
                         depositEndTime?: Date;
-                        totalDeposit?: any[];
+                        totalDeposit?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                         votingStartTime?: Date;
                         votingEndTime?: Date;
                     };
@@ -2915,7 +3235,13 @@ export declare namespace cosmos {
                     proposalStatus?: _56.ProposalStatus;
                     voter?: string;
                     depositor?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _57.QueryProposalsRequest;
             };
             QueryProposalsResponse: {
@@ -2939,11 +3265,17 @@ export declare namespace cosmos {
                         };
                         submitTime?: Date;
                         depositEndTime?: Date;
-                        totalDeposit?: any[];
+                        totalDeposit?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                         votingStartTime?: Date;
                         votingEndTime?: Date;
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _57.QueryProposalsResponse;
             };
             QueryVoteRequest: {
@@ -2980,7 +3312,13 @@ export declare namespace cosmos {
                 toJSON(message: _57.QueryVotesRequest): unknown;
                 fromPartial(object: {
                     proposalId?: any;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _57.QueryVotesRequest;
             };
             QueryVotesResponse: {
@@ -2998,7 +3336,10 @@ export declare namespace cosmos {
                             weight?: string;
                         }[];
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _57.QueryVotesResponse;
             };
             QueryParamsRequest: {
@@ -3023,7 +3364,10 @@ export declare namespace cosmos {
                         };
                     };
                     depositParams?: {
-                        minDeposit?: any[];
+                        minDeposit?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                         maxDepositPeriod?: {
                             seconds?: any;
                             nanos?: number;
@@ -3055,7 +3399,10 @@ export declare namespace cosmos {
                     deposit?: {
                         proposalId?: any;
                         depositor?: string;
-                        amount?: any[];
+                        amount?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                     };
                 }): _57.QueryDepositResponse;
             };
@@ -3066,7 +3413,13 @@ export declare namespace cosmos {
                 toJSON(message: _57.QueryDepositsRequest): unknown;
                 fromPartial(object: {
                     proposalId?: any;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _57.QueryDepositsRequest;
             };
             QueryDepositsResponse: {
@@ -3078,9 +3431,15 @@ export declare namespace cosmos {
                     deposits?: {
                         proposalId?: any;
                         depositor?: string;
-                        amount?: any[];
+                        amount?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _57.QueryDepositsResponse;
             };
             QueryTallyResultRequest: {
@@ -3140,7 +3499,10 @@ export declare namespace cosmos {
                 fromPartial(object: {
                     proposalId?: any;
                     depositor?: string;
-                    amount?: any[];
+                    amount?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                 }): _56.Deposit;
             };
             Proposal: {
@@ -3163,7 +3525,10 @@ export declare namespace cosmos {
                     };
                     submitTime?: Date;
                     depositEndTime?: Date;
-                    totalDeposit?: any[];
+                    totalDeposit?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                     votingStartTime?: Date;
                     votingEndTime?: Date;
                 }): _56.Proposal;
@@ -3201,7 +3566,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _56.DepositParams;
                 toJSON(message: _56.DepositParams): unknown;
                 fromPartial(object: {
-                    minDeposit?: any[];
+                    minDeposit?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                     maxDepositPeriod?: {
                         seconds?: any;
                         nanos?: number;
@@ -3241,7 +3609,10 @@ export declare namespace cosmos {
                     deposits?: {
                         proposalId?: any;
                         depositor?: string;
-                        amount?: any[];
+                        amount?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                     }[];
                     votes?: {
                         proposalId?: any;
@@ -3267,12 +3638,18 @@ export declare namespace cosmos {
                         };
                         submitTime?: Date;
                         depositEndTime?: Date;
-                        totalDeposit?: any[];
+                        totalDeposit?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                         votingStartTime?: Date;
                         votingEndTime?: Date;
                     }[];
                     depositParams?: {
-                        minDeposit?: any[];
+                        minDeposit?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                         maxDepositPeriod?: {
                             seconds?: any;
                             nanos?: number;
@@ -4408,7 +4785,13 @@ export declare namespace cosmos {
                 toJSON(message: _61.QueryGroupMembersRequest): unknown;
                 fromPartial(object: {
                     groupId?: any;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _61.QueryGroupMembersRequest;
             };
             QueryGroupMembersResponse: {
@@ -4426,7 +4809,10 @@ export declare namespace cosmos {
                             addedAt?: Date;
                         };
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _61.QueryGroupMembersResponse;
             };
             QueryGroupsByAdminRequest: {
@@ -4436,7 +4822,13 @@ export declare namespace cosmos {
                 toJSON(message: _61.QueryGroupsByAdminRequest): unknown;
                 fromPartial(object: {
                     admin?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _61.QueryGroupsByAdminRequest;
             };
             QueryGroupsByAdminResponse: {
@@ -4453,7 +4845,10 @@ export declare namespace cosmos {
                         totalWeight?: string;
                         createdAt?: Date;
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _61.QueryGroupsByAdminResponse;
             };
             QueryGroupPoliciesByGroupRequest: {
@@ -4463,7 +4858,13 @@ export declare namespace cosmos {
                 toJSON(message: _61.QueryGroupPoliciesByGroupRequest): unknown;
                 fromPartial(object: {
                     groupId?: any;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _61.QueryGroupPoliciesByGroupRequest;
             };
             QueryGroupPoliciesByGroupResponse: {
@@ -4484,7 +4885,10 @@ export declare namespace cosmos {
                         };
                         createdAt?: Date;
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _61.QueryGroupPoliciesByGroupResponse;
             };
             QueryGroupPoliciesByAdminRequest: {
@@ -4494,7 +4898,13 @@ export declare namespace cosmos {
                 toJSON(message: _61.QueryGroupPoliciesByAdminRequest): unknown;
                 fromPartial(object: {
                     admin?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _61.QueryGroupPoliciesByAdminRequest;
             };
             QueryGroupPoliciesByAdminResponse: {
@@ -4515,7 +4925,10 @@ export declare namespace cosmos {
                         };
                         createdAt?: Date;
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _61.QueryGroupPoliciesByAdminResponse;
             };
             QueryProposalRequest: {
@@ -4565,7 +4978,13 @@ export declare namespace cosmos {
                 toJSON(message: _61.QueryProposalsByGroupPolicyRequest): unknown;
                 fromPartial(object: {
                     address?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _61.QueryProposalsByGroupPolicyRequest;
             };
             QueryProposalsByGroupPolicyResponse: {
@@ -4597,7 +5016,10 @@ export declare namespace cosmos {
                             value?: Uint8Array;
                         }[];
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _61.QueryProposalsByGroupPolicyResponse;
             };
             QueryVoteByProposalVoterRequest: {
@@ -4632,7 +5054,13 @@ export declare namespace cosmos {
                 toJSON(message: _61.QueryVotesByProposalRequest): unknown;
                 fromPartial(object: {
                     proposalId?: any;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _61.QueryVotesByProposalRequest;
             };
             QueryVotesByProposalResponse: {
@@ -4648,7 +5076,10 @@ export declare namespace cosmos {
                         metadata?: string;
                         submitTime?: Date;
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _61.QueryVotesByProposalResponse;
             };
             QueryVotesByVoterRequest: {
@@ -4658,7 +5089,13 @@ export declare namespace cosmos {
                 toJSON(message: _61.QueryVotesByVoterRequest): unknown;
                 fromPartial(object: {
                     voter?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _61.QueryVotesByVoterRequest;
             };
             QueryVotesByVoterResponse: {
@@ -4674,7 +5111,10 @@ export declare namespace cosmos {
                         metadata?: string;
                         submitTime?: Date;
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _61.QueryVotesByVoterResponse;
             };
             QueryGroupsByMemberRequest: {
@@ -4684,7 +5124,13 @@ export declare namespace cosmos {
                 toJSON(message: _61.QueryGroupsByMemberRequest): unknown;
                 fromPartial(object: {
                     address?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _61.QueryGroupsByMemberRequest;
             };
             QueryGroupsByMemberResponse: {
@@ -4701,7 +5147,10 @@ export declare namespace cosmos {
                         totalWeight?: string;
                         createdAt?: Date;
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _61.QueryGroupsByMemberResponse;
             };
             QueryTallyResultRequest: {
@@ -5215,7 +5664,10 @@ export declare namespace cosmos {
                         typeUrl?: string;
                         value?: Uint8Array;
                     };
-                    value?: any;
+                    value?: {
+                        denom?: string;
+                        amount?: string;
+                    };
                 }): _85.MsgCreateValidator;
             };
             MsgCreateValidatorResponse: {
@@ -5258,7 +5710,10 @@ export declare namespace cosmos {
                 fromPartial(object: {
                     delegatorAddress?: string;
                     validatorAddress?: string;
-                    amount?: any;
+                    amount?: {
+                        denom?: string;
+                        amount?: string;
+                    };
                 }): _85.MsgDelegate;
             };
             MsgDelegateResponse: {
@@ -5277,7 +5732,10 @@ export declare namespace cosmos {
                     delegatorAddress?: string;
                     validatorSrcAddress?: string;
                     validatorDstAddress?: string;
-                    amount?: any;
+                    amount?: {
+                        denom?: string;
+                        amount?: string;
+                    };
                 }): _85.MsgBeginRedelegate;
             };
             MsgBeginRedelegateResponse: {
@@ -5297,7 +5755,10 @@ export declare namespace cosmos {
                 fromPartial(object: {
                     delegatorAddress?: string;
                     validatorAddress?: string;
-                    amount?: any;
+                    amount?: {
+                        denom?: string;
+                        amount?: string;
+                    };
                 }): _85.MsgUndelegate;
             };
             MsgUndelegateResponse: {
@@ -5598,7 +6059,10 @@ export declare namespace cosmos {
                         validatorAddress?: string;
                         shares?: string;
                     };
-                    balance?: any;
+                    balance?: {
+                        denom?: string;
+                        amount?: string;
+                    };
                 }): _84.DelegationResponse;
             };
             RedelegationEntryResponse: {
@@ -5661,7 +6125,13 @@ export declare namespace cosmos {
                 toJSON(message: _83.QueryValidatorsRequest): unknown;
                 fromPartial(object: {
                     status?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _83.QueryValidatorsRequest;
             };
             QueryValidatorsResponse: {
@@ -5699,7 +6169,10 @@ export declare namespace cosmos {
                         };
                         minSelfDelegation?: string;
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _83.QueryValidatorsResponse;
             };
             QueryValidatorRequest: {
@@ -5755,7 +6228,13 @@ export declare namespace cosmos {
                 toJSON(message: _83.QueryValidatorDelegationsRequest): unknown;
                 fromPartial(object: {
                     validatorAddr?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _83.QueryValidatorDelegationsRequest;
             };
             QueryValidatorDelegationsResponse: {
@@ -5770,9 +6249,15 @@ export declare namespace cosmos {
                             validatorAddress?: string;
                             shares?: string;
                         };
-                        balance?: any;
+                        balance?: {
+                            denom?: string;
+                            amount?: string;
+                        };
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _83.QueryValidatorDelegationsResponse;
             };
             QueryValidatorUnbondingDelegationsRequest: {
@@ -5782,7 +6267,13 @@ export declare namespace cosmos {
                 toJSON(message: _83.QueryValidatorUnbondingDelegationsRequest): unknown;
                 fromPartial(object: {
                     validatorAddr?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _83.QueryValidatorUnbondingDelegationsRequest;
             };
             QueryValidatorUnbondingDelegationsResponse: {
@@ -5801,7 +6292,10 @@ export declare namespace cosmos {
                             balance?: string;
                         }[];
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _83.QueryValidatorUnbondingDelegationsResponse;
             };
             QueryDelegationRequest: {
@@ -5826,7 +6320,10 @@ export declare namespace cosmos {
                             validatorAddress?: string;
                             shares?: string;
                         };
-                        balance?: any;
+                        balance?: {
+                            denom?: string;
+                            amount?: string;
+                        };
                     };
                 }): _83.QueryDelegationResponse;
             };
@@ -5865,7 +6362,13 @@ export declare namespace cosmos {
                 toJSON(message: _83.QueryDelegatorDelegationsRequest): unknown;
                 fromPartial(object: {
                     delegatorAddr?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _83.QueryDelegatorDelegationsRequest;
             };
             QueryDelegatorDelegationsResponse: {
@@ -5880,9 +6383,15 @@ export declare namespace cosmos {
                             validatorAddress?: string;
                             shares?: string;
                         };
-                        balance?: any;
+                        balance?: {
+                            denom?: string;
+                            amount?: string;
+                        };
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _83.QueryDelegatorDelegationsResponse;
             };
             QueryDelegatorUnbondingDelegationsRequest: {
@@ -5892,7 +6401,13 @@ export declare namespace cosmos {
                 toJSON(message: _83.QueryDelegatorUnbondingDelegationsRequest): unknown;
                 fromPartial(object: {
                     delegatorAddr?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _83.QueryDelegatorUnbondingDelegationsRequest;
             };
             QueryDelegatorUnbondingDelegationsResponse: {
@@ -5911,7 +6426,10 @@ export declare namespace cosmos {
                             balance?: string;
                         }[];
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _83.QueryDelegatorUnbondingDelegationsResponse;
             };
             QueryRedelegationsRequest: {
@@ -5923,7 +6441,13 @@ export declare namespace cosmos {
                     delegatorAddr?: string;
                     srcValidatorAddr?: string;
                     dstValidatorAddr?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _83.QueryRedelegationsRequest;
             };
             QueryRedelegationsResponse: {
@@ -5954,7 +6478,10 @@ export declare namespace cosmos {
                             balance?: string;
                         }[];
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _83.QueryRedelegationsResponse;
             };
             QueryDelegatorValidatorsRequest: {
@@ -5964,7 +6491,13 @@ export declare namespace cosmos {
                 toJSON(message: _83.QueryDelegatorValidatorsRequest): unknown;
                 fromPartial(object: {
                     delegatorAddr?: string;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _83.QueryDelegatorValidatorsRequest;
             };
             QueryDelegatorValidatorsResponse: {
@@ -6002,7 +6535,10 @@ export declare namespace cosmos {
                         };
                         minSelfDelegation?: string;
                     }[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _83.QueryDelegatorValidatorsResponse;
             };
             QueryDelegatorValidatorRequest: {
@@ -6269,7 +6805,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _81.StakeAuthorization;
                 toJSON(message: _81.StakeAuthorization): unknown;
                 fromPartial(object: {
-                    maxTokens?: any;
+                    maxTokens?: {
+                        denom?: string;
+                        amount?: string;
+                    };
                     allowList?: {
                         address?: string[];
                     };
@@ -6439,13 +6978,19 @@ export declare namespace cosmos {
                             sequence?: any;
                         }[];
                         fee?: {
-                            amount?: any[];
+                            amount?: {
+                                denom?: string;
+                                amount?: string;
+                            }[];
                             gasLimit?: any;
                             payer?: string;
                             granter?: string;
                         };
                         tip?: {
-                            amount?: any[];
+                            amount?: {
+                                denom?: string;
+                                amount?: string;
+                            }[];
                             tipper?: string;
                         };
                     };
@@ -6490,7 +7035,10 @@ export declare namespace cosmos {
                     accountNumber?: any;
                     sequence?: any;
                     tip?: {
-                        amount?: any[];
+                        amount?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                         tipper?: string;
                     };
                 }): _88.SignDocDirectAux;
@@ -6543,13 +7091,19 @@ export declare namespace cosmos {
                         sequence?: any;
                     }[];
                     fee?: {
-                        amount?: any[];
+                        amount?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                         gasLimit?: any;
                         payer?: string;
                         granter?: string;
                     };
                     tip?: {
-                        amount?: any[];
+                        amount?: {
+                            denom?: string;
+                            amount?: string;
+                        }[];
                         tipper?: string;
                     };
                 }): _88.AuthInfo;
@@ -6625,7 +7179,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _88.Fee;
                 toJSON(message: _88.Fee): unknown;
                 fromPartial(object: {
-                    amount?: any[];
+                    amount?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                     gasLimit?: any;
                     payer?: string;
                     granter?: string;
@@ -6637,7 +7194,10 @@ export declare namespace cosmos {
                 fromJSON(object: any): _88.Tip;
                 toJSON(message: _88.Tip): unknown;
                 fromPartial(object: {
-                    amount?: any[];
+                    amount?: {
+                        denom?: string;
+                        amount?: string;
+                    }[];
                     tipper?: string;
                 }): _88.Tip;
             };
@@ -6658,7 +7218,10 @@ export declare namespace cosmos {
                         accountNumber?: any;
                         sequence?: any;
                         tip?: {
-                            amount?: any[];
+                            amount?: {
+                                denom?: string;
+                                amount?: string;
+                            }[];
                             tipper?: string;
                         };
                     };
@@ -6679,7 +7242,13 @@ export declare namespace cosmos {
                 toJSON(message: _87.GetTxsEventRequest): unknown;
                 fromPartial(object: {
                     events?: string[];
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                     orderBy?: _87.OrderBy;
                 }): _87.GetTxsEventRequest;
             };
@@ -6727,20 +7296,29 @@ export declare namespace cosmos {
                                 sequence?: any;
                             }[];
                             fee?: {
-                                amount?: any[];
+                                amount?: {
+                                    denom?: string;
+                                    amount?: string;
+                                }[];
                                 gasLimit?: any;
                                 payer?: string;
                                 granter?: string;
                             };
                             tip?: {
-                                amount?: any[];
+                                amount?: {
+                                    denom?: string;
+                                    amount?: string;
+                                }[];
                                 tipper?: string;
                             };
                         };
                         signatures?: Uint8Array[];
                     }[];
                     txResponses?: any[];
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _87.GetTxsEventResponse;
             };
             BroadcastTxRequest: {
@@ -6806,13 +7384,19 @@ export declare namespace cosmos {
                                 sequence?: any;
                             }[];
                             fee?: {
-                                amount?: any[];
+                                amount?: {
+                                    denom?: string;
+                                    amount?: string;
+                                }[];
                                 gasLimit?: any;
                                 payer?: string;
                                 granter?: string;
                             };
                             tip?: {
-                                amount?: any[];
+                                amount?: {
+                                    denom?: string;
+                                    amount?: string;
+                                }[];
                                 tipper?: string;
                             };
                         };
@@ -6884,13 +7468,19 @@ export declare namespace cosmos {
                                 sequence?: any;
                             }[];
                             fee?: {
-                                amount?: any[];
+                                amount?: {
+                                    denom?: string;
+                                    amount?: string;
+                                }[];
                                 gasLimit?: any;
                                 payer?: string;
                                 granter?: string;
                             };
                             tip?: {
-                                amount?: any[];
+                                amount?: {
+                                    denom?: string;
+                                    amount?: string;
+                                }[];
                                 tipper?: string;
                             };
                         };
@@ -6906,7 +7496,13 @@ export declare namespace cosmos {
                 toJSON(message: _87.GetBlockWithTxsRequest): unknown;
                 fromPartial(object: {
                     height?: any;
-                    pagination?: any;
+                    pagination?: {
+                        key?: Uint8Array;
+                        offset?: any;
+                        limit?: any;
+                        countTotal?: boolean;
+                        reverse?: boolean;
+                    };
                 }): _87.GetBlockWithTxsRequest;
             };
             GetBlockWithTxsResponse: {
@@ -6953,13 +7549,19 @@ export declare namespace cosmos {
                                 sequence?: any;
                             }[];
                             fee?: {
-                                amount?: any[];
+                                amount?: {
+                                    denom?: string;
+                                    amount?: string;
+                                }[];
                                 gasLimit?: any;
                                 payer?: string;
                                 granter?: string;
                             };
                             tip?: {
-                                amount?: any[];
+                                amount?: {
+                                    denom?: string;
+                                    amount?: string;
+                                }[];
                                 tipper?: string;
                             };
                         };
@@ -7141,7 +7743,10 @@ export declare namespace cosmos {
                             }[];
                         };
                     };
-                    pagination?: any;
+                    pagination?: {
+                        nextKey?: Uint8Array;
+                        total?: any;
+                    };
                 }): _87.GetBlockWithTxsResponse;
             };
         };

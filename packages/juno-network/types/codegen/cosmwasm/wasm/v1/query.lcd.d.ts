@@ -11,6 +11,6 @@ export declare class LCDQueryClient extends LCDClient {
     rawContractState(params: QueryRawContractStateRequest): Promise<QueryRawContractStateResponse>;
     smartContractState(params: QuerySmartContractStateRequest): Promise<QuerySmartContractStateResponse>;
     code(params: QueryCodeRequest): Promise<QueryCodeResponse>;
-    codes(params: QueryCodesRequest): Promise<QueryCodesResponse>;
-    pinnedCodes(params: QueryPinnedCodesRequest): Promise<QueryPinnedCodesResponse>;
+    codes(params?: QueryCodesRequest): Promise<QueryCodesResponse>;
+    pinnedCodes(params?: QueryPinnedCodesRequest): Promise<QueryPinnedCodesResponse>;
 }

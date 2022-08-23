@@ -44,6 +44,11 @@ export const createLCDClient = async ({
         v1: new (await import("./core/channel/v1/query.lcd")).LCDQueryClient({
           restEndpoint
         })
+      },
+      client: {
+        v1: new (await import("./core/client/v1/query.lcd")).LCDQueryClient({
+          restEndpoint
+        })
       }
     }
   }

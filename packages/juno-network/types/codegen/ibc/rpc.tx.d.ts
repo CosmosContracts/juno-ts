@@ -30,6 +30,9 @@ export declare const createRPCMsgClient: ({ rpc }: {
             channel: {
                 v1: import("./core/channel/v1/tx.rpc.msg").MsgClientImpl;
             };
+            client: {
+                v1: import("./core/client/v1/tx.rpc.msg").MsgClientImpl;
+            };
         };
     };
 }>;

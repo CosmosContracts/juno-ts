@@ -5,7 +5,7 @@ export declare class LCDQueryClient extends LCDClient {
         restEndpoint: any;
     });
     channel(params: QueryChannelRequest): Promise<QueryChannelResponse>;
-    channels(params: QueryChannelsRequest): Promise<QueryChannelsResponse>;
+    channels(params?: QueryChannelsRequest): Promise<QueryChannelsResponse>;
     connectionChannels(params: QueryConnectionChannelsRequest): Promise<QueryConnectionChannelsResponse>;
     channelClientState(params: QueryChannelClientStateRequest): Promise<QueryChannelClientStateResponse>;
     channelConsensusState(params: QueryChannelConsensusStateRequest): Promise<QueryChannelConsensusStateResponse>;

@@ -5,6 +5,6 @@ export declare class LCDQueryClient extends LCDClient {
         restEndpoint: any;
     });
     denomTrace(params: QueryDenomTraceRequest): Promise<QueryDenomTraceResponse>;
-    denomTraces(params: QueryDenomTracesRequest): Promise<QueryDenomTracesResponse>;
-    params(params: QueryParamsRequest): Promise<QueryParamsResponse>;
+    denomTraces(params?: QueryDenomTracesRequest): Promise<QueryDenomTracesResponse>;
+    params(_params?: QueryParamsRequest): Promise<QueryParamsResponse>;
 }

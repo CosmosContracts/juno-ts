@@ -30,6 +30,9 @@ export declare const createRPCQueryClient: ({ rpc }: {
             channel: {
                 v1: import("./core/channel/v1/query.rpc.query").QueryClientImpl;
             };
+            client: {
+                v1: import("./core/client/v1/query.rpc.query").QueryClientImpl;
+            };
         };
     };
 }>;
