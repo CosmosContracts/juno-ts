@@ -6,10 +6,8 @@
 
 import * as _0 from "./JunoSwap.types";
 import * as _1 from "./JunoSwap.client";
-import * as _2 from "./JunoSwap.react-query";
 export namespace contracts {
   export const JunoSwap = { ..._0,
-    ..._1,
-    ..._2
+    ..._1
   };
 }
