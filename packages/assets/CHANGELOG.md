@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.3](https://github.com/CosmosContracts/typescript/compare/@juno-network/assets@0.7.2...@juno-network/assets@0.7.3) (2022-09-07)
+
+**Note:** Version bump only for package @juno-network/assets
+
+
+
+
+
 ## [0.7.2](https://github.com/CosmosContracts/typescript/compare/@juno-network/assets@0.7.1...@juno-network/assets@0.7.2) (2022-08-23)
 
 **Note:** Version bump only for package @juno-network/assets
