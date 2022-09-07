@@ -127,8 +127,12 @@ const chain: Chain = {
         provider: 'EZStaking.io'
       },
       {
-        address: 'https://rpc-juno-ia.notional.ventures/',
+        address: 'https://rpc-juno-ia.cosmosia.notional.ventures/',
         provider: 'Notional'
+      },
+      {
+        address: 'https://rpc.juno.chaintools.tech/',
+        provider: 'ChainTools'
       }
     ],
     rest: [
@@ -153,8 +157,12 @@ const chain: Chain = {
         provider: 'EZStaking.io'
       },
       {
-        address: 'https://api-juno-ia.notional.ventures/',
+        address: 'https://api-juno-ia.cosmosia.notional.ventures/',
         provider: 'Notional'
+      },
+      {
+        address: 'https://api.juno.chaintools.tech/',
+        provider: 'ChainTools'
       }
     ],
     grpc: [
@@ -163,8 +171,16 @@ const chain: Chain = {
         provider: 'strangelove'
       },
       {
-        address: 'grpc-juno-ia.notional.ventures:443',
+        address: 'grpc-juno-ia.cosmosia.notional.ventures:443',
         provider: 'Notional'
+      },
+      {
+        address: 'https://juno.grpcui.chaintools.host/',
+        provider: 'ChainTools'
+      },
+      {
+        address: 'juno-grpc.polkachu.com:9090',
+        provider: 'Polkachu'
       }
     ]
   },
