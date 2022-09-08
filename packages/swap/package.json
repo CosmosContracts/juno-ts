@@ -1,6 +1,6 @@
 {
   "name": "@juno-network/swap",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "JunoSwap contracts",
   "author": "Dan Lynch <pyramation@gmail.com>",
   "homepage": "https://github.com/CosmosContracts/typescript#readme",
