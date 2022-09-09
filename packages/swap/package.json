@@ -57,7 +57,7 @@
     "@babel/plugin-transform-runtime": "7.18.10",
     "@babel/preset-env": "7.19.0",
     "@babel/preset-typescript": "^7.18.6",
-    "@cosmwasm/ts-codegen": "0.14.0",
+    "@cosmwasm/ts-codegen": "0.14.1",
     "@types/jest": "^29.0.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "29.0.2",
@@ -72,8 +72,8 @@
     "prettier": "^2.7.1",
     "regenerator-runtime": "^0.13.7",
     "rimraf": "^3.0.2",
-    "ts-jest": "^28.0.8",
-    "typescript": "^4.8.2"
+    "ts-jest": "^29.0.0",
+    "typescript": "^4.8.3"
   },
   "dependencies": {
     "@babel/runtime": "^7.19.0",
