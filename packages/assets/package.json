@@ -1,6 +1,6 @@
 {
   "name": "@juno-network/assets",
-  "version": "0.7.6",
+  "version": "0.8.0",
   "description": "Chain Registry info for Juno",
   "author": "Dan Lynch <pyramation@gmail.com>",
   "homepage": "https://github.com/CosmosContracts/typescript",
