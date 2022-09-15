@@ -6,27 +6,27 @@ export interface Minter {
   /** current annual inflation rate */
   inflation: string;
   phase: Long;
-  startPhaseBlock: Long;
+  start_phase_block: Long;
 
   /** current annual expected provisions */
-  annualProvisions: string;
+  annual_provisions: string;
 }
 
 /** Params holds parameters for the mint module. */
 export interface Params {
   /** type of coin to mint */
-  mintDenom: string;
+  mint_denom: string;
 
   /** expected blocks per year */
-  blocksPerYear: Long;
+  blocks_per_year: Long;
 }
 
 function createBaseMinter(): Minter {
   return {
     inflation: "",
     phase: Long.UZERO,
-    startPhaseBlock: Long.UZERO,
-    annualProvisions: ""
+    start_phase_block: Long.UZERO,
+    annual_provisions: ""
   };
 }
 
@@ -40,12 +40,12 @@ export const Minter = {
       writer.uint32(16).uint64(message.phase);
     }
 
-    if (!message.startPhaseBlock.isZero()) {
-      writer.uint32(24).uint64(message.startPhaseBlock);
+    if (!message.start_phase_block.isZero()) {
+      writer.uint32(24).uint64(message.start_phase_block);
     }
 
-    if (message.annualProvisions !== "") {
-      writer.uint32(34).string(message.annualProvisions);
+    if (message.annual_provisions !== "") {
+      writer.uint32(34).string(message.annual_provisions);
     }
 
     return writer;
@@ -69,11 +69,11 @@ export const Minter = {
           break;
 
         case 3:
-          message.startPhaseBlock = (reader.uint64() as Long);
+          message.start_phase_block = (reader.uint64() as Long);
           break;
 
         case 4:
-          message.annualProvisions = reader.string();
+          message.annual_provisions = reader.string();
           break;
 
         default:
@@ -89,8 +89,8 @@ export const Minter = {
     return {
       inflation: isSet(object.inflation) ? String(object.inflation) : "",
       phase: isSet(object.phase) ? Long.fromString(object.phase) : Long.UZERO,
-      startPhaseBlock: isSet(object.startPhaseBlock) ? Long.fromString(object.startPhaseBlock) : Long.UZERO,
-      annualProvisions: isSet(object.annualProvisions) ? String(object.annualProvisions) : ""
+      start_phase_block: isSet(object.start_phase_block) ? Long.fromString(object.start_phase_block) : Long.UZERO,
+      annual_provisions: isSet(object.annual_provisions) ? String(object.annual_provisions) : ""
     };
   },
 
@@ -98,8 +98,8 @@ export const Minter = {
     const obj: any = {};
     message.inflation !== undefined && (obj.inflation = message.inflation);
     message.phase !== undefined && (obj.phase = (message.phase || Long.UZERO).toString());
-    message.startPhaseBlock !== undefined && (obj.startPhaseBlock = (message.startPhaseBlock || Long.UZERO).toString());
-    message.annualProvisions !== undefined && (obj.annualProvisions = message.annualProvisions);
+    message.start_phase_block !== undefined && (obj.start_phase_block = (message.start_phase_block || Long.UZERO).toString());
+    message.annual_provisions !== undefined && (obj.annual_provisions = message.annual_provisions);
     return obj;
   },
 
@@ -107,8 +107,8 @@ export const Minter = {
     const message = createBaseMinter();
     message.inflation = object.inflation ?? "";
     message.phase = object.phase !== undefined && object.phase !== null ? Long.fromValue(object.phase) : Long.UZERO;
-    message.startPhaseBlock = object.startPhaseBlock !== undefined && object.startPhaseBlock !== null ? Long.fromValue(object.startPhaseBlock) : Long.UZERO;
-    message.annualProvisions = object.annualProvisions ?? "";
+    message.start_phase_block = object.start_phase_block !== undefined && object.start_phase_block !== null ? Long.fromValue(object.start_phase_block) : Long.UZERO;
+    message.annual_provisions = object.annual_provisions ?? "";
     return message;
   }
 
@@ -116,19 +116,19 @@ export const Minter = {
 
 function createBaseParams(): Params {
   return {
-    mintDenom: "",
-    blocksPerYear: Long.UZERO
+    mint_denom: "",
+    blocks_per_year: Long.UZERO
   };
 }
 
 export const Params = {
   encode(message: Params, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.mintDenom !== "") {
-      writer.uint32(10).string(message.mintDenom);
+    if (message.mint_denom !== "") {
+      writer.uint32(10).string(message.mint_denom);
     }
 
-    if (!message.blocksPerYear.isZero()) {
-      writer.uint32(16).uint64(message.blocksPerYear);
+    if (!message.blocks_per_year.isZero()) {
+      writer.uint32(16).uint64(message.blocks_per_year);
     }
 
     return writer;
@@ -144,11 +144,11 @@ export const Params = {
 
       switch (tag >>> 3) {
         case 1:
-          message.mintDenom = reader.string();
+          message.mint_denom = reader.string();
           break;
 
         case 2:
-          message.blocksPerYear = (reader.uint64() as Long);
+          message.blocks_per_year = (reader.uint64() as Long);
           break;
 
         default:
@@ -162,22 +162,22 @@ export const Params = {
 
   fromJSON(object: any): Params {
     return {
-      mintDenom: isSet(object.mintDenom) ? String(object.mintDenom) : "",
-      blocksPerYear: isSet(object.blocksPerYear) ? Long.fromString(object.blocksPerYear) : Long.UZERO
+      mint_denom: isSet(object.mint_denom) ? String(object.mint_denom) : "",
+      blocks_per_year: isSet(object.blocks_per_year) ? Long.fromString(object.blocks_per_year) : Long.UZERO
     };
   },
 
   toJSON(message: Params): unknown {
     const obj: any = {};
-    message.mintDenom !== undefined && (obj.mintDenom = message.mintDenom);
-    message.blocksPerYear !== undefined && (obj.blocksPerYear = (message.blocksPerYear || Long.UZERO).toString());
+    message.mint_denom !== undefined && (obj.mint_denom = message.mint_denom);
+    message.blocks_per_year !== undefined && (obj.blocks_per_year = (message.blocks_per_year || Long.UZERO).toString());
     return obj;
   },
 
   fromPartial(object: DeepPartial<Params>): Params {
     const message = createBaseParams();
-    message.mintDenom = object.mintDenom ?? "";
-    message.blocksPerYear = object.blocksPerYear !== undefined && object.blocksPerYear !== null ? Long.fromValue(object.blocksPerYear) : Long.UZERO;
+    message.mint_denom = object.mint_denom ?? "";
+    message.blocks_per_year = object.blocks_per_year !== undefined && object.blocks_per_year !== null ? Long.fromValue(object.blocks_per_year) : Long.UZERO;
     return message;
   }
 

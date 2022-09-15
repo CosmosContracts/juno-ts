@@ -65,10 +65,7 @@ telescope({
           enabled: true
         },
         reactQuery: {
-          enabled: false,
-          optionalClient: true,
-          version: 'v4',
-          mutations: true
+          enabled: false
         },
         recoil: {
           enabled: false
