@@ -1,35 +1,67 @@
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
-
+import { DeepPartial } from "@osmonauts/helpers";
 /**
  * Coin defines a token with a denomination and an amount.
  * 
  * NOTE: The amount field is an Int which implements the custom method
  * signatures required by gogoproto.
  */
+
 export interface Coin {
   denom: string;
   amount: string;
 }
+/**
+ * Coin defines a token with a denomination and an amount.
+ * 
+ * NOTE: The amount field is an Int which implements the custom method
+ * signatures required by gogoproto.
+ */
 
+export interface CoinSDKType {
+  denom: string;
+  amount: string;
+}
 /**
  * DecCoin defines a token with a denomination and a decimal amount.
  * 
  * NOTE: The amount field is an Dec which implements the custom method
  * signatures required by gogoproto.
  */
+
 export interface DecCoin {
   denom: string;
   amount: string;
 }
+/**
+ * DecCoin defines a token with a denomination and a decimal amount.
+ * 
+ * NOTE: The amount field is an Dec which implements the custom method
+ * signatures required by gogoproto.
+ */
 
+export interface DecCoinSDKType {
+  denom: string;
+  amount: string;
+}
 /** IntProto defines a Protobuf wrapper around an Int object. */
+
 export interface IntProto {
   int: string;
 }
+/** IntProto defines a Protobuf wrapper around an Int object. */
 
+export interface IntProtoSDKType {
+  int: string;
+}
 /** DecProto defines a Protobuf wrapper around a Dec object. */
+
 export interface DecProto {
+  dec: string;
+}
+/** DecProto defines a Protobuf wrapper around a Dec object. */
+
+export interface DecProtoSDKType {
   dec: string;
 }
 
@@ -77,20 +109,6 @@ export const Coin = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): Coin {
-    return {
-      denom: isSet(object.denom) ? String(object.denom) : "",
-      amount: isSet(object.amount) ? String(object.amount) : ""
-    };
-  },
-
-  toJSON(message: Coin): unknown {
-    const obj: any = {};
-    message.denom !== undefined && (obj.denom = message.denom);
-    message.amount !== undefined && (obj.amount = message.amount);
-    return obj;
   },
 
   fromPartial(object: DeepPartial<Coin>): Coin {
@@ -148,20 +166,6 @@ export const DecCoin = {
     return message;
   },
 
-  fromJSON(object: any): DecCoin {
-    return {
-      denom: isSet(object.denom) ? String(object.denom) : "",
-      amount: isSet(object.amount) ? String(object.amount) : ""
-    };
-  },
-
-  toJSON(message: DecCoin): unknown {
-    const obj: any = {};
-    message.denom !== undefined && (obj.denom = message.denom);
-    message.amount !== undefined && (obj.amount = message.amount);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<DecCoin>): DecCoin {
     const message = createBaseDecCoin();
     message.denom = object.denom ?? "";
@@ -208,18 +212,6 @@ export const IntProto = {
     return message;
   },
 
-  fromJSON(object: any): IntProto {
-    return {
-      int: isSet(object.int) ? String(object.int) : ""
-    };
-  },
-
-  toJSON(message: IntProto): unknown {
-    const obj: any = {};
-    message.int !== undefined && (obj.int = message.int);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<IntProto>): IntProto {
     const message = createBaseIntProto();
     message.int = object.int ?? "";
@@ -263,18 +255,6 @@ export const DecProto = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): DecProto {
-    return {
-      dec: isSet(object.dec) ? String(object.dec) : ""
-    };
-  },
-
-  toJSON(message: DecProto): unknown {
-    const obj: any = {};
-    message.dec !== undefined && (obj.dec = message.dec);
-    return obj;
   },
 
   fromPartial(object: DeepPartial<DecProto>): DecProto {

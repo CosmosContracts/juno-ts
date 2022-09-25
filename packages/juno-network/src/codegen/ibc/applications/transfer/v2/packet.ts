@@ -1,22 +1,41 @@
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
-
+import { DeepPartial } from "@osmonauts/helpers";
 /**
  * FungibleTokenPacketData defines a struct for the packet payload
  * See FungibleTokenPacketData spec:
  * https://github.com/cosmos/ibc/tree/master/spec/app/ics-020-fungible-token-transfer#data-structures
  */
+
 export interface FungibleTokenPacketData {
   /** the token denomination to be transferred */
   denom: string;
-
   /** the token amount to be transferred */
+
   amount: string;
-
   /** the sender address */
-  sender: string;
 
+  sender: string;
   /** the recipient address on the destination chain */
+
+  receiver: string;
+}
+/**
+ * FungibleTokenPacketData defines a struct for the packet payload
+ * See FungibleTokenPacketData spec:
+ * https://github.com/cosmos/ibc/tree/master/spec/app/ics-020-fungible-token-transfer#data-structures
+ */
+
+export interface FungibleTokenPacketDataSDKType {
+  /** the token denomination to be transferred */
+  denom: string;
+  /** the token amount to be transferred */
+
+  amount: string;
+  /** the sender address */
+
+  sender: string;
+  /** the recipient address on the destination chain */
+
   receiver: string;
 }
 
@@ -82,24 +101,6 @@ export const FungibleTokenPacketData = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): FungibleTokenPacketData {
-    return {
-      denom: isSet(object.denom) ? String(object.denom) : "",
-      amount: isSet(object.amount) ? String(object.amount) : "",
-      sender: isSet(object.sender) ? String(object.sender) : "",
-      receiver: isSet(object.receiver) ? String(object.receiver) : ""
-    };
-  },
-
-  toJSON(message: FungibleTokenPacketData): unknown {
-    const obj: any = {};
-    message.denom !== undefined && (obj.denom = message.denom);
-    message.amount !== undefined && (obj.amount = message.amount);
-    message.sender !== undefined && (obj.sender = message.sender);
-    message.receiver !== undefined && (obj.receiver = message.receiver);
-    return obj;
   },
 
   fromPartial(object: DeepPartial<FungibleTokenPacketData>): FungibleTokenPacketData {

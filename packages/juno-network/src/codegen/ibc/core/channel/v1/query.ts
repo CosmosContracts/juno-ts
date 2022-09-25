@@ -1,393 +1,761 @@
-import { PageRequest, PageResponse } from "../../../../cosmos/base/query/v1beta1/pagination";
-import { Channel, IdentifiedChannel, PacketState } from "./channel";
-import { Height, IdentifiedClientState } from "../../client/v1/client";
-import { Any } from "../../../../google/protobuf/any";
+import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../../cosmos/base/query/v1beta1/pagination";
+import { Channel, ChannelSDKType, IdentifiedChannel, IdentifiedChannelSDKType, PacketState, PacketStateSDKType } from "./channel";
+import { Height, HeightSDKType, IdentifiedClientState, IdentifiedClientStateSDKType } from "../../client/v1/client";
+import { Any, AnySDKType } from "../../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial, bytesFromBase64, base64FromBytes, Long } from "@osmonauts/helpers";
-
+import { DeepPartial, Long } from "@osmonauts/helpers";
 /** QueryChannelRequest is the request type for the Query/Channel RPC method */
+
 export interface QueryChannelRequest {
   /** port unique identifier */
-  port_id: string;
-
+  portId: string;
   /** channel unique identifier */
+
+  channelId: string;
+}
+/** QueryChannelRequest is the request type for the Query/Channel RPC method */
+
+export interface QueryChannelRequestSDKType {
+  /** port unique identifier */
+  port_id: string;
+  /** channel unique identifier */
+
   channel_id: string;
 }
-
 /**
  * QueryChannelResponse is the response type for the Query/Channel RPC method.
  * Besides the Channel end, it includes a proof and the height from which the
  * proof was retrieved.
  */
+
 export interface QueryChannelResponse {
   /** channel associated with the request identifiers */
   channel: Channel;
-
   /** merkle proof of existence */
+
   proof: Uint8Array;
-
   /** height at which the proof was retrieved */
-  proof_height: Height;
-}
 
+  proofHeight: Height;
+}
+/**
+ * QueryChannelResponse is the response type for the Query/Channel RPC method.
+ * Besides the Channel end, it includes a proof and the height from which the
+ * proof was retrieved.
+ */
+
+export interface QueryChannelResponseSDKType {
+  /** channel associated with the request identifiers */
+  channel: ChannelSDKType;
+  /** merkle proof of existence */
+
+  proof: Uint8Array;
+  /** height at which the proof was retrieved */
+
+  proof_height: HeightSDKType;
+}
 /** QueryChannelsRequest is the request type for the Query/Channels RPC method */
+
 export interface QueryChannelsRequest {
   /** pagination request */
   pagination?: PageRequest;
 }
+/** QueryChannelsRequest is the request type for the Query/Channels RPC method */
 
+export interface QueryChannelsRequestSDKType {
+  /** pagination request */
+  pagination?: PageRequestSDKType;
+}
 /** QueryChannelsResponse is the response type for the Query/Channels RPC method. */
+
 export interface QueryChannelsResponse {
   /** list of stored channels of the chain. */
   channels: IdentifiedChannel[];
-
   /** pagination response */
-  pagination?: PageResponse;
 
+  pagination?: PageResponse;
   /** query block height */
+
   height: Height;
 }
+/** QueryChannelsResponse is the response type for the Query/Channels RPC method. */
 
+export interface QueryChannelsResponseSDKType {
+  /** list of stored channels of the chain. */
+  channels: IdentifiedChannelSDKType[];
+  /** pagination response */
+
+  pagination?: PageResponseSDKType;
+  /** query block height */
+
+  height: HeightSDKType;
+}
 /**
  * QueryConnectionChannelsRequest is the request type for the
  * Query/QueryConnectionChannels RPC method
  */
+
 export interface QueryConnectionChannelsRequest {
   /** connection unique identifier */
   connection: string;
-
   /** pagination request */
+
   pagination?: PageRequest;
 }
+/**
+ * QueryConnectionChannelsRequest is the request type for the
+ * Query/QueryConnectionChannels RPC method
+ */
 
+export interface QueryConnectionChannelsRequestSDKType {
+  /** connection unique identifier */
+  connection: string;
+  /** pagination request */
+
+  pagination?: PageRequestSDKType;
+}
 /**
  * QueryConnectionChannelsResponse is the Response type for the
  * Query/QueryConnectionChannels RPC method
  */
+
 export interface QueryConnectionChannelsResponse {
   /** list of channels associated with a connection. */
   channels: IdentifiedChannel[];
-
   /** pagination response */
-  pagination?: PageResponse;
 
+  pagination?: PageResponse;
   /** query block height */
+
   height: Height;
 }
+/**
+ * QueryConnectionChannelsResponse is the Response type for the
+ * Query/QueryConnectionChannels RPC method
+ */
 
+export interface QueryConnectionChannelsResponseSDKType {
+  /** list of channels associated with a connection. */
+  channels: IdentifiedChannelSDKType[];
+  /** pagination response */
+
+  pagination?: PageResponseSDKType;
+  /** query block height */
+
+  height: HeightSDKType;
+}
 /**
  * QueryChannelClientStateRequest is the request type for the Query/ClientState
  * RPC method
  */
+
 export interface QueryChannelClientStateRequest {
   /** port unique identifier */
-  port_id: string;
-
+  portId: string;
   /** channel unique identifier */
+
+  channelId: string;
+}
+/**
+ * QueryChannelClientStateRequest is the request type for the Query/ClientState
+ * RPC method
+ */
+
+export interface QueryChannelClientStateRequestSDKType {
+  /** port unique identifier */
+  port_id: string;
+  /** channel unique identifier */
+
   channel_id: string;
 }
-
 /**
  * QueryChannelClientStateResponse is the Response type for the
  * Query/QueryChannelClientState RPC method
  */
+
 export interface QueryChannelClientStateResponse {
   /** client state associated with the channel */
-  identified_client_state: IdentifiedClientState;
-
+  identifiedClientState: IdentifiedClientState;
   /** merkle proof of existence */
+
   proof: Uint8Array;
-
   /** height at which the proof was retrieved */
-  proof_height: Height;
-}
 
+  proofHeight: Height;
+}
+/**
+ * QueryChannelClientStateResponse is the Response type for the
+ * Query/QueryChannelClientState RPC method
+ */
+
+export interface QueryChannelClientStateResponseSDKType {
+  /** client state associated with the channel */
+  identified_client_state: IdentifiedClientStateSDKType;
+  /** merkle proof of existence */
+
+  proof: Uint8Array;
+  /** height at which the proof was retrieved */
+
+  proof_height: HeightSDKType;
+}
 /**
  * QueryChannelConsensusStateRequest is the request type for the
  * Query/ConsensusState RPC method
  */
+
 export interface QueryChannelConsensusStateRequest {
   /** port unique identifier */
-  port_id: string;
-
+  portId: string;
   /** channel unique identifier */
-  channel_id: string;
 
+  channelId: string;
   /** revision number of the consensus state */
-  revision_number: Long;
 
+  revisionNumber: Long;
   /** revision height of the consensus state */
+
+  revisionHeight: Long;
+}
+/**
+ * QueryChannelConsensusStateRequest is the request type for the
+ * Query/ConsensusState RPC method
+ */
+
+export interface QueryChannelConsensusStateRequestSDKType {
+  /** port unique identifier */
+  port_id: string;
+  /** channel unique identifier */
+
+  channel_id: string;
+  /** revision number of the consensus state */
+
+  revision_number: Long;
+  /** revision height of the consensus state */
+
   revision_height: Long;
 }
-
 /**
  * QueryChannelClientStateResponse is the Response type for the
  * Query/QueryChannelClientState RPC method
  */
+
 export interface QueryChannelConsensusStateResponse {
   /** consensus state associated with the channel */
-  consensus_state: Any;
-
+  consensusState: Any;
   /** client ID associated with the consensus state */
-  client_id: string;
 
+  clientId: string;
   /** merkle proof of existence */
+
   proof: Uint8Array;
-
   /** height at which the proof was retrieved */
-  proof_height: Height;
-}
 
+  proofHeight: Height;
+}
+/**
+ * QueryChannelClientStateResponse is the Response type for the
+ * Query/QueryChannelClientState RPC method
+ */
+
+export interface QueryChannelConsensusStateResponseSDKType {
+  /** consensus state associated with the channel */
+  consensus_state: AnySDKType;
+  /** client ID associated with the consensus state */
+
+  client_id: string;
+  /** merkle proof of existence */
+
+  proof: Uint8Array;
+  /** height at which the proof was retrieved */
+
+  proof_height: HeightSDKType;
+}
 /**
  * QueryPacketCommitmentRequest is the request type for the
  * Query/PacketCommitment RPC method
  */
+
 export interface QueryPacketCommitmentRequest {
   /** port unique identifier */
-  port_id: string;
-
+  portId: string;
   /** channel unique identifier */
-  channel_id: string;
 
+  channelId: string;
   /** packet sequence */
+
   sequence: Long;
 }
+/**
+ * QueryPacketCommitmentRequest is the request type for the
+ * Query/PacketCommitment RPC method
+ */
 
+export interface QueryPacketCommitmentRequestSDKType {
+  /** port unique identifier */
+  port_id: string;
+  /** channel unique identifier */
+
+  channel_id: string;
+  /** packet sequence */
+
+  sequence: Long;
+}
 /**
  * QueryPacketCommitmentResponse defines the client query response for a packet
  * which also includes a proof and the height from which the proof was
  * retrieved
  */
+
 export interface QueryPacketCommitmentResponse {
   /** packet associated with the request fields */
   commitment: Uint8Array;
-
   /** merkle proof of existence */
+
   proof: Uint8Array;
-
   /** height at which the proof was retrieved */
-  proof_height: Height;
-}
 
+  proofHeight: Height;
+}
+/**
+ * QueryPacketCommitmentResponse defines the client query response for a packet
+ * which also includes a proof and the height from which the proof was
+ * retrieved
+ */
+
+export interface QueryPacketCommitmentResponseSDKType {
+  /** packet associated with the request fields */
+  commitment: Uint8Array;
+  /** merkle proof of existence */
+
+  proof: Uint8Array;
+  /** height at which the proof was retrieved */
+
+  proof_height: HeightSDKType;
+}
 /**
  * QueryPacketCommitmentsRequest is the request type for the
  * Query/QueryPacketCommitments RPC method
  */
+
 export interface QueryPacketCommitmentsRequest {
   /** port unique identifier */
-  port_id: string;
-
+  portId: string;
   /** channel unique identifier */
-  channel_id: string;
 
+  channelId: string;
   /** pagination request */
+
   pagination?: PageRequest;
 }
+/**
+ * QueryPacketCommitmentsRequest is the request type for the
+ * Query/QueryPacketCommitments RPC method
+ */
 
+export interface QueryPacketCommitmentsRequestSDKType {
+  /** port unique identifier */
+  port_id: string;
+  /** channel unique identifier */
+
+  channel_id: string;
+  /** pagination request */
+
+  pagination?: PageRequestSDKType;
+}
 /**
  * QueryPacketCommitmentsResponse is the request type for the
  * Query/QueryPacketCommitments RPC method
  */
+
 export interface QueryPacketCommitmentsResponse {
   commitments: PacketState[];
-
   /** pagination response */
-  pagination?: PageResponse;
 
+  pagination?: PageResponse;
   /** query block height */
+
   height: Height;
 }
+/**
+ * QueryPacketCommitmentsResponse is the request type for the
+ * Query/QueryPacketCommitments RPC method
+ */
 
+export interface QueryPacketCommitmentsResponseSDKType {
+  commitments: PacketStateSDKType[];
+  /** pagination response */
+
+  pagination?: PageResponseSDKType;
+  /** query block height */
+
+  height: HeightSDKType;
+}
 /**
  * QueryPacketReceiptRequest is the request type for the
  * Query/PacketReceipt RPC method
  */
+
 export interface QueryPacketReceiptRequest {
   /** port unique identifier */
-  port_id: string;
-
+  portId: string;
   /** channel unique identifier */
-  channel_id: string;
 
+  channelId: string;
   /** packet sequence */
+
   sequence: Long;
 }
+/**
+ * QueryPacketReceiptRequest is the request type for the
+ * Query/PacketReceipt RPC method
+ */
 
+export interface QueryPacketReceiptRequestSDKType {
+  /** port unique identifier */
+  port_id: string;
+  /** channel unique identifier */
+
+  channel_id: string;
+  /** packet sequence */
+
+  sequence: Long;
+}
 /**
  * QueryPacketReceiptResponse defines the client query response for a packet
  * receipt which also includes a proof, and the height from which the proof was
  * retrieved
  */
+
 export interface QueryPacketReceiptResponse {
   /** success flag for if receipt exists */
   received: boolean;
-
   /** merkle proof of existence */
+
   proof: Uint8Array;
-
   /** height at which the proof was retrieved */
-  proof_height: Height;
-}
 
+  proofHeight: Height;
+}
+/**
+ * QueryPacketReceiptResponse defines the client query response for a packet
+ * receipt which also includes a proof, and the height from which the proof was
+ * retrieved
+ */
+
+export interface QueryPacketReceiptResponseSDKType {
+  /** success flag for if receipt exists */
+  received: boolean;
+  /** merkle proof of existence */
+
+  proof: Uint8Array;
+  /** height at which the proof was retrieved */
+
+  proof_height: HeightSDKType;
+}
 /**
  * QueryPacketAcknowledgementRequest is the request type for the
  * Query/PacketAcknowledgement RPC method
  */
+
 export interface QueryPacketAcknowledgementRequest {
   /** port unique identifier */
-  port_id: string;
-
+  portId: string;
   /** channel unique identifier */
-  channel_id: string;
 
+  channelId: string;
   /** packet sequence */
+
   sequence: Long;
 }
+/**
+ * QueryPacketAcknowledgementRequest is the request type for the
+ * Query/PacketAcknowledgement RPC method
+ */
 
+export interface QueryPacketAcknowledgementRequestSDKType {
+  /** port unique identifier */
+  port_id: string;
+  /** channel unique identifier */
+
+  channel_id: string;
+  /** packet sequence */
+
+  sequence: Long;
+}
 /**
  * QueryPacketAcknowledgementResponse defines the client query response for a
  * packet which also includes a proof and the height from which the
  * proof was retrieved
  */
+
 export interface QueryPacketAcknowledgementResponse {
   /** packet associated with the request fields */
   acknowledgement: Uint8Array;
-
   /** merkle proof of existence */
+
   proof: Uint8Array;
-
   /** height at which the proof was retrieved */
-  proof_height: Height;
-}
 
+  proofHeight: Height;
+}
+/**
+ * QueryPacketAcknowledgementResponse defines the client query response for a
+ * packet which also includes a proof and the height from which the
+ * proof was retrieved
+ */
+
+export interface QueryPacketAcknowledgementResponseSDKType {
+  /** packet associated with the request fields */
+  acknowledgement: Uint8Array;
+  /** merkle proof of existence */
+
+  proof: Uint8Array;
+  /** height at which the proof was retrieved */
+
+  proof_height: HeightSDKType;
+}
 /**
  * QueryPacketAcknowledgementsRequest is the request type for the
  * Query/QueryPacketCommitments RPC method
  */
+
 export interface QueryPacketAcknowledgementsRequest {
   /** port unique identifier */
-  port_id: string;
-
+  portId: string;
   /** channel unique identifier */
-  channel_id: string;
 
+  channelId: string;
   /** pagination request */
-  pagination?: PageRequest;
 
+  pagination?: PageRequest;
   /** list of packet sequences */
+
+  packetCommitmentSequences?: Long[];
+}
+/**
+ * QueryPacketAcknowledgementsRequest is the request type for the
+ * Query/QueryPacketCommitments RPC method
+ */
+
+export interface QueryPacketAcknowledgementsRequestSDKType {
+  /** port unique identifier */
+  port_id: string;
+  /** channel unique identifier */
+
+  channel_id: string;
+  /** pagination request */
+
+  pagination?: PageRequestSDKType;
+  /** list of packet sequences */
+
   packet_commitment_sequences?: Long[];
 }
-
 /**
  * QueryPacketAcknowledgemetsResponse is the request type for the
  * Query/QueryPacketAcknowledgements RPC method
  */
+
 export interface QueryPacketAcknowledgementsResponse {
   acknowledgements: PacketState[];
-
   /** pagination response */
-  pagination?: PageResponse;
 
+  pagination?: PageResponse;
   /** query block height */
+
   height: Height;
 }
+/**
+ * QueryPacketAcknowledgemetsResponse is the request type for the
+ * Query/QueryPacketAcknowledgements RPC method
+ */
 
+export interface QueryPacketAcknowledgementsResponseSDKType {
+  acknowledgements: PacketStateSDKType[];
+  /** pagination response */
+
+  pagination?: PageResponseSDKType;
+  /** query block height */
+
+  height: HeightSDKType;
+}
 /**
  * QueryUnreceivedPacketsRequest is the request type for the
  * Query/UnreceivedPackets RPC method
  */
+
 export interface QueryUnreceivedPacketsRequest {
   /** port unique identifier */
-  port_id: string;
-
+  portId: string;
   /** channel unique identifier */
-  channel_id: string;
 
+  channelId: string;
   /** list of packet sequences */
+
+  packetCommitmentSequences: Long[];
+}
+/**
+ * QueryUnreceivedPacketsRequest is the request type for the
+ * Query/UnreceivedPackets RPC method
+ */
+
+export interface QueryUnreceivedPacketsRequestSDKType {
+  /** port unique identifier */
+  port_id: string;
+  /** channel unique identifier */
+
+  channel_id: string;
+  /** list of packet sequences */
+
   packet_commitment_sequences: Long[];
 }
-
 /**
  * QueryUnreceivedPacketsResponse is the response type for the
  * Query/UnreceivedPacketCommitments RPC method
  */
+
 export interface QueryUnreceivedPacketsResponse {
   /** list of unreceived packet sequences */
   sequences: Long[];
-
   /** query block height */
+
   height: Height;
 }
+/**
+ * QueryUnreceivedPacketsResponse is the response type for the
+ * Query/UnreceivedPacketCommitments RPC method
+ */
 
+export interface QueryUnreceivedPacketsResponseSDKType {
+  /** list of unreceived packet sequences */
+  sequences: Long[];
+  /** query block height */
+
+  height: HeightSDKType;
+}
 /**
  * QueryUnreceivedAcks is the request type for the
  * Query/UnreceivedAcks RPC method
  */
+
 export interface QueryUnreceivedAcksRequest {
   /** port unique identifier */
-  port_id: string;
-
+  portId: string;
   /** channel unique identifier */
-  channel_id: string;
 
+  channelId: string;
   /** list of acknowledgement sequences */
+
+  packetAckSequences: Long[];
+}
+/**
+ * QueryUnreceivedAcks is the request type for the
+ * Query/UnreceivedAcks RPC method
+ */
+
+export interface QueryUnreceivedAcksRequestSDKType {
+  /** port unique identifier */
+  port_id: string;
+  /** channel unique identifier */
+
+  channel_id: string;
+  /** list of acknowledgement sequences */
+
   packet_ack_sequences: Long[];
 }
-
 /**
  * QueryUnreceivedAcksResponse is the response type for the
  * Query/UnreceivedAcks RPC method
  */
+
 export interface QueryUnreceivedAcksResponse {
   /** list of unreceived acknowledgement sequences */
   sequences: Long[];
-
   /** query block height */
+
   height: Height;
 }
+/**
+ * QueryUnreceivedAcksResponse is the response type for the
+ * Query/UnreceivedAcks RPC method
+ */
 
+export interface QueryUnreceivedAcksResponseSDKType {
+  /** list of unreceived acknowledgement sequences */
+  sequences: Long[];
+  /** query block height */
+
+  height: HeightSDKType;
+}
 /**
  * QueryNextSequenceReceiveRequest is the request type for the
  * Query/QueryNextSequenceReceiveRequest RPC method
  */
+
 export interface QueryNextSequenceReceiveRequest {
   /** port unique identifier */
-  port_id: string;
-
+  portId: string;
   /** channel unique identifier */
+
+  channelId: string;
+}
+/**
+ * QueryNextSequenceReceiveRequest is the request type for the
+ * Query/QueryNextSequenceReceiveRequest RPC method
+ */
+
+export interface QueryNextSequenceReceiveRequestSDKType {
+  /** port unique identifier */
+  port_id: string;
+  /** channel unique identifier */
+
   channel_id: string;
 }
-
 /**
  * QuerySequenceResponse is the request type for the
  * Query/QueryNextSequenceReceiveResponse RPC method
  */
+
 export interface QueryNextSequenceReceiveResponse {
   /** next sequence receive number */
-  next_sequence_receive: Long;
-
+  nextSequenceReceive: Long;
   /** merkle proof of existence */
-  proof: Uint8Array;
 
+  proof: Uint8Array;
   /** height at which the proof was retrieved */
-  proof_height: Height;
+
+  proofHeight: Height;
+}
+/**
+ * QuerySequenceResponse is the request type for the
+ * Query/QueryNextSequenceReceiveResponse RPC method
+ */
+
+export interface QueryNextSequenceReceiveResponseSDKType {
+  /** next sequence receive number */
+  next_sequence_receive: Long;
+  /** merkle proof of existence */
+
+  proof: Uint8Array;
+  /** height at which the proof was retrieved */
+
+  proof_height: HeightSDKType;
 }
 
 function createBaseQueryChannelRequest(): QueryChannelRequest {
   return {
-    port_id: "",
-    channel_id: ""
+    portId: "",
+    channelId: ""
   };
 }
 
 export const QueryChannelRequest = {
   encode(message: QueryChannelRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.port_id !== "") {
-      writer.uint32(10).string(message.port_id);
+    if (message.portId !== "") {
+      writer.uint32(10).string(message.portId);
     }
 
-    if (message.channel_id !== "") {
-      writer.uint32(18).string(message.channel_id);
+    if (message.channelId !== "") {
+      writer.uint32(18).string(message.channelId);
     }
 
     return writer;
@@ -403,11 +771,11 @@ export const QueryChannelRequest = {
 
       switch (tag >>> 3) {
         case 1:
-          message.port_id = reader.string();
+          message.portId = reader.string();
           break;
 
         case 2:
-          message.channel_id = reader.string();
+          message.channelId = reader.string();
           break;
 
         default:
@@ -419,24 +787,10 @@ export const QueryChannelRequest = {
     return message;
   },
 
-  fromJSON(object: any): QueryChannelRequest {
-    return {
-      port_id: isSet(object.port_id) ? String(object.port_id) : "",
-      channel_id: isSet(object.channel_id) ? String(object.channel_id) : ""
-    };
-  },
-
-  toJSON(message: QueryChannelRequest): unknown {
-    const obj: any = {};
-    message.port_id !== undefined && (obj.port_id = message.port_id);
-    message.channel_id !== undefined && (obj.channel_id = message.channel_id);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryChannelRequest>): QueryChannelRequest {
     const message = createBaseQueryChannelRequest();
-    message.port_id = object.port_id ?? "";
-    message.channel_id = object.channel_id ?? "";
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     return message;
   }
 
@@ -446,7 +800,7 @@ function createBaseQueryChannelResponse(): QueryChannelResponse {
   return {
     channel: undefined,
     proof: new Uint8Array(),
-    proof_height: undefined
+    proofHeight: undefined
   };
 }
 
@@ -460,14 +814,14 @@ export const QueryChannelResponse = {
       writer.uint32(18).bytes(message.proof);
     }
 
-    if (message.proof_height !== undefined) {
-      Height.encode(message.proof_height, writer.uint32(26).fork()).ldelim();
+    if (message.proofHeight !== undefined) {
+      Height.encode(message.proofHeight, writer.uint32(26).fork()).ldelim();
     }
 
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): QueryChannelResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryChannelResponseSDKType {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryChannelResponse();
@@ -485,7 +839,7 @@ export const QueryChannelResponse = {
           break;
 
         case 3:
-          message.proof_height = Height.decode(reader, reader.uint32());
+          message.proofHeight = Height.decode(reader, reader.uint32());
           break;
 
         default:
@@ -497,27 +851,11 @@ export const QueryChannelResponse = {
     return message;
   },
 
-  fromJSON(object: any): QueryChannelResponse {
-    return {
-      channel: isSet(object.channel) ? Channel.fromJSON(object.channel) : undefined,
-      proof: isSet(object.proof) ? bytesFromBase64(object.proof) : new Uint8Array(),
-      proof_height: isSet(object.proof_height) ? Height.fromJSON(object.proof_height) : undefined
-    };
-  },
-
-  toJSON(message: QueryChannelResponse): unknown {
-    const obj: any = {};
-    message.channel !== undefined && (obj.channel = message.channel ? Channel.toJSON(message.channel) : undefined);
-    message.proof !== undefined && (obj.proof = base64FromBytes(message.proof !== undefined ? message.proof : new Uint8Array()));
-    message.proof_height !== undefined && (obj.proof_height = message.proof_height ? Height.toJSON(message.proof_height) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryChannelResponse>): QueryChannelResponse {
     const message = createBaseQueryChannelResponse();
     message.channel = object.channel !== undefined && object.channel !== null ? Channel.fromPartial(object.channel) : undefined;
     message.proof = object.proof ?? new Uint8Array();
-    message.proof_height = object.proof_height !== undefined && object.proof_height !== null ? Height.fromPartial(object.proof_height) : undefined;
+    message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? Height.fromPartial(object.proofHeight) : undefined;
     return message;
   }
 
@@ -560,18 +898,6 @@ export const QueryChannelsRequest = {
     return message;
   },
 
-  fromJSON(object: any): QueryChannelsRequest {
-    return {
-      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
-    };
-  },
-
-  toJSON(message: QueryChannelsRequest): unknown {
-    const obj: any = {};
-    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryChannelsRequest>): QueryChannelsRequest {
     const message = createBaseQueryChannelsRequest();
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
@@ -605,7 +931,7 @@ export const QueryChannelsResponse = {
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): QueryChannelsResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryChannelsResponseSDKType {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryChannelsResponse();
@@ -633,28 +959,6 @@ export const QueryChannelsResponse = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): QueryChannelsResponse {
-    return {
-      channels: Array.isArray(object?.channels) ? object.channels.map((e: any) => IdentifiedChannel.fromJSON(e)) : [],
-      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
-      height: isSet(object.height) ? Height.fromJSON(object.height) : undefined
-    };
-  },
-
-  toJSON(message: QueryChannelsResponse): unknown {
-    const obj: any = {};
-
-    if (message.channels) {
-      obj.channels = message.channels.map(e => e ? IdentifiedChannel.toJSON(e) : undefined);
-    } else {
-      obj.channels = [];
-    }
-
-    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
-    message.height !== undefined && (obj.height = message.height ? Height.toJSON(message.height) : undefined);
-    return obj;
   },
 
   fromPartial(object: DeepPartial<QueryChannelsResponse>): QueryChannelsResponse {
@@ -713,20 +1017,6 @@ export const QueryConnectionChannelsRequest = {
     return message;
   },
 
-  fromJSON(object: any): QueryConnectionChannelsRequest {
-    return {
-      connection: isSet(object.connection) ? String(object.connection) : "",
-      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
-    };
-  },
-
-  toJSON(message: QueryConnectionChannelsRequest): unknown {
-    const obj: any = {};
-    message.connection !== undefined && (obj.connection = message.connection);
-    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryConnectionChannelsRequest>): QueryConnectionChannelsRequest {
     const message = createBaseQueryConnectionChannelsRequest();
     message.connection = object.connection ?? "";
@@ -761,7 +1051,7 @@ export const QueryConnectionChannelsResponse = {
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): QueryConnectionChannelsResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryConnectionChannelsResponseSDKType {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryConnectionChannelsResponse();
@@ -791,28 +1081,6 @@ export const QueryConnectionChannelsResponse = {
     return message;
   },
 
-  fromJSON(object: any): QueryConnectionChannelsResponse {
-    return {
-      channels: Array.isArray(object?.channels) ? object.channels.map((e: any) => IdentifiedChannel.fromJSON(e)) : [],
-      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
-      height: isSet(object.height) ? Height.fromJSON(object.height) : undefined
-    };
-  },
-
-  toJSON(message: QueryConnectionChannelsResponse): unknown {
-    const obj: any = {};
-
-    if (message.channels) {
-      obj.channels = message.channels.map(e => e ? IdentifiedChannel.toJSON(e) : undefined);
-    } else {
-      obj.channels = [];
-    }
-
-    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
-    message.height !== undefined && (obj.height = message.height ? Height.toJSON(message.height) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryConnectionChannelsResponse>): QueryConnectionChannelsResponse {
     const message = createBaseQueryConnectionChannelsResponse();
     message.channels = object.channels?.map(e => IdentifiedChannel.fromPartial(e)) || [];
@@ -825,19 +1093,19 @@ export const QueryConnectionChannelsResponse = {
 
 function createBaseQueryChannelClientStateRequest(): QueryChannelClientStateRequest {
   return {
-    port_id: "",
-    channel_id: ""
+    portId: "",
+    channelId: ""
   };
 }
 
 export const QueryChannelClientStateRequest = {
   encode(message: QueryChannelClientStateRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.port_id !== "") {
-      writer.uint32(10).string(message.port_id);
+    if (message.portId !== "") {
+      writer.uint32(10).string(message.portId);
     }
 
-    if (message.channel_id !== "") {
-      writer.uint32(18).string(message.channel_id);
+    if (message.channelId !== "") {
+      writer.uint32(18).string(message.channelId);
     }
 
     return writer;
@@ -853,11 +1121,11 @@ export const QueryChannelClientStateRequest = {
 
       switch (tag >>> 3) {
         case 1:
-          message.port_id = reader.string();
+          message.portId = reader.string();
           break;
 
         case 2:
-          message.channel_id = reader.string();
+          message.channelId = reader.string();
           break;
 
         default:
@@ -869,24 +1137,10 @@ export const QueryChannelClientStateRequest = {
     return message;
   },
 
-  fromJSON(object: any): QueryChannelClientStateRequest {
-    return {
-      port_id: isSet(object.port_id) ? String(object.port_id) : "",
-      channel_id: isSet(object.channel_id) ? String(object.channel_id) : ""
-    };
-  },
-
-  toJSON(message: QueryChannelClientStateRequest): unknown {
-    const obj: any = {};
-    message.port_id !== undefined && (obj.port_id = message.port_id);
-    message.channel_id !== undefined && (obj.channel_id = message.channel_id);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryChannelClientStateRequest>): QueryChannelClientStateRequest {
     const message = createBaseQueryChannelClientStateRequest();
-    message.port_id = object.port_id ?? "";
-    message.channel_id = object.channel_id ?? "";
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     return message;
   }
 
@@ -894,30 +1148,30 @@ export const QueryChannelClientStateRequest = {
 
 function createBaseQueryChannelClientStateResponse(): QueryChannelClientStateResponse {
   return {
-    identified_client_state: undefined,
+    identifiedClientState: undefined,
     proof: new Uint8Array(),
-    proof_height: undefined
+    proofHeight: undefined
   };
 }
 
 export const QueryChannelClientStateResponse = {
   encode(message: QueryChannelClientStateResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.identified_client_state !== undefined) {
-      IdentifiedClientState.encode(message.identified_client_state, writer.uint32(10).fork()).ldelim();
+    if (message.identifiedClientState !== undefined) {
+      IdentifiedClientState.encode(message.identifiedClientState, writer.uint32(10).fork()).ldelim();
     }
 
     if (message.proof.length !== 0) {
       writer.uint32(18).bytes(message.proof);
     }
 
-    if (message.proof_height !== undefined) {
-      Height.encode(message.proof_height, writer.uint32(26).fork()).ldelim();
+    if (message.proofHeight !== undefined) {
+      Height.encode(message.proofHeight, writer.uint32(26).fork()).ldelim();
     }
 
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): QueryChannelClientStateResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryChannelClientStateResponseSDKType {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryChannelClientStateResponse();
@@ -927,7 +1181,7 @@ export const QueryChannelClientStateResponse = {
 
       switch (tag >>> 3) {
         case 1:
-          message.identified_client_state = IdentifiedClientState.decode(reader, reader.uint32());
+          message.identifiedClientState = IdentifiedClientState.decode(reader, reader.uint32());
           break;
 
         case 2:
@@ -935,7 +1189,7 @@ export const QueryChannelClientStateResponse = {
           break;
 
         case 3:
-          message.proof_height = Height.decode(reader, reader.uint32());
+          message.proofHeight = Height.decode(reader, reader.uint32());
           break;
 
         default:
@@ -947,27 +1201,11 @@ export const QueryChannelClientStateResponse = {
     return message;
   },
 
-  fromJSON(object: any): QueryChannelClientStateResponse {
-    return {
-      identified_client_state: isSet(object.identified_client_state) ? IdentifiedClientState.fromJSON(object.identified_client_state) : undefined,
-      proof: isSet(object.proof) ? bytesFromBase64(object.proof) : new Uint8Array(),
-      proof_height: isSet(object.proof_height) ? Height.fromJSON(object.proof_height) : undefined
-    };
-  },
-
-  toJSON(message: QueryChannelClientStateResponse): unknown {
-    const obj: any = {};
-    message.identified_client_state !== undefined && (obj.identified_client_state = message.identified_client_state ? IdentifiedClientState.toJSON(message.identified_client_state) : undefined);
-    message.proof !== undefined && (obj.proof = base64FromBytes(message.proof !== undefined ? message.proof : new Uint8Array()));
-    message.proof_height !== undefined && (obj.proof_height = message.proof_height ? Height.toJSON(message.proof_height) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryChannelClientStateResponse>): QueryChannelClientStateResponse {
     const message = createBaseQueryChannelClientStateResponse();
-    message.identified_client_state = object.identified_client_state !== undefined && object.identified_client_state !== null ? IdentifiedClientState.fromPartial(object.identified_client_state) : undefined;
+    message.identifiedClientState = object.identifiedClientState !== undefined && object.identifiedClientState !== null ? IdentifiedClientState.fromPartial(object.identifiedClientState) : undefined;
     message.proof = object.proof ?? new Uint8Array();
-    message.proof_height = object.proof_height !== undefined && object.proof_height !== null ? Height.fromPartial(object.proof_height) : undefined;
+    message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? Height.fromPartial(object.proofHeight) : undefined;
     return message;
   }
 
@@ -975,29 +1213,29 @@ export const QueryChannelClientStateResponse = {
 
 function createBaseQueryChannelConsensusStateRequest(): QueryChannelConsensusStateRequest {
   return {
-    port_id: "",
-    channel_id: "",
-    revision_number: Long.UZERO,
-    revision_height: Long.UZERO
+    portId: "",
+    channelId: "",
+    revisionNumber: Long.UZERO,
+    revisionHeight: Long.UZERO
   };
 }
 
 export const QueryChannelConsensusStateRequest = {
   encode(message: QueryChannelConsensusStateRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.port_id !== "") {
-      writer.uint32(10).string(message.port_id);
+    if (message.portId !== "") {
+      writer.uint32(10).string(message.portId);
     }
 
-    if (message.channel_id !== "") {
-      writer.uint32(18).string(message.channel_id);
+    if (message.channelId !== "") {
+      writer.uint32(18).string(message.channelId);
     }
 
-    if (!message.revision_number.isZero()) {
-      writer.uint32(24).uint64(message.revision_number);
+    if (!message.revisionNumber.isZero()) {
+      writer.uint32(24).uint64(message.revisionNumber);
     }
 
-    if (!message.revision_height.isZero()) {
-      writer.uint32(32).uint64(message.revision_height);
+    if (!message.revisionHeight.isZero()) {
+      writer.uint32(32).uint64(message.revisionHeight);
     }
 
     return writer;
@@ -1013,19 +1251,19 @@ export const QueryChannelConsensusStateRequest = {
 
       switch (tag >>> 3) {
         case 1:
-          message.port_id = reader.string();
+          message.portId = reader.string();
           break;
 
         case 2:
-          message.channel_id = reader.string();
+          message.channelId = reader.string();
           break;
 
         case 3:
-          message.revision_number = (reader.uint64() as Long);
+          message.revisionNumber = (reader.uint64() as Long);
           break;
 
         case 4:
-          message.revision_height = (reader.uint64() as Long);
+          message.revisionHeight = (reader.uint64() as Long);
           break;
 
         default:
@@ -1037,30 +1275,12 @@ export const QueryChannelConsensusStateRequest = {
     return message;
   },
 
-  fromJSON(object: any): QueryChannelConsensusStateRequest {
-    return {
-      port_id: isSet(object.port_id) ? String(object.port_id) : "",
-      channel_id: isSet(object.channel_id) ? String(object.channel_id) : "",
-      revision_number: isSet(object.revision_number) ? Long.fromString(object.revision_number) : Long.UZERO,
-      revision_height: isSet(object.revision_height) ? Long.fromString(object.revision_height) : Long.UZERO
-    };
-  },
-
-  toJSON(message: QueryChannelConsensusStateRequest): unknown {
-    const obj: any = {};
-    message.port_id !== undefined && (obj.port_id = message.port_id);
-    message.channel_id !== undefined && (obj.channel_id = message.channel_id);
-    message.revision_number !== undefined && (obj.revision_number = (message.revision_number || Long.UZERO).toString());
-    message.revision_height !== undefined && (obj.revision_height = (message.revision_height || Long.UZERO).toString());
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryChannelConsensusStateRequest>): QueryChannelConsensusStateRequest {
     const message = createBaseQueryChannelConsensusStateRequest();
-    message.port_id = object.port_id ?? "";
-    message.channel_id = object.channel_id ?? "";
-    message.revision_number = object.revision_number !== undefined && object.revision_number !== null ? Long.fromValue(object.revision_number) : Long.UZERO;
-    message.revision_height = object.revision_height !== undefined && object.revision_height !== null ? Long.fromValue(object.revision_height) : Long.UZERO;
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
+    message.revisionNumber = object.revisionNumber !== undefined && object.revisionNumber !== null ? Long.fromValue(object.revisionNumber) : Long.UZERO;
+    message.revisionHeight = object.revisionHeight !== undefined && object.revisionHeight !== null ? Long.fromValue(object.revisionHeight) : Long.UZERO;
     return message;
   }
 
@@ -1068,35 +1288,35 @@ export const QueryChannelConsensusStateRequest = {
 
 function createBaseQueryChannelConsensusStateResponse(): QueryChannelConsensusStateResponse {
   return {
-    consensus_state: undefined,
-    client_id: "",
+    consensusState: undefined,
+    clientId: "",
     proof: new Uint8Array(),
-    proof_height: undefined
+    proofHeight: undefined
   };
 }
 
 export const QueryChannelConsensusStateResponse = {
   encode(message: QueryChannelConsensusStateResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.consensus_state !== undefined) {
-      Any.encode(message.consensus_state, writer.uint32(10).fork()).ldelim();
+    if (message.consensusState !== undefined) {
+      Any.encode(message.consensusState, writer.uint32(10).fork()).ldelim();
     }
 
-    if (message.client_id !== "") {
-      writer.uint32(18).string(message.client_id);
+    if (message.clientId !== "") {
+      writer.uint32(18).string(message.clientId);
     }
 
     if (message.proof.length !== 0) {
       writer.uint32(26).bytes(message.proof);
     }
 
-    if (message.proof_height !== undefined) {
-      Height.encode(message.proof_height, writer.uint32(34).fork()).ldelim();
+    if (message.proofHeight !== undefined) {
+      Height.encode(message.proofHeight, writer.uint32(34).fork()).ldelim();
     }
 
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): QueryChannelConsensusStateResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryChannelConsensusStateResponseSDKType {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryChannelConsensusStateResponse();
@@ -1106,11 +1326,11 @@ export const QueryChannelConsensusStateResponse = {
 
       switch (tag >>> 3) {
         case 1:
-          message.consensus_state = Any.decode(reader, reader.uint32());
+          message.consensusState = Any.decode(reader, reader.uint32());
           break;
 
         case 2:
-          message.client_id = reader.string();
+          message.clientId = reader.string();
           break;
 
         case 3:
@@ -1118,7 +1338,7 @@ export const QueryChannelConsensusStateResponse = {
           break;
 
         case 4:
-          message.proof_height = Height.decode(reader, reader.uint32());
+          message.proofHeight = Height.decode(reader, reader.uint32());
           break;
 
         default:
@@ -1130,30 +1350,12 @@ export const QueryChannelConsensusStateResponse = {
     return message;
   },
 
-  fromJSON(object: any): QueryChannelConsensusStateResponse {
-    return {
-      consensus_state: isSet(object.consensus_state) ? Any.fromJSON(object.consensus_state) : undefined,
-      client_id: isSet(object.client_id) ? String(object.client_id) : "",
-      proof: isSet(object.proof) ? bytesFromBase64(object.proof) : new Uint8Array(),
-      proof_height: isSet(object.proof_height) ? Height.fromJSON(object.proof_height) : undefined
-    };
-  },
-
-  toJSON(message: QueryChannelConsensusStateResponse): unknown {
-    const obj: any = {};
-    message.consensus_state !== undefined && (obj.consensus_state = message.consensus_state ? Any.toJSON(message.consensus_state) : undefined);
-    message.client_id !== undefined && (obj.client_id = message.client_id);
-    message.proof !== undefined && (obj.proof = base64FromBytes(message.proof !== undefined ? message.proof : new Uint8Array()));
-    message.proof_height !== undefined && (obj.proof_height = message.proof_height ? Height.toJSON(message.proof_height) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryChannelConsensusStateResponse>): QueryChannelConsensusStateResponse {
     const message = createBaseQueryChannelConsensusStateResponse();
-    message.consensus_state = object.consensus_state !== undefined && object.consensus_state !== null ? Any.fromPartial(object.consensus_state) : undefined;
-    message.client_id = object.client_id ?? "";
+    message.consensusState = object.consensusState !== undefined && object.consensusState !== null ? Any.fromPartial(object.consensusState) : undefined;
+    message.clientId = object.clientId ?? "";
     message.proof = object.proof ?? new Uint8Array();
-    message.proof_height = object.proof_height !== undefined && object.proof_height !== null ? Height.fromPartial(object.proof_height) : undefined;
+    message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? Height.fromPartial(object.proofHeight) : undefined;
     return message;
   }
 
@@ -1161,20 +1363,20 @@ export const QueryChannelConsensusStateResponse = {
 
 function createBaseQueryPacketCommitmentRequest(): QueryPacketCommitmentRequest {
   return {
-    port_id: "",
-    channel_id: "",
+    portId: "",
+    channelId: "",
     sequence: Long.UZERO
   };
 }
 
 export const QueryPacketCommitmentRequest = {
   encode(message: QueryPacketCommitmentRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.port_id !== "") {
-      writer.uint32(10).string(message.port_id);
+    if (message.portId !== "") {
+      writer.uint32(10).string(message.portId);
     }
 
-    if (message.channel_id !== "") {
-      writer.uint32(18).string(message.channel_id);
+    if (message.channelId !== "") {
+      writer.uint32(18).string(message.channelId);
     }
 
     if (!message.sequence.isZero()) {
@@ -1194,11 +1396,11 @@ export const QueryPacketCommitmentRequest = {
 
       switch (tag >>> 3) {
         case 1:
-          message.port_id = reader.string();
+          message.portId = reader.string();
           break;
 
         case 2:
-          message.channel_id = reader.string();
+          message.channelId = reader.string();
           break;
 
         case 3:
@@ -1214,26 +1416,10 @@ export const QueryPacketCommitmentRequest = {
     return message;
   },
 
-  fromJSON(object: any): QueryPacketCommitmentRequest {
-    return {
-      port_id: isSet(object.port_id) ? String(object.port_id) : "",
-      channel_id: isSet(object.channel_id) ? String(object.channel_id) : "",
-      sequence: isSet(object.sequence) ? Long.fromString(object.sequence) : Long.UZERO
-    };
-  },
-
-  toJSON(message: QueryPacketCommitmentRequest): unknown {
-    const obj: any = {};
-    message.port_id !== undefined && (obj.port_id = message.port_id);
-    message.channel_id !== undefined && (obj.channel_id = message.channel_id);
-    message.sequence !== undefined && (obj.sequence = (message.sequence || Long.UZERO).toString());
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryPacketCommitmentRequest>): QueryPacketCommitmentRequest {
     const message = createBaseQueryPacketCommitmentRequest();
-    message.port_id = object.port_id ?? "";
-    message.channel_id = object.channel_id ?? "";
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     message.sequence = object.sequence !== undefined && object.sequence !== null ? Long.fromValue(object.sequence) : Long.UZERO;
     return message;
   }
@@ -1244,7 +1430,7 @@ function createBaseQueryPacketCommitmentResponse(): QueryPacketCommitmentRespons
   return {
     commitment: new Uint8Array(),
     proof: new Uint8Array(),
-    proof_height: undefined
+    proofHeight: undefined
   };
 }
 
@@ -1258,14 +1444,14 @@ export const QueryPacketCommitmentResponse = {
       writer.uint32(18).bytes(message.proof);
     }
 
-    if (message.proof_height !== undefined) {
-      Height.encode(message.proof_height, writer.uint32(26).fork()).ldelim();
+    if (message.proofHeight !== undefined) {
+      Height.encode(message.proofHeight, writer.uint32(26).fork()).ldelim();
     }
 
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketCommitmentResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketCommitmentResponseSDKType {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryPacketCommitmentResponse();
@@ -1283,7 +1469,7 @@ export const QueryPacketCommitmentResponse = {
           break;
 
         case 3:
-          message.proof_height = Height.decode(reader, reader.uint32());
+          message.proofHeight = Height.decode(reader, reader.uint32());
           break;
 
         default:
@@ -1295,27 +1481,11 @@ export const QueryPacketCommitmentResponse = {
     return message;
   },
 
-  fromJSON(object: any): QueryPacketCommitmentResponse {
-    return {
-      commitment: isSet(object.commitment) ? bytesFromBase64(object.commitment) : new Uint8Array(),
-      proof: isSet(object.proof) ? bytesFromBase64(object.proof) : new Uint8Array(),
-      proof_height: isSet(object.proof_height) ? Height.fromJSON(object.proof_height) : undefined
-    };
-  },
-
-  toJSON(message: QueryPacketCommitmentResponse): unknown {
-    const obj: any = {};
-    message.commitment !== undefined && (obj.commitment = base64FromBytes(message.commitment !== undefined ? message.commitment : new Uint8Array()));
-    message.proof !== undefined && (obj.proof = base64FromBytes(message.proof !== undefined ? message.proof : new Uint8Array()));
-    message.proof_height !== undefined && (obj.proof_height = message.proof_height ? Height.toJSON(message.proof_height) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryPacketCommitmentResponse>): QueryPacketCommitmentResponse {
     const message = createBaseQueryPacketCommitmentResponse();
     message.commitment = object.commitment ?? new Uint8Array();
     message.proof = object.proof ?? new Uint8Array();
-    message.proof_height = object.proof_height !== undefined && object.proof_height !== null ? Height.fromPartial(object.proof_height) : undefined;
+    message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? Height.fromPartial(object.proofHeight) : undefined;
     return message;
   }
 
@@ -1323,20 +1493,20 @@ export const QueryPacketCommitmentResponse = {
 
 function createBaseQueryPacketCommitmentsRequest(): QueryPacketCommitmentsRequest {
   return {
-    port_id: "",
-    channel_id: "",
+    portId: "",
+    channelId: "",
     pagination: undefined
   };
 }
 
 export const QueryPacketCommitmentsRequest = {
   encode(message: QueryPacketCommitmentsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.port_id !== "") {
-      writer.uint32(10).string(message.port_id);
+    if (message.portId !== "") {
+      writer.uint32(10).string(message.portId);
     }
 
-    if (message.channel_id !== "") {
-      writer.uint32(18).string(message.channel_id);
+    if (message.channelId !== "") {
+      writer.uint32(18).string(message.channelId);
     }
 
     if (message.pagination !== undefined) {
@@ -1356,11 +1526,11 @@ export const QueryPacketCommitmentsRequest = {
 
       switch (tag >>> 3) {
         case 1:
-          message.port_id = reader.string();
+          message.portId = reader.string();
           break;
 
         case 2:
-          message.channel_id = reader.string();
+          message.channelId = reader.string();
           break;
 
         case 3:
@@ -1376,26 +1546,10 @@ export const QueryPacketCommitmentsRequest = {
     return message;
   },
 
-  fromJSON(object: any): QueryPacketCommitmentsRequest {
-    return {
-      port_id: isSet(object.port_id) ? String(object.port_id) : "",
-      channel_id: isSet(object.channel_id) ? String(object.channel_id) : "",
-      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined
-    };
-  },
-
-  toJSON(message: QueryPacketCommitmentsRequest): unknown {
-    const obj: any = {};
-    message.port_id !== undefined && (obj.port_id = message.port_id);
-    message.channel_id !== undefined && (obj.channel_id = message.channel_id);
-    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryPacketCommitmentsRequest>): QueryPacketCommitmentsRequest {
     const message = createBaseQueryPacketCommitmentsRequest();
-    message.port_id = object.port_id ?? "";
-    message.channel_id = object.channel_id ?? "";
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
     return message;
   }
@@ -1427,7 +1581,7 @@ export const QueryPacketCommitmentsResponse = {
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketCommitmentsResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketCommitmentsResponseSDKType {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryPacketCommitmentsResponse();
@@ -1457,28 +1611,6 @@ export const QueryPacketCommitmentsResponse = {
     return message;
   },
 
-  fromJSON(object: any): QueryPacketCommitmentsResponse {
-    return {
-      commitments: Array.isArray(object?.commitments) ? object.commitments.map((e: any) => PacketState.fromJSON(e)) : [],
-      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
-      height: isSet(object.height) ? Height.fromJSON(object.height) : undefined
-    };
-  },
-
-  toJSON(message: QueryPacketCommitmentsResponse): unknown {
-    const obj: any = {};
-
-    if (message.commitments) {
-      obj.commitments = message.commitments.map(e => e ? PacketState.toJSON(e) : undefined);
-    } else {
-      obj.commitments = [];
-    }
-
-    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
-    message.height !== undefined && (obj.height = message.height ? Height.toJSON(message.height) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryPacketCommitmentsResponse>): QueryPacketCommitmentsResponse {
     const message = createBaseQueryPacketCommitmentsResponse();
     message.commitments = object.commitments?.map(e => PacketState.fromPartial(e)) || [];
@@ -1491,20 +1623,20 @@ export const QueryPacketCommitmentsResponse = {
 
 function createBaseQueryPacketReceiptRequest(): QueryPacketReceiptRequest {
   return {
-    port_id: "",
-    channel_id: "",
+    portId: "",
+    channelId: "",
     sequence: Long.UZERO
   };
 }
 
 export const QueryPacketReceiptRequest = {
   encode(message: QueryPacketReceiptRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.port_id !== "") {
-      writer.uint32(10).string(message.port_id);
+    if (message.portId !== "") {
+      writer.uint32(10).string(message.portId);
     }
 
-    if (message.channel_id !== "") {
-      writer.uint32(18).string(message.channel_id);
+    if (message.channelId !== "") {
+      writer.uint32(18).string(message.channelId);
     }
 
     if (!message.sequence.isZero()) {
@@ -1524,11 +1656,11 @@ export const QueryPacketReceiptRequest = {
 
       switch (tag >>> 3) {
         case 1:
-          message.port_id = reader.string();
+          message.portId = reader.string();
           break;
 
         case 2:
-          message.channel_id = reader.string();
+          message.channelId = reader.string();
           break;
 
         case 3:
@@ -1544,26 +1676,10 @@ export const QueryPacketReceiptRequest = {
     return message;
   },
 
-  fromJSON(object: any): QueryPacketReceiptRequest {
-    return {
-      port_id: isSet(object.port_id) ? String(object.port_id) : "",
-      channel_id: isSet(object.channel_id) ? String(object.channel_id) : "",
-      sequence: isSet(object.sequence) ? Long.fromString(object.sequence) : Long.UZERO
-    };
-  },
-
-  toJSON(message: QueryPacketReceiptRequest): unknown {
-    const obj: any = {};
-    message.port_id !== undefined && (obj.port_id = message.port_id);
-    message.channel_id !== undefined && (obj.channel_id = message.channel_id);
-    message.sequence !== undefined && (obj.sequence = (message.sequence || Long.UZERO).toString());
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryPacketReceiptRequest>): QueryPacketReceiptRequest {
     const message = createBaseQueryPacketReceiptRequest();
-    message.port_id = object.port_id ?? "";
-    message.channel_id = object.channel_id ?? "";
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     message.sequence = object.sequence !== undefined && object.sequence !== null ? Long.fromValue(object.sequence) : Long.UZERO;
     return message;
   }
@@ -1574,7 +1690,7 @@ function createBaseQueryPacketReceiptResponse(): QueryPacketReceiptResponse {
   return {
     received: false,
     proof: new Uint8Array(),
-    proof_height: undefined
+    proofHeight: undefined
   };
 }
 
@@ -1588,14 +1704,14 @@ export const QueryPacketReceiptResponse = {
       writer.uint32(26).bytes(message.proof);
     }
 
-    if (message.proof_height !== undefined) {
-      Height.encode(message.proof_height, writer.uint32(34).fork()).ldelim();
+    if (message.proofHeight !== undefined) {
+      Height.encode(message.proofHeight, writer.uint32(34).fork()).ldelim();
     }
 
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketReceiptResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketReceiptResponseSDKType {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryPacketReceiptResponse();
@@ -1613,7 +1729,7 @@ export const QueryPacketReceiptResponse = {
           break;
 
         case 4:
-          message.proof_height = Height.decode(reader, reader.uint32());
+          message.proofHeight = Height.decode(reader, reader.uint32());
           break;
 
         default:
@@ -1625,27 +1741,11 @@ export const QueryPacketReceiptResponse = {
     return message;
   },
 
-  fromJSON(object: any): QueryPacketReceiptResponse {
-    return {
-      received: isSet(object.received) ? Boolean(object.received) : false,
-      proof: isSet(object.proof) ? bytesFromBase64(object.proof) : new Uint8Array(),
-      proof_height: isSet(object.proof_height) ? Height.fromJSON(object.proof_height) : undefined
-    };
-  },
-
-  toJSON(message: QueryPacketReceiptResponse): unknown {
-    const obj: any = {};
-    message.received !== undefined && (obj.received = message.received);
-    message.proof !== undefined && (obj.proof = base64FromBytes(message.proof !== undefined ? message.proof : new Uint8Array()));
-    message.proof_height !== undefined && (obj.proof_height = message.proof_height ? Height.toJSON(message.proof_height) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryPacketReceiptResponse>): QueryPacketReceiptResponse {
     const message = createBaseQueryPacketReceiptResponse();
     message.received = object.received ?? false;
     message.proof = object.proof ?? new Uint8Array();
-    message.proof_height = object.proof_height !== undefined && object.proof_height !== null ? Height.fromPartial(object.proof_height) : undefined;
+    message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? Height.fromPartial(object.proofHeight) : undefined;
     return message;
   }
 
@@ -1653,20 +1753,20 @@ export const QueryPacketReceiptResponse = {
 
 function createBaseQueryPacketAcknowledgementRequest(): QueryPacketAcknowledgementRequest {
   return {
-    port_id: "",
-    channel_id: "",
+    portId: "",
+    channelId: "",
     sequence: Long.UZERO
   };
 }
 
 export const QueryPacketAcknowledgementRequest = {
   encode(message: QueryPacketAcknowledgementRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.port_id !== "") {
-      writer.uint32(10).string(message.port_id);
+    if (message.portId !== "") {
+      writer.uint32(10).string(message.portId);
     }
 
-    if (message.channel_id !== "") {
-      writer.uint32(18).string(message.channel_id);
+    if (message.channelId !== "") {
+      writer.uint32(18).string(message.channelId);
     }
 
     if (!message.sequence.isZero()) {
@@ -1686,11 +1786,11 @@ export const QueryPacketAcknowledgementRequest = {
 
       switch (tag >>> 3) {
         case 1:
-          message.port_id = reader.string();
+          message.portId = reader.string();
           break;
 
         case 2:
-          message.channel_id = reader.string();
+          message.channelId = reader.string();
           break;
 
         case 3:
@@ -1706,26 +1806,10 @@ export const QueryPacketAcknowledgementRequest = {
     return message;
   },
 
-  fromJSON(object: any): QueryPacketAcknowledgementRequest {
-    return {
-      port_id: isSet(object.port_id) ? String(object.port_id) : "",
-      channel_id: isSet(object.channel_id) ? String(object.channel_id) : "",
-      sequence: isSet(object.sequence) ? Long.fromString(object.sequence) : Long.UZERO
-    };
-  },
-
-  toJSON(message: QueryPacketAcknowledgementRequest): unknown {
-    const obj: any = {};
-    message.port_id !== undefined && (obj.port_id = message.port_id);
-    message.channel_id !== undefined && (obj.channel_id = message.channel_id);
-    message.sequence !== undefined && (obj.sequence = (message.sequence || Long.UZERO).toString());
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryPacketAcknowledgementRequest>): QueryPacketAcknowledgementRequest {
     const message = createBaseQueryPacketAcknowledgementRequest();
-    message.port_id = object.port_id ?? "";
-    message.channel_id = object.channel_id ?? "";
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     message.sequence = object.sequence !== undefined && object.sequence !== null ? Long.fromValue(object.sequence) : Long.UZERO;
     return message;
   }
@@ -1736,7 +1820,7 @@ function createBaseQueryPacketAcknowledgementResponse(): QueryPacketAcknowledgem
   return {
     acknowledgement: new Uint8Array(),
     proof: new Uint8Array(),
-    proof_height: undefined
+    proofHeight: undefined
   };
 }
 
@@ -1750,14 +1834,14 @@ export const QueryPacketAcknowledgementResponse = {
       writer.uint32(18).bytes(message.proof);
     }
 
-    if (message.proof_height !== undefined) {
-      Height.encode(message.proof_height, writer.uint32(26).fork()).ldelim();
+    if (message.proofHeight !== undefined) {
+      Height.encode(message.proofHeight, writer.uint32(26).fork()).ldelim();
     }
 
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketAcknowledgementResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketAcknowledgementResponseSDKType {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryPacketAcknowledgementResponse();
@@ -1775,7 +1859,7 @@ export const QueryPacketAcknowledgementResponse = {
           break;
 
         case 3:
-          message.proof_height = Height.decode(reader, reader.uint32());
+          message.proofHeight = Height.decode(reader, reader.uint32());
           break;
 
         default:
@@ -1787,27 +1871,11 @@ export const QueryPacketAcknowledgementResponse = {
     return message;
   },
 
-  fromJSON(object: any): QueryPacketAcknowledgementResponse {
-    return {
-      acknowledgement: isSet(object.acknowledgement) ? bytesFromBase64(object.acknowledgement) : new Uint8Array(),
-      proof: isSet(object.proof) ? bytesFromBase64(object.proof) : new Uint8Array(),
-      proof_height: isSet(object.proof_height) ? Height.fromJSON(object.proof_height) : undefined
-    };
-  },
-
-  toJSON(message: QueryPacketAcknowledgementResponse): unknown {
-    const obj: any = {};
-    message.acknowledgement !== undefined && (obj.acknowledgement = base64FromBytes(message.acknowledgement !== undefined ? message.acknowledgement : new Uint8Array()));
-    message.proof !== undefined && (obj.proof = base64FromBytes(message.proof !== undefined ? message.proof : new Uint8Array()));
-    message.proof_height !== undefined && (obj.proof_height = message.proof_height ? Height.toJSON(message.proof_height) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryPacketAcknowledgementResponse>): QueryPacketAcknowledgementResponse {
     const message = createBaseQueryPacketAcknowledgementResponse();
     message.acknowledgement = object.acknowledgement ?? new Uint8Array();
     message.proof = object.proof ?? new Uint8Array();
-    message.proof_height = object.proof_height !== undefined && object.proof_height !== null ? Height.fromPartial(object.proof_height) : undefined;
+    message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? Height.fromPartial(object.proofHeight) : undefined;
     return message;
   }
 
@@ -1815,21 +1883,21 @@ export const QueryPacketAcknowledgementResponse = {
 
 function createBaseQueryPacketAcknowledgementsRequest(): QueryPacketAcknowledgementsRequest {
   return {
-    port_id: "",
-    channel_id: "",
+    portId: "",
+    channelId: "",
     pagination: undefined,
-    packet_commitment_sequences: []
+    packetCommitmentSequences: []
   };
 }
 
 export const QueryPacketAcknowledgementsRequest = {
   encode(message: QueryPacketAcknowledgementsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.port_id !== "") {
-      writer.uint32(10).string(message.port_id);
+    if (message.portId !== "") {
+      writer.uint32(10).string(message.portId);
     }
 
-    if (message.channel_id !== "") {
-      writer.uint32(18).string(message.channel_id);
+    if (message.channelId !== "") {
+      writer.uint32(18).string(message.channelId);
     }
 
     if (message.pagination !== undefined) {
@@ -1838,7 +1906,7 @@ export const QueryPacketAcknowledgementsRequest = {
 
     writer.uint32(34).fork();
 
-    for (const v of message.packet_commitment_sequences) {
+    for (const v of message.packetCommitmentSequences) {
       writer.uint64(v);
     }
 
@@ -1856,11 +1924,11 @@ export const QueryPacketAcknowledgementsRequest = {
 
       switch (tag >>> 3) {
         case 1:
-          message.port_id = reader.string();
+          message.portId = reader.string();
           break;
 
         case 2:
-          message.channel_id = reader.string();
+          message.channelId = reader.string();
           break;
 
         case 3:
@@ -1872,10 +1940,10 @@ export const QueryPacketAcknowledgementsRequest = {
             const end2 = reader.uint32() + reader.pos;
 
             while (reader.pos < end2) {
-              message.packet_commitment_sequences.push((reader.uint64() as Long));
+              message.packetCommitmentSequences.push((reader.uint64() as Long));
             }
           } else {
-            message.packet_commitment_sequences.push((reader.uint64() as Long));
+            message.packetCommitmentSequences.push((reader.uint64() as Long));
           }
 
           break;
@@ -1889,36 +1957,12 @@ export const QueryPacketAcknowledgementsRequest = {
     return message;
   },
 
-  fromJSON(object: any): QueryPacketAcknowledgementsRequest {
-    return {
-      port_id: isSet(object.port_id) ? String(object.port_id) : "",
-      channel_id: isSet(object.channel_id) ? String(object.channel_id) : "",
-      pagination: isSet(object.pagination) ? PageRequest.fromJSON(object.pagination) : undefined,
-      packet_commitment_sequences: Array.isArray(object?.packet_commitment_sequences) ? object.packet_commitment_sequences.map((e: any) => Long.fromString(e)) : []
-    };
-  },
-
-  toJSON(message: QueryPacketAcknowledgementsRequest): unknown {
-    const obj: any = {};
-    message.port_id !== undefined && (obj.port_id = message.port_id);
-    message.channel_id !== undefined && (obj.channel_id = message.channel_id);
-    message.pagination !== undefined && (obj.pagination = message.pagination ? PageRequest.toJSON(message.pagination) : undefined);
-
-    if (message.packet_commitment_sequences) {
-      obj.packet_commitment_sequences = message.packet_commitment_sequences.map(e => (e || Long.UZERO).toString());
-    } else {
-      obj.packet_commitment_sequences = [];
-    }
-
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryPacketAcknowledgementsRequest>): QueryPacketAcknowledgementsRequest {
     const message = createBaseQueryPacketAcknowledgementsRequest();
-    message.port_id = object.port_id ?? "";
-    message.channel_id = object.channel_id ?? "";
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     message.pagination = object.pagination !== undefined && object.pagination !== null ? PageRequest.fromPartial(object.pagination) : undefined;
-    message.packet_commitment_sequences = object.packet_commitment_sequences?.map(e => Long.fromValue(e)) || [];
+    message.packetCommitmentSequences = object.packetCommitmentSequences?.map(e => Long.fromValue(e)) || [];
     return message;
   }
 
@@ -1949,7 +1993,7 @@ export const QueryPacketAcknowledgementsResponse = {
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketAcknowledgementsResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryPacketAcknowledgementsResponseSDKType {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryPacketAcknowledgementsResponse();
@@ -1979,28 +2023,6 @@ export const QueryPacketAcknowledgementsResponse = {
     return message;
   },
 
-  fromJSON(object: any): QueryPacketAcknowledgementsResponse {
-    return {
-      acknowledgements: Array.isArray(object?.acknowledgements) ? object.acknowledgements.map((e: any) => PacketState.fromJSON(e)) : [],
-      pagination: isSet(object.pagination) ? PageResponse.fromJSON(object.pagination) : undefined,
-      height: isSet(object.height) ? Height.fromJSON(object.height) : undefined
-    };
-  },
-
-  toJSON(message: QueryPacketAcknowledgementsResponse): unknown {
-    const obj: any = {};
-
-    if (message.acknowledgements) {
-      obj.acknowledgements = message.acknowledgements.map(e => e ? PacketState.toJSON(e) : undefined);
-    } else {
-      obj.acknowledgements = [];
-    }
-
-    message.pagination !== undefined && (obj.pagination = message.pagination ? PageResponse.toJSON(message.pagination) : undefined);
-    message.height !== undefined && (obj.height = message.height ? Height.toJSON(message.height) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryPacketAcknowledgementsResponse>): QueryPacketAcknowledgementsResponse {
     const message = createBaseQueryPacketAcknowledgementsResponse();
     message.acknowledgements = object.acknowledgements?.map(e => PacketState.fromPartial(e)) || [];
@@ -2013,25 +2035,25 @@ export const QueryPacketAcknowledgementsResponse = {
 
 function createBaseQueryUnreceivedPacketsRequest(): QueryUnreceivedPacketsRequest {
   return {
-    port_id: "",
-    channel_id: "",
-    packet_commitment_sequences: []
+    portId: "",
+    channelId: "",
+    packetCommitmentSequences: []
   };
 }
 
 export const QueryUnreceivedPacketsRequest = {
   encode(message: QueryUnreceivedPacketsRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.port_id !== "") {
-      writer.uint32(10).string(message.port_id);
+    if (message.portId !== "") {
+      writer.uint32(10).string(message.portId);
     }
 
-    if (message.channel_id !== "") {
-      writer.uint32(18).string(message.channel_id);
+    if (message.channelId !== "") {
+      writer.uint32(18).string(message.channelId);
     }
 
     writer.uint32(26).fork();
 
-    for (const v of message.packet_commitment_sequences) {
+    for (const v of message.packetCommitmentSequences) {
       writer.uint64(v);
     }
 
@@ -2049,11 +2071,11 @@ export const QueryUnreceivedPacketsRequest = {
 
       switch (tag >>> 3) {
         case 1:
-          message.port_id = reader.string();
+          message.portId = reader.string();
           break;
 
         case 2:
-          message.channel_id = reader.string();
+          message.channelId = reader.string();
           break;
 
         case 3:
@@ -2061,10 +2083,10 @@ export const QueryUnreceivedPacketsRequest = {
             const end2 = reader.uint32() + reader.pos;
 
             while (reader.pos < end2) {
-              message.packet_commitment_sequences.push((reader.uint64() as Long));
+              message.packetCommitmentSequences.push((reader.uint64() as Long));
             }
           } else {
-            message.packet_commitment_sequences.push((reader.uint64() as Long));
+            message.packetCommitmentSequences.push((reader.uint64() as Long));
           }
 
           break;
@@ -2078,33 +2100,11 @@ export const QueryUnreceivedPacketsRequest = {
     return message;
   },
 
-  fromJSON(object: any): QueryUnreceivedPacketsRequest {
-    return {
-      port_id: isSet(object.port_id) ? String(object.port_id) : "",
-      channel_id: isSet(object.channel_id) ? String(object.channel_id) : "",
-      packet_commitment_sequences: Array.isArray(object?.packet_commitment_sequences) ? object.packet_commitment_sequences.map((e: any) => Long.fromString(e)) : []
-    };
-  },
-
-  toJSON(message: QueryUnreceivedPacketsRequest): unknown {
-    const obj: any = {};
-    message.port_id !== undefined && (obj.port_id = message.port_id);
-    message.channel_id !== undefined && (obj.channel_id = message.channel_id);
-
-    if (message.packet_commitment_sequences) {
-      obj.packet_commitment_sequences = message.packet_commitment_sequences.map(e => (e || Long.UZERO).toString());
-    } else {
-      obj.packet_commitment_sequences = [];
-    }
-
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryUnreceivedPacketsRequest>): QueryUnreceivedPacketsRequest {
     const message = createBaseQueryUnreceivedPacketsRequest();
-    message.port_id = object.port_id ?? "";
-    message.channel_id = object.channel_id ?? "";
-    message.packet_commitment_sequences = object.packet_commitment_sequences?.map(e => Long.fromValue(e)) || [];
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
+    message.packetCommitmentSequences = object.packetCommitmentSequences?.map(e => Long.fromValue(e)) || [];
     return message;
   }
 
@@ -2134,7 +2134,7 @@ export const QueryUnreceivedPacketsResponse = {
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): QueryUnreceivedPacketsResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryUnreceivedPacketsResponseSDKType {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryUnreceivedPacketsResponse();
@@ -2169,26 +2169,6 @@ export const QueryUnreceivedPacketsResponse = {
     return message;
   },
 
-  fromJSON(object: any): QueryUnreceivedPacketsResponse {
-    return {
-      sequences: Array.isArray(object?.sequences) ? object.sequences.map((e: any) => Long.fromString(e)) : [],
-      height: isSet(object.height) ? Height.fromJSON(object.height) : undefined
-    };
-  },
-
-  toJSON(message: QueryUnreceivedPacketsResponse): unknown {
-    const obj: any = {};
-
-    if (message.sequences) {
-      obj.sequences = message.sequences.map(e => (e || Long.UZERO).toString());
-    } else {
-      obj.sequences = [];
-    }
-
-    message.height !== undefined && (obj.height = message.height ? Height.toJSON(message.height) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryUnreceivedPacketsResponse>): QueryUnreceivedPacketsResponse {
     const message = createBaseQueryUnreceivedPacketsResponse();
     message.sequences = object.sequences?.map(e => Long.fromValue(e)) || [];
@@ -2200,25 +2180,25 @@ export const QueryUnreceivedPacketsResponse = {
 
 function createBaseQueryUnreceivedAcksRequest(): QueryUnreceivedAcksRequest {
   return {
-    port_id: "",
-    channel_id: "",
-    packet_ack_sequences: []
+    portId: "",
+    channelId: "",
+    packetAckSequences: []
   };
 }
 
 export const QueryUnreceivedAcksRequest = {
   encode(message: QueryUnreceivedAcksRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.port_id !== "") {
-      writer.uint32(10).string(message.port_id);
+    if (message.portId !== "") {
+      writer.uint32(10).string(message.portId);
     }
 
-    if (message.channel_id !== "") {
-      writer.uint32(18).string(message.channel_id);
+    if (message.channelId !== "") {
+      writer.uint32(18).string(message.channelId);
     }
 
     writer.uint32(26).fork();
 
-    for (const v of message.packet_ack_sequences) {
+    for (const v of message.packetAckSequences) {
       writer.uint64(v);
     }
 
@@ -2236,11 +2216,11 @@ export const QueryUnreceivedAcksRequest = {
 
       switch (tag >>> 3) {
         case 1:
-          message.port_id = reader.string();
+          message.portId = reader.string();
           break;
 
         case 2:
-          message.channel_id = reader.string();
+          message.channelId = reader.string();
           break;
 
         case 3:
@@ -2248,10 +2228,10 @@ export const QueryUnreceivedAcksRequest = {
             const end2 = reader.uint32() + reader.pos;
 
             while (reader.pos < end2) {
-              message.packet_ack_sequences.push((reader.uint64() as Long));
+              message.packetAckSequences.push((reader.uint64() as Long));
             }
           } else {
-            message.packet_ack_sequences.push((reader.uint64() as Long));
+            message.packetAckSequences.push((reader.uint64() as Long));
           }
 
           break;
@@ -2265,33 +2245,11 @@ export const QueryUnreceivedAcksRequest = {
     return message;
   },
 
-  fromJSON(object: any): QueryUnreceivedAcksRequest {
-    return {
-      port_id: isSet(object.port_id) ? String(object.port_id) : "",
-      channel_id: isSet(object.channel_id) ? String(object.channel_id) : "",
-      packet_ack_sequences: Array.isArray(object?.packet_ack_sequences) ? object.packet_ack_sequences.map((e: any) => Long.fromString(e)) : []
-    };
-  },
-
-  toJSON(message: QueryUnreceivedAcksRequest): unknown {
-    const obj: any = {};
-    message.port_id !== undefined && (obj.port_id = message.port_id);
-    message.channel_id !== undefined && (obj.channel_id = message.channel_id);
-
-    if (message.packet_ack_sequences) {
-      obj.packet_ack_sequences = message.packet_ack_sequences.map(e => (e || Long.UZERO).toString());
-    } else {
-      obj.packet_ack_sequences = [];
-    }
-
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryUnreceivedAcksRequest>): QueryUnreceivedAcksRequest {
     const message = createBaseQueryUnreceivedAcksRequest();
-    message.port_id = object.port_id ?? "";
-    message.channel_id = object.channel_id ?? "";
-    message.packet_ack_sequences = object.packet_ack_sequences?.map(e => Long.fromValue(e)) || [];
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
+    message.packetAckSequences = object.packetAckSequences?.map(e => Long.fromValue(e)) || [];
     return message;
   }
 
@@ -2321,7 +2279,7 @@ export const QueryUnreceivedAcksResponse = {
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): QueryUnreceivedAcksResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryUnreceivedAcksResponseSDKType {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryUnreceivedAcksResponse();
@@ -2356,26 +2314,6 @@ export const QueryUnreceivedAcksResponse = {
     return message;
   },
 
-  fromJSON(object: any): QueryUnreceivedAcksResponse {
-    return {
-      sequences: Array.isArray(object?.sequences) ? object.sequences.map((e: any) => Long.fromString(e)) : [],
-      height: isSet(object.height) ? Height.fromJSON(object.height) : undefined
-    };
-  },
-
-  toJSON(message: QueryUnreceivedAcksResponse): unknown {
-    const obj: any = {};
-
-    if (message.sequences) {
-      obj.sequences = message.sequences.map(e => (e || Long.UZERO).toString());
-    } else {
-      obj.sequences = [];
-    }
-
-    message.height !== undefined && (obj.height = message.height ? Height.toJSON(message.height) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryUnreceivedAcksResponse>): QueryUnreceivedAcksResponse {
     const message = createBaseQueryUnreceivedAcksResponse();
     message.sequences = object.sequences?.map(e => Long.fromValue(e)) || [];
@@ -2387,19 +2325,19 @@ export const QueryUnreceivedAcksResponse = {
 
 function createBaseQueryNextSequenceReceiveRequest(): QueryNextSequenceReceiveRequest {
   return {
-    port_id: "",
-    channel_id: ""
+    portId: "",
+    channelId: ""
   };
 }
 
 export const QueryNextSequenceReceiveRequest = {
   encode(message: QueryNextSequenceReceiveRequest, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.port_id !== "") {
-      writer.uint32(10).string(message.port_id);
+    if (message.portId !== "") {
+      writer.uint32(10).string(message.portId);
     }
 
-    if (message.channel_id !== "") {
-      writer.uint32(18).string(message.channel_id);
+    if (message.channelId !== "") {
+      writer.uint32(18).string(message.channelId);
     }
 
     return writer;
@@ -2415,11 +2353,11 @@ export const QueryNextSequenceReceiveRequest = {
 
       switch (tag >>> 3) {
         case 1:
-          message.port_id = reader.string();
+          message.portId = reader.string();
           break;
 
         case 2:
-          message.channel_id = reader.string();
+          message.channelId = reader.string();
           break;
 
         default:
@@ -2431,24 +2369,10 @@ export const QueryNextSequenceReceiveRequest = {
     return message;
   },
 
-  fromJSON(object: any): QueryNextSequenceReceiveRequest {
-    return {
-      port_id: isSet(object.port_id) ? String(object.port_id) : "",
-      channel_id: isSet(object.channel_id) ? String(object.channel_id) : ""
-    };
-  },
-
-  toJSON(message: QueryNextSequenceReceiveRequest): unknown {
-    const obj: any = {};
-    message.port_id !== undefined && (obj.port_id = message.port_id);
-    message.channel_id !== undefined && (obj.channel_id = message.channel_id);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryNextSequenceReceiveRequest>): QueryNextSequenceReceiveRequest {
     const message = createBaseQueryNextSequenceReceiveRequest();
-    message.port_id = object.port_id ?? "";
-    message.channel_id = object.channel_id ?? "";
+    message.portId = object.portId ?? "";
+    message.channelId = object.channelId ?? "";
     return message;
   }
 
@@ -2456,30 +2380,30 @@ export const QueryNextSequenceReceiveRequest = {
 
 function createBaseQueryNextSequenceReceiveResponse(): QueryNextSequenceReceiveResponse {
   return {
-    next_sequence_receive: Long.UZERO,
+    nextSequenceReceive: Long.UZERO,
     proof: new Uint8Array(),
-    proof_height: undefined
+    proofHeight: undefined
   };
 }
 
 export const QueryNextSequenceReceiveResponse = {
   encode(message: QueryNextSequenceReceiveResponse, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (!message.next_sequence_receive.isZero()) {
-      writer.uint32(8).uint64(message.next_sequence_receive);
+    if (!message.nextSequenceReceive.isZero()) {
+      writer.uint32(8).uint64(message.nextSequenceReceive);
     }
 
     if (message.proof.length !== 0) {
       writer.uint32(18).bytes(message.proof);
     }
 
-    if (message.proof_height !== undefined) {
-      Height.encode(message.proof_height, writer.uint32(26).fork()).ldelim();
+    if (message.proofHeight !== undefined) {
+      Height.encode(message.proofHeight, writer.uint32(26).fork()).ldelim();
     }
 
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): QueryNextSequenceReceiveResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): QueryNextSequenceReceiveResponseSDKType {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseQueryNextSequenceReceiveResponse();
@@ -2489,7 +2413,7 @@ export const QueryNextSequenceReceiveResponse = {
 
       switch (tag >>> 3) {
         case 1:
-          message.next_sequence_receive = (reader.uint64() as Long);
+          message.nextSequenceReceive = (reader.uint64() as Long);
           break;
 
         case 2:
@@ -2497,7 +2421,7 @@ export const QueryNextSequenceReceiveResponse = {
           break;
 
         case 3:
-          message.proof_height = Height.decode(reader, reader.uint32());
+          message.proofHeight = Height.decode(reader, reader.uint32());
           break;
 
         default:
@@ -2509,27 +2433,11 @@ export const QueryNextSequenceReceiveResponse = {
     return message;
   },
 
-  fromJSON(object: any): QueryNextSequenceReceiveResponse {
-    return {
-      next_sequence_receive: isSet(object.next_sequence_receive) ? Long.fromString(object.next_sequence_receive) : Long.UZERO,
-      proof: isSet(object.proof) ? bytesFromBase64(object.proof) : new Uint8Array(),
-      proof_height: isSet(object.proof_height) ? Height.fromJSON(object.proof_height) : undefined
-    };
-  },
-
-  toJSON(message: QueryNextSequenceReceiveResponse): unknown {
-    const obj: any = {};
-    message.next_sequence_receive !== undefined && (obj.next_sequence_receive = (message.next_sequence_receive || Long.UZERO).toString());
-    message.proof !== undefined && (obj.proof = base64FromBytes(message.proof !== undefined ? message.proof : new Uint8Array()));
-    message.proof_height !== undefined && (obj.proof_height = message.proof_height ? Height.toJSON(message.proof_height) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<QueryNextSequenceReceiveResponse>): QueryNextSequenceReceiveResponse {
     const message = createBaseQueryNextSequenceReceiveResponse();
-    message.next_sequence_receive = object.next_sequence_receive !== undefined && object.next_sequence_receive !== null ? Long.fromValue(object.next_sequence_receive) : Long.UZERO;
+    message.nextSequenceReceive = object.nextSequenceReceive !== undefined && object.nextSequenceReceive !== null ? Long.fromValue(object.nextSequenceReceive) : Long.UZERO;
     message.proof = object.proof ?? new Uint8Array();
-    message.proof_height = object.proof_height !== undefined && object.proof_height !== null ? Height.fromPartial(object.proof_height) : undefined;
+    message.proofHeight = object.proofHeight !== undefined && object.proofHeight !== null ? Height.fromPartial(object.proofHeight) : undefined;
     return message;
   }
 

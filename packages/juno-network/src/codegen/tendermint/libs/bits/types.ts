@@ -1,6 +1,10 @@
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet, DeepPartial } from "@osmonauts/helpers";
+import { Long, DeepPartial } from "@osmonauts/helpers";
 export interface BitArray {
+  bits: Long;
+  elems: Long[];
+}
+export interface BitArraySDKType {
   bits: Long;
   elems: Long[];
 }
@@ -61,26 +65,6 @@ export const BitArray = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): BitArray {
-    return {
-      bits: isSet(object.bits) ? Long.fromString(object.bits) : Long.ZERO,
-      elems: Array.isArray(object?.elems) ? object.elems.map((e: any) => Long.fromString(e)) : []
-    };
-  },
-
-  toJSON(message: BitArray): unknown {
-    const obj: any = {};
-    message.bits !== undefined && (obj.bits = (message.bits || Long.ZERO).toString());
-
-    if (message.elems) {
-      obj.elems = message.elems.map(e => (e || Long.UZERO).toString());
-    } else {
-      obj.elems = [];
-    }
-
-    return obj;
   },
 
   fromPartial(object: DeepPartial<BitArray>): BitArray {

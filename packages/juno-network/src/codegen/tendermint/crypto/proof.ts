@@ -1,6 +1,12 @@
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "@osmonauts/helpers";
+import { Long, DeepPartial } from "@osmonauts/helpers";
 export interface Proof {
+  total: Long;
+  index: Long;
+  leafHash: Uint8Array;
+  aunts: Uint8Array[];
+}
+export interface ProofSDKType {
   total: Long;
   index: Long;
   leaf_hash: Uint8Array;
@@ -9,37 +15,65 @@ export interface Proof {
 export interface ValueOp {
   /** Encoded in ProofOp.Key. */
   key: Uint8Array;
-
   /** To encode in ProofOp.Data */
+
   proof: Proof;
+}
+export interface ValueOpSDKType {
+  /** Encoded in ProofOp.Key. */
+  key: Uint8Array;
+  /** To encode in ProofOp.Data */
+
+  proof: ProofSDKType;
 }
 export interface DominoOp {
   key: string;
   input: string;
   output: string;
 }
-
+export interface DominoOpSDKType {
+  key: string;
+  input: string;
+  output: string;
+}
 /**
  * ProofOp defines an operation used for calculating Merkle root
  * The data could be arbitrary format, providing nessecary data
  * for example neighbouring node hash
  */
+
 export interface ProofOp {
   type: string;
   key: Uint8Array;
   data: Uint8Array;
 }
+/**
+ * ProofOp defines an operation used for calculating Merkle root
+ * The data could be arbitrary format, providing nessecary data
+ * for example neighbouring node hash
+ */
 
+export interface ProofOpSDKType {
+  type: string;
+  key: Uint8Array;
+  data: Uint8Array;
+}
 /** ProofOps is Merkle proof defined by the list of ProofOps */
+
 export interface ProofOps {
   ops: ProofOp[];
+}
+/** ProofOps is Merkle proof defined by the list of ProofOps */
+
+export interface ProofOpsSDKType {
+  ops: ProofOpSDKType[];
 }
 
 function createBaseProof(): Proof {
   return {
     total: Long.ZERO,
     index: Long.ZERO,
-    leaf_hash: new Uint8Array(),
+    leafHash: new Uint8Array(),
     aunts: []
   };
 }
@@ -54,8 +88,8 @@ export const Proof = {
       writer.uint32(16).int64(message.index);
     }
 
-    if (message.leaf_hash.length !== 0) {
-      writer.uint32(26).bytes(message.leaf_hash);
+    if (message.leafHash.length !== 0) {
+      writer.uint32(26).bytes(message.leafHash);
     }
 
     for (const v of message.aunts) {
@@ -83,7 +117,7 @@ export const Proof = {
           break;
 
         case 3:
-          message.leaf_hash = reader.bytes();
+          message.leafHash = reader.bytes();
           break;
 
         case 4:
@@ -99,35 +133,11 @@ export const Proof = {
     return message;
   },
 
-  fromJSON(object: any): Proof {
-    return {
-      total: isSet(object.total) ? Long.fromString(object.total) : Long.ZERO,
-      index: isSet(object.index) ? Long.fromString(object.index) : Long.ZERO,
-      leaf_hash: isSet(object.leaf_hash) ? bytesFromBase64(object.leaf_hash) : new Uint8Array(),
-      aunts: Array.isArray(object?.aunts) ? object.aunts.map((e: any) => bytesFromBase64(e)) : []
-    };
-  },
-
-  toJSON(message: Proof): unknown {
-    const obj: any = {};
-    message.total !== undefined && (obj.total = (message.total || Long.ZERO).toString());
-    message.index !== undefined && (obj.index = (message.index || Long.ZERO).toString());
-    message.leaf_hash !== undefined && (obj.leaf_hash = base64FromBytes(message.leaf_hash !== undefined ? message.leaf_hash : new Uint8Array()));
-
-    if (message.aunts) {
-      obj.aunts = message.aunts.map(e => base64FromBytes(e !== undefined ? e : new Uint8Array()));
-    } else {
-      obj.aunts = [];
-    }
-
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<Proof>): Proof {
     const message = createBaseProof();
     message.total = object.total !== undefined && object.total !== null ? Long.fromValue(object.total) : Long.ZERO;
     message.index = object.index !== undefined && object.index !== null ? Long.fromValue(object.index) : Long.ZERO;
-    message.leaf_hash = object.leaf_hash ?? new Uint8Array();
+    message.leafHash = object.leafHash ?? new Uint8Array();
     message.aunts = object.aunts?.map(e => e) || [];
     return message;
   }
@@ -178,20 +188,6 @@ export const ValueOp = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): ValueOp {
-    return {
-      key: isSet(object.key) ? bytesFromBase64(object.key) : new Uint8Array(),
-      proof: isSet(object.proof) ? Proof.fromJSON(object.proof) : undefined
-    };
-  },
-
-  toJSON(message: ValueOp): unknown {
-    const obj: any = {};
-    message.key !== undefined && (obj.key = base64FromBytes(message.key !== undefined ? message.key : new Uint8Array()));
-    message.proof !== undefined && (obj.proof = message.proof ? Proof.toJSON(message.proof) : undefined);
-    return obj;
   },
 
   fromPartial(object: DeepPartial<ValueOp>): ValueOp {
@@ -256,22 +252,6 @@ export const DominoOp = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): DominoOp {
-    return {
-      key: isSet(object.key) ? String(object.key) : "",
-      input: isSet(object.input) ? String(object.input) : "",
-      output: isSet(object.output) ? String(object.output) : ""
-    };
-  },
-
-  toJSON(message: DominoOp): unknown {
-    const obj: any = {};
-    message.key !== undefined && (obj.key = message.key);
-    message.input !== undefined && (obj.input = message.input);
-    message.output !== undefined && (obj.output = message.output);
-    return obj;
   },
 
   fromPartial(object: DeepPartial<DominoOp>): DominoOp {
@@ -339,22 +319,6 @@ export const ProofOp = {
     return message;
   },
 
-  fromJSON(object: any): ProofOp {
-    return {
-      type: isSet(object.type) ? String(object.type) : "",
-      key: isSet(object.key) ? bytesFromBase64(object.key) : new Uint8Array(),
-      data: isSet(object.data) ? bytesFromBase64(object.data) : new Uint8Array()
-    };
-  },
-
-  toJSON(message: ProofOp): unknown {
-    const obj: any = {};
-    message.type !== undefined && (obj.type = message.type);
-    message.key !== undefined && (obj.key = base64FromBytes(message.key !== undefined ? message.key : new Uint8Array()));
-    message.data !== undefined && (obj.data = base64FromBytes(message.data !== undefined ? message.data : new Uint8Array()));
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<ProofOp>): ProofOp {
     const message = createBaseProofOp();
     message.type = object.type ?? "";
@@ -400,24 +364,6 @@ export const ProofOps = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): ProofOps {
-    return {
-      ops: Array.isArray(object?.ops) ? object.ops.map((e: any) => ProofOp.fromJSON(e)) : []
-    };
-  },
-
-  toJSON(message: ProofOps): unknown {
-    const obj: any = {};
-
-    if (message.ops) {
-      obj.ops = message.ops.map(e => e ? ProofOp.toJSON(e) : undefined);
-    } else {
-      obj.ops = [];
-    }
-
-    return obj;
   },
 
   fromPartial(object: DeepPartial<ProofOps>): ProofOps {

@@ -4,6 +4,7 @@ const chain: Chain = {
   chain_name: 'juno',
   status: 'live',
   network_type: 'mainnet',
+  website: 'https://junochain.com/',
   pretty_name: 'Juno',
   chain_id: 'juno-1',
   bech32_prefix: 'juno',
@@ -163,6 +164,10 @@ const chain: Chain = {
       {
         address: 'https://api.juno.chaintools.tech/',
         provider: 'ChainTools'
+      },
+      {
+        address: 'https://juno-api.polkachu.com',
+        provider: 'Polkachu'
       }
     ],
     grpc: [
@@ -179,7 +184,7 @@ const chain: Chain = {
         provider: 'ChainTools'
       },
       {
-        address: 'juno-grpc.polkachu.com:9090',
+        address: 'juno-grpc.polkachu.com:12690',
         provider: 'Polkachu'
       }
     ]

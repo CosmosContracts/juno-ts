@@ -1,14 +1,23 @@
-import { Minter, Params } from "./mint";
+import { Minter, MinterSDKType, Params, ParamsSDKType } from "./mint";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
-
+import { DeepPartial } from "@osmonauts/helpers";
 /** GenesisState defines the mint module's genesis state. */
+
 export interface GenesisState {
   /** minter is a space for holding current inflation information. */
   minter: Minter;
-
   /** params defines all the paramaters of the module. */
+
   params: Params;
+}
+/** GenesisState defines the mint module's genesis state. */
+
+export interface GenesisStateSDKType {
+  /** minter is a space for holding current inflation information. */
+  minter: MinterSDKType;
+  /** params defines all the paramaters of the module. */
+
+  params: ParamsSDKType;
 }
 
 function createBaseGenesisState(): GenesisState {
@@ -55,20 +64,6 @@ export const GenesisState = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): GenesisState {
-    return {
-      minter: isSet(object.minter) ? Minter.fromJSON(object.minter) : undefined,
-      params: isSet(object.params) ? Params.fromJSON(object.params) : undefined
-    };
-  },
-
-  toJSON(message: GenesisState): unknown {
-    const obj: any = {};
-    message.minter !== undefined && (obj.minter = message.minter ? Minter.toJSON(message.minter) : undefined);
-    message.params !== undefined && (obj.params = message.params ? Params.toJSON(message.params) : undefined);
-    return obj;
   },
 
   fromPartial(object: DeepPartial<GenesisState>): GenesisState {

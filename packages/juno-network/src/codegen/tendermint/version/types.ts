@@ -1,22 +1,42 @@
 import * as _m0 from "protobufjs/minimal";
-import { Long, isSet, DeepPartial } from "@osmonauts/helpers";
-
+import { Long, DeepPartial } from "@osmonauts/helpers";
 /**
  * App includes the protocol and software version for the application.
  * This information is included in ResponseInfo. The App.Protocol can be
  * updated in ResponseEndBlock.
  */
+
 export interface App {
   protocol: Long;
   software: string;
 }
+/**
+ * App includes the protocol and software version for the application.
+ * This information is included in ResponseInfo. The App.Protocol can be
+ * updated in ResponseEndBlock.
+ */
 
+export interface AppSDKType {
+  protocol: Long;
+  software: string;
+}
 /**
  * Consensus captures the consensus rules for processing a block in the blockchain,
  * including all blockchain data structures and the rules of the application's
  * state transition machine.
  */
+
 export interface Consensus {
+  block: Long;
+  app: Long;
+}
+/**
+ * Consensus captures the consensus rules for processing a block in the blockchain,
+ * including all blockchain data structures and the rules of the application's
+ * state transition machine.
+ */
+
+export interface ConsensusSDKType {
   block: Long;
   app: Long;
 }
@@ -65,20 +85,6 @@ export const App = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): App {
-    return {
-      protocol: isSet(object.protocol) ? Long.fromString(object.protocol) : Long.UZERO,
-      software: isSet(object.software) ? String(object.software) : ""
-    };
-  },
-
-  toJSON(message: App): unknown {
-    const obj: any = {};
-    message.protocol !== undefined && (obj.protocol = (message.protocol || Long.UZERO).toString());
-    message.software !== undefined && (obj.software = message.software);
-    return obj;
   },
 
   fromPartial(object: DeepPartial<App>): App {
@@ -134,20 +140,6 @@ export const Consensus = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): Consensus {
-    return {
-      block: isSet(object.block) ? Long.fromString(object.block) : Long.UZERO,
-      app: isSet(object.app) ? Long.fromString(object.app) : Long.UZERO
-    };
-  },
-
-  toJSON(message: Consensus): unknown {
-    const obj: any = {};
-    message.block !== undefined && (obj.block = (message.block || Long.UZERO).toString());
-    message.app !== undefined && (obj.app = (message.app || Long.UZERO).toString());
-    return obj;
   },
 
   fromPartial(object: DeepPartial<Consensus>): Consensus {

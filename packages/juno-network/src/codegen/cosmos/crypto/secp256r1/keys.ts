@@ -1,7 +1,7 @@
 import * as _m0 from "protobufjs/minimal";
-import { isSet, bytesFromBase64, base64FromBytes, DeepPartial } from "@osmonauts/helpers";
-
+import { DeepPartial } from "@osmonauts/helpers";
 /** PubKey defines a secp256r1 ECDSA public key. */
+
 export interface PubKey {
   /**
    * Point on secp256r1 curve in a compressed representation as specified in section
@@ -9,9 +9,24 @@ export interface PubKey {
    */
   key: Uint8Array;
 }
+/** PubKey defines a secp256r1 ECDSA public key. */
 
+export interface PubKeySDKType {
+  /**
+   * Point on secp256r1 curve in a compressed representation as specified in section
+   * 4.3.6 of ANSI X9.62: https://webstore.ansi.org/standards/ascx9/ansix9621998
+   */
+  key: Uint8Array;
+}
 /** PrivKey defines a secp256r1 ECDSA private key. */
+
 export interface PrivKey {
+  /** secret number serialized using big-endian encoding */
+  secret: Uint8Array;
+}
+/** PrivKey defines a secp256r1 ECDSA private key. */
+
+export interface PrivKeySDKType {
   /** secret number serialized using big-endian encoding */
   secret: Uint8Array;
 }
@@ -51,18 +66,6 @@ export const PubKey = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): PubKey {
-    return {
-      key: isSet(object.key) ? bytesFromBase64(object.key) : new Uint8Array()
-    };
-  },
-
-  toJSON(message: PubKey): unknown {
-    const obj: any = {};
-    message.key !== undefined && (obj.key = base64FromBytes(message.key !== undefined ? message.key : new Uint8Array()));
-    return obj;
   },
 
   fromPartial(object: DeepPartial<PubKey>): PubKey {
@@ -108,18 +111,6 @@ export const PrivKey = {
     }
 
     return message;
-  },
-
-  fromJSON(object: any): PrivKey {
-    return {
-      secret: isSet(object.secret) ? bytesFromBase64(object.secret) : new Uint8Array()
-    };
-  },
-
-  toJSON(message: PrivKey): unknown {
-    const obj: any = {};
-    message.secret !== undefined && (obj.secret = base64FromBytes(message.secret !== undefined ? message.secret : new Uint8Array()));
-    return obj;
   },
 
   fromPartial(object: DeepPartial<PrivKey>): PrivKey {

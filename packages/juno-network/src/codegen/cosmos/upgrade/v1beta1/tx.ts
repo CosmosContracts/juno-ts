@@ -1,43 +1,80 @@
-import { Plan } from "./upgrade";
+import { Plan, PlanSDKType } from "./upgrade";
 import * as _m0 from "protobufjs/minimal";
-import { isSet, DeepPartial } from "@osmonauts/helpers";
-
+import { DeepPartial } from "@osmonauts/helpers";
 /**
  * MsgSoftwareUpgrade is the Msg/SoftwareUpgrade request type.
  * 
  * Since: cosmos-sdk 0.46
  */
+
 export interface MsgSoftwareUpgrade {
   /** authority is the address of the governance account. */
   authority: string;
-
   /** plan is the upgrade plan. */
+
   plan: Plan;
 }
+/**
+ * MsgSoftwareUpgrade is the Msg/SoftwareUpgrade request type.
+ * 
+ * Since: cosmos-sdk 0.46
+ */
 
+export interface MsgSoftwareUpgradeSDKType {
+  /** authority is the address of the governance account. */
+  authority: string;
+  /** plan is the upgrade plan. */
+
+  plan: PlanSDKType;
+}
 /**
  * MsgSoftwareUpgradeResponse is the Msg/SoftwareUpgrade response type.
  * 
  * Since: cosmos-sdk 0.46
  */
-export interface MsgSoftwareUpgradeResponse {}
 
+export interface MsgSoftwareUpgradeResponse {}
+/**
+ * MsgSoftwareUpgradeResponse is the Msg/SoftwareUpgrade response type.
+ * 
+ * Since: cosmos-sdk 0.46
+ */
+
+export interface MsgSoftwareUpgradeResponseSDKType {}
 /**
  * MsgCancelUpgrade is the Msg/CancelUpgrade request type.
  * 
  * Since: cosmos-sdk 0.46
  */
+
 export interface MsgCancelUpgrade {
   /** authority is the address of the governance account. */
   authority: string;
 }
+/**
+ * MsgCancelUpgrade is the Msg/CancelUpgrade request type.
+ * 
+ * Since: cosmos-sdk 0.46
+ */
 
+export interface MsgCancelUpgradeSDKType {
+  /** authority is the address of the governance account. */
+  authority: string;
+}
 /**
  * MsgCancelUpgradeResponse is the Msg/CancelUpgrade response type.
  * 
  * Since: cosmos-sdk 0.46
  */
+
 export interface MsgCancelUpgradeResponse {}
+/**
+ * MsgCancelUpgradeResponse is the Msg/CancelUpgrade response type.
+ * 
+ * Since: cosmos-sdk 0.46
+ */
+
+export interface MsgCancelUpgradeResponseSDKType {}
 
 function createBaseMsgSoftwareUpgrade(): MsgSoftwareUpgrade {
   return {
@@ -85,20 +122,6 @@ export const MsgSoftwareUpgrade = {
     return message;
   },
 
-  fromJSON(object: any): MsgSoftwareUpgrade {
-    return {
-      authority: isSet(object.authority) ? String(object.authority) : "",
-      plan: isSet(object.plan) ? Plan.fromJSON(object.plan) : undefined
-    };
-  },
-
-  toJSON(message: MsgSoftwareUpgrade): unknown {
-    const obj: any = {};
-    message.authority !== undefined && (obj.authority = message.authority);
-    message.plan !== undefined && (obj.plan = message.plan ? Plan.toJSON(message.plan) : undefined);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<MsgSoftwareUpgrade>): MsgSoftwareUpgrade {
     const message = createBaseMsgSoftwareUpgrade();
     message.authority = object.authority ?? "";
@@ -117,7 +140,7 @@ export const MsgSoftwareUpgradeResponse = {
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): MsgSoftwareUpgradeResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgSoftwareUpgradeResponseSDKType {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgSoftwareUpgradeResponse();
@@ -133,15 +156,6 @@ export const MsgSoftwareUpgradeResponse = {
     }
 
     return message;
-  },
-
-  fromJSON(_: any): MsgSoftwareUpgradeResponse {
-    return {};
-  },
-
-  toJSON(_: MsgSoftwareUpgradeResponse): unknown {
-    const obj: any = {};
-    return obj;
   },
 
   fromPartial(_: DeepPartial<MsgSoftwareUpgradeResponse>): MsgSoftwareUpgradeResponse {
@@ -188,18 +202,6 @@ export const MsgCancelUpgrade = {
     return message;
   },
 
-  fromJSON(object: any): MsgCancelUpgrade {
-    return {
-      authority: isSet(object.authority) ? String(object.authority) : ""
-    };
-  },
-
-  toJSON(message: MsgCancelUpgrade): unknown {
-    const obj: any = {};
-    message.authority !== undefined && (obj.authority = message.authority);
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<MsgCancelUpgrade>): MsgCancelUpgrade {
     const message = createBaseMsgCancelUpgrade();
     message.authority = object.authority ?? "";
@@ -217,7 +219,7 @@ export const MsgCancelUpgradeResponse = {
     return writer;
   },
 
-  decode(input: _m0.Reader | Uint8Array, length?: number): MsgCancelUpgradeResponse {
+  decode(input: _m0.Reader | Uint8Array, length?: number): MsgCancelUpgradeResponseSDKType {
     const reader = input instanceof _m0.Reader ? input : new _m0.Reader(input);
     let end = length === undefined ? reader.len : reader.pos + length;
     const message = createBaseMsgCancelUpgradeResponse();
@@ -233,15 +235,6 @@ export const MsgCancelUpgradeResponse = {
     }
 
     return message;
-  },
-
-  fromJSON(_: any): MsgCancelUpgradeResponse {
-    return {};
-  },
-
-  toJSON(_: MsgCancelUpgradeResponse): unknown {
-    const obj: any = {};
-    return obj;
   },
 
   fromPartial(_: DeepPartial<MsgCancelUpgradeResponse>): MsgCancelUpgradeResponse {

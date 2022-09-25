@@ -1,22 +1,42 @@
 import * as _m0 from "protobufjs/minimal";
-import { bytesFromBase64, base64FromBytes, DeepPartial, isSet } from "@osmonauts/helpers";
-
+import { DeepPartial } from "@osmonauts/helpers";
 /**
  * MultiSignature wraps the signatures from a multisig.LegacyAminoPubKey.
  * See cosmos.tx.v1betata1.ModeInfo.Multi for how to specify which signers
  * signed and with which modes.
  */
+
 export interface MultiSignature {
   signatures: Uint8Array[];
 }
+/**
+ * MultiSignature wraps the signatures from a multisig.LegacyAminoPubKey.
+ * See cosmos.tx.v1betata1.ModeInfo.Multi for how to specify which signers
+ * signed and with which modes.
+ */
 
+export interface MultiSignatureSDKType {
+  signatures: Uint8Array[];
+}
 /**
  * CompactBitArray is an implementation of a space efficient bit array.
  * This is used to ensure that the encoded data takes up a minimal amount of
  * space after proto encoding.
  * This is not thread safe, and is not intended for concurrent usage.
  */
+
 export interface CompactBitArray {
+  extraBitsStored: number;
+  elems: Uint8Array;
+}
+/**
+ * CompactBitArray is an implementation of a space efficient bit array.
+ * This is used to ensure that the encoded data takes up a minimal amount of
+ * space after proto encoding.
+ * This is not thread safe, and is not intended for concurrent usage.
+ */
+
+export interface CompactBitArraySDKType {
   extra_bits_stored: number;
   elems: Uint8Array;
 }
@@ -58,24 +78,6 @@ export const MultiSignature = {
     return message;
   },
 
-  fromJSON(object: any): MultiSignature {
-    return {
-      signatures: Array.isArray(object?.signatures) ? object.signatures.map((e: any) => bytesFromBase64(e)) : []
-    };
-  },
-
-  toJSON(message: MultiSignature): unknown {
-    const obj: any = {};
-
-    if (message.signatures) {
-      obj.signatures = message.signatures.map(e => base64FromBytes(e !== undefined ? e : new Uint8Array()));
-    } else {
-      obj.signatures = [];
-    }
-
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<MultiSignature>): MultiSignature {
     const message = createBaseMultiSignature();
     message.signatures = object.signatures?.map(e => e) || [];
@@ -86,15 +88,15 @@ export const MultiSignature = {
 
 function createBaseCompactBitArray(): CompactBitArray {
   return {
-    extra_bits_stored: 0,
+    extraBitsStored: 0,
     elems: new Uint8Array()
   };
 }
 
 export const CompactBitArray = {
   encode(message: CompactBitArray, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.extra_bits_stored !== 0) {
-      writer.uint32(8).uint32(message.extra_bits_stored);
+    if (message.extraBitsStored !== 0) {
+      writer.uint32(8).uint32(message.extraBitsStored);
     }
 
     if (message.elems.length !== 0) {
@@ -114,7 +116,7 @@ export const CompactBitArray = {
 
       switch (tag >>> 3) {
         case 1:
-          message.extra_bits_stored = reader.uint32();
+          message.extraBitsStored = reader.uint32();
           break;
 
         case 2:
@@ -130,23 +132,9 @@ export const CompactBitArray = {
     return message;
   },
 
-  fromJSON(object: any): CompactBitArray {
-    return {
-      extra_bits_stored: isSet(object.extra_bits_stored) ? Number(object.extra_bits_stored) : 0,
-      elems: isSet(object.elems) ? bytesFromBase64(object.elems) : new Uint8Array()
-    };
-  },
-
-  toJSON(message: CompactBitArray): unknown {
-    const obj: any = {};
-    message.extra_bits_stored !== undefined && (obj.extra_bits_stored = Math.round(message.extra_bits_stored));
-    message.elems !== undefined && (obj.elems = base64FromBytes(message.elems !== undefined ? message.elems : new Uint8Array()));
-    return obj;
-  },
-
   fromPartial(object: DeepPartial<CompactBitArray>): CompactBitArray {
     const message = createBaseCompactBitArray();
-    message.extra_bits_stored = object.extra_bits_stored ?? 0;
+    message.extraBitsStored = object.extraBitsStored ?? 0;
     message.elems = object.elems ?? new Uint8Array();
     return message;
   }
