@@ -135,12 +135,12 @@ const {
 ⚡️ For web interfaces, we recommend using [cosmos-kit](https://github.com/cosmology-tech/cosmos-kit). Continue below to see how to manually construct signers and clients.
 ### Initializing the Stargate Client
 
-Use `getSigningPublicawesomeClient` to get your `SigningStargateClient`, with the proto/amino messages full-loaded. No need to manually add amino types, just require and initialize the client:
+Use `getSigningCosmosClient` to get your `SigningStargateClient`, with the proto/amino messages full-loaded. No need to manually add amino types, just require and initialize the client:
 
 ```js
-import { getSigningPublicawesomeClient } from 'juno-network';
+import { getSigningCosmosClient } from 'juno-network';
 
-const stargateClient = await getSigningPublicawesomeClient({
+const stargateClient = await getSigningCosmosClient({
   rpcEndpoint,
   signer // OfflineSigner
 });
