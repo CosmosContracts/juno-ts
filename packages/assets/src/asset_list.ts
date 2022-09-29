@@ -1710,7 +1710,7 @@ const asset_list: AssetList = {
       denom_units: [
         {
           denom:
-            'ibc/0E13238C0508440A981BD9E876E89E0C0CCA70E2FE21930B0D4F2633673561AC',
+            'ibc/BA3EB643F46DD1CB95246A5419CCB3A4BA9BB1A85C589C49F27B4A6BB11AACD1',
           exponent: 0,
           aliases: [
             'ibc/A6E3AF63B3C906416A9AF7A556C59EA4BD50E617EFFE6299B99700CCB780E444'
@@ -1721,7 +1721,7 @@ const asset_list: AssetList = {
           exponent: 18
         }
       ],
-      base: 'ibc/0E13238C0508440A981BD9E876E89E0C0CCA70E2FE21930B0D4F2633673561AC',
+      base: 'ibc/BA3EB643F46DD1CB95246A5419CCB3A4BA9BB1A85C589C49F27B4A6BB11AACD1',
       name: 'pSTAKE Finance',
       display: 'pstake',
       symbol: 'PSTAKE',
