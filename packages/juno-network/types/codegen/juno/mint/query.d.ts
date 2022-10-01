@@ -74,7 +74,7 @@ export declare const QueryParamsRequest: {
 };
 export declare const QueryParamsResponse: {
     encode(message: QueryParamsResponse, writer?: _m0.Writer): _m0.Writer;
-    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponseSDKType;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryParamsResponse;
     fromPartial(object: DeepPartial<QueryParamsResponse>): QueryParamsResponse;
 };
 export declare const QueryInflationRequest: {
@@ -84,7 +84,7 @@ export declare const QueryInflationRequest: {
 };
 export declare const QueryInflationResponse: {
     encode(message: QueryInflationResponse, writer?: _m0.Writer): _m0.Writer;
-    decode(input: _m0.Reader | Uint8Array, length?: number): QueryInflationResponseSDKType;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryInflationResponse;
     fromPartial(object: DeepPartial<QueryInflationResponse>): QueryInflationResponse;
 };
 export declare const QueryAnnualProvisionsRequest: {
@@ -94,6 +94,6 @@ export declare const QueryAnnualProvisionsRequest: {
 };
 export declare const QueryAnnualProvisionsResponse: {
     encode(message: QueryAnnualProvisionsResponse, writer?: _m0.Writer): _m0.Writer;
-    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAnnualProvisionsResponseSDKType;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryAnnualProvisionsResponse;
     fromPartial(object: DeepPartial<QueryAnnualProvisionsResponse>): QueryAnnualProvisionsResponse;
 };
