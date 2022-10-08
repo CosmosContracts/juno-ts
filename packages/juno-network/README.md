@@ -234,14 +234,12 @@ const rpcEndpint = 'https://rpc.cosmos.directory/juno'; // or another URL
 
 const protoRegistry: ReadonlyArray<[string, GeneratedType]> = [
     ...cosmosProtoRegistry,
-    ...publicawesomeProtoRegistry,
     ...cosmwasmProtoRegistry,
     ...ibcProtoRegistry
 ];
 
 const aminoConverters = {
     ...cosmosAminoConverters,
-    ...publicawesomeAminoConverters,
     ...cosmwasmAminoConverters,
     ...ibcAminoConverters
 };
