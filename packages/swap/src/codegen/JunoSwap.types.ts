@@ -26,36 +26,37 @@ export type ExecuteMsg = {
     [k: string]: unknown;
   };
 } | {
-  swap_token1_for_token2: {
+  swap: {
     expiration?: Expiration | null;
-    min_token2: Uint128;
-    token1_amount: Uint128;
+    input_amount: Uint128;
+    input_token: TokenSelect;
+    min_output: Uint128;
     [k: string]: unknown;
   };
 } | {
-  swap_token2_for_token1: {
-    expiration?: Expiration | null;
-    min_token1: Uint128;
-    token2_amount: Uint128;
-    [k: string]: unknown;
-  };
-} | {
-  multi_contract_swap: {
+  pass_through_swap: {
     expiration?: Expiration | null;
     input_token: TokenSelect;
     input_token_amount: Uint128;
-    output_amm_address: Addr;
+    output_amm_address: string;
     output_min_token: Uint128;
-    output_token: TokenSelect;
     [k: string]: unknown;
   };
 } | {
-  swap_to: {
+  swap_and_send_to: {
     expiration?: Expiration | null;
     input_amount: Uint128;
     input_token: TokenSelect;
     min_token: Uint128;
-    recipient: Addr;
+    recipient: string;
+    [k: string]: unknown;
+  };
+} | {
+  update_config: {
+    lp_fee_percent: Decimal;
+    owner?: string | null;
+    protocol_fee_percent: Decimal;
+    protocol_fee_recipient: string;
     [k: string]: unknown;
   };
 };
@@ -71,22 +72,40 @@ export type Expiration = {
 export type Timestamp = Uint64;
 export type Uint64 = string;
 export type TokenSelect = "Token1" | "Token2";
+export type Decimal = string;
+export type Denom = {
+  native: string;
+} | {
+  cw20: Addr;
+};
 export type Addr = string;
 export interface InfoResponse {
+  lp_fee_percent: Decimal;
+  lp_token_address: string;
   lp_token_supply: Uint128;
-  token1_address?: string | null;
-  token1_denom: string;
+  owner?: string | null;
+  protocol_fee_percent: Decimal;
+  protocol_fee_recipient: string;
+  token1_denom: Denom;
   token1_reserve: Uint128;
-  token2_address?: string | null;
-  token2_denom: string;
+  token2_denom: Denom;
   token2_reserve: Uint128;
   [k: string]: unknown;
 }
 export interface InstantiateMsg {
-  token1_address?: Addr | null;
-  token1_denom: string;
-  token2_address?: Addr | null;
-  token2_denom: string;
+  lp_fee_percent: Decimal;
+  lp_token_code_id: number;
+  owner?: string | null;
+  protocol_fee_percent: Decimal;
+  protocol_fee_recipient: string;
+  token1_denom: Denom;
+  token2_denom: Denom;
+  [k: string]: unknown;
+}
+export interface MigrateMsg {
+  lp_fee_percent: Decimal;
+  protocol_fee_percent: Decimal;
+  protocol_fee_recipient: string;
   [k: string]: unknown;
 }
 export type QueryMsg = {
@@ -110,8 +129,7 @@ export type QueryMsg = {
   };
 };
 export interface Token {
-  address?: Addr | null;
-  denom: string;
+  denom: Denom;
   reserve: Uint128;
   [k: string]: unknown;
 }
