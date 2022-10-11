@@ -8,7 +8,7 @@ import { Coin } from "@cosmjs/amino";
 import { MsgExecuteContractEncodeObject } from "cosmwasm";
 import { MsgExecuteContract } from "cosmjs-types/cosmwasm/wasm/v1/tx";
 import { toUtf8 } from "@cosmjs/encoding";
-import { Uint128, BalanceResponse, ExecuteMsg, Expiration, Timestamp, Uint64, TokenSelect, Addr, InfoResponse, InstantiateMsg, QueryMsg, Token, Token1ForToken2PriceResponse, Token2ForToken1PriceResponse } from "./JunoSwap.types";
+import { Uint128, BalanceResponse, ExecuteMsg, Expiration, Timestamp, Uint64, TokenSelect, Decimal, Denom, Addr, InfoResponse, InstantiateMsg, MigrateMsg, QueryMsg, Token, Token1ForToken2PriceResponse, Token2ForToken1PriceResponse } from "./JunoSwap.types";
 export interface JunoSwapMessage {
   contractAddress: string;
   sender: string;
@@ -34,40 +34,31 @@ export interface JunoSwapMessage {
     minToken1: Uint128;
     minToken2: Uint128;
   }, funds?: Coin[]) => MsgExecuteContractEncodeObject;
-  swapToken1ForToken2: ({
+  swap: ({
     expiration,
-    minToken2,
-    token1Amount
+    inputAmount,
+    inputToken,
+    minOutput
   }: {
     expiration?: Expiration;
-    minToken2: Uint128;
-    token1Amount: Uint128;
+    inputAmount: Uint128;
+    inputToken: TokenSelect;
+    minOutput: Uint128;
   }, funds?: Coin[]) => MsgExecuteContractEncodeObject;
-  swapToken2ForToken1: ({
-    expiration,
-    minToken1,
-    token2Amount
-  }: {
-    expiration?: Expiration;
-    minToken1: Uint128;
-    token2Amount: Uint128;
-  }, funds?: Coin[]) => MsgExecuteContractEncodeObject;
-  multiContractSwap: ({
+  passThroughSwap: ({
     expiration,
     inputToken,
     inputTokenAmount,
     outputAmmAddress,
-    outputMinToken,
-    outputToken
+    outputMinToken
   }: {
     expiration?: Expiration;
     inputToken: TokenSelect;
     inputTokenAmount: Uint128;
-    outputAmmAddress: Addr;
+    outputAmmAddress: string;
     outputMinToken: Uint128;
-    outputToken: TokenSelect;
   }, funds?: Coin[]) => MsgExecuteContractEncodeObject;
-  swapTo: ({
+  swapAndSendTo: ({
     expiration,
     inputAmount,
     inputToken,
@@ -78,7 +69,18 @@ export interface JunoSwapMessage {
     inputAmount: Uint128;
     inputToken: TokenSelect;
     minToken: Uint128;
-    recipient: Addr;
+    recipient: string;
+  }, funds?: Coin[]) => MsgExecuteContractEncodeObject;
+  updateConfig: ({
+    lpFeePercent,
+    owner,
+    protocolFeePercent,
+    protocolFeeRecipient
+  }: {
+    lpFeePercent: Decimal;
+    owner?: string;
+    protocolFeePercent: Decimal;
+    protocolFeeRecipient: string;
   }, funds?: Coin[]) => MsgExecuteContractEncodeObject;
 }
 export class JunoSwapMessageComposer implements JunoSwapMessage {
@@ -90,10 +92,10 @@ export class JunoSwapMessageComposer implements JunoSwapMessage {
     this.contractAddress = contractAddress;
     this.addLiquidity = this.addLiquidity.bind(this);
     this.removeLiquidity = this.removeLiquidity.bind(this);
-    this.swapToken1ForToken2 = this.swapToken1ForToken2.bind(this);
-    this.swapToken2ForToken1 = this.swapToken2ForToken1.bind(this);
-    this.multiContractSwap = this.multiContractSwap.bind(this);
-    this.swapTo = this.swapTo.bind(this);
+    this.swap = this.swap.bind(this);
+    this.passThroughSwap = this.passThroughSwap.bind(this);
+    this.swapAndSendTo = this.swapAndSendTo.bind(this);
+    this.updateConfig = this.updateConfig.bind(this);
   }
 
   addLiquidity = ({
@@ -152,14 +154,16 @@ export class JunoSwapMessageComposer implements JunoSwapMessage {
       })
     };
   };
-  swapToken1ForToken2 = ({
+  swap = ({
     expiration,
-    minToken2,
-    token1Amount
+    inputAmount,
+    inputToken,
+    minOutput
   }: {
     expiration?: Expiration;
-    minToken2: Uint128;
-    token1Amount: Uint128;
+    inputAmount: Uint128;
+    inputToken: TokenSelect;
+    minOutput: Uint128;
   }, funds?: Coin[]): MsgExecuteContractEncodeObject => {
     return {
       typeUrl: "/cosmwasm.wasm.v1.MsgExecuteContract",
@@ -167,55 +171,29 @@ export class JunoSwapMessageComposer implements JunoSwapMessage {
         sender: this.sender,
         contract: this.contractAddress,
         msg: toUtf8(JSON.stringify({
-          swap_token1_for_token2: {
+          swap: {
             expiration,
-            min_token2: minToken2,
-            token1_amount: token1Amount
+            input_amount: inputAmount,
+            input_token: inputToken,
+            min_output: minOutput
           }
         })),
         funds
       })
     };
   };
-  swapToken2ForToken1 = ({
-    expiration,
-    minToken1,
-    token2Amount
-  }: {
-    expiration?: Expiration;
-    minToken1: Uint128;
-    token2Amount: Uint128;
-  }, funds?: Coin[]): MsgExecuteContractEncodeObject => {
-    return {
-      typeUrl: "/cosmwasm.wasm.v1.MsgExecuteContract",
-      value: MsgExecuteContract.fromPartial({
-        sender: this.sender,
-        contract: this.contractAddress,
-        msg: toUtf8(JSON.stringify({
-          swap_token2_for_token1: {
-            expiration,
-            min_token1: minToken1,
-            token2_amount: token2Amount
-          }
-        })),
-        funds
-      })
-    };
-  };
-  multiContractSwap = ({
+  passThroughSwap = ({
     expiration,
     inputToken,
     inputTokenAmount,
     outputAmmAddress,
-    outputMinToken,
-    outputToken
+    outputMinToken
   }: {
     expiration?: Expiration;
     inputToken: TokenSelect;
     inputTokenAmount: Uint128;
-    outputAmmAddress: Addr;
+    outputAmmAddress: string;
     outputMinToken: Uint128;
-    outputToken: TokenSelect;
   }, funds?: Coin[]): MsgExecuteContractEncodeObject => {
     return {
       typeUrl: "/cosmwasm.wasm.v1.MsgExecuteContract",
@@ -223,20 +201,19 @@ export class JunoSwapMessageComposer implements JunoSwapMessage {
         sender: this.sender,
         contract: this.contractAddress,
         msg: toUtf8(JSON.stringify({
-          multi_contract_swap: {
+          pass_through_swap: {
             expiration,
             input_token: inputToken,
             input_token_amount: inputTokenAmount,
             output_amm_address: outputAmmAddress,
-            output_min_token: outputMinToken,
-            output_token: outputToken
+            output_min_token: outputMinToken
           }
         })),
         funds
       })
     };
   };
-  swapTo = ({
+  swapAndSendTo = ({
     expiration,
     inputAmount,
     inputToken,
@@ -247,7 +224,7 @@ export class JunoSwapMessageComposer implements JunoSwapMessage {
     inputAmount: Uint128;
     inputToken: TokenSelect;
     minToken: Uint128;
-    recipient: Addr;
+    recipient: string;
   }, funds?: Coin[]): MsgExecuteContractEncodeObject => {
     return {
       typeUrl: "/cosmwasm.wasm.v1.MsgExecuteContract",
@@ -255,12 +232,40 @@ export class JunoSwapMessageComposer implements JunoSwapMessage {
         sender: this.sender,
         contract: this.contractAddress,
         msg: toUtf8(JSON.stringify({
-          swap_to: {
+          swap_and_send_to: {
             expiration,
             input_amount: inputAmount,
             input_token: inputToken,
             min_token: minToken,
             recipient
+          }
+        })),
+        funds
+      })
+    };
+  };
+  updateConfig = ({
+    lpFeePercent,
+    owner,
+    protocolFeePercent,
+    protocolFeeRecipient
+  }: {
+    lpFeePercent: Decimal;
+    owner?: string;
+    protocolFeePercent: Decimal;
+    protocolFeeRecipient: string;
+  }, funds?: Coin[]): MsgExecuteContractEncodeObject => {
+    return {
+      typeUrl: "/cosmwasm.wasm.v1.MsgExecuteContract",
+      value: MsgExecuteContract.fromPartial({
+        sender: this.sender,
+        contract: this.contractAddress,
+        msg: toUtf8(JSON.stringify({
+          update_config: {
+            lp_fee_percent: lpFeePercent,
+            owner,
+            protocol_fee_percent: protocolFeePercent,
+            protocol_fee_recipient: protocolFeeRecipient
           }
         })),
         funds
