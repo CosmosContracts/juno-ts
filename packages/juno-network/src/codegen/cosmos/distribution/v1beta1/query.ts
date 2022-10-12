@@ -2,7 +2,7 @@ import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } fr
 import { Params, ParamsSDKType, ValidatorOutstandingRewards, ValidatorOutstandingRewardsSDKType, ValidatorAccumulatedCommission, ValidatorAccumulatedCommissionSDKType, ValidatorSlashEvent, ValidatorSlashEventSDKType, DelegationDelegatorReward, DelegationDelegatorRewardSDKType } from "./distribution";
 import { DecCoin, DecCoinSDKType } from "../../base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "@osmonauts/helpers";
+import { DeepPartial, Long } from "../../../helpers";
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
 
 export interface QueryParamsRequest {}
@@ -13,13 +13,13 @@ export interface QueryParamsRequestSDKType {}
 
 export interface QueryParamsResponse {
   /** params defines the parameters of the module. */
-  params: Params;
+  params?: Params;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 
 export interface QueryParamsResponseSDKType {
   /** params defines the parameters of the module. */
-  params: ParamsSDKType;
+  params?: ParamsSDKType;
 }
 /**
  * QueryValidatorOutstandingRewardsRequest is the request type for the
@@ -45,7 +45,7 @@ export interface QueryValidatorOutstandingRewardsRequestSDKType {
  */
 
 export interface QueryValidatorOutstandingRewardsResponse {
-  rewards: ValidatorOutstandingRewards;
+  rewards?: ValidatorOutstandingRewards;
 }
 /**
  * QueryValidatorOutstandingRewardsResponse is the response type for the
@@ -53,7 +53,7 @@ export interface QueryValidatorOutstandingRewardsResponse {
  */
 
 export interface QueryValidatorOutstandingRewardsResponseSDKType {
-  rewards: ValidatorOutstandingRewardsSDKType;
+  rewards?: ValidatorOutstandingRewardsSDKType;
 }
 /**
  * QueryValidatorCommissionRequest is the request type for the
@@ -80,7 +80,7 @@ export interface QueryValidatorCommissionRequestSDKType {
 
 export interface QueryValidatorCommissionResponse {
   /** commission defines the commision the validator received. */
-  commission: ValidatorAccumulatedCommission;
+  commission?: ValidatorAccumulatedCommission;
 }
 /**
  * QueryValidatorCommissionResponse is the response type for the
@@ -89,7 +89,7 @@ export interface QueryValidatorCommissionResponse {
 
 export interface QueryValidatorCommissionResponseSDKType {
   /** commission defines the commision the validator received. */
-  commission: ValidatorAccumulatedCommissionSDKType;
+  commission?: ValidatorAccumulatedCommissionSDKType;
 }
 /**
  * QueryValidatorSlashesRequest is the request type for the
@@ -101,10 +101,10 @@ export interface QueryValidatorSlashesRequest {
   validatorAddress: string;
   /** starting_height defines the optional starting height to query the slashes. */
 
-  startingHeight?: Long;
+  startingHeight: Long;
   /** starting_height defines the optional ending height to query the slashes. */
 
-  endingHeight?: Long;
+  endingHeight: Long;
   /** pagination defines an optional pagination for the request. */
 
   pagination?: PageRequest;
@@ -119,10 +119,10 @@ export interface QueryValidatorSlashesRequestSDKType {
   validator_address: string;
   /** starting_height defines the optional starting height to query the slashes. */
 
-  starting_height?: Long;
+  starting_height: Long;
   /** starting_height defines the optional ending height to query the slashes. */
 
-  ending_height?: Long;
+  ending_height: Long;
   /** pagination defines an optional pagination for the request. */
 
   pagination?: PageRequestSDKType;

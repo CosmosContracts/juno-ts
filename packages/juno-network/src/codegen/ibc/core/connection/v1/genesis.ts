@@ -1,6 +1,6 @@
 import { IdentifiedConnection, IdentifiedConnectionSDKType, ConnectionPaths, ConnectionPathsSDKType, Params, ParamsSDKType } from "./connection";
 import * as _m0 from "protobufjs/minimal";
-import { Long, DeepPartial } from "@osmonauts/helpers";
+import { Long, DeepPartial } from "../../../../helpers";
 /** GenesisState defines the ibc connection submodule's genesis state. */
 
 export interface GenesisState {
@@ -9,7 +9,7 @@ export interface GenesisState {
   /** the sequence for the next generated connection identifier */
 
   nextConnectionSequence: Long;
-  params: Params;
+  params?: Params;
 }
 /** GenesisState defines the ibc connection submodule's genesis state. */
 
@@ -19,7 +19,7 @@ export interface GenesisStateSDKType {
   /** the sequence for the next generated connection identifier */
 
   next_connection_sequence: Long;
-  params: ParamsSDKType;
+  params?: ParamsSDKType;
 }
 
 function createBaseGenesisState(): GenesisState {

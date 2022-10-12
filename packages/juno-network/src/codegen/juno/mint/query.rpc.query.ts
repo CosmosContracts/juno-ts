@@ -1,19 +1,18 @@
-import { Rpc } from "@osmonauts/helpers";
+import { Rpc } from "../../helpers";
 import * as _m0 from "protobufjs/minimal";
 import { QueryClient, createProtobufRpcClient } from "@cosmjs/stargate";
 import { QueryParamsRequest, QueryParamsResponse, QueryInflationRequest, QueryInflationResponse, QueryAnnualProvisionsRequest, QueryAnnualProvisionsResponse } from "./query";
-/** Query defines the RPC service */
+/** Query provides defines the gRPC querier service. */
 
 export interface Query {
+  /** Params returns the total set of minting parameters. */
   params(request?: QueryParamsRequest): Promise<QueryParamsResponse>;
-  /*Params returns the total set of minting parameters.*/
+  /** Inflation returns the current minting inflation value. */
 
   inflation(request?: QueryInflationRequest): Promise<QueryInflationResponse>;
-  /*Inflation returns the current minting inflation value.*/
+  /** AnnualProvisions current minting annual provisions value. */
 
   annualProvisions(request?: QueryAnnualProvisionsRequest): Promise<QueryAnnualProvisionsResponse>;
-  /*AnnualProvisions current minting annual provisions value.*/
-
 }
 export class QueryClientImpl implements Query {
   private readonly rpc: Rpc;

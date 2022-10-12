@@ -2,7 +2,7 @@ import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } fr
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
 import { Params, ParamsSDKType, Metadata, MetadataSDKType } from "./bank";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
+import { DeepPartial } from "../../../helpers";
 /** QueryBalanceRequest is the request type for the Query/Balance RPC method. */
 
 export interface QueryBalanceRequest {
@@ -25,13 +25,13 @@ export interface QueryBalanceRequestSDKType {
 
 export interface QueryBalanceResponse {
   /** balance is the balance of the coin. */
-  balance: Coin;
+  balance?: Coin;
 }
 /** QueryBalanceResponse is the response type for the Query/Balance RPC method. */
 
 export interface QueryBalanceResponseSDKType {
   /** balance is the balance of the coin. */
-  balance: CoinSDKType;
+  balance?: CoinSDKType;
 }
 /** QueryBalanceRequest is the request type for the Query/AllBalances RPC method. */
 
@@ -185,25 +185,25 @@ export interface QueryTotalSupplyResponseSDKType {
 
 export interface QuerySupplyOfRequest {
   /** denom is the coin denom to query balances for. */
-  denom?: string;
+  denom: string;
 }
 /** QuerySupplyOfRequest is the request type for the Query/SupplyOf RPC method. */
 
 export interface QuerySupplyOfRequestSDKType {
   /** denom is the coin denom to query balances for. */
-  denom?: string;
+  denom: string;
 }
 /** QuerySupplyOfResponse is the response type for the Query/SupplyOf RPC method. */
 
 export interface QuerySupplyOfResponse {
   /** amount is the supply of the coin. */
-  amount: Coin;
+  amount?: Coin;
 }
 /** QuerySupplyOfResponse is the response type for the Query/SupplyOf RPC method. */
 
 export interface QuerySupplyOfResponseSDKType {
   /** amount is the supply of the coin. */
-  amount: CoinSDKType;
+  amount?: CoinSDKType;
 }
 /** QueryParamsRequest defines the request type for querying x/bank parameters. */
 
@@ -214,12 +214,12 @@ export interface QueryParamsRequestSDKType {}
 /** QueryParamsResponse defines the response type for querying x/bank parameters. */
 
 export interface QueryParamsResponse {
-  params: Params;
+  params?: Params;
 }
 /** QueryParamsResponse defines the response type for querying x/bank parameters. */
 
 export interface QueryParamsResponseSDKType {
-  params: ParamsSDKType;
+  params?: ParamsSDKType;
 }
 /** QueryDenomsMetadataRequest is the request type for the Query/DenomsMetadata RPC method. */
 
@@ -276,7 +276,7 @@ export interface QueryDenomMetadataRequestSDKType {
 
 export interface QueryDenomMetadataResponse {
   /** metadata describes and provides all the client information for the requested token. */
-  metadata: Metadata;
+  metadata?: Metadata;
 }
 /**
  * QueryDenomMetadataResponse is the response type for the Query/DenomMetadata RPC
@@ -285,7 +285,7 @@ export interface QueryDenomMetadataResponse {
 
 export interface QueryDenomMetadataResponseSDKType {
   /** metadata describes and provides all the client information for the requested token. */
-  metadata: MetadataSDKType;
+  metadata?: MetadataSDKType;
 }
 /**
  * QueryDenomOwnersRequest defines the request type for the DenomOwners RPC query,
@@ -324,7 +324,7 @@ export interface DenomOwner {
   address: string;
   /** balance is the balance of the denominated coin for an account. */
 
-  balance: Coin;
+  balance?: Coin;
 }
 /**
  * DenomOwner defines structure representing an account that owns or holds a
@@ -337,7 +337,7 @@ export interface DenomOwnerSDKType {
   address: string;
   /** balance is the balance of the denominated coin for an account. */
 
-  balance: CoinSDKType;
+  balance?: CoinSDKType;
 }
 /** QueryDenomOwnersResponse defines the RPC response of a DenomOwners RPC query. */
 

@@ -1,6 +1,6 @@
 import { Height, HeightSDKType } from "../../../core/client/v1/client";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
+import { DeepPartial } from "../../../../helpers";
 /**
  * ClientState defines a loopback (localhost) client. It requires (read-only)
  * access to keys outside the client prefix.
@@ -11,7 +11,7 @@ export interface ClientState {
   chainId: string;
   /** self latest block height */
 
-  height: Height;
+  height?: Height;
 }
 /**
  * ClientState defines a loopback (localhost) client. It requires (read-only)
@@ -23,7 +23,7 @@ export interface ClientStateSDKType {
   chain_id: string;
   /** self latest block height */
 
-  height: HeightSDKType;
+  height?: HeightSDKType;
 }
 
 function createBaseClientState(): ClientState {

@@ -1,7 +1,7 @@
 import { AccessConfig, AccessConfigSDKType } from "./types";
 import { Coin, CoinSDKType } from "../../../cosmos/base/v1beta1/coin";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "@osmonauts/helpers";
+import { DeepPartial, Long } from "../../../helpers";
 /** MsgStoreCode submit Wasm code to the system */
 
 export interface MsgStoreCode {
@@ -15,7 +15,7 @@ export interface MsgStoreCode {
    * optional
    */
 
-  instantiatePermission: AccessConfig;
+  instantiatePermission?: AccessConfig;
 }
 /** MsgStoreCode submit Wasm code to the system */
 
@@ -30,7 +30,7 @@ export interface MsgStoreCodeSDKType {
    * optional
    */
 
-  instantiate_permission: AccessConfigSDKType;
+  instantiate_permission?: AccessConfigSDKType;
 }
 /** MsgStoreCodeResponse returns store result data. */
 

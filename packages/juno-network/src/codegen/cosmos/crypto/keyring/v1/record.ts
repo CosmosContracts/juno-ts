@@ -1,7 +1,7 @@
 import { Any, AnySDKType } from "../../../../google/protobuf/any";
 import { BIP44Params, BIP44ParamsSDKType } from "../../hd/v1/hd";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial } from "@osmonauts/helpers";
+import { DeepPartial } from "../../../../helpers";
 /** Record is used for representing a key in the keyring. */
 
 export interface Record {
@@ -9,7 +9,7 @@ export interface Record {
   name: string;
   /** pub_key represents a public key in any format */
 
-  pubKey: Any;
+  pubKey?: Any;
   /** local stores the public information about a locally stored key */
 
   local?: Record_Local;
@@ -30,7 +30,7 @@ export interface RecordSDKType {
   name: string;
   /** pub_key represents a public key in any format */
 
-  pub_key: AnySDKType;
+  pub_key?: AnySDKType;
   /** local stores the public information about a locally stored key */
 
   local?: Record_LocalSDKType;
@@ -50,7 +50,7 @@ export interface RecordSDKType {
  */
 
 export interface Record_Local {
-  privKey: Any;
+  privKey?: Any;
   privKeyType: string;
 }
 /**
@@ -59,18 +59,18 @@ export interface Record_Local {
  */
 
 export interface Record_LocalSDKType {
-  priv_key: AnySDKType;
+  priv_key?: AnySDKType;
   priv_key_type: string;
 }
 /** Ledger item */
 
 export interface Record_Ledger {
-  path: BIP44Params;
+  path?: BIP44Params;
 }
 /** Ledger item */
 
 export interface Record_LedgerSDKType {
-  path: BIP44ParamsSDKType;
+  path?: BIP44ParamsSDKType;
 }
 /** Multi item */
 
