@@ -2603,8 +2603,8 @@ function createBaseFieldDescriptorProto(): FieldDescriptorProto {
   return {
     name: "",
     number: 0,
-    label: 0,
-    type: 0,
+    label: 1,
+    type: 1,
     typeName: "",
     extendee: "",
     defaultValue: "",
@@ -2624,11 +2624,11 @@ export const FieldDescriptorProto = {
       writer.uint32(24).int32(message.number);
     }
 
-    if (message.label !== 0) {
+    if (message.label !== 1) {
       writer.uint32(32).int32(message.label);
     }
 
-    if (message.type !== 0) {
+    if (message.type !== 1) {
       writer.uint32(40).int32(message.type);
     }
 
@@ -2721,8 +2721,8 @@ export const FieldDescriptorProto = {
     const message = createBaseFieldDescriptorProto();
     message.name = object.name ?? "";
     message.number = object.number ?? 0;
-    message.label = object.label ?? 0;
-    message.type = object.type ?? 0;
+    message.label = object.label ?? 1;
+    message.type = object.type ?? 1;
     message.typeName = object.typeName ?? "";
     message.extendee = object.extendee ?? "";
     message.defaultValue = object.defaultValue ?? "";
@@ -3161,7 +3161,7 @@ function createBaseFileOptions(): FileOptions {
     javaMultipleFiles: false,
     javaGenerateEqualsAndHash: false,
     javaStringCheckUtf8: false,
-    optimizeFor: 0,
+    optimizeFor: 1,
     goPackage: "",
     ccGenericServices: false,
     javaGenericServices: false,
@@ -3202,7 +3202,7 @@ export const FileOptions = {
       writer.uint32(216).bool(message.javaStringCheckUtf8);
     }
 
-    if (message.optimizeFor !== 0) {
+    if (message.optimizeFor !== 1) {
       writer.uint32(72).int32(message.optimizeFor);
     }
 
@@ -3378,7 +3378,7 @@ export const FileOptions = {
     message.javaMultipleFiles = object.javaMultipleFiles ?? false;
     message.javaGenerateEqualsAndHash = object.javaGenerateEqualsAndHash ?? false;
     message.javaStringCheckUtf8 = object.javaStringCheckUtf8 ?? false;
-    message.optimizeFor = object.optimizeFor ?? 0;
+    message.optimizeFor = object.optimizeFor ?? 1;
     message.goPackage = object.goPackage ?? "";
     message.ccGenericServices = object.ccGenericServices ?? false;
     message.javaGenericServices = object.javaGenericServices ?? false;
@@ -3486,9 +3486,9 @@ export const MessageOptions = {
 
 function createBaseFieldOptions(): FieldOptions {
   return {
-    ctype: 0,
+    ctype: 1,
     packed: false,
-    jstype: 0,
+    jstype: 1,
     lazy: false,
     deprecated: false,
     weak: false,
@@ -3498,7 +3498,7 @@ function createBaseFieldOptions(): FieldOptions {
 
 export const FieldOptions = {
   encode(message: FieldOptions, writer: _m0.Writer = _m0.Writer.create()): _m0.Writer {
-    if (message.ctype !== 0) {
+    if (message.ctype !== 1) {
       writer.uint32(8).int32(message.ctype);
     }
 
@@ -3506,7 +3506,7 @@ export const FieldOptions = {
       writer.uint32(16).bool(message.packed);
     }
 
-    if (message.jstype !== 0) {
+    if (message.jstype !== 1) {
       writer.uint32(48).int32(message.jstype);
     }
 
@@ -3577,9 +3577,9 @@ export const FieldOptions = {
 
   fromPartial(object: DeepPartial<FieldOptions>): FieldOptions {
     const message = createBaseFieldOptions();
-    message.ctype = object.ctype ?? 0;
+    message.ctype = object.ctype ?? 1;
     message.packed = object.packed ?? false;
-    message.jstype = object.jstype ?? 0;
+    message.jstype = object.jstype ?? 1;
     message.lazy = object.lazy ?? false;
     message.deprecated = object.deprecated ?? false;
     message.weak = object.weak ?? false;
@@ -3812,7 +3812,7 @@ export const ServiceOptions = {
 function createBaseMethodOptions(): MethodOptions {
   return {
     deprecated: false,
-    idempotencyLevel: 0,
+    idempotencyLevel: 1,
     uninterpretedOption: []
   };
 }
@@ -3823,7 +3823,7 @@ export const MethodOptions = {
       writer.uint32(264).bool(message.deprecated);
     }
 
-    if (message.idempotencyLevel !== 0) {
+    if (message.idempotencyLevel !== 1) {
       writer.uint32(272).int32(message.idempotencyLevel);
     }
 
@@ -3867,7 +3867,7 @@ export const MethodOptions = {
   fromPartial(object: DeepPartial<MethodOptions>): MethodOptions {
     const message = createBaseMethodOptions();
     message.deprecated = object.deprecated ?? false;
-    message.idempotencyLevel = object.idempotencyLevel ?? 0;
+    message.idempotencyLevel = object.idempotencyLevel ?? 1;
     message.uninterpretedOption = object.uninterpretedOption?.map(e => UninterpretedOption.fromPartial(e)) || [];
     return message;
   }

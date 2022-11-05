@@ -10,15 +10,13 @@ const chain: Chain = {
   bech32_prefix: 'juno',
   daemon_name: 'junod',
   node_home: '$HOME/.juno',
-  genesis: {
-    genesis_url: 'https://download.dimi.sh/juno-phoenix2-genesis.tar.gz'
-  },
   key_algos: ['secp256k1'],
   slip44: 118,
   fees: {
     fee_tokens: [
       {
         denom: 'ujuno',
+        fixed_min_gas_price: 0.0025,
         low_gas_price: 0.03,
         average_gas_price: 0.04,
         high_gas_price: 0.05
@@ -34,12 +32,15 @@ const chain: Chain = {
   },
   codebase: {
     git_repo: 'https://github.com/CosmosContracts/juno',
-    recommended_version: 'v9.0.0',
-    compatible_versions: ['v9.0.0'],
+    recommended_version: 'v10.1.0',
+    compatible_versions: ['v10.1.0'],
     cosmos_sdk_version: '0.45',
     tendermint_version: '0.34',
-    cosmwasm_version: '0.27',
-    cosmwasm_enabled: true
+    cosmwasm_version: '0.28',
+    cosmwasm_enabled: true,
+    genesis: {
+      genesis_url: 'https://download.dimi.sh/juno-phoenix2-genesis.tar.gz'
+    }
   },
   peers: {
     seeds: [
@@ -65,6 +66,11 @@ const chain: Chain = {
         id: '20e1000e88125698264454a884812746c2eb4807',
         address: 'seeds.lavenderfive.com:12656',
         provider: 'Lavender.Five Nodes 🐝'
+      },
+      {
+        id: 'ea67180befe4d9ca71142d21ada8ff58cc08f71c',
+        address: 'seeds.goldenratiostaking.net:1627',
+        provider: 'Golden Ratio Staking'
       }
     ],
     persistent_peers: [
@@ -137,10 +143,6 @@ const chain: Chain = {
         provider: 'PUPMØS'
       },
       {
-        address: 'https://rpc.junomint.com',
-        provider: 'EZStaking.io'
-      },
-      {
         address: 'https://rpc-juno-ia.cosmosia.notional.ventures/',
         provider: 'Notional'
       },
@@ -149,8 +151,32 @@ const chain: Chain = {
         provider: 'ChainTools'
       },
       {
+        address: 'https://rpc.juno.silknodes.io/',
+        provider: 'Silk Nodes'
+      },
+      {
         address: 'https://juno-rpc.kleomed.es',
         provider: 'Kleomedes'
+      },
+      {
+        address: 'https://rpc.juno.interbloc.org',
+        provider: 'Interbloc'
+      },
+      {
+        address: 'https://juno.nodejumper.io',
+        provider: 'Nodejumper 🚀'
+      },
+      {
+        address: 'https://juno.rpc.stakin.com',
+        provider: 'Stakin'
+      },
+      {
+        address: 'https://juno-rpc.icycro.org',
+        provider: 'IcyCRO 🧊'
+      },
+      {
+        address: 'https://rpc-juno.goldenratiostaking.net',
+        provider: 'Golden Ratio Staking'
       }
     ],
     rest: [
@@ -175,10 +201,6 @@ const chain: Chain = {
         provider: 'PUPMØS'
       },
       {
-        address: 'https://lcd.junomint.com',
-        provider: 'EZStaking.io'
-      },
-      {
         address: 'https://api-juno-ia.cosmosia.notional.ventures/',
         provider: 'Notional'
       },
@@ -191,8 +213,24 @@ const chain: Chain = {
         provider: 'Polkachu'
       },
       {
+        address: 'https://api.juno.silknodes.io/',
+        provider: 'Silk Nodes'
+      },
+      {
         address: 'https://juno-api.kleomed.es',
         provider: 'Kleomedes'
+      },
+      {
+        address: 'https://api.juno.interbloc.org',
+        provider: 'Interbloc'
+      },
+      {
+        address: 'https://juno.nodejumper.io:1317',
+        provider: 'Nodejumper 🚀'
+      },
+      {
+        address: 'https://juno.rest.stakin.com',
+        provider: 'Stakin'
       }
     ],
     grpc: [
@@ -215,10 +253,27 @@ const chain: Chain = {
       {
         address: 'juno-grpc.polkachu.com:12690',
         provider: 'Polkachu'
+      },
+      {
+        address: 'https://grpc.juno.silknodes.io/',
+        provider: 'Silk Nodes'
+      },
+      {
+        address: 'https://juno.nodejumper.io:9090',
+        provider: 'Nodejumper 🚀'
+      },
+      {
+        address: 'juno.grpc.stakin.com:443',
+        provider: 'Stakin'
       }
     ]
   },
   explorers: [
+    {
+      kind: 'EZStaking Tools',
+      url: 'https://ezstaking.tools/juno',
+      tx_page: 'https://ezstaking.tools/juno/txs/${txHash}'
+    },
     {
       kind: 'ping.pub',
       url: 'https://ping.pub/juno',
