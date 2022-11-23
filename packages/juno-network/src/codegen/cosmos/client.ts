@@ -1,5 +1,6 @@
-import { OfflineSigner, GeneratedType, Registry } from "@cosmjs/proto-signing";
+import { GeneratedType, Registry, OfflineSigner } from "@cosmjs/proto-signing";
 import { AminoTypes, SigningStargateClient } from "@cosmjs/stargate";
+import { HttpEndpoint } from "@cosmjs/tendermint-rpc";
 import * as cosmosBankV1beta1TxRegistry from "./bank/v1beta1/tx.registry";
 import * as cosmosDistributionV1beta1TxRegistry from "./distribution/v1beta1/tx.registry";
 import * as cosmosGovV1TxRegistry from "./gov/v1/tx.registry";
@@ -36,7 +37,7 @@ export const getSigningCosmosClient = async ({
   rpcEndpoint,
   signer
 }: {
-  rpcEndpoint: string;
+  rpcEndpoint: string | HttpEndpoint;
   signer: OfflineSigner;
 }) => {
   const {
