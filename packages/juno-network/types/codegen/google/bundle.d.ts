@@ -8,23 +8,17 @@ export declare namespace google {
         Timestamp: {
             encode(message: _56.Timestamp, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _56.Timestamp;
-            fromPartial(object: {
-                seconds?: any;
-                nanos?: number;
-            }): _56.Timestamp;
+            fromPartial(object: any): _56.Timestamp;
         };
         Empty: {
             encode(_: _55.Empty, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _55.Empty;
-            fromPartial(_: {}): _55.Empty;
+            fromPartial(_: any): _55.Empty;
         };
         Duration: {
             encode(message: _54.Duration, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _54.Duration;
-            fromPartial(object: {
-                seconds?: any;
-                nanos?: number;
-            }): _54.Duration;
+            fromPartial(object: any): _54.Duration;
         };
         fieldDescriptorProto_TypeFromJSON(object: any): _53.FieldDescriptorProto_Type;
         fieldDescriptorProto_TypeToJSON(object: _53.FieldDescriptorProto_Type): string;
@@ -53,1361 +47,142 @@ export declare namespace google {
         FileDescriptorSet: {
             encode(message: _53.FileDescriptorSet, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.FileDescriptorSet;
-            fromPartial(object: {
-                file?: {
-                    name?: string;
-                    package?: string;
-                    dependency?: string[];
-                    publicDependency?: number[];
-                    weakDependency?: number[];
-                    messageType?: {
-                        name?: string;
-                        field?: {
-                            name?: string;
-                            number?: number;
-                            label?: _53.FieldDescriptorProto_Label;
-                            type?: _53.FieldDescriptorProto_Type;
-                            typeName?: string;
-                            extendee?: string;
-                            defaultValue?: string;
-                            oneofIndex?: number;
-                            jsonName?: string;
-                            options?: {
-                                ctype?: _53.FieldOptions_CType;
-                                packed?: boolean;
-                                jstype?: _53.FieldOptions_JSType;
-                                lazy?: boolean;
-                                deprecated?: boolean;
-                                weak?: boolean;
-                                uninterpretedOption?: {
-                                    name?: {
-                                        namePart?: string;
-                                        isExtension?: boolean;
-                                    }[];
-                                    identifierValue?: string;
-                                    positiveIntValue?: any;
-                                    negativeIntValue?: any;
-                                    doubleValue?: number;
-                                    stringValue?: Uint8Array;
-                                    aggregateValue?: string;
-                                }[];
-                            };
-                        }[];
-                        extension?: {
-                            name?: string;
-                            number?: number;
-                            label?: _53.FieldDescriptorProto_Label;
-                            type?: _53.FieldDescriptorProto_Type;
-                            typeName?: string;
-                            extendee?: string;
-                            defaultValue?: string;
-                            oneofIndex?: number;
-                            jsonName?: string;
-                            options?: {
-                                ctype?: _53.FieldOptions_CType;
-                                packed?: boolean;
-                                jstype?: _53.FieldOptions_JSType;
-                                lazy?: boolean;
-                                deprecated?: boolean;
-                                weak?: boolean;
-                                uninterpretedOption?: {
-                                    name?: {
-                                        namePart?: string;
-                                        isExtension?: boolean;
-                                    }[];
-                                    identifierValue?: string;
-                                    positiveIntValue?: any;
-                                    negativeIntValue?: any;
-                                    doubleValue?: number;
-                                    stringValue?: Uint8Array;
-                                    aggregateValue?: string;
-                                }[];
-                            };
-                        }[];
-                        nestedType?: any[];
-                        enumType?: {
-                            name?: string;
-                            value?: {
-                                name?: string;
-                                number?: number;
-                                options?: {
-                                    deprecated?: boolean;
-                                    uninterpretedOption?: {
-                                        name?: {
-                                            namePart?: string;
-                                            isExtension?: boolean;
-                                        }[];
-                                        identifierValue?: string;
-                                        positiveIntValue?: any;
-                                        negativeIntValue?: any;
-                                        doubleValue?: number;
-                                        stringValue?: Uint8Array;
-                                        aggregateValue?: string;
-                                    }[];
-                                };
-                            }[];
-                            options?: {
-                                allowAlias?: boolean;
-                                deprecated?: boolean;
-                                uninterpretedOption?: {
-                                    name?: {
-                                        namePart?: string;
-                                        isExtension?: boolean;
-                                    }[];
-                                    identifierValue?: string;
-                                    positiveIntValue?: any;
-                                    negativeIntValue?: any;
-                                    doubleValue?: number;
-                                    stringValue?: Uint8Array;
-                                    aggregateValue?: string;
-                                }[];
-                            };
-                            reservedRange?: {
-                                start?: number;
-                                end?: number;
-                            }[];
-                            reservedName?: string[];
-                        }[];
-                        extensionRange?: {
-                            start?: number;
-                            end?: number;
-                            options?: {
-                                uninterpretedOption?: {
-                                    name?: {
-                                        namePart?: string;
-                                        isExtension?: boolean;
-                                    }[];
-                                    identifierValue?: string;
-                                    positiveIntValue?: any;
-                                    negativeIntValue?: any;
-                                    doubleValue?: number;
-                                    stringValue?: Uint8Array;
-                                    aggregateValue?: string;
-                                }[];
-                            };
-                        }[];
-                        oneofDecl?: {
-                            name?: string;
-                            options?: {
-                                uninterpretedOption?: {
-                                    name?: {
-                                        namePart?: string;
-                                        isExtension?: boolean;
-                                    }[];
-                                    identifierValue?: string;
-                                    positiveIntValue?: any;
-                                    negativeIntValue?: any;
-                                    doubleValue?: number;
-                                    stringValue?: Uint8Array;
-                                    aggregateValue?: string;
-                                }[];
-                            };
-                        }[];
-                        options?: {
-                            messageSetWireFormat?: boolean;
-                            noStandardDescriptorAccessor?: boolean;
-                            deprecated?: boolean;
-                            mapEntry?: boolean;
-                            uninterpretedOption?: {
-                                name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
-                                }[];
-                                identifierValue?: string;
-                                positiveIntValue?: any;
-                                negativeIntValue?: any;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
-                            }[];
-                        };
-                        reservedRange?: {
-                            start?: number;
-                            end?: number;
-                        }[];
-                        reservedName?: string[];
-                    }[];
-                    enumType?: {
-                        name?: string;
-                        value?: {
-                            name?: string;
-                            number?: number;
-                            options?: {
-                                deprecated?: boolean;
-                                uninterpretedOption?: {
-                                    name?: {
-                                        namePart?: string;
-                                        isExtension?: boolean;
-                                    }[];
-                                    identifierValue?: string;
-                                    positiveIntValue?: any;
-                                    negativeIntValue?: any;
-                                    doubleValue?: number;
-                                    stringValue?: Uint8Array;
-                                    aggregateValue?: string;
-                                }[];
-                            };
-                        }[];
-                        options?: {
-                            allowAlias?: boolean;
-                            deprecated?: boolean;
-                            uninterpretedOption?: {
-                                name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
-                                }[];
-                                identifierValue?: string;
-                                positiveIntValue?: any;
-                                negativeIntValue?: any;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
-                            }[];
-                        };
-                        reservedRange?: {
-                            start?: number;
-                            end?: number;
-                        }[];
-                        reservedName?: string[];
-                    }[];
-                    service?: {
-                        name?: string;
-                        method?: {
-                            name?: string;
-                            inputType?: string;
-                            outputType?: string;
-                            options?: {
-                                deprecated?: boolean;
-                                idempotencyLevel?: _53.MethodOptions_IdempotencyLevel;
-                                uninterpretedOption?: {
-                                    name?: {
-                                        namePart?: string;
-                                        isExtension?: boolean;
-                                    }[];
-                                    identifierValue?: string;
-                                    positiveIntValue?: any;
-                                    negativeIntValue?: any;
-                                    doubleValue?: number;
-                                    stringValue?: Uint8Array;
-                                    aggregateValue?: string;
-                                }[];
-                            };
-                            clientStreaming?: boolean;
-                            serverStreaming?: boolean;
-                        }[];
-                        options?: {
-                            deprecated?: boolean;
-                            uninterpretedOption?: {
-                                name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
-                                }[];
-                                identifierValue?: string;
-                                positiveIntValue?: any;
-                                negativeIntValue?: any;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
-                            }[];
-                        };
-                    }[];
-                    extension?: {
-                        name?: string;
-                        number?: number;
-                        label?: _53.FieldDescriptorProto_Label;
-                        type?: _53.FieldDescriptorProto_Type;
-                        typeName?: string;
-                        extendee?: string;
-                        defaultValue?: string;
-                        oneofIndex?: number;
-                        jsonName?: string;
-                        options?: {
-                            ctype?: _53.FieldOptions_CType;
-                            packed?: boolean;
-                            jstype?: _53.FieldOptions_JSType;
-                            lazy?: boolean;
-                            deprecated?: boolean;
-                            weak?: boolean;
-                            uninterpretedOption?: {
-                                name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
-                                }[];
-                                identifierValue?: string;
-                                positiveIntValue?: any;
-                                negativeIntValue?: any;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
-                            }[];
-                        };
-                    }[];
-                    options?: {
-                        javaPackage?: string;
-                        javaOuterClassname?: string;
-                        javaMultipleFiles?: boolean;
-                        javaGenerateEqualsAndHash?: boolean;
-                        javaStringCheckUtf8?: boolean;
-                        optimizeFor?: _53.FileOptions_OptimizeMode;
-                        goPackage?: string;
-                        ccGenericServices?: boolean;
-                        javaGenericServices?: boolean;
-                        pyGenericServices?: boolean;
-                        phpGenericServices?: boolean;
-                        deprecated?: boolean;
-                        ccEnableArenas?: boolean;
-                        objcClassPrefix?: string;
-                        csharpNamespace?: string;
-                        swiftPrefix?: string;
-                        phpClassPrefix?: string;
-                        phpNamespace?: string;
-                        phpMetadataNamespace?: string;
-                        rubyPackage?: string;
-                        uninterpretedOption?: {
-                            name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
-                            }[];
-                            identifierValue?: string;
-                            positiveIntValue?: any;
-                            negativeIntValue?: any;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
-                        }[];
-                    };
-                    sourceCodeInfo?: {
-                        location?: {
-                            path?: number[];
-                            span?: number[];
-                            leadingComments?: string;
-                            trailingComments?: string;
-                            leadingDetachedComments?: string[];
-                        }[];
-                    };
-                    syntax?: string;
-                }[];
-            }): _53.FileDescriptorSet;
+            fromPartial(object: any): _53.FileDescriptorSet;
         };
         FileDescriptorProto: {
             encode(message: _53.FileDescriptorProto, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.FileDescriptorProto;
-            fromPartial(object: {
-                name?: string;
-                package?: string;
-                dependency?: string[];
-                publicDependency?: number[];
-                weakDependency?: number[];
-                messageType?: {
-                    name?: string;
-                    field?: {
-                        name?: string;
-                        number?: number;
-                        label?: _53.FieldDescriptorProto_Label;
-                        type?: _53.FieldDescriptorProto_Type;
-                        typeName?: string;
-                        extendee?: string;
-                        defaultValue?: string;
-                        oneofIndex?: number;
-                        jsonName?: string;
-                        options?: {
-                            ctype?: _53.FieldOptions_CType;
-                            packed?: boolean;
-                            jstype?: _53.FieldOptions_JSType;
-                            lazy?: boolean;
-                            deprecated?: boolean;
-                            weak?: boolean;
-                            uninterpretedOption?: {
-                                name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
-                                }[];
-                                identifierValue?: string;
-                                positiveIntValue?: any;
-                                negativeIntValue?: any;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
-                            }[];
-                        };
-                    }[];
-                    extension?: {
-                        name?: string;
-                        number?: number;
-                        label?: _53.FieldDescriptorProto_Label;
-                        type?: _53.FieldDescriptorProto_Type;
-                        typeName?: string;
-                        extendee?: string;
-                        defaultValue?: string;
-                        oneofIndex?: number;
-                        jsonName?: string;
-                        options?: {
-                            ctype?: _53.FieldOptions_CType;
-                            packed?: boolean;
-                            jstype?: _53.FieldOptions_JSType;
-                            lazy?: boolean;
-                            deprecated?: boolean;
-                            weak?: boolean;
-                            uninterpretedOption?: {
-                                name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
-                                }[];
-                                identifierValue?: string;
-                                positiveIntValue?: any;
-                                negativeIntValue?: any;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
-                            }[];
-                        };
-                    }[];
-                    nestedType?: any[];
-                    enumType?: {
-                        name?: string;
-                        value?: {
-                            name?: string;
-                            number?: number;
-                            options?: {
-                                deprecated?: boolean;
-                                uninterpretedOption?: {
-                                    name?: {
-                                        namePart?: string;
-                                        isExtension?: boolean;
-                                    }[];
-                                    identifierValue?: string;
-                                    positiveIntValue?: any;
-                                    negativeIntValue?: any;
-                                    doubleValue?: number;
-                                    stringValue?: Uint8Array;
-                                    aggregateValue?: string;
-                                }[];
-                            };
-                        }[];
-                        options?: {
-                            allowAlias?: boolean;
-                            deprecated?: boolean;
-                            uninterpretedOption?: {
-                                name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
-                                }[];
-                                identifierValue?: string;
-                                positiveIntValue?: any;
-                                negativeIntValue?: any;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
-                            }[];
-                        };
-                        reservedRange?: {
-                            start?: number;
-                            end?: number;
-                        }[];
-                        reservedName?: string[];
-                    }[];
-                    extensionRange?: {
-                        start?: number;
-                        end?: number;
-                        options?: {
-                            uninterpretedOption?: {
-                                name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
-                                }[];
-                                identifierValue?: string;
-                                positiveIntValue?: any;
-                                negativeIntValue?: any;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
-                            }[];
-                        };
-                    }[];
-                    oneofDecl?: {
-                        name?: string;
-                        options?: {
-                            uninterpretedOption?: {
-                                name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
-                                }[];
-                                identifierValue?: string;
-                                positiveIntValue?: any;
-                                negativeIntValue?: any;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
-                            }[];
-                        };
-                    }[];
-                    options?: {
-                        messageSetWireFormat?: boolean;
-                        noStandardDescriptorAccessor?: boolean;
-                        deprecated?: boolean;
-                        mapEntry?: boolean;
-                        uninterpretedOption?: {
-                            name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
-                            }[];
-                            identifierValue?: string;
-                            positiveIntValue?: any;
-                            negativeIntValue?: any;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
-                        }[];
-                    };
-                    reservedRange?: {
-                        start?: number;
-                        end?: number;
-                    }[];
-                    reservedName?: string[];
-                }[];
-                enumType?: {
-                    name?: string;
-                    value?: {
-                        name?: string;
-                        number?: number;
-                        options?: {
-                            deprecated?: boolean;
-                            uninterpretedOption?: {
-                                name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
-                                }[];
-                                identifierValue?: string;
-                                positiveIntValue?: any;
-                                negativeIntValue?: any;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
-                            }[];
-                        };
-                    }[];
-                    options?: {
-                        allowAlias?: boolean;
-                        deprecated?: boolean;
-                        uninterpretedOption?: {
-                            name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
-                            }[];
-                            identifierValue?: string;
-                            positiveIntValue?: any;
-                            negativeIntValue?: any;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
-                        }[];
-                    };
-                    reservedRange?: {
-                        start?: number;
-                        end?: number;
-                    }[];
-                    reservedName?: string[];
-                }[];
-                service?: {
-                    name?: string;
-                    method?: {
-                        name?: string;
-                        inputType?: string;
-                        outputType?: string;
-                        options?: {
-                            deprecated?: boolean;
-                            idempotencyLevel?: _53.MethodOptions_IdempotencyLevel;
-                            uninterpretedOption?: {
-                                name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
-                                }[];
-                                identifierValue?: string;
-                                positiveIntValue?: any;
-                                negativeIntValue?: any;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
-                            }[];
-                        };
-                        clientStreaming?: boolean;
-                        serverStreaming?: boolean;
-                    }[];
-                    options?: {
-                        deprecated?: boolean;
-                        uninterpretedOption?: {
-                            name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
-                            }[];
-                            identifierValue?: string;
-                            positiveIntValue?: any;
-                            negativeIntValue?: any;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
-                        }[];
-                    };
-                }[];
-                extension?: {
-                    name?: string;
-                    number?: number;
-                    label?: _53.FieldDescriptorProto_Label;
-                    type?: _53.FieldDescriptorProto_Type;
-                    typeName?: string;
-                    extendee?: string;
-                    defaultValue?: string;
-                    oneofIndex?: number;
-                    jsonName?: string;
-                    options?: {
-                        ctype?: _53.FieldOptions_CType;
-                        packed?: boolean;
-                        jstype?: _53.FieldOptions_JSType;
-                        lazy?: boolean;
-                        deprecated?: boolean;
-                        weak?: boolean;
-                        uninterpretedOption?: {
-                            name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
-                            }[];
-                            identifierValue?: string;
-                            positiveIntValue?: any;
-                            negativeIntValue?: any;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
-                        }[];
-                    };
-                }[];
-                options?: {
-                    javaPackage?: string;
-                    javaOuterClassname?: string;
-                    javaMultipleFiles?: boolean;
-                    javaGenerateEqualsAndHash?: boolean;
-                    javaStringCheckUtf8?: boolean;
-                    optimizeFor?: _53.FileOptions_OptimizeMode;
-                    goPackage?: string;
-                    ccGenericServices?: boolean;
-                    javaGenericServices?: boolean;
-                    pyGenericServices?: boolean;
-                    phpGenericServices?: boolean;
-                    deprecated?: boolean;
-                    ccEnableArenas?: boolean;
-                    objcClassPrefix?: string;
-                    csharpNamespace?: string;
-                    swiftPrefix?: string;
-                    phpClassPrefix?: string;
-                    phpNamespace?: string;
-                    phpMetadataNamespace?: string;
-                    rubyPackage?: string;
-                    uninterpretedOption?: {
-                        name?: {
-                            namePart?: string;
-                            isExtension?: boolean;
-                        }[];
-                        identifierValue?: string;
-                        positiveIntValue?: any;
-                        negativeIntValue?: any;
-                        doubleValue?: number;
-                        stringValue?: Uint8Array;
-                        aggregateValue?: string;
-                    }[];
-                };
-                sourceCodeInfo?: {
-                    location?: {
-                        path?: number[];
-                        span?: number[];
-                        leadingComments?: string;
-                        trailingComments?: string;
-                        leadingDetachedComments?: string[];
-                    }[];
-                };
-                syntax?: string;
-            }): _53.FileDescriptorProto;
+            fromPartial(object: any): _53.FileDescriptorProto;
         };
         DescriptorProto: {
             encode(message: _53.DescriptorProto, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.DescriptorProto;
-            fromPartial(object: {
-                name?: string;
-                field?: {
-                    name?: string;
-                    number?: number;
-                    label?: _53.FieldDescriptorProto_Label;
-                    type?: _53.FieldDescriptorProto_Type;
-                    typeName?: string;
-                    extendee?: string;
-                    defaultValue?: string;
-                    oneofIndex?: number;
-                    jsonName?: string;
-                    options?: {
-                        ctype?: _53.FieldOptions_CType;
-                        packed?: boolean;
-                        jstype?: _53.FieldOptions_JSType;
-                        lazy?: boolean;
-                        deprecated?: boolean;
-                        weak?: boolean;
-                        uninterpretedOption?: {
-                            name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
-                            }[];
-                            identifierValue?: string;
-                            positiveIntValue?: any;
-                            negativeIntValue?: any;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
-                        }[];
-                    };
-                }[];
-                extension?: {
-                    name?: string;
-                    number?: number;
-                    label?: _53.FieldDescriptorProto_Label;
-                    type?: _53.FieldDescriptorProto_Type;
-                    typeName?: string;
-                    extendee?: string;
-                    defaultValue?: string;
-                    oneofIndex?: number;
-                    jsonName?: string;
-                    options?: {
-                        ctype?: _53.FieldOptions_CType;
-                        packed?: boolean;
-                        jstype?: _53.FieldOptions_JSType;
-                        lazy?: boolean;
-                        deprecated?: boolean;
-                        weak?: boolean;
-                        uninterpretedOption?: {
-                            name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
-                            }[];
-                            identifierValue?: string;
-                            positiveIntValue?: any;
-                            negativeIntValue?: any;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
-                        }[];
-                    };
-                }[];
-                nestedType?: any[];
-                enumType?: {
-                    name?: string;
-                    value?: {
-                        name?: string;
-                        number?: number;
-                        options?: {
-                            deprecated?: boolean;
-                            uninterpretedOption?: {
-                                name?: {
-                                    namePart?: string;
-                                    isExtension?: boolean;
-                                }[];
-                                identifierValue?: string;
-                                positiveIntValue?: any;
-                                negativeIntValue?: any;
-                                doubleValue?: number;
-                                stringValue?: Uint8Array;
-                                aggregateValue?: string;
-                            }[];
-                        };
-                    }[];
-                    options?: {
-                        allowAlias?: boolean;
-                        deprecated?: boolean;
-                        uninterpretedOption?: {
-                            name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
-                            }[];
-                            identifierValue?: string;
-                            positiveIntValue?: any;
-                            negativeIntValue?: any;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
-                        }[];
-                    };
-                    reservedRange?: {
-                        start?: number;
-                        end?: number;
-                    }[];
-                    reservedName?: string[];
-                }[];
-                extensionRange?: {
-                    start?: number;
-                    end?: number;
-                    options?: {
-                        uninterpretedOption?: {
-                            name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
-                            }[];
-                            identifierValue?: string;
-                            positiveIntValue?: any;
-                            negativeIntValue?: any;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
-                        }[];
-                    };
-                }[];
-                oneofDecl?: {
-                    name?: string;
-                    options?: {
-                        uninterpretedOption?: {
-                            name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
-                            }[];
-                            identifierValue?: string;
-                            positiveIntValue?: any;
-                            negativeIntValue?: any;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
-                        }[];
-                    };
-                }[];
-                options?: {
-                    messageSetWireFormat?: boolean;
-                    noStandardDescriptorAccessor?: boolean;
-                    deprecated?: boolean;
-                    mapEntry?: boolean;
-                    uninterpretedOption?: {
-                        name?: {
-                            namePart?: string;
-                            isExtension?: boolean;
-                        }[];
-                        identifierValue?: string;
-                        positiveIntValue?: any;
-                        negativeIntValue?: any;
-                        doubleValue?: number;
-                        stringValue?: Uint8Array;
-                        aggregateValue?: string;
-                    }[];
-                };
-                reservedRange?: {
-                    start?: number;
-                    end?: number;
-                }[];
-                reservedName?: string[];
-            }): _53.DescriptorProto;
+            fromPartial(object: any): _53.DescriptorProto;
         };
         DescriptorProto_ExtensionRange: {
             encode(message: _53.DescriptorProto_ExtensionRange, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.DescriptorProto_ExtensionRange;
-            fromPartial(object: {
-                start?: number;
-                end?: number;
-                options?: {
-                    uninterpretedOption?: {
-                        name?: {
-                            namePart?: string;
-                            isExtension?: boolean;
-                        }[];
-                        identifierValue?: string;
-                        positiveIntValue?: any;
-                        negativeIntValue?: any;
-                        doubleValue?: number;
-                        stringValue?: Uint8Array;
-                        aggregateValue?: string;
-                    }[];
-                };
-            }): _53.DescriptorProto_ExtensionRange;
+            fromPartial(object: any): _53.DescriptorProto_ExtensionRange;
         };
         DescriptorProto_ReservedRange: {
             encode(message: _53.DescriptorProto_ReservedRange, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.DescriptorProto_ReservedRange;
-            fromPartial(object: {
-                start?: number;
-                end?: number;
-            }): _53.DescriptorProto_ReservedRange;
+            fromPartial(object: any): _53.DescriptorProto_ReservedRange;
         };
         ExtensionRangeOptions: {
             encode(message: _53.ExtensionRangeOptions, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.ExtensionRangeOptions;
-            fromPartial(object: {
-                uninterpretedOption?: {
-                    name?: {
-                        namePart?: string;
-                        isExtension?: boolean;
-                    }[];
-                    identifierValue?: string;
-                    positiveIntValue?: any;
-                    negativeIntValue?: any;
-                    doubleValue?: number;
-                    stringValue?: Uint8Array;
-                    aggregateValue?: string;
-                }[];
-            }): _53.ExtensionRangeOptions;
+            fromPartial(object: any): _53.ExtensionRangeOptions;
         };
         FieldDescriptorProto: {
             encode(message: _53.FieldDescriptorProto, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.FieldDescriptorProto;
-            fromPartial(object: {
-                name?: string;
-                number?: number;
-                label?: _53.FieldDescriptorProto_Label;
-                type?: _53.FieldDescriptorProto_Type;
-                typeName?: string;
-                extendee?: string;
-                defaultValue?: string;
-                oneofIndex?: number;
-                jsonName?: string;
-                options?: {
-                    ctype?: _53.FieldOptions_CType;
-                    packed?: boolean;
-                    jstype?: _53.FieldOptions_JSType;
-                    lazy?: boolean;
-                    deprecated?: boolean;
-                    weak?: boolean;
-                    uninterpretedOption?: {
-                        name?: {
-                            namePart?: string;
-                            isExtension?: boolean;
-                        }[];
-                        identifierValue?: string;
-                        positiveIntValue?: any;
-                        negativeIntValue?: any;
-                        doubleValue?: number;
-                        stringValue?: Uint8Array;
-                        aggregateValue?: string;
-                    }[];
-                };
-            }): _53.FieldDescriptorProto;
+            fromPartial(object: any): _53.FieldDescriptorProto;
         };
         OneofDescriptorProto: {
             encode(message: _53.OneofDescriptorProto, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.OneofDescriptorProto;
-            fromPartial(object: {
-                name?: string;
-                options?: {
-                    uninterpretedOption?: {
-                        name?: {
-                            namePart?: string;
-                            isExtension?: boolean;
-                        }[];
-                        identifierValue?: string;
-                        positiveIntValue?: any;
-                        negativeIntValue?: any;
-                        doubleValue?: number;
-                        stringValue?: Uint8Array;
-                        aggregateValue?: string;
-                    }[];
-                };
-            }): _53.OneofDescriptorProto;
+            fromPartial(object: any): _53.OneofDescriptorProto;
         };
         EnumDescriptorProto: {
             encode(message: _53.EnumDescriptorProto, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.EnumDescriptorProto;
-            fromPartial(object: {
-                name?: string;
-                value?: {
-                    name?: string;
-                    number?: number;
-                    options?: {
-                        deprecated?: boolean;
-                        uninterpretedOption?: {
-                            name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
-                            }[];
-                            identifierValue?: string;
-                            positiveIntValue?: any;
-                            negativeIntValue?: any;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
-                        }[];
-                    };
-                }[];
-                options?: {
-                    allowAlias?: boolean;
-                    deprecated?: boolean;
-                    uninterpretedOption?: {
-                        name?: {
-                            namePart?: string;
-                            isExtension?: boolean;
-                        }[];
-                        identifierValue?: string;
-                        positiveIntValue?: any;
-                        negativeIntValue?: any;
-                        doubleValue?: number;
-                        stringValue?: Uint8Array;
-                        aggregateValue?: string;
-                    }[];
-                };
-                reservedRange?: {
-                    start?: number;
-                    end?: number;
-                }[];
-                reservedName?: string[];
-            }): _53.EnumDescriptorProto;
+            fromPartial(object: any): _53.EnumDescriptorProto;
         };
         EnumDescriptorProto_EnumReservedRange: {
             encode(message: _53.EnumDescriptorProto_EnumReservedRange, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.EnumDescriptorProto_EnumReservedRange;
-            fromPartial(object: {
-                start?: number;
-                end?: number;
-            }): _53.EnumDescriptorProto_EnumReservedRange;
+            fromPartial(object: any): _53.EnumDescriptorProto_EnumReservedRange;
         };
         EnumValueDescriptorProto: {
             encode(message: _53.EnumValueDescriptorProto, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.EnumValueDescriptorProto;
-            fromPartial(object: {
-                name?: string;
-                number?: number;
-                options?: {
-                    deprecated?: boolean;
-                    uninterpretedOption?: {
-                        name?: {
-                            namePart?: string;
-                            isExtension?: boolean;
-                        }[];
-                        identifierValue?: string;
-                        positiveIntValue?: any;
-                        negativeIntValue?: any;
-                        doubleValue?: number;
-                        stringValue?: Uint8Array;
-                        aggregateValue?: string;
-                    }[];
-                };
-            }): _53.EnumValueDescriptorProto;
+            fromPartial(object: any): _53.EnumValueDescriptorProto;
         };
         ServiceDescriptorProto: {
             encode(message: _53.ServiceDescriptorProto, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.ServiceDescriptorProto;
-            fromPartial(object: {
-                name?: string;
-                method?: {
-                    name?: string;
-                    inputType?: string;
-                    outputType?: string;
-                    options?: {
-                        deprecated?: boolean;
-                        idempotencyLevel?: _53.MethodOptions_IdempotencyLevel;
-                        uninterpretedOption?: {
-                            name?: {
-                                namePart?: string;
-                                isExtension?: boolean;
-                            }[];
-                            identifierValue?: string;
-                            positiveIntValue?: any;
-                            negativeIntValue?: any;
-                            doubleValue?: number;
-                            stringValue?: Uint8Array;
-                            aggregateValue?: string;
-                        }[];
-                    };
-                    clientStreaming?: boolean;
-                    serverStreaming?: boolean;
-                }[];
-                options?: {
-                    deprecated?: boolean;
-                    uninterpretedOption?: {
-                        name?: {
-                            namePart?: string;
-                            isExtension?: boolean;
-                        }[];
-                        identifierValue?: string;
-                        positiveIntValue?: any;
-                        negativeIntValue?: any;
-                        doubleValue?: number;
-                        stringValue?: Uint8Array;
-                        aggregateValue?: string;
-                    }[];
-                };
-            }): _53.ServiceDescriptorProto;
+            fromPartial(object: any): _53.ServiceDescriptorProto;
         };
         MethodDescriptorProto: {
             encode(message: _53.MethodDescriptorProto, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.MethodDescriptorProto;
-            fromPartial(object: {
-                name?: string;
-                inputType?: string;
-                outputType?: string;
-                options?: {
-                    deprecated?: boolean;
-                    idempotencyLevel?: _53.MethodOptions_IdempotencyLevel;
-                    uninterpretedOption?: {
-                        name?: {
-                            namePart?: string;
-                            isExtension?: boolean;
-                        }[];
-                        identifierValue?: string;
-                        positiveIntValue?: any;
-                        negativeIntValue?: any;
-                        doubleValue?: number;
-                        stringValue?: Uint8Array;
-                        aggregateValue?: string;
-                    }[];
-                };
-                clientStreaming?: boolean;
-                serverStreaming?: boolean;
-            }): _53.MethodDescriptorProto;
+            fromPartial(object: any): _53.MethodDescriptorProto;
         };
         FileOptions: {
             encode(message: _53.FileOptions, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.FileOptions;
-            fromPartial(object: {
-                javaPackage?: string;
-                javaOuterClassname?: string;
-                javaMultipleFiles?: boolean;
-                javaGenerateEqualsAndHash?: boolean;
-                javaStringCheckUtf8?: boolean;
-                optimizeFor?: _53.FileOptions_OptimizeMode;
-                goPackage?: string;
-                ccGenericServices?: boolean;
-                javaGenericServices?: boolean;
-                pyGenericServices?: boolean;
-                phpGenericServices?: boolean;
-                deprecated?: boolean;
-                ccEnableArenas?: boolean;
-                objcClassPrefix?: string;
-                csharpNamespace?: string;
-                swiftPrefix?: string;
-                phpClassPrefix?: string;
-                phpNamespace?: string;
-                phpMetadataNamespace?: string;
-                rubyPackage?: string;
-                uninterpretedOption?: {
-                    name?: {
-                        namePart?: string;
-                        isExtension?: boolean;
-                    }[];
-                    identifierValue?: string;
-                    positiveIntValue?: any;
-                    negativeIntValue?: any;
-                    doubleValue?: number;
-                    stringValue?: Uint8Array;
-                    aggregateValue?: string;
-                }[];
-            }): _53.FileOptions;
+            fromPartial(object: any): _53.FileOptions;
         };
         MessageOptions: {
             encode(message: _53.MessageOptions, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.MessageOptions;
-            fromPartial(object: {
-                messageSetWireFormat?: boolean;
-                noStandardDescriptorAccessor?: boolean;
-                deprecated?: boolean;
-                mapEntry?: boolean;
-                uninterpretedOption?: {
-                    name?: {
-                        namePart?: string;
-                        isExtension?: boolean;
-                    }[];
-                    identifierValue?: string;
-                    positiveIntValue?: any;
-                    negativeIntValue?: any;
-                    doubleValue?: number;
-                    stringValue?: Uint8Array;
-                    aggregateValue?: string;
-                }[];
-            }): _53.MessageOptions;
+            fromPartial(object: any): _53.MessageOptions;
         };
         FieldOptions: {
             encode(message: _53.FieldOptions, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.FieldOptions;
-            fromPartial(object: {
-                ctype?: _53.FieldOptions_CType;
-                packed?: boolean;
-                jstype?: _53.FieldOptions_JSType;
-                lazy?: boolean;
-                deprecated?: boolean;
-                weak?: boolean;
-                uninterpretedOption?: {
-                    name?: {
-                        namePart?: string;
-                        isExtension?: boolean;
-                    }[];
-                    identifierValue?: string;
-                    positiveIntValue?: any;
-                    negativeIntValue?: any;
-                    doubleValue?: number;
-                    stringValue?: Uint8Array;
-                    aggregateValue?: string;
-                }[];
-            }): _53.FieldOptions;
+            fromPartial(object: any): _53.FieldOptions;
         };
         OneofOptions: {
             encode(message: _53.OneofOptions, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.OneofOptions;
-            fromPartial(object: {
-                uninterpretedOption?: {
-                    name?: {
-                        namePart?: string;
-                        isExtension?: boolean;
-                    }[];
-                    identifierValue?: string;
-                    positiveIntValue?: any;
-                    negativeIntValue?: any;
-                    doubleValue?: number;
-                    stringValue?: Uint8Array;
-                    aggregateValue?: string;
-                }[];
-            }): _53.OneofOptions;
+            fromPartial(object: any): _53.OneofOptions;
         };
         EnumOptions: {
             encode(message: _53.EnumOptions, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.EnumOptions;
-            fromPartial(object: {
-                allowAlias?: boolean;
-                deprecated?: boolean;
-                uninterpretedOption?: {
-                    name?: {
-                        namePart?: string;
-                        isExtension?: boolean;
-                    }[];
-                    identifierValue?: string;
-                    positiveIntValue?: any;
-                    negativeIntValue?: any;
-                    doubleValue?: number;
-                    stringValue?: Uint8Array;
-                    aggregateValue?: string;
-                }[];
-            }): _53.EnumOptions;
+            fromPartial(object: any): _53.EnumOptions;
         };
         EnumValueOptions: {
             encode(message: _53.EnumValueOptions, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.EnumValueOptions;
-            fromPartial(object: {
-                deprecated?: boolean;
-                uninterpretedOption?: {
-                    name?: {
-                        namePart?: string;
-                        isExtension?: boolean;
-                    }[];
-                    identifierValue?: string;
-                    positiveIntValue?: any;
-                    negativeIntValue?: any;
-                    doubleValue?: number;
-                    stringValue?: Uint8Array;
-                    aggregateValue?: string;
-                }[];
-            }): _53.EnumValueOptions;
+            fromPartial(object: any): _53.EnumValueOptions;
         };
         ServiceOptions: {
             encode(message: _53.ServiceOptions, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.ServiceOptions;
-            fromPartial(object: {
-                deprecated?: boolean;
-                uninterpretedOption?: {
-                    name?: {
-                        namePart?: string;
-                        isExtension?: boolean;
-                    }[];
-                    identifierValue?: string;
-                    positiveIntValue?: any;
-                    negativeIntValue?: any;
-                    doubleValue?: number;
-                    stringValue?: Uint8Array;
-                    aggregateValue?: string;
-                }[];
-            }): _53.ServiceOptions;
+            fromPartial(object: any): _53.ServiceOptions;
         };
         MethodOptions: {
             encode(message: _53.MethodOptions, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.MethodOptions;
-            fromPartial(object: {
-                deprecated?: boolean;
-                idempotencyLevel?: _53.MethodOptions_IdempotencyLevel;
-                uninterpretedOption?: {
-                    name?: {
-                        namePart?: string;
-                        isExtension?: boolean;
-                    }[];
-                    identifierValue?: string;
-                    positiveIntValue?: any;
-                    negativeIntValue?: any;
-                    doubleValue?: number;
-                    stringValue?: Uint8Array;
-                    aggregateValue?: string;
-                }[];
-            }): _53.MethodOptions;
+            fromPartial(object: any): _53.MethodOptions;
         };
         UninterpretedOption: {
             encode(message: _53.UninterpretedOption, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.UninterpretedOption;
-            fromPartial(object: {
-                name?: {
-                    namePart?: string;
-                    isExtension?: boolean;
-                }[];
-                identifierValue?: string;
-                positiveIntValue?: any;
-                negativeIntValue?: any;
-                doubleValue?: number;
-                stringValue?: Uint8Array;
-                aggregateValue?: string;
-            }): _53.UninterpretedOption;
+            fromPartial(object: any): _53.UninterpretedOption;
         };
         UninterpretedOption_NamePart: {
             encode(message: _53.UninterpretedOption_NamePart, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.UninterpretedOption_NamePart;
-            fromPartial(object: {
-                namePart?: string;
-                isExtension?: boolean;
-            }): _53.UninterpretedOption_NamePart;
+            fromPartial(object: any): _53.UninterpretedOption_NamePart;
         };
         SourceCodeInfo: {
             encode(message: _53.SourceCodeInfo, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.SourceCodeInfo;
-            fromPartial(object: {
-                location?: {
-                    path?: number[];
-                    span?: number[];
-                    leadingComments?: string;
-                    trailingComments?: string;
-                    leadingDetachedComments?: string[];
-                }[];
-            }): _53.SourceCodeInfo;
+            fromPartial(object: any): _53.SourceCodeInfo;
         };
         SourceCodeInfo_Location: {
             encode(message: _53.SourceCodeInfo_Location, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.SourceCodeInfo_Location;
-            fromPartial(object: {
-                path?: number[];
-                span?: number[];
-                leadingComments?: string;
-                trailingComments?: string;
-                leadingDetachedComments?: string[];
-            }): _53.SourceCodeInfo_Location;
+            fromPartial(object: any): _53.SourceCodeInfo_Location;
         };
         GeneratedCodeInfo: {
             encode(message: _53.GeneratedCodeInfo, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.GeneratedCodeInfo;
-            fromPartial(object: {
-                annotation?: {
-                    path?: number[];
-                    sourceFile?: string;
-                    begin?: number;
-                    end?: number;
-                }[];
-            }): _53.GeneratedCodeInfo;
+            fromPartial(object: any): _53.GeneratedCodeInfo;
         };
         GeneratedCodeInfo_Annotation: {
             encode(message: _53.GeneratedCodeInfo_Annotation, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _53.GeneratedCodeInfo_Annotation;
-            fromPartial(object: {
-                path?: number[];
-                sourceFile?: string;
-                begin?: number;
-                end?: number;
-            }): _53.GeneratedCodeInfo_Annotation;
+            fromPartial(object: any): _53.GeneratedCodeInfo_Annotation;
         };
         Any: {
             encode(message: _52.Any, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _52.Any;
-            fromPartial(object: {
-                typeUrl?: string;
-                value?: Uint8Array;
-            }): _52.Any;
+            fromPartial(object: any): _52.Any;
         };
     };
 }

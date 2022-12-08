@@ -58,7 +58,7 @@
     "@babel/plugin-transform-runtime": "7.19.1",
     "@babel/preset-env": "7.19.4",
     "@babel/preset-typescript": "^7.18.6",
-    "@cosmwasm/ts-codegen": "0.22.0",
+    "@cosmwasm/ts-codegen": "0.24.0",
     "@types/jest": "^29.1.2",
     "babel-core": "7.0.0-bridge.0",
     "babel-jest": "29.1.2",
@@ -78,9 +78,9 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.19.4",
-    "@cosmjs/cosmwasm-stargate": "^0.29.1",
-    "@cosmjs/proto-signing": "0.29.1",
-    "@cosmjs/stargate": "0.29.1",
+    "@cosmjs/cosmwasm-stargate": "^0.29.5",
+    "@cosmjs/proto-signing": "0.29.5",
+    "@cosmjs/stargate": "0.29.5",
     "cosmwasm": "1.1.1"
   },
   "gitHead": "9377063d7a365cff5e4044ef727652026aaa34c1"

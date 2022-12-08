@@ -15,80 +15,52 @@ export declare namespace juno {
         QueryParamsRequest: {
             encode(_: _81.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryParamsRequest;
-            fromPartial(_: {}): _81.QueryParamsRequest;
+            fromPartial(_: any): _81.QueryParamsRequest;
         };
         QueryParamsResponse: {
             encode(message: _81.QueryParamsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryParamsResponse;
-            fromPartial(object: {
-                params?: {
-                    mintDenom?: string;
-                    blocksPerYear?: any;
-                };
-            }): _81.QueryParamsResponse;
+            fromPartial(object: any): _81.QueryParamsResponse;
         };
         QueryInflationRequest: {
             encode(_: _81.QueryInflationRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryInflationRequest;
-            fromPartial(_: {}): _81.QueryInflationRequest;
+            fromPartial(_: any): _81.QueryInflationRequest;
         };
         QueryInflationResponse: {
             encode(message: _81.QueryInflationResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryInflationResponse;
-            fromPartial(object: {
-                inflation?: Uint8Array;
-            }): _81.QueryInflationResponse;
+            fromPartial(object: any): _81.QueryInflationResponse;
         };
         QueryAnnualProvisionsRequest: {
             encode(_: _81.QueryAnnualProvisionsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryAnnualProvisionsRequest;
-            fromPartial(_: {}): _81.QueryAnnualProvisionsRequest;
+            fromPartial(_: any): _81.QueryAnnualProvisionsRequest;
         };
         QueryAnnualProvisionsResponse: {
             encode(message: _81.QueryAnnualProvisionsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryAnnualProvisionsResponse;
-            fromPartial(object: {
-                annualProvisions?: Uint8Array;
-            }): _81.QueryAnnualProvisionsResponse;
+            fromPartial(object: any): _81.QueryAnnualProvisionsResponse;
         };
         Minter: {
             encode(message: _80.Minter, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _80.Minter;
-            fromPartial(object: {
-                inflation?: string;
-                phase?: any;
-                startPhaseBlock?: any;
-                annualProvisions?: string;
-            }): _80.Minter;
+            fromPartial(object: any): _80.Minter;
         };
         Params: {
             encode(message: _80.Params, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _80.Params;
-            fromPartial(object: {
-                mintDenom?: string;
-                blocksPerYear?: any;
-            }): _80.Params;
+            fromPartial(object: any): _80.Params;
         };
         GenesisState: {
             encode(message: _79.GenesisState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _79.GenesisState;
-            fromPartial(object: {
-                minter?: {
-                    inflation?: string;
-                    phase?: any;
-                    startPhaseBlock?: any;
-                    annualProvisions?: string;
-                };
-                params?: {
-                    mintDenom?: string;
-                    blocksPerYear?: any;
-                };
-            }): _79.GenesisState;
+            fromPartial(object: any): _79.GenesisState;
         };
     };
     const ClientFactory: {
         createRPCQueryClient: ({ rpcEndpoint }: {
-            rpcEndpoint: string;
+            rpcEndpoint: string | import("@cosmjs/tendermint-rpc").HttpEndpoint;
         }) => Promise<{
             cosmos: {
                 authz: {
