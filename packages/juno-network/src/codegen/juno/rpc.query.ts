@@ -33,6 +33,9 @@ export const createRPCQueryClient = async ({
       }
     },
     juno: {
+      feeshare: {
+        v1: (await import("./feeshare/v1/query.rpc.Query")).createRpcQueryExtension(client)
+      },
       mint: (await import("./mint/query.rpc.Query")).createRpcQueryExtension(client)
     }
   };
