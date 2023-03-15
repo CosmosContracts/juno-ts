@@ -1,64 +1,295 @@
-import * as _79 from "./mint/genesis";
-import * as _80 from "./mint/mint";
-import * as _81 from "./mint/query";
-import * as _153 from "./mint/query.lcd";
-import * as _154 from "./mint/query.rpc.Query";
+import * as _79 from "./feeshare/v1/feeshare";
+import * as _80 from "./feeshare/v1/genesis";
+import * as _81 from "./feeshare/v1/query";
+import * as _82 from "./feeshare/v1/tx";
+import * as _83 from "./mint/genesis";
+import * as _84 from "./mint/mint";
+import * as _85 from "./mint/query";
+import * as _159 from "./feeshare/v1/query.lcd";
+import * as _160 from "./mint/query.lcd";
+import * as _161 from "./feeshare/v1/query.rpc.Query";
+import * as _162 from "./mint/query.rpc.Query";
+import * as _163 from "./feeshare/v1/tx.rpc.msg";
 export declare namespace juno {
-    const mint: {
-        QueryClientImpl: typeof _154.QueryClientImpl;
-        createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
-            params(request?: _81.QueryParamsRequest): Promise<_81.QueryParamsResponse>;
-            inflation(request?: _81.QueryInflationRequest): Promise<_81.QueryInflationResponse>;
-            annualProvisions(request?: _81.QueryAnnualProvisionsRequest): Promise<_81.QueryAnnualProvisionsResponse>;
+    namespace feeshare {
+        const v1: {
+            MsgClientImpl: typeof _163.MsgClientImpl;
+            QueryClientImpl: typeof _161.QueryClientImpl;
+            createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
+                feeShares(request?: _81.QueryFeeSharesRequest): Promise<_81.QueryFeeSharesResponse>;
+                feeShare(request: _81.QueryFeeShareRequest): Promise<_81.QueryFeeShareResponse>;
+                params(request?: _81.QueryParamsRequest): Promise<_81.QueryParamsResponse>;
+                deployerFeeShares(request: _81.QueryDeployerFeeSharesRequest): Promise<_81.QueryDeployerFeeSharesResponse>;
+                withdrawerFeeShares(request: _81.QueryWithdrawerFeeSharesRequest): Promise<_81.QueryWithdrawerFeeSharesResponse>;
+            };
+            LCDQueryClient: typeof _159.LCDQueryClient;
+            registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
+            load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
+            MessageComposer: {
+                encoded: {
+                    registerFeeShare(value: _82.MsgRegisterFeeShare): {
+                        typeUrl: string;
+                        value: Uint8Array;
+                    };
+                    updateFeeShare(value: _82.MsgUpdateFeeShare): {
+                        typeUrl: string;
+                        value: Uint8Array;
+                    };
+                    cancelFeeShare(value: _82.MsgCancelFeeShare): {
+                        typeUrl: string;
+                        value: Uint8Array;
+                    };
+                };
+                withTypeUrl: {
+                    registerFeeShare(value: _82.MsgRegisterFeeShare): {
+                        typeUrl: string;
+                        value: _82.MsgRegisterFeeShare;
+                    };
+                    updateFeeShare(value: _82.MsgUpdateFeeShare): {
+                        typeUrl: string;
+                        value: _82.MsgUpdateFeeShare;
+                    };
+                    cancelFeeShare(value: _82.MsgCancelFeeShare): {
+                        typeUrl: string;
+                        value: _82.MsgCancelFeeShare;
+                    };
+                };
+                fromPartial: {
+                    registerFeeShare(value: _82.MsgRegisterFeeShare): {
+                        typeUrl: string;
+                        value: _82.MsgRegisterFeeShare;
+                    };
+                    updateFeeShare(value: _82.MsgUpdateFeeShare): {
+                        typeUrl: string;
+                        value: _82.MsgUpdateFeeShare;
+                    };
+                    cancelFeeShare(value: _82.MsgCancelFeeShare): {
+                        typeUrl: string;
+                        value: _82.MsgCancelFeeShare;
+                    };
+                };
+            };
+            AminoConverter: {
+                "/juno.feeshare.v1.MsgRegisterFeeShare": {
+                    aminoType: string;
+                    toAmino: ({ contractAddress, deployerAddress, withdrawerAddress }: _82.MsgRegisterFeeShare) => {
+                        contract_address: string;
+                        deployer_address: string;
+                        withdrawer_address: string;
+                    };
+                    fromAmino: ({ contract_address, deployer_address, withdrawer_address }: {
+                        contract_address: string;
+                        deployer_address: string;
+                        withdrawer_address: string;
+                    }) => _82.MsgRegisterFeeShare;
+                };
+                "/juno.feeshare.v1.MsgUpdateFeeShare": {
+                    aminoType: string;
+                    toAmino: ({ contractAddress, deployerAddress, withdrawerAddress }: _82.MsgUpdateFeeShare) => {
+                        contract_address: string;
+                        deployer_address: string;
+                        withdrawer_address: string;
+                    };
+                    fromAmino: ({ contract_address, deployer_address, withdrawer_address }: {
+                        contract_address: string;
+                        deployer_address: string;
+                        withdrawer_address: string;
+                    }) => _82.MsgUpdateFeeShare;
+                };
+                "/juno.feeshare.v1.MsgCancelFeeShare": {
+                    aminoType: string;
+                    toAmino: ({ contractAddress, deployerAddress }: _82.MsgCancelFeeShare) => {
+                        contract_address: string;
+                        deployer_address: string;
+                    };
+                    fromAmino: ({ contract_address, deployer_address }: {
+                        contract_address: string;
+                        deployer_address: string;
+                    }) => _82.MsgCancelFeeShare;
+                };
+            };
+            MsgRegisterFeeShare: {
+                encode(message: _82.MsgRegisterFeeShare, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.MsgRegisterFeeShare;
+                fromPartial(object: any): _82.MsgRegisterFeeShare;
+            };
+            MsgRegisterFeeShareResponse: {
+                encode(_: _82.MsgRegisterFeeShareResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.MsgRegisterFeeShareResponse;
+                fromPartial(_: any): _82.MsgRegisterFeeShareResponse;
+            };
+            MsgUpdateFeeShare: {
+                encode(message: _82.MsgUpdateFeeShare, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.MsgUpdateFeeShare;
+                fromPartial(object: any): _82.MsgUpdateFeeShare;
+            };
+            MsgUpdateFeeShareResponse: {
+                encode(_: _82.MsgUpdateFeeShareResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.MsgUpdateFeeShareResponse;
+                fromPartial(_: any): _82.MsgUpdateFeeShareResponse;
+            };
+            MsgCancelFeeShare: {
+                encode(message: _82.MsgCancelFeeShare, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.MsgCancelFeeShare;
+                fromPartial(object: any): _82.MsgCancelFeeShare;
+            };
+            MsgCancelFeeShareResponse: {
+                encode(_: _82.MsgCancelFeeShareResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _82.MsgCancelFeeShareResponse;
+                fromPartial(_: any): _82.MsgCancelFeeShareResponse;
+            };
+            QueryFeeSharesRequest: {
+                encode(message: _81.QueryFeeSharesRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryFeeSharesRequest;
+                fromPartial(object: any): _81.QueryFeeSharesRequest;
+            };
+            QueryFeeSharesResponse: {
+                encode(message: _81.QueryFeeSharesResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryFeeSharesResponse;
+                fromPartial(object: any): _81.QueryFeeSharesResponse;
+            };
+            QueryFeeShareRequest: {
+                encode(message: _81.QueryFeeShareRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryFeeShareRequest;
+                fromPartial(object: any): _81.QueryFeeShareRequest;
+            };
+            QueryFeeShareResponse: {
+                encode(message: _81.QueryFeeShareResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryFeeShareResponse;
+                fromPartial(object: any): _81.QueryFeeShareResponse;
+            };
+            QueryParamsRequest: {
+                encode(_: _81.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryParamsRequest;
+                fromPartial(_: any): _81.QueryParamsRequest;
+            };
+            QueryParamsResponse: {
+                encode(message: _81.QueryParamsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryParamsResponse;
+                fromPartial(object: any): _81.QueryParamsResponse;
+            };
+            QueryDeployerFeeSharesRequest: {
+                encode(message: _81.QueryDeployerFeeSharesRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryDeployerFeeSharesRequest;
+                fromPartial(object: any): _81.QueryDeployerFeeSharesRequest;
+            };
+            QueryDeployerFeeSharesResponse: {
+                encode(message: _81.QueryDeployerFeeSharesResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryDeployerFeeSharesResponse;
+                fromPartial(object: any): _81.QueryDeployerFeeSharesResponse;
+            };
+            QueryWithdrawerFeeSharesRequest: {
+                encode(message: _81.QueryWithdrawerFeeSharesRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryWithdrawerFeeSharesRequest;
+                fromPartial(object: any): _81.QueryWithdrawerFeeSharesRequest;
+            };
+            QueryWithdrawerFeeSharesResponse: {
+                encode(message: _81.QueryWithdrawerFeeSharesResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryWithdrawerFeeSharesResponse;
+                fromPartial(object: any): _81.QueryWithdrawerFeeSharesResponse;
+            };
+            GenesisState: {
+                encode(message: _80.GenesisState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _80.GenesisState;
+                fromPartial(object: any): _80.GenesisState;
+            };
+            Params: {
+                encode(message: _80.Params, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _80.Params;
+                fromPartial(object: any): _80.Params;
+            };
+            FeeShare: {
+                encode(message: _79.FeeShare, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _79.FeeShare;
+                fromPartial(object: any): _79.FeeShare;
+            };
         };
-        LCDQueryClient: typeof _153.LCDQueryClient;
+    }
+    const mint: {
+        QueryClientImpl: typeof _162.QueryClientImpl;
+        createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
+            params(request?: _85.QueryParamsRequest): Promise<_85.QueryParamsResponse>;
+            inflation(request?: _85.QueryInflationRequest): Promise<_85.QueryInflationResponse>;
+            annualProvisions(request?: _85.QueryAnnualProvisionsRequest): Promise<_85.QueryAnnualProvisionsResponse>;
+        };
+        LCDQueryClient: typeof _160.LCDQueryClient;
         QueryParamsRequest: {
-            encode(_: _81.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryParamsRequest;
-            fromPartial(_: any): _81.QueryParamsRequest;
+            encode(_: _85.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _85.QueryParamsRequest;
+            fromPartial(_: any): _85.QueryParamsRequest;
         };
         QueryParamsResponse: {
-            encode(message: _81.QueryParamsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryParamsResponse;
-            fromPartial(object: any): _81.QueryParamsResponse;
+            encode(message: _85.QueryParamsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _85.QueryParamsResponse;
+            fromPartial(object: any): _85.QueryParamsResponse;
         };
         QueryInflationRequest: {
-            encode(_: _81.QueryInflationRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryInflationRequest;
-            fromPartial(_: any): _81.QueryInflationRequest;
+            encode(_: _85.QueryInflationRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _85.QueryInflationRequest;
+            fromPartial(_: any): _85.QueryInflationRequest;
         };
         QueryInflationResponse: {
-            encode(message: _81.QueryInflationResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryInflationResponse;
-            fromPartial(object: any): _81.QueryInflationResponse;
+            encode(message: _85.QueryInflationResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _85.QueryInflationResponse;
+            fromPartial(object: any): _85.QueryInflationResponse;
         };
         QueryAnnualProvisionsRequest: {
-            encode(_: _81.QueryAnnualProvisionsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryAnnualProvisionsRequest;
-            fromPartial(_: any): _81.QueryAnnualProvisionsRequest;
+            encode(_: _85.QueryAnnualProvisionsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _85.QueryAnnualProvisionsRequest;
+            fromPartial(_: any): _85.QueryAnnualProvisionsRequest;
         };
         QueryAnnualProvisionsResponse: {
-            encode(message: _81.QueryAnnualProvisionsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _81.QueryAnnualProvisionsResponse;
-            fromPartial(object: any): _81.QueryAnnualProvisionsResponse;
+            encode(message: _85.QueryAnnualProvisionsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _85.QueryAnnualProvisionsResponse;
+            fromPartial(object: any): _85.QueryAnnualProvisionsResponse;
         };
         Minter: {
-            encode(message: _80.Minter, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _80.Minter;
-            fromPartial(object: any): _80.Minter;
+            encode(message: _84.Minter, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _84.Minter;
+            fromPartial(object: any): _84.Minter;
         };
         Params: {
-            encode(message: _80.Params, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _80.Params;
-            fromPartial(object: any): _80.Params;
+            encode(message: _84.Params, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _84.Params;
+            fromPartial(object: any): _84.Params;
         };
         GenesisState: {
-            encode(message: _79.GenesisState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _79.GenesisState;
-            fromPartial(object: any): _79.GenesisState;
+            encode(message: _83.GenesisState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _83.GenesisState;
+            fromPartial(object: any): _83.GenesisState;
         };
     };
     const ClientFactory: {
+        createRPCMsgClient: ({ rpc }: {
+            rpc: import("../helpers").Rpc;
+        }) => Promise<{
+            cosmos: {
+                authz: {
+                    v1beta1: import("../cosmos/authz/v1beta1/tx.rpc.msg").MsgClientImpl;
+                };
+                bank: {
+                    v1beta1: import("../cosmos/bank/v1beta1/tx.rpc.msg").MsgClientImpl;
+                };
+                distribution: {
+                    v1beta1: import("../cosmos/distribution/v1beta1/tx.rpc.msg").MsgClientImpl;
+                };
+                gov: {
+                    v1: import("../cosmos/gov/v1/tx.rpc.msg").MsgClientImpl;
+                    v1beta1: import("../cosmos/gov/v1beta1/tx.rpc.msg").MsgClientImpl;
+                };
+                staking: {
+                    v1beta1: import("../cosmos/staking/v1beta1/tx.rpc.msg").MsgClientImpl;
+                };
+                upgrade: {
+                    v1beta1: import("../cosmos/upgrade/v1beta1/tx.rpc.msg").MsgClientImpl;
+                };
+            };
+            juno: {
+                feeshare: {
+                    v1: _163.MsgClientImpl;
+                };
+            };
+        }>;
         createRPCQueryClient: ({ rpcEndpoint }: {
             rpcEndpoint: string | import("@cosmjs/tendermint-rpc").HttpEndpoint;
         }) => Promise<{
@@ -156,10 +387,19 @@ export declare namespace juno {
                 };
             };
             juno: {
+                feeshare: {
+                    v1: {
+                        feeShares(request?: _81.QueryFeeSharesRequest): Promise<_81.QueryFeeSharesResponse>;
+                        feeShare(request: _81.QueryFeeShareRequest): Promise<_81.QueryFeeShareResponse>;
+                        params(request?: _81.QueryParamsRequest): Promise<_81.QueryParamsResponse>;
+                        deployerFeeShares(request: _81.QueryDeployerFeeSharesRequest): Promise<_81.QueryDeployerFeeSharesResponse>;
+                        withdrawerFeeShares(request: _81.QueryWithdrawerFeeSharesRequest): Promise<_81.QueryWithdrawerFeeSharesResponse>;
+                    };
+                };
                 mint: {
-                    params(request?: _81.QueryParamsRequest): Promise<_81.QueryParamsResponse>;
-                    inflation(request?: _81.QueryInflationRequest): Promise<_81.QueryInflationResponse>;
-                    annualProvisions(request?: _81.QueryAnnualProvisionsRequest): Promise<_81.QueryAnnualProvisionsResponse>;
+                    params(request?: _85.QueryParamsRequest): Promise<_85.QueryParamsResponse>;
+                    inflation(request?: _85.QueryInflationRequest): Promise<_85.QueryInflationResponse>;
+                    annualProvisions(request?: _85.QueryAnnualProvisionsRequest): Promise<_85.QueryAnnualProvisionsResponse>;
                 };
             };
         }>;
@@ -191,7 +431,10 @@ export declare namespace juno {
                 };
             };
             juno: {
-                mint: _153.LCDQueryClient;
+                feeshare: {
+                    v1: _159.LCDQueryClient;
+                };
+                mint: _160.LCDQueryClient;
             };
         }>;
     };

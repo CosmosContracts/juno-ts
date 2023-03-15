@@ -14,5 +14,6 @@ export * from "./google/bundle";
 export * from "./ibc/bundle";
 export * from "./ibc/client";
 export * from "./juno/bundle";
+export * from "./juno/client";
 export * from "./tendermint/bundle";
 export * from "./contracts";
