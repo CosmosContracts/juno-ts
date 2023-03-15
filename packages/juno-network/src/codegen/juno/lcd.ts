@@ -49,6 +49,11 @@ export const createLCDClient = async ({
       }
     },
     juno: {
+      feeshare: {
+        v1: new (await import("./feeshare/v1/query.lcd")).LCDQueryClient({
+          requestClient
+        })
+      },
       mint: new (await import("./mint/query.lcd")).LCDQueryClient({
         requestClient
       })
