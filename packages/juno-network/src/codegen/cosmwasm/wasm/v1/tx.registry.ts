@@ -1,6 +1,6 @@
 import { GeneratedType, Registry } from "@cosmjs/proto-signing";
-import { MsgStoreCode, MsgInstantiateContract, MsgExecuteContract, MsgMigrateContract, MsgUpdateAdmin, MsgClearAdmin } from "./tx";
-export const registry: ReadonlyArray<[string, GeneratedType]> = [["/cosmwasm.wasm.v1.MsgStoreCode", MsgStoreCode], ["/cosmwasm.wasm.v1.MsgInstantiateContract", MsgInstantiateContract], ["/cosmwasm.wasm.v1.MsgExecuteContract", MsgExecuteContract], ["/cosmwasm.wasm.v1.MsgMigrateContract", MsgMigrateContract], ["/cosmwasm.wasm.v1.MsgUpdateAdmin", MsgUpdateAdmin], ["/cosmwasm.wasm.v1.MsgClearAdmin", MsgClearAdmin]];
+import { MsgStoreCode, MsgInstantiateContract, MsgInstantiateContract2, MsgExecuteContract, MsgMigrateContract, MsgUpdateAdmin, MsgClearAdmin } from "./tx";
+export const registry: ReadonlyArray<[string, GeneratedType]> = [["/cosmwasm.wasm.v1.MsgStoreCode", MsgStoreCode], ["/cosmwasm.wasm.v1.MsgInstantiateContract", MsgInstantiateContract], ["/cosmwasm.wasm.v1.MsgInstantiateContract2", MsgInstantiateContract2], ["/cosmwasm.wasm.v1.MsgExecuteContract", MsgExecuteContract], ["/cosmwasm.wasm.v1.MsgMigrateContract", MsgMigrateContract], ["/cosmwasm.wasm.v1.MsgUpdateAdmin", MsgUpdateAdmin], ["/cosmwasm.wasm.v1.MsgClearAdmin", MsgClearAdmin]];
 export const load = (protoRegistry: Registry) => {
   registry.forEach(([typeUrl, mod]) => {
     protoRegistry.register(typeUrl, mod);
@@ -19,6 +19,13 @@ export const MessageComposer = {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgInstantiateContract",
         value: MsgInstantiateContract.encode(value).finish()
+      };
+    },
+
+    instantiateContract2(value: MsgInstantiateContract2) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgInstantiateContract2",
+        value: MsgInstantiateContract2.encode(value).finish()
       };
     },
 
@@ -66,6 +73,13 @@ export const MessageComposer = {
       };
     },
 
+    instantiateContract2(value: MsgInstantiateContract2) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgInstantiateContract2",
+        value
+      };
+    },
+
     executeContract(value: MsgExecuteContract) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgExecuteContract",
@@ -107,6 +121,13 @@ export const MessageComposer = {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgInstantiateContract",
         value: MsgInstantiateContract.fromPartial(value)
+      };
+    },
+
+    instantiateContract2(value: MsgInstantiateContract2) {
+      return {
+        typeUrl: "/cosmwasm.wasm.v1.MsgInstantiateContract2",
+        value: MsgInstantiateContract2.fromPartial(value)
       };
     },
 

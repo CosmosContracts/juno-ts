@@ -12,7 +12,6 @@ export interface GenesisState {
 /** GenesisState defines the tokenfactory module's genesis state. */
 
 export interface GenesisStateSDKType {
-  /** params defines the paramaters of the module. */
   params?: ParamsSDKType;
   factory_denoms: GenesisDenomSDKType[];
 }

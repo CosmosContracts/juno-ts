@@ -30,22 +30,8 @@ export interface FeeShare {
  */
 
 export interface FeeShareSDKType {
-  /**
-   * contract_address is the bech32 address of a registered contract in string
-   * form
-   */
   contract_address: string;
-  /**
-   * deployer_address is the bech32 address of message sender. It must be the
-   * same as the contracts admin address.
-   */
-
   deployer_address: string;
-  /**
-   * withdrawer_address is the bech32 address of account receiving the
-   * transaction fees.
-   */
-
   withdrawer_address: string;
 }
 

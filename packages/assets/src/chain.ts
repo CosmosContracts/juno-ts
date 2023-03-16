@@ -76,21 +76,6 @@ const chain: Chain = {
         id: 'ea67180befe4d9ca71142d21ada8ff58cc08f71c',
         address: 'seeds.goldenratiostaking.net:1627',
         provider: 'Golden Ratio Staking'
-      },
-      {
-        id: '47d942718533d36823e16b9502c035ca9f318ef4',
-        address: 'seeds.whispernode.com:12656',
-        provider: 'WhisperNode🤐'
-      },
-      {
-        id: 'e1b058e5cfa2b836ddaa496b10911da62dcf182e',
-        address: 'juno-seed-1.allnodes.me:26656',
-        provider: 'Allnodes.com ⚡️ Nodes & Staking'
-      },
-      {
-        id: 'e726816f42831689eab9378d5d577f1d06d25716',
-        address: 'juno-seed-2.allnodes.me:26656',
-        provider: 'Allnodes.com ⚡️ Nodes & Staking'
       }
     ],
     persistent_peers: [
@@ -139,8 +124,8 @@ const chain: Chain = {
   apis: {
     rpc: [
       {
-        address: 'https://rpc-juno.whispernode.com:443',
-        provider: 'WhisperNode🤐'
+        address: 'https://rpc-juno.whispernode.com',
+        provider: ' WhisperNode 🤐'
       },
       {
         address: 'https://rpc-juno.itastakers.com',
@@ -209,20 +194,12 @@ const chain: Chain = {
       {
         address: 'https://rpc.juno.kingnodes.com',
         provider: 'kingnodes 👑'
-      },
-      {
-        address: 'https://juno-rpc.reece.sh',
-        provider: 'Reecepbcups'
-      },
-      {
-        address: 'http://juno.rpc.stakeandrelax.net:12657',
-        provider: 'Stake&Relax Validator 🦥'
       }
     ],
     rest: [
       {
-        address: 'https://lcd-juno.whispernode.com:443',
-        provider: 'WhisperNode🤐'
+        address: 'https://lcd-juno.whispernode.com',
+        provider: ' WhisperNode 🤐'
       },
       {
         address: 'https://lcd-juno.itastakers.com',
@@ -283,10 +260,6 @@ const chain: Chain = {
       {
         address: 'https://api.juno.kingnodes.com',
         provider: 'kingnodes 👑'
-      },
-      {
-        address: 'https://juno-api.reece.sh',
-        provider: 'Reecepbcups'
       }
     ],
     grpc: [
@@ -333,10 +306,6 @@ const chain: Chain = {
       {
         address: 'https://grpc.juno.kingnodes.com',
         provider: 'kingnodes 👑'
-      },
-      {
-        address: 'http://juno.grpc.stakeandrelax.net:12690',
-        provider: 'Stake&Relax Validator 🦥'
       }
     ]
   },
@@ -344,8 +313,7 @@ const chain: Chain = {
     {
       kind: 'EZStaking Tools',
       url: 'https://ezstaking.tools/juno',
-      tx_page: 'https://ezstaking.tools/juno/txs/${txHash}',
-      account_page: 'https://ezstaking.tools/juno/account/${accountAddress}'
+      tx_page: 'https://ezstaking.tools/juno/txs/${txHash}'
     },
     {
       kind: 'ping.pub',

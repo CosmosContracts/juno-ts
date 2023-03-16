@@ -27,13 +27,6 @@ export interface GenesisState {
 
 export interface GenesisStateSDKType {
   params?: ParamsSDKType;
-  /**
-   * key - information about forwarded packet: src_channel
-   * (parsedReceiver.Channel), src_port (parsedReceiver.Port), sequence value -
-   * information about original packet for refunding if necessary: retries,
-   * srcPacketSender, srcPacket.DestinationChannel, srcPacket.DestinationPort
-   */
-
   in_flight_packets?: {
     [key: string]: InFlightPacketSDKType;
   };

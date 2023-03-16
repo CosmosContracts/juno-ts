@@ -13,10 +13,7 @@ export interface GenesisState {
 /** GenesisState defines the module's genesis state. */
 
 export interface GenesisStateSDKType {
-  /** params are the feeshare module parameters */
   params?: ParamsSDKType;
-  /** FeeShare is a slice of active registered contracts for fee distribution */
-
   fee_share: FeeShareSDKType[];
 }
 /** Params defines the feeshare module params */
@@ -42,21 +39,8 @@ export interface Params {
 /** Params defines the feeshare module params */
 
 export interface ParamsSDKType {
-  /** enable_feeshare defines a parameter to enable the feeshare module */
   enable_fee_share: boolean;
-  /**
-   * developer_shares defines the proportion of the transaction fees to be
-   * distributed to the registered contract owner
-   */
-
   developer_shares: string;
-  /**
-   * allowed_denoms defines the list of denoms that are allowed to be paid to
-   * the contract withdraw addresses. If said denom is not in the list, the fees
-   * will ONLY be sent to the community pool.
-   * If this list is empty, all denoms are allowed.
-   */
-
   allowed_denoms: string[];
 }
 
