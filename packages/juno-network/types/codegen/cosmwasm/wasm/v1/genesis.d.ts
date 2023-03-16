@@ -1,5 +1,5 @@
 import { MsgStoreCode, MsgStoreCodeSDKType, MsgInstantiateContract, MsgInstantiateContractSDKType, MsgExecuteContract, MsgExecuteContractSDKType } from "./tx";
-import { Params, ParamsSDKType, CodeInfo, CodeInfoSDKType, ContractInfo, ContractInfoSDKType, Model, ModelSDKType } from "./types";
+import { Params, ParamsSDKType, CodeInfo, CodeInfoSDKType, ContractInfo, ContractInfoSDKType, Model, ModelSDKType, ContractCodeHistoryEntry, ContractCodeHistoryEntrySDKType } from "./types";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial, Long } from "../../../helpers";
 /** GenesisState - genesis state of x/wasm */
@@ -49,7 +49,6 @@ export interface CodeSDKType {
     code_id: Long;
     code_info?: CodeInfoSDKType;
     code_bytes: Uint8Array;
-    /** Pinned to wasmvm cache */
     pinned: boolean;
 }
 /** Contract struct encompasses ContractAddress, ContractInfo, and ContractState */
@@ -57,12 +56,14 @@ export interface Contract {
     contractAddress: string;
     contractInfo?: ContractInfo;
     contractState: Model[];
+    contractCodeHistory: ContractCodeHistoryEntry[];
 }
 /** Contract struct encompasses ContractAddress, ContractInfo, and ContractState */
 export interface ContractSDKType {
     contract_address: string;
     contract_info?: ContractInfoSDKType;
     contract_state: ModelSDKType[];
+    contract_code_history: ContractCodeHistoryEntrySDKType[];
 }
 /** Sequence key and value of an id generation counter */
 export interface Sequence {

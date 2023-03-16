@@ -3,12 +3,12 @@
 * DO NOT MODIFY IT BY HAND. Instead, modify the source JSONSchema file,
 * and run the @cosmwasm/ts-codegen generate command to regenerate this file.
 */
-export type Uint128 = string;
+export declare type Uint128 = string;
 export interface BalanceResponse {
     balance: Uint128;
     [k: string]: unknown;
 }
-export type ExecuteMsg = {
+export declare type ExecuteMsg = {
     add_liquidity: {
         expiration?: Expiration | null;
         max_token2: Uint128;
@@ -59,7 +59,7 @@ export type ExecuteMsg = {
         [k: string]: unknown;
     };
 };
-export type Expiration = {
+export declare type Expiration = {
     at_height: number;
 } | {
     at_time: Timestamp;
@@ -68,16 +68,16 @@ export type Expiration = {
         [k: string]: unknown;
     };
 };
-export type Timestamp = Uint64;
-export type Uint64 = string;
-export type TokenSelect = "Token1" | "Token2";
-export type Decimal = string;
-export type Denom = {
+export declare type Timestamp = Uint64;
+export declare type Uint64 = string;
+export declare type TokenSelect = "Token1" | "Token2";
+export declare type Decimal = string;
+export declare type Denom = {
     native: string;
 } | {
     cw20: Addr;
 };
-export type Addr = string;
+export declare type Addr = string;
 export interface InfoResponse {
     lp_fee_percent: Decimal;
     lp_token_address: string;
@@ -107,7 +107,7 @@ export interface MigrateMsg {
     protocol_fee_recipient: string;
     [k: string]: unknown;
 }
-export type QueryMsg = {
+export declare type QueryMsg = {
     balance: {
         address: string;
         [k: string]: unknown;

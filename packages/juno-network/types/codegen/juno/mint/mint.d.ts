@@ -1,5 +1,5 @@
-import * as _m0 from "protobufjs/minimal";
 import { Long, DeepPartial } from "../../helpers";
+import * as _m0 from "protobufjs/minimal";
 /** Minter represents the minting state. */
 export interface Minter {
     /** current annual inflation rate */
@@ -11,11 +11,9 @@ export interface Minter {
 }
 /** Minter represents the minting state. */
 export interface MinterSDKType {
-    /** current annual inflation rate */
     inflation: string;
     phase: Long;
     start_phase_block: Long;
-    /** current annual expected provisions */
     annual_provisions: string;
 }
 /** Params holds parameters for the mint module. */
@@ -27,9 +25,7 @@ export interface Params {
 }
 /** Params holds parameters for the mint module. */
 export interface ParamsSDKType {
-    /** type of coin to mint */
     mint_denom: string;
-    /** expected blocks per year */
     blocks_per_year: Long;
 }
 export declare const Minter: {

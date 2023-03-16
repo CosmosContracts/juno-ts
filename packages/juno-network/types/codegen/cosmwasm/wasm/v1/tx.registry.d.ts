@@ -1,5 +1,5 @@
 import { GeneratedType, Registry } from "@cosmjs/proto-signing";
-import { MsgStoreCode, MsgInstantiateContract, MsgExecuteContract, MsgMigrateContract, MsgUpdateAdmin, MsgClearAdmin } from "./tx";
+import { MsgStoreCode, MsgInstantiateContract, MsgInstantiateContract2, MsgExecuteContract, MsgMigrateContract, MsgUpdateAdmin, MsgClearAdmin } from "./tx";
 export declare const registry: ReadonlyArray<[string, GeneratedType]>;
 export declare const load: (protoRegistry: Registry) => void;
 export declare const MessageComposer: {
@@ -9,6 +9,10 @@ export declare const MessageComposer: {
             value: Uint8Array;
         };
         instantiateContract(value: MsgInstantiateContract): {
+            typeUrl: string;
+            value: Uint8Array;
+        };
+        instantiateContract2(value: MsgInstantiateContract2): {
             typeUrl: string;
             value: Uint8Array;
         };
@@ -38,6 +42,10 @@ export declare const MessageComposer: {
             typeUrl: string;
             value: MsgInstantiateContract;
         };
+        instantiateContract2(value: MsgInstantiateContract2): {
+            typeUrl: string;
+            value: MsgInstantiateContract2;
+        };
         executeContract(value: MsgExecuteContract): {
             typeUrl: string;
             value: MsgExecuteContract;
@@ -63,6 +71,10 @@ export declare const MessageComposer: {
         instantiateContract(value: MsgInstantiateContract): {
             typeUrl: string;
             value: MsgInstantiateContract;
+        };
+        instantiateContract2(value: MsgInstantiateContract2): {
+            typeUrl: string;
+            value: MsgInstantiateContract2;
         };
         executeContract(value: MsgExecuteContract): {
             typeUrl: string;

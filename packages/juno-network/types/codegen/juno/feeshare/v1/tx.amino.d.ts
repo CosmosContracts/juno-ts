@@ -1,6 +1,6 @@
 import { AminoMsg } from "@cosmjs/amino";
 import { MsgRegisterFeeShare, MsgUpdateFeeShare, MsgCancelFeeShare } from "./tx";
-export interface AminoMsgRegisterFeeShare extends AminoMsg {
+export interface MsgRegisterFeeShareAminoType extends AminoMsg {
     type: "/juno.feeshare.v1.MsgRegisterFeeShare";
     value: {
         contract_address: string;
@@ -8,7 +8,7 @@ export interface AminoMsgRegisterFeeShare extends AminoMsg {
         withdrawer_address: string;
     };
 }
-export interface AminoMsgUpdateFeeShare extends AminoMsg {
+export interface MsgUpdateFeeShareAminoType extends AminoMsg {
     type: "/juno.feeshare.v1.MsgUpdateFeeShare";
     value: {
         contract_address: string;
@@ -16,7 +16,7 @@ export interface AminoMsgUpdateFeeShare extends AminoMsg {
         withdrawer_address: string;
     };
 }
-export interface AminoMsgCancelFeeShare extends AminoMsg {
+export interface MsgCancelFeeShareAminoType extends AminoMsg {
     type: "/juno.feeshare.v1.MsgCancelFeeShare";
     value: {
         contract_address: string;
@@ -26,17 +26,17 @@ export interface AminoMsgCancelFeeShare extends AminoMsg {
 export declare const AminoConverter: {
     "/juno.feeshare.v1.MsgRegisterFeeShare": {
         aminoType: string;
-        toAmino: ({ contractAddress, deployerAddress, withdrawerAddress }: MsgRegisterFeeShare) => AminoMsgRegisterFeeShare["value"];
-        fromAmino: ({ contract_address, deployer_address, withdrawer_address }: AminoMsgRegisterFeeShare["value"]) => MsgRegisterFeeShare;
+        toAmino: ({ contractAddress, deployerAddress, withdrawerAddress }: MsgRegisterFeeShare) => MsgRegisterFeeShareAminoType["value"];
+        fromAmino: ({ contract_address, deployer_address, withdrawer_address }: MsgRegisterFeeShareAminoType["value"]) => MsgRegisterFeeShare;
     };
     "/juno.feeshare.v1.MsgUpdateFeeShare": {
         aminoType: string;
-        toAmino: ({ contractAddress, deployerAddress, withdrawerAddress }: MsgUpdateFeeShare) => AminoMsgUpdateFeeShare["value"];
-        fromAmino: ({ contract_address, deployer_address, withdrawer_address }: AminoMsgUpdateFeeShare["value"]) => MsgUpdateFeeShare;
+        toAmino: ({ contractAddress, deployerAddress, withdrawerAddress }: MsgUpdateFeeShare) => MsgUpdateFeeShareAminoType["value"];
+        fromAmino: ({ contract_address, deployer_address, withdrawer_address }: MsgUpdateFeeShareAminoType["value"]) => MsgUpdateFeeShare;
     };
     "/juno.feeshare.v1.MsgCancelFeeShare": {
         aminoType: string;
-        toAmino: ({ contractAddress, deployerAddress }: MsgCancelFeeShare) => AminoMsgCancelFeeShare["value"];
-        fromAmino: ({ contract_address, deployer_address }: AminoMsgCancelFeeShare["value"]) => MsgCancelFeeShare;
+        toAmino: ({ contractAddress, deployerAddress }: MsgCancelFeeShare) => MsgCancelFeeShareAminoType["value"];
+        fromAmino: ({ contract_address, deployer_address }: MsgCancelFeeShareAminoType["value"]) => MsgCancelFeeShare;
     };
 };

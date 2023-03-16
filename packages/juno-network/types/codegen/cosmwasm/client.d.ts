@@ -10,6 +10,7 @@ export declare const cosmwasmAminoConverters: {
             instantiate_permission: {
                 permission: number;
                 address: string;
+                addresses: string[];
             };
         };
         fromAmino: ({ sender, wasm_byte_code, instantiate_permission }: {
@@ -18,6 +19,7 @@ export declare const cosmwasmAminoConverters: {
             instantiate_permission: {
                 permission: number;
                 address: string;
+                addresses: string[];
             };
         }) => import("./wasm/v1/tx").MsgStoreCode;
     };
@@ -45,6 +47,35 @@ export declare const cosmwasmAminoConverters: {
                 amount: string;
             }[];
         }) => import("./wasm/v1/tx").MsgInstantiateContract;
+    };
+    "/cosmwasm.wasm.v1.MsgInstantiateContract2": {
+        aminoType: string;
+        toAmino: ({ sender, admin, codeId, label, msg, funds, salt, fixMsg }: import("./wasm/v1/tx").MsgInstantiateContract2) => {
+            sender: string;
+            admin: string;
+            code_id: string;
+            label: string;
+            msg: Uint8Array;
+            funds: {
+                denom: string;
+                amount: string;
+            }[];
+            salt: Uint8Array;
+            fix_msg: boolean;
+        };
+        fromAmino: ({ sender, admin, code_id, label, msg, funds, salt, fix_msg }: {
+            sender: string;
+            admin: string;
+            code_id: string;
+            label: string;
+            msg: Uint8Array;
+            funds: {
+                denom: string;
+                amount: string;
+            }[];
+            salt: Uint8Array;
+            fix_msg: boolean;
+        }) => import("./wasm/v1/tx").MsgInstantiateContract2;
     };
     "/cosmwasm.wasm.v1.MsgExecuteContract": {
         aminoType: string;

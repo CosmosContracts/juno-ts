@@ -1,43 +1,43 @@
-import * as _91 from "./v1/genesis";
-import * as _92 from "./v1/query";
-import * as _176 from "./v1/query.lcd";
-import * as _177 from "./v1/query.rpc.Query";
+import * as _92 from "./v1/genesis";
+import * as _93 from "./v1/query";
+import * as _177 from "./v1/query.lcd";
+import * as _178 from "./v1/query.rpc.Query";
 export declare namespace router {
     const v1: {
-        QueryClientImpl: typeof _177.QueryClientImpl;
+        QueryClientImpl: typeof _178.QueryClientImpl;
         createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
-            params(request?: _92.QueryParamsRequest): Promise<_92.QueryParamsResponse>;
+            params(request?: _93.QueryParamsRequest): Promise<_93.QueryParamsResponse>;
         };
-        LCDQueryClient: typeof _176.LCDQueryClient;
+        LCDQueryClient: typeof _177.LCDQueryClient;
         QueryParamsRequest: {
-            encode(_: _92.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _92.QueryParamsRequest;
-            fromPartial(_: any): _92.QueryParamsRequest;
+            encode(_: _93.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _93.QueryParamsRequest;
+            fromPartial(_: any): _93.QueryParamsRequest;
         };
         QueryParamsResponse: {
-            encode(message: _92.QueryParamsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _92.QueryParamsResponse;
-            fromPartial(object: any): _92.QueryParamsResponse;
+            encode(message: _93.QueryParamsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _93.QueryParamsResponse;
+            fromPartial(object: any): _93.QueryParamsResponse;
         };
         GenesisState_InFlightPacketsEntry: {
-            encode(message: _91.GenesisState_InFlightPacketsEntry, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _91.GenesisState_InFlightPacketsEntry;
-            fromPartial(object: any): _91.GenesisState_InFlightPacketsEntry;
+            encode(message: _92.GenesisState_InFlightPacketsEntry, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _92.GenesisState_InFlightPacketsEntry;
+            fromPartial(object: any): _92.GenesisState_InFlightPacketsEntry;
         };
         GenesisState: {
-            encode(message: _91.GenesisState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _91.GenesisState;
-            fromPartial(object: any): _91.GenesisState;
+            encode(message: _92.GenesisState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _92.GenesisState;
+            fromPartial(object: any): _92.GenesisState;
         };
         Params: {
-            encode(message: _91.Params, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _91.Params;
-            fromPartial(object: any): _91.Params;
+            encode(message: _92.Params, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _92.Params;
+            fromPartial(object: any): _92.Params;
         };
         InFlightPacket: {
-            encode(message: _91.InFlightPacket, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _91.InFlightPacket;
-            fromPartial(object: any): _91.InFlightPacket;
+            encode(message: _92.InFlightPacket, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+            decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _92.InFlightPacket;
+            fromPartial(object: any): _92.InFlightPacket;
         };
     };
     const ClientFactory: {
@@ -139,7 +139,7 @@ export declare namespace router {
             };
             router: {
                 v1: {
-                    params(request?: _92.QueryParamsRequest): Promise<_92.QueryParamsResponse>;
+                    params(request?: _93.QueryParamsRequest): Promise<_93.QueryParamsResponse>;
                 };
             };
         }>;
@@ -171,7 +171,7 @@ export declare namespace router {
                 };
             };
             router: {
-                v1: _176.LCDQueryClient;
+                v1: _177.LCDQueryClient;
             };
         }>;
     };
