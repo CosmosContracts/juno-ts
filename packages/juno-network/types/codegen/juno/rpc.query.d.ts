@@ -96,6 +96,15 @@ export declare const createRPCQueryClient: ({ rpcEndpoint }: {
         };
     };
     juno: {
+        feeshare: {
+            v1: {
+                feeShares(request?: import("./feeshare/v1/query").QueryFeeSharesRequest): Promise<import("./feeshare/v1/query").QueryFeeSharesResponse>;
+                feeShare(request: import("./feeshare/v1/query").QueryFeeShareRequest): Promise<import("./feeshare/v1/query").QueryFeeShareResponse>;
+                params(request?: import("./feeshare/v1/query").QueryParamsRequest): Promise<import("./feeshare/v1/query").QueryParamsResponse>;
+                deployerFeeShares(request: import("./feeshare/v1/query").QueryDeployerFeeSharesRequest): Promise<import("./feeshare/v1/query").QueryDeployerFeeSharesResponse>;
+                withdrawerFeeShares(request: import("./feeshare/v1/query").QueryWithdrawerFeeSharesRequest): Promise<import("./feeshare/v1/query").QueryWithdrawerFeeSharesResponse>;
+            };
+        };
         mint: {
             params(request?: import("./mint/query").QueryParamsRequest): Promise<import("./mint/query").QueryParamsResponse>;
             inflation(request?: import("./mint/query").QueryInflationRequest): Promise<import("./mint/query").QueryInflationResponse>;

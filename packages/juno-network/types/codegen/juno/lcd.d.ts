@@ -26,6 +26,9 @@ export declare const createLCDClient: ({ restEndpoint }: {
         };
     };
     juno: {
+        feeshare: {
+            v1: import("./feeshare/v1/query.lcd").LCDQueryClient;
+        };
         mint: import("./mint/query.lcd").LCDQueryClient;
     };
 }>;
