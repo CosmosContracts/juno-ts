@@ -1,14 +1,23 @@
 import { Rpc } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { MsgStoreCode, MsgStoreCodeResponse, MsgInstantiateContract, MsgInstantiateContractResponse, MsgExecuteContract, MsgExecuteContractResponse, MsgMigrateContract, MsgMigrateContractResponse, MsgUpdateAdmin, MsgUpdateAdminResponse, MsgClearAdmin, MsgClearAdminResponse } from "./tx";
+import { MsgStoreCode, MsgStoreCodeResponse, MsgInstantiateContract, MsgInstantiateContractResponse, MsgInstantiateContract2, MsgInstantiateContract2Response, MsgExecuteContract, MsgExecuteContractResponse, MsgMigrateContract, MsgMigrateContractResponse, MsgUpdateAdmin, MsgUpdateAdminResponse, MsgClearAdmin, MsgClearAdminResponse } from "./tx";
 /** Msg defines the wasm Msg service. */
 
 export interface Msg {
   /** StoreCode to submit Wasm code to the system */
   storeCode(request: MsgStoreCode): Promise<MsgStoreCodeResponse>;
-  /** Instantiate creates a new smart contract instance for the given code id. */
+  /**
+   * InstantiateContract creates a new smart contract instance for the given
+   *  code id.
+   */
 
   instantiateContract(request: MsgInstantiateContract): Promise<MsgInstantiateContractResponse>;
+  /**
+   * InstantiateContract2 creates a new smart contract instance for the given
+   *  code id with a predictable address
+   */
+
+  instantiateContract2(request: MsgInstantiateContract2): Promise<MsgInstantiateContract2Response>;
   /** Execute submits the given message data to a smart contract */
 
   executeContract(request: MsgExecuteContract): Promise<MsgExecuteContractResponse>;
@@ -29,6 +38,7 @@ export class MsgClientImpl implements Msg {
     this.rpc = rpc;
     this.storeCode = this.storeCode.bind(this);
     this.instantiateContract = this.instantiateContract.bind(this);
+    this.instantiateContract2 = this.instantiateContract2.bind(this);
     this.executeContract = this.executeContract.bind(this);
     this.migrateContract = this.migrateContract.bind(this);
     this.updateAdmin = this.updateAdmin.bind(this);
@@ -45,6 +55,12 @@ export class MsgClientImpl implements Msg {
     const data = MsgInstantiateContract.encode(request).finish();
     const promise = this.rpc.request("cosmwasm.wasm.v1.Msg", "InstantiateContract", data);
     return promise.then(data => MsgInstantiateContractResponse.decode(new _m0.Reader(data)));
+  }
+
+  instantiateContract2(request: MsgInstantiateContract2): Promise<MsgInstantiateContract2Response> {
+    const data = MsgInstantiateContract2.encode(request).finish();
+    const promise = this.rpc.request("cosmwasm.wasm.v1.Msg", "InstantiateContract2", data);
+    return promise.then(data => MsgInstantiateContract2Response.decode(new _m0.Reader(data)));
   }
 
   executeContract(request: MsgExecuteContract): Promise<MsgExecuteContractResponse> {

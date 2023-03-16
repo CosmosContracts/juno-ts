@@ -1,5 +1,5 @@
 import { MsgStoreCode, MsgStoreCodeSDKType, MsgInstantiateContract, MsgInstantiateContractSDKType, MsgExecuteContract, MsgExecuteContractSDKType } from "./tx";
-import { Params, ParamsSDKType, CodeInfo, CodeInfoSDKType, ContractInfo, ContractInfoSDKType, Model, ModelSDKType } from "./types";
+import { Params, ParamsSDKType, CodeInfo, CodeInfoSDKType, ContractInfo, ContractInfoSDKType, Model, ModelSDKType, ContractCodeHistoryEntry, ContractCodeHistoryEntrySDKType } from "./types";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial, Long } from "../../../helpers";
 /** GenesisState - genesis state of x/wasm */
@@ -56,8 +56,6 @@ export interface CodeSDKType {
   code_id: Long;
   code_info?: CodeInfoSDKType;
   code_bytes: Uint8Array;
-  /** Pinned to wasmvm cache */
-
   pinned: boolean;
 }
 /** Contract struct encompasses ContractAddress, ContractInfo, and ContractState */
@@ -66,6 +64,7 @@ export interface Contract {
   contractAddress: string;
   contractInfo?: ContractInfo;
   contractState: Model[];
+  contractCodeHistory: ContractCodeHistoryEntry[];
 }
 /** Contract struct encompasses ContractAddress, ContractInfo, and ContractState */
 
@@ -73,6 +72,7 @@ export interface ContractSDKType {
   contract_address: string;
   contract_info?: ContractInfoSDKType;
   contract_state: ModelSDKType[];
+  contract_code_history: ContractCodeHistoryEntrySDKType[];
 }
 /** Sequence key and value of an id generation counter */
 
@@ -316,7 +316,8 @@ function createBaseContract(): Contract {
   return {
     contractAddress: "",
     contractInfo: undefined,
-    contractState: []
+    contractState: [],
+    contractCodeHistory: []
   };
 }
 
@@ -332,6 +333,10 @@ export const Contract = {
 
     for (const v of message.contractState) {
       Model.encode(v!, writer.uint32(26).fork()).ldelim();
+    }
+
+    for (const v of message.contractCodeHistory) {
+      ContractCodeHistoryEntry.encode(v!, writer.uint32(34).fork()).ldelim();
     }
 
     return writer;
@@ -358,6 +363,10 @@ export const Contract = {
           message.contractState.push(Model.decode(reader, reader.uint32()));
           break;
 
+        case 4:
+          message.contractCodeHistory.push(ContractCodeHistoryEntry.decode(reader, reader.uint32()));
+          break;
+
         default:
           reader.skipType(tag & 7);
           break;
@@ -372,6 +381,7 @@ export const Contract = {
     message.contractAddress = object.contractAddress ?? "";
     message.contractInfo = object.contractInfo !== undefined && object.contractInfo !== null ? ContractInfo.fromPartial(object.contractInfo) : undefined;
     message.contractState = object.contractState?.map(e => Model.fromPartial(e)) || [];
+    message.contractCodeHistory = object.contractCodeHistory?.map(e => ContractCodeHistoryEntry.fromPartial(e)) || [];
     return message;
   }
 

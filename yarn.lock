@@ -3425,17 +3425,17 @@
   dependencies:
     "@octokit/openapi-types" "^12.11.0"
 
-"@osmonauts/ast@^0.68.0":
-  version "0.68.0"
-  resolved "https://registry.npmjs.org/@osmonauts/ast/-/ast-0.68.0.tgz#5d5c89f750b6a5b8c2f77c82de56603434f6330b"
-  integrity sha512-kLTfVNtPtdaIWjvRp6BvCXYYtnMBxEq1fzGa5i2Hsqs7yhuC7E8kAJqj+ozbgs5ut/ix56D8Q3mxSX+2CMTzuw==
+"@osmonauts/ast@^0.76.3":
+  version "0.76.3"
+  resolved "https://registry.npmjs.org/@osmonauts/ast/-/ast-0.76.3.tgz#0ce74a72dc1949a245d4dc616d7d29fccf908ef6"
+  integrity sha512-La4Esr1nb7BMjz7vkT7ER6n5ayi7RBcTS9wG+WjBIAJpcOUwyoyfCYQ7p8TRLw2IZcVdDXOigTwBsHaQoK0PAg==
   dependencies:
     "@babel/parser" "^7.19.3"
     "@babel/runtime" "^7.19.0"
     "@babel/types" "7.19.3"
-    "@osmonauts/proto-parser" "^0.34.0"
-    "@osmonauts/types" "^0.26.0"
-    "@osmonauts/utils" "^0.8.0"
+    "@osmonauts/proto-parser" "^0.38.0"
+    "@osmonauts/types" "^0.30.0"
+    "@osmonauts/utils" "^0.10.0"
     case "1.6.3"
     dotty "0.1.2"
 
@@ -3447,22 +3447,23 @@
     "@babel/runtime" "^7.19.0"
     axios "0.27.2"
 
-"@osmonauts/proto-parser@^0.34.0":
-  version "0.34.0"
-  resolved "https://registry.npmjs.org/@osmonauts/proto-parser/-/proto-parser-0.34.0.tgz#8d0215768c45efe1ac8518d5cd933c822ae82ecd"
-  integrity sha512-aUfrZO4aBm6me+jxHZcZdhrvlMQuJOhyDC96N0/mfHnUR2wY5iARZBMHMYwap8Dp6JZy2wwqQI8lKqAg2Mm9YQ==
+"@osmonauts/proto-parser@^0.38.0":
+  version "0.38.0"
+  resolved "https://registry.npmjs.org/@osmonauts/proto-parser/-/proto-parser-0.38.0.tgz#bc6ccd69b089188c9bffb00e63336d7c6df3a8f4"
+  integrity sha512-iISvFjboaHdttKHwn9kQA2rwT41LnhQEcObojT+9mHZ9+OyisP7GPcAkQ8gcSnPtQ9o/ul65kbleuO0SDyuO2Q==
   dependencies:
     "@babel/runtime" "^7.19.0"
-    "@osmonauts/types" "^0.26.0"
+    "@osmonauts/types" "^0.30.0"
     "@pyramation/protobufjs" "6.11.5"
     dotty "0.1.2"
     glob "8.0.3"
+    minimatch "5.1.0"
     mkdirp "1.0.4"
 
-"@osmonauts/telescope@^0.80.0":
-  version "0.80.0"
-  resolved "https://registry.npmjs.org/@osmonauts/telescope/-/telescope-0.80.0.tgz#04c86e2db1a65e86e3989ec02021e01785bb22ba"
-  integrity sha512-HTNRVRomkX3+t0lQANyg2Sp21aCtoJjIUhrvNp2hdil6ZLvwPeI41Tt2ubnstBWLlEP7UzLBDzbZAfR7I3qqFg==
+"@osmonauts/telescope@^0.88.3":
+  version "0.88.3"
+  resolved "https://registry.npmjs.org/@osmonauts/telescope/-/telescope-0.88.3.tgz#f3a420bb22784a316b5b0b0c786a1fc697047001"
+  integrity sha512-fvpjCp6kxId0Mcxvvr5FQ6S1Rfkfy/edvwKNpu3FpjoUurwtgVE6kD+W7UulkP3ad7/vqMsJKeU+r8dwbpb2DQ==
   dependencies:
     "@babel/core" "7.19.3"
     "@babel/generator" "7.19.3"
@@ -3477,10 +3478,10 @@
     "@babel/traverse" "7.19.3"
     "@babel/types" "7.19.3"
     "@cosmwasm/ts-codegen" "0.21.1"
-    "@osmonauts/ast" "^0.68.0"
-    "@osmonauts/proto-parser" "^0.34.0"
-    "@osmonauts/types" "^0.26.0"
-    "@osmonauts/utils" "^0.8.0"
+    "@osmonauts/ast" "^0.76.3"
+    "@osmonauts/proto-parser" "^0.38.0"
+    "@osmonauts/types" "^0.30.0"
+    "@osmonauts/utils" "^0.10.0"
     "@types/parse-package-name" "0.1.0"
     case "1.6.3"
     dargs "7.0.0"
@@ -3497,19 +3498,19 @@
     rimraf "3.0.2"
     shelljs "0.8.5"
 
-"@osmonauts/types@^0.26.0":
-  version "0.26.0"
-  resolved "https://registry.npmjs.org/@osmonauts/types/-/types-0.26.0.tgz#a4e75bb0f2d837f91b020bc77e754f6ee90c3c9f"
-  integrity sha512-mofknWnWhN2qaqCELRdWHbqU4sNNOSimag7FrGPtYMhJkRvU74/+zOu97F6oUlMv9B8jGwTVdmsqEyAvWQr7Lw==
+"@osmonauts/types@^0.30.0":
+  version "0.30.0"
+  resolved "https://registry.npmjs.org/@osmonauts/types/-/types-0.30.0.tgz#c1dcc0d3e285bfe853fe17a51f60720ea547a153"
+  integrity sha512-j/kE+yb8RHG/yiCza+Ssv92F9jLjU52FpPZ9FqJEVr+l7A49He2GQ64B3lScyc6dz6hV4J88m+X0ixvge8VJqQ==
   dependencies:
     "@babel/runtime" "^7.19.0"
-    "@osmonauts/utils" "^0.8.0"
+    "@osmonauts/utils" "^0.10.0"
     case "1.6.3"
 
-"@osmonauts/utils@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.npmjs.org/@osmonauts/utils/-/utils-0.8.0.tgz#cab2a04d818284afcb3e99bc43a85b786aba6c45"
-  integrity sha512-EO6dSqr9pvczYzuVL/wEvdu4xub1tV4wttJcrgT8lrgq08PK6e7frX816OlBFUv7qQk8eEYPnIVpsN12ZxFwwQ==
+"@osmonauts/utils@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.npmjs.org/@osmonauts/utils/-/utils-0.10.0.tgz#ad7011327375bb1028daeca7ccab172bec084050"
+  integrity sha512-rPPTZ6CE6BCgac3yhXlJcP5315Ddf1pnVCmYxsZi1Y5Vcyzzd6u2bfjPzaa0JOKiDtKwEGXXlVLAT29OM4DMhg==
   dependencies:
     "@babel/runtime" "^7.19.0"
 
@@ -3566,16 +3567,24 @@
   resolved "https://registry.npmjs.org/@protobufjs/utf8/-/utf8-1.1.0.tgz#a777360b5b39a1a2e5106f8e858f2fd2d060c570"
   integrity sha512-Vvn3zZrhQZkkBE8LSuW3em98c0FwgO4nxzv6OdSxPKJIEKY2bGbHn+mhGIPerzI4twdxaP8/0+06HBpwf345Lw==
 
+"@protobufs/amino@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.npmjs.org/@protobufs/amino/-/amino-0.0.11.tgz#5eb6b8193da8ea818484818dff2800a981cb7a61"
+  integrity sha512-JRIkW6/YGIUfbdDuASt3wsuxzC0Xj3U2sV0Arqa9iNwCvv4HtOpbqdWVVVgvQBnR0/ZkwQeXnt+GH7yT/DvsYQ==
+  dependencies:
+    "@protobufs/google" "^0.0.10"
+
 "@protobufs/confio@^0.0.6":
   version "0.0.6"
   resolved "https://registry.npmjs.org/@protobufs/confio/-/confio-0.0.6.tgz#a6ddf44eca2cbe535384228312ae7ef5dff29644"
   integrity sha512-abZ0ntTJBuB8q2aMBvOerAFk8CSzafB09YdttKFEqwxokZsLFZ3+o7YaH3RIk863oeM//8sonwTaxRV8r4rmSA==
 
-"@protobufs/cosmos@^0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@protobufs/cosmos/-/cosmos-0.0.11.tgz#68a1feaa044916a0f1fdf6a2922f08a6811e796f"
-  integrity sha512-r9XQikxQ3qaWVJ4EYePP7r/QL/lEEpgSeHiD0U5t4bOXux5gIWrz3AMLe5PIdFxBwkeqkF21Vz4JnVd3/XdC7Q==
+"@protobufs/cosmos@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/@protobufs/cosmos/-/cosmos-0.1.0.tgz#492251de16be3e0a89820f48637cd3f42114f24c"
+  integrity sha512-L3NZ+z0kI6GMTiD2HASNe3WbopPhQlaQaKZNRue+8LiGEv/vbbxD1lox8cwOqes3AN5dHiT0i3+gvzIbKBb7gw==
   dependencies:
+    "@protobufs/amino" "^0.0.11"
     "@protobufs/cosmos_proto" "^0.0.10"
     "@protobufs/gogoproto" "^0.0.10"
     "@protobufs/google" "^0.0.10"
@@ -3588,12 +3597,12 @@
   dependencies:
     "@protobufs/google" "^0.0.10"
 
-"@protobufs/cosmwasm@^0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@protobufs/cosmwasm/-/cosmwasm-0.0.11.tgz#a3cd756494735766260ff914af1c8c9645a75592"
-  integrity sha512-SiPtJRLltQQ/+OEqBpxXbZt6PuXvfR82P/jh4Xt+KB18A2siaossYPU6I4HIBhpkWT6LIH4QoH5UsWlIzIxbRg==
+"@protobufs/cosmwasm@^0.1.1":
+  version "0.1.1"
+  resolved "https://registry.npmjs.org/@protobufs/cosmwasm/-/cosmwasm-0.1.1.tgz#313466d02ae7c010f64e6dd6edc06cdc1e676084"
+  integrity sha512-7rRkQVo7zWjTX+WKdtgM72KEnioGumA7ivYG+3ZGs/uuf8rwN8PmdWFYhLbMkSbPbyJf1bFSyjpP/+kxpH71ew==
   dependencies:
-    "@protobufs/cosmos" "^0.0.11"
+    "@protobufs/cosmos" "^0.1.0"
     "@protobufs/cosmos_proto" "^0.0.10"
     "@protobufs/gogoproto" "^0.0.10"
     "@protobufs/google" "^0.0.10"
@@ -3610,23 +3619,24 @@
   resolved "https://registry.npmjs.org/@protobufs/google/-/google-0.0.10.tgz#820f741b0c53f688550c74c7ddb25a5ee131a6bf"
   integrity sha512-3yo+liabFM1519smwwfzh1C535CntXVsS7zT98xmo21tZUX7vxeFpQDMx38EzMGYSy/Reo8wEMWJUHqZzYsCUw==
 
-"@protobufs/ibc@^0.0.11":
-  version "0.0.11"
-  resolved "https://registry.npmjs.org/@protobufs/ibc/-/ibc-0.0.11.tgz#00f7ef9d4cb5a7857f701f8145543759d45e3657"
-  integrity sha512-f6D7AGpbbHvm8Mwpc8wirm/bT4rumyz2HZMHeAt2U45cAgV7fELAqXH4UtcXxIfLl1J21BsagPtf/E9KLEdnXw==
+"@protobufs/ibc@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/@protobufs/ibc/-/ibc-0.1.0.tgz#36aeadc9f09d185d683f66a650dad9dc40437875"
+  integrity sha512-GmGkX81yyd55Tm34SCOmcOiB0QRwFBHGmZpDRAsks33TBx4efAtT9rKAdtn/oPujx9sha1TqU2s3trnMPVvKyg==
   dependencies:
+    "@protobufs/amino" "^0.0.11"
     "@protobufs/confio" "^0.0.6"
-    "@protobufs/cosmos" "^0.0.11"
+    "@protobufs/cosmos" "^0.1.0"
     "@protobufs/gogoproto" "^0.0.10"
     "@protobufs/google" "^0.0.10"
     "@protobufs/tendermint" "^0.0.10"
 
-"@protobufs/juno@^0.0.14":
-  version "0.0.14"
-  resolved "https://registry.npmjs.org/@protobufs/juno/-/juno-0.0.14.tgz#46563919fd760847780d7bccf289b210cf960ed7"
-  integrity sha512-jbFh8PYi2QbQ4z6jGe/ePLifR5np5Mk5rqwNlFVNX8B/tbHDbMQnLW9dqVq6MQtWP9lLyddVvXjIW2gb0RqRdA==
+"@protobufs/juno@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/@protobufs/juno/-/juno-0.1.0.tgz#9e0958a061af3795524a378034e7d09b4f6ce040"
+  integrity sha512-cLVxN2H2q+SCwF8Nf8+lxcRO+LXctCwGtoWKqyrSPjtOQg6YWy6qFX+6YWvDxb2GNZUMj5b5L94NxWF7arTpag==
   dependencies:
-    "@protobufs/cosmos" "^0.0.11"
+    "@protobufs/cosmos" "^0.1.0"
     "@protobufs/gogoproto" "^0.0.10"
     "@protobufs/google" "^0.0.10"
 

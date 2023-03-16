@@ -12,7 +12,6 @@ export interface QueryFeeSharesRequest {
 /** QueryFeeSharesRequest is the request type for the Query/FeeShares RPC method. */
 
 export interface QueryFeeSharesRequestSDKType {
-  /** pagination defines an optional pagination for the request. */
   pagination?: PageRequestSDKType;
 }
 /**
@@ -33,10 +32,7 @@ export interface QueryFeeSharesResponse {
  */
 
 export interface QueryFeeSharesResponseSDKType {
-  /** FeeShare is a slice of all stored Reveneue */
   feeshare: FeeShareSDKType[];
-  /** pagination defines the pagination in the response. */
-
   pagination?: PageResponseSDKType;
 }
 /** QueryFeeShareRequest is the request type for the Query/FeeShare RPC method. */
@@ -48,7 +44,6 @@ export interface QueryFeeShareRequest {
 /** QueryFeeShareRequest is the request type for the Query/FeeShare RPC method. */
 
 export interface QueryFeeShareRequestSDKType {
-  /** contract_address of a registered contract in bech32 format */
   contract_address: string;
 }
 /** QueryFeeShareResponse is the response type for the Query/FeeShare RPC method. */
@@ -60,7 +55,6 @@ export interface QueryFeeShareResponse {
 /** QueryFeeShareResponse is the response type for the Query/FeeShare RPC method. */
 
 export interface QueryFeeShareResponseSDKType {
-  /** FeeShare is a stored Reveneue for the queried contract */
   feeshare?: FeeShareSDKType;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
@@ -78,7 +72,6 @@ export interface QueryParamsResponse {
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 
 export interface QueryParamsResponseSDKType {
-  /** params is the returned FeeShare parameter */
   params?: ParamsSDKType;
 }
 /**
@@ -99,10 +92,7 @@ export interface QueryDeployerFeeSharesRequest {
  */
 
 export interface QueryDeployerFeeSharesRequestSDKType {
-  /** deployer_address in bech32 format */
   deployer_address: string;
-  /** pagination defines an optional pagination for the request. */
-
   pagination?: PageRequestSDKType;
 }
 /**
@@ -126,13 +116,7 @@ export interface QueryDeployerFeeSharesResponse {
  */
 
 export interface QueryDeployerFeeSharesResponseSDKType {
-  /**
-   * contract_addresses is the slice of registered contract addresses for a
-   * deployer
-   */
   contract_addresses: string[];
-  /** pagination defines the pagination in the response. */
-
   pagination?: PageResponseSDKType;
 }
 /**
@@ -153,10 +137,7 @@ export interface QueryWithdrawerFeeSharesRequest {
  */
 
 export interface QueryWithdrawerFeeSharesRequestSDKType {
-  /** withdrawer_address in bech32 format */
   withdrawer_address: string;
-  /** pagination defines an optional pagination for the request. */
-
   pagination?: PageRequestSDKType;
 }
 /**
@@ -180,13 +161,7 @@ export interface QueryWithdrawerFeeSharesResponse {
  */
 
 export interface QueryWithdrawerFeeSharesResponseSDKType {
-  /**
-   * contract_addresses is the slice of registered contract addresses for a
-   * withdrawer
-   */
   contract_addresses: string[];
-  /** pagination defines the pagination in the response. */
-
   pagination?: PageResponseSDKType;
 }
 
