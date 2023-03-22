@@ -1,7 +1,7 @@
 import { AminoMsg } from "@cosmjs/amino";
 import { AminoHeight, Long, omitDefault } from "../../../../helpers";
 import { MsgTransfer } from "./tx";
-export interface MsgTransferAminoType extends AminoMsg {
+export interface AminoMsgTransfer extends AminoMsg {
   type: "cosmos-sdk/MsgTransfer";
   value: {
     source_port: string;
@@ -27,7 +27,7 @@ export const AminoConverter = {
       receiver,
       timeoutHeight,
       timeoutTimestamp
-    }: MsgTransfer): MsgTransferAminoType["value"] => {
+    }: MsgTransfer): AminoMsgTransfer["value"] => {
       return {
         source_port: sourcePort,
         source_channel: sourceChannel,
@@ -52,7 +52,7 @@ export const AminoConverter = {
       receiver,
       timeout_height,
       timeout_timestamp
-    }: MsgTransferAminoType["value"]): MsgTransfer => {
+    }: AminoMsgTransfer["value"]): MsgTransfer => {
       return {
         sourcePort: source_port,
         sourceChannel: source_channel,

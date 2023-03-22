@@ -1,5 +1,5 @@
 import { GeneratedType, Registry } from "@cosmjs/proto-signing";
-import { MsgCreateDenom, MsgMint, MsgBurn, MsgChangeAdmin, MsgSetDenomMetadata } from "./tx";
+import { MsgCreateDenom, MsgMint, MsgBurn, MsgChangeAdmin, MsgSetDenomMetadata, MsgForceTransfer } from "./tx";
 export declare const registry: ReadonlyArray<[string, GeneratedType]>;
 export declare const load: (protoRegistry: Registry) => void;
 export declare const MessageComposer: {
@@ -21,6 +21,10 @@ export declare const MessageComposer: {
             value: Uint8Array;
         };
         setDenomMetadata(value: MsgSetDenomMetadata): {
+            typeUrl: string;
+            value: Uint8Array;
+        };
+        forceTransfer(value: MsgForceTransfer): {
             typeUrl: string;
             value: Uint8Array;
         };
@@ -46,6 +50,10 @@ export declare const MessageComposer: {
             typeUrl: string;
             value: MsgSetDenomMetadata;
         };
+        forceTransfer(value: MsgForceTransfer): {
+            typeUrl: string;
+            value: MsgForceTransfer;
+        };
     };
     fromPartial: {
         createDenom(value: MsgCreateDenom): {
@@ -67,6 +75,10 @@ export declare const MessageComposer: {
         setDenomMetadata(value: MsgSetDenomMetadata): {
             typeUrl: string;
             value: MsgSetDenomMetadata;
+        };
+        forceTransfer(value: MsgForceTransfer): {
+            typeUrl: string;
+            value: MsgForceTransfer;
         };
     };
 };

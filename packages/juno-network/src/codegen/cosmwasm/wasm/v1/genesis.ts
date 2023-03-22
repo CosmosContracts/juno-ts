@@ -56,6 +56,8 @@ export interface CodeSDKType {
   code_id: Long;
   code_info?: CodeInfoSDKType;
   code_bytes: Uint8Array;
+  /** Pinned to wasmvm cache */
+
   pinned: boolean;
 }
 /** Contract struct encompasses ContractAddress, ContractInfo, and ContractState */

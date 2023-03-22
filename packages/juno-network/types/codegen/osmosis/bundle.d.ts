@@ -1,141 +1,157 @@
-import * as _87 from "./tokenfactory/v1beta1/authorityMetadata";
-import * as _88 from "./tokenfactory/v1beta1/genesis";
-import * as _89 from "./tokenfactory/v1beta1/params";
-import * as _90 from "./tokenfactory/v1beta1/query";
-import * as _91 from "./tokenfactory/v1beta1/tx";
-import * as _174 from "./tokenfactory/v1beta1/query.lcd";
-import * as _175 from "./tokenfactory/v1beta1/query.rpc.Query";
-import * as _176 from "./tokenfactory/v1beta1/tx.rpc.msg";
+import * as _89 from "./tokenfactory/v1beta1/authorityMetadata";
+import * as _90 from "./tokenfactory/v1beta1/genesis";
+import * as _91 from "./tokenfactory/v1beta1/params";
+import * as _92 from "./tokenfactory/v1beta1/query";
+import * as _93 from "./tokenfactory/v1beta1/tx";
+import * as _178 from "./tokenfactory/v1beta1/query.lcd";
+import * as _179 from "./tokenfactory/v1beta1/query.rpc.Query";
+import * as _180 from "./tokenfactory/v1beta1/tx.rpc.msg";
 export declare namespace osmosis {
     namespace tokenfactory {
         const v1beta1: {
-            MsgClientImpl: typeof _176.MsgClientImpl;
-            QueryClientImpl: typeof _175.QueryClientImpl;
+            MsgClientImpl: typeof _180.MsgClientImpl;
+            QueryClientImpl: typeof _179.QueryClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
-                params(request?: _90.QueryParamsRequest): Promise<_90.QueryParamsResponse>;
-                denomAuthorityMetadata(request: _90.QueryDenomAuthorityMetadataRequest): Promise<_90.QueryDenomAuthorityMetadataResponse>;
-                denomsFromCreator(request: _90.QueryDenomsFromCreatorRequest): Promise<_90.QueryDenomsFromCreatorResponse>;
+                params(request?: _92.QueryParamsRequest): Promise<_92.QueryParamsResponse>;
+                denomAuthorityMetadata(request: _92.QueryDenomAuthorityMetadataRequest): Promise<_92.QueryDenomAuthorityMetadataResponse>;
+                denomsFromCreator(request: _92.QueryDenomsFromCreatorRequest): Promise<_92.QueryDenomsFromCreatorResponse>;
             };
-            LCDQueryClient: typeof _174.LCDQueryClient;
+            LCDQueryClient: typeof _178.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
             MessageComposer: {
                 encoded: {
-                    createDenom(value: _91.MsgCreateDenom): {
+                    createDenom(value: _93.MsgCreateDenom): {
                         typeUrl: string;
                         value: Uint8Array;
                     };
-                    mint(value: _91.MsgMint): {
+                    mint(value: _93.MsgMint): {
                         typeUrl: string;
                         value: Uint8Array;
                     };
-                    burn(value: _91.MsgBurn): {
+                    burn(value: _93.MsgBurn): {
                         typeUrl: string;
                         value: Uint8Array;
                     };
-                    changeAdmin(value: _91.MsgChangeAdmin): {
+                    changeAdmin(value: _93.MsgChangeAdmin): {
                         typeUrl: string;
                         value: Uint8Array;
                     };
-                    setDenomMetadata(value: _91.MsgSetDenomMetadata): {
+                    setDenomMetadata(value: _93.MsgSetDenomMetadata): {
+                        typeUrl: string;
+                        value: Uint8Array;
+                    };
+                    forceTransfer(value: _93.MsgForceTransfer): {
                         typeUrl: string;
                         value: Uint8Array;
                     };
                 };
                 withTypeUrl: {
-                    createDenom(value: _91.MsgCreateDenom): {
+                    createDenom(value: _93.MsgCreateDenom): {
                         typeUrl: string;
-                        value: _91.MsgCreateDenom;
+                        value: _93.MsgCreateDenom;
                     };
-                    mint(value: _91.MsgMint): {
+                    mint(value: _93.MsgMint): {
                         typeUrl: string;
-                        value: _91.MsgMint;
+                        value: _93.MsgMint;
                     };
-                    burn(value: _91.MsgBurn): {
+                    burn(value: _93.MsgBurn): {
                         typeUrl: string;
-                        value: _91.MsgBurn;
+                        value: _93.MsgBurn;
                     };
-                    changeAdmin(value: _91.MsgChangeAdmin): {
+                    changeAdmin(value: _93.MsgChangeAdmin): {
                         typeUrl: string;
-                        value: _91.MsgChangeAdmin;
+                        value: _93.MsgChangeAdmin;
                     };
-                    setDenomMetadata(value: _91.MsgSetDenomMetadata): {
+                    setDenomMetadata(value: _93.MsgSetDenomMetadata): {
                         typeUrl: string;
-                        value: _91.MsgSetDenomMetadata;
+                        value: _93.MsgSetDenomMetadata;
+                    };
+                    forceTransfer(value: _93.MsgForceTransfer): {
+                        typeUrl: string;
+                        value: _93.MsgForceTransfer;
                     };
                 };
                 fromPartial: {
-                    createDenom(value: _91.MsgCreateDenom): {
+                    createDenom(value: _93.MsgCreateDenom): {
                         typeUrl: string;
-                        value: _91.MsgCreateDenom;
+                        value: _93.MsgCreateDenom;
                     };
-                    mint(value: _91.MsgMint): {
+                    mint(value: _93.MsgMint): {
                         typeUrl: string;
-                        value: _91.MsgMint;
+                        value: _93.MsgMint;
                     };
-                    burn(value: _91.MsgBurn): {
+                    burn(value: _93.MsgBurn): {
                         typeUrl: string;
-                        value: _91.MsgBurn;
+                        value: _93.MsgBurn;
                     };
-                    changeAdmin(value: _91.MsgChangeAdmin): {
+                    changeAdmin(value: _93.MsgChangeAdmin): {
                         typeUrl: string;
-                        value: _91.MsgChangeAdmin;
+                        value: _93.MsgChangeAdmin;
                     };
-                    setDenomMetadata(value: _91.MsgSetDenomMetadata): {
+                    setDenomMetadata(value: _93.MsgSetDenomMetadata): {
                         typeUrl: string;
-                        value: _91.MsgSetDenomMetadata;
+                        value: _93.MsgSetDenomMetadata;
+                    };
+                    forceTransfer(value: _93.MsgForceTransfer): {
+                        typeUrl: string;
+                        value: _93.MsgForceTransfer;
                     };
                 };
             };
             AminoConverter: {
                 "/osmosis.tokenfactory.v1beta1.MsgCreateDenom": {
                     aminoType: string;
-                    toAmino: ({ sender, subdenom }: _91.MsgCreateDenom) => {
+                    toAmino: ({ sender, subdenom }: _93.MsgCreateDenom) => {
                         sender: string;
                         subdenom: string;
                     };
                     fromAmino: ({ sender, subdenom }: {
                         sender: string;
                         subdenom: string;
-                    }) => _91.MsgCreateDenom;
+                    }) => _93.MsgCreateDenom;
                 };
                 "/osmosis.tokenfactory.v1beta1.MsgMint": {
                     aminoType: string;
-                    toAmino: ({ sender, amount }: _91.MsgMint) => {
+                    toAmino: ({ sender, amount, mintToAddress }: _93.MsgMint) => {
                         sender: string;
                         amount: {
                             denom: string;
                             amount: string;
                         };
+                        mintToAddress: string;
                     };
-                    fromAmino: ({ sender, amount }: {
+                    fromAmino: ({ sender, amount, mintToAddress }: {
                         sender: string;
                         amount: {
                             denom: string;
                             amount: string;
                         };
-                    }) => _91.MsgMint;
+                        mintToAddress: string;
+                    }) => _93.MsgMint;
                 };
                 "/osmosis.tokenfactory.v1beta1.MsgBurn": {
                     aminoType: string;
-                    toAmino: ({ sender, amount }: _91.MsgBurn) => {
+                    toAmino: ({ sender, amount, burnFromAddress }: _93.MsgBurn) => {
                         sender: string;
                         amount: {
                             denom: string;
                             amount: string;
                         };
+                        burnFromAddress: string;
                     };
-                    fromAmino: ({ sender, amount }: {
+                    fromAmino: ({ sender, amount, burnFromAddress }: {
                         sender: string;
                         amount: {
                             denom: string;
                             amount: string;
                         };
-                    }) => _91.MsgBurn;
+                        burnFromAddress: string;
+                    }) => _93.MsgBurn;
                 };
                 "/osmosis.tokenfactory.v1beta1.MsgChangeAdmin": {
                     aminoType: string;
-                    toAmino: ({ sender, denom, newAdmin }: _91.MsgChangeAdmin) => {
+                    toAmino: ({ sender, denom, newAdmin }: _93.MsgChangeAdmin) => {
                         sender: string;
                         denom: string;
                         new_admin: string;
@@ -144,11 +160,11 @@ export declare namespace osmosis {
                         sender: string;
                         denom: string;
                         new_admin: string;
-                    }) => _91.MsgChangeAdmin;
+                    }) => _93.MsgChangeAdmin;
                 };
                 "/osmosis.tokenfactory.v1beta1.MsgSetDenomMetadata": {
                     aminoType: string;
-                    toAmino: ({ sender, metadata }: _91.MsgSetDenomMetadata) => {
+                    toAmino: ({ sender, metadata }: _93.MsgSetDenomMetadata) => {
                         sender: string;
                         metadata: {
                             description: string;
@@ -181,108 +197,139 @@ export declare namespace osmosis {
                             uri: string;
                             uri_hash: string;
                         };
-                    }) => _91.MsgSetDenomMetadata;
+                    }) => _93.MsgSetDenomMetadata;
+                };
+                "/osmosis.tokenfactory.v1beta1.MsgForceTransfer": {
+                    aminoType: string;
+                    toAmino: ({ sender, amount, transferFromAddress, transferToAddress }: _93.MsgForceTransfer) => {
+                        sender: string;
+                        amount: {
+                            denom: string;
+                            amount: string;
+                        };
+                        transferFromAddress: string;
+                        transferToAddress: string;
+                    };
+                    fromAmino: ({ sender, amount, transferFromAddress, transferToAddress }: {
+                        sender: string;
+                        amount: {
+                            denom: string;
+                            amount: string;
+                        };
+                        transferFromAddress: string;
+                        transferToAddress: string;
+                    }) => _93.MsgForceTransfer;
                 };
             };
             MsgCreateDenom: {
-                encode(message: _91.MsgCreateDenom, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _91.MsgCreateDenom;
-                fromPartial(object: any): _91.MsgCreateDenom;
+                encode(message: _93.MsgCreateDenom, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _93.MsgCreateDenom;
+                fromPartial(object: any): _93.MsgCreateDenom;
             };
             MsgCreateDenomResponse: {
-                encode(message: _91.MsgCreateDenomResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _91.MsgCreateDenomResponse;
-                fromPartial(object: any): _91.MsgCreateDenomResponse;
+                encode(message: _93.MsgCreateDenomResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _93.MsgCreateDenomResponse;
+                fromPartial(object: any): _93.MsgCreateDenomResponse;
             };
             MsgMint: {
-                encode(message: _91.MsgMint, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _91.MsgMint;
-                fromPartial(object: any): _91.MsgMint;
+                encode(message: _93.MsgMint, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _93.MsgMint;
+                fromPartial(object: any): _93.MsgMint;
             };
             MsgMintResponse: {
-                encode(_: _91.MsgMintResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _91.MsgMintResponse;
-                fromPartial(_: any): _91.MsgMintResponse;
+                encode(_: _93.MsgMintResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _93.MsgMintResponse;
+                fromPartial(_: any): _93.MsgMintResponse;
             };
             MsgBurn: {
-                encode(message: _91.MsgBurn, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _91.MsgBurn;
-                fromPartial(object: any): _91.MsgBurn;
+                encode(message: _93.MsgBurn, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _93.MsgBurn;
+                fromPartial(object: any): _93.MsgBurn;
             };
             MsgBurnResponse: {
-                encode(_: _91.MsgBurnResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _91.MsgBurnResponse;
-                fromPartial(_: any): _91.MsgBurnResponse;
+                encode(_: _93.MsgBurnResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _93.MsgBurnResponse;
+                fromPartial(_: any): _93.MsgBurnResponse;
             };
             MsgChangeAdmin: {
-                encode(message: _91.MsgChangeAdmin, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _91.MsgChangeAdmin;
-                fromPartial(object: any): _91.MsgChangeAdmin;
+                encode(message: _93.MsgChangeAdmin, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _93.MsgChangeAdmin;
+                fromPartial(object: any): _93.MsgChangeAdmin;
             };
             MsgChangeAdminResponse: {
-                encode(_: _91.MsgChangeAdminResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _91.MsgChangeAdminResponse;
-                fromPartial(_: any): _91.MsgChangeAdminResponse;
+                encode(_: _93.MsgChangeAdminResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _93.MsgChangeAdminResponse;
+                fromPartial(_: any): _93.MsgChangeAdminResponse;
             };
             MsgSetDenomMetadata: {
-                encode(message: _91.MsgSetDenomMetadata, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _91.MsgSetDenomMetadata;
-                fromPartial(object: any): _91.MsgSetDenomMetadata;
+                encode(message: _93.MsgSetDenomMetadata, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _93.MsgSetDenomMetadata;
+                fromPartial(object: any): _93.MsgSetDenomMetadata;
             };
             MsgSetDenomMetadataResponse: {
-                encode(_: _91.MsgSetDenomMetadataResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _91.MsgSetDenomMetadataResponse;
-                fromPartial(_: any): _91.MsgSetDenomMetadataResponse;
+                encode(_: _93.MsgSetDenomMetadataResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _93.MsgSetDenomMetadataResponse;
+                fromPartial(_: any): _93.MsgSetDenomMetadataResponse;
+            };
+            MsgForceTransfer: {
+                encode(message: _93.MsgForceTransfer, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _93.MsgForceTransfer;
+                fromPartial(object: any): _93.MsgForceTransfer;
+            };
+            MsgForceTransferResponse: {
+                encode(_: _93.MsgForceTransferResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _93.MsgForceTransferResponse;
+                fromPartial(_: any): _93.MsgForceTransferResponse;
             };
             QueryParamsRequest: {
-                encode(_: _90.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _90.QueryParamsRequest;
-                fromPartial(_: any): _90.QueryParamsRequest;
+                encode(_: _92.QueryParamsRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _92.QueryParamsRequest;
+                fromPartial(_: any): _92.QueryParamsRequest;
             };
             QueryParamsResponse: {
-                encode(message: _90.QueryParamsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _90.QueryParamsResponse;
-                fromPartial(object: any): _90.QueryParamsResponse;
+                encode(message: _92.QueryParamsResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _92.QueryParamsResponse;
+                fromPartial(object: any): _92.QueryParamsResponse;
             };
             QueryDenomAuthorityMetadataRequest: {
-                encode(message: _90.QueryDenomAuthorityMetadataRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _90.QueryDenomAuthorityMetadataRequest;
-                fromPartial(object: any): _90.QueryDenomAuthorityMetadataRequest;
+                encode(message: _92.QueryDenomAuthorityMetadataRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _92.QueryDenomAuthorityMetadataRequest;
+                fromPartial(object: any): _92.QueryDenomAuthorityMetadataRequest;
             };
             QueryDenomAuthorityMetadataResponse: {
-                encode(message: _90.QueryDenomAuthorityMetadataResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _90.QueryDenomAuthorityMetadataResponse;
-                fromPartial(object: any): _90.QueryDenomAuthorityMetadataResponse;
+                encode(message: _92.QueryDenomAuthorityMetadataResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _92.QueryDenomAuthorityMetadataResponse;
+                fromPartial(object: any): _92.QueryDenomAuthorityMetadataResponse;
             };
             QueryDenomsFromCreatorRequest: {
-                encode(message: _90.QueryDenomsFromCreatorRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _90.QueryDenomsFromCreatorRequest;
-                fromPartial(object: any): _90.QueryDenomsFromCreatorRequest;
+                encode(message: _92.QueryDenomsFromCreatorRequest, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _92.QueryDenomsFromCreatorRequest;
+                fromPartial(object: any): _92.QueryDenomsFromCreatorRequest;
             };
             QueryDenomsFromCreatorResponse: {
-                encode(message: _90.QueryDenomsFromCreatorResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _90.QueryDenomsFromCreatorResponse;
-                fromPartial(object: any): _90.QueryDenomsFromCreatorResponse;
+                encode(message: _92.QueryDenomsFromCreatorResponse, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _92.QueryDenomsFromCreatorResponse;
+                fromPartial(object: any): _92.QueryDenomsFromCreatorResponse;
             };
             Params: {
-                encode(message: _89.Params, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _89.Params;
-                fromPartial(object: any): _89.Params;
+                encode(message: _91.Params, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _91.Params;
+                fromPartial(object: any): _91.Params;
             };
             GenesisState: {
-                encode(message: _88.GenesisState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _88.GenesisState;
-                fromPartial(object: any): _88.GenesisState;
+                encode(message: _90.GenesisState, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _90.GenesisState;
+                fromPartial(object: any): _90.GenesisState;
             };
             GenesisDenom: {
-                encode(message: _88.GenesisDenom, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _88.GenesisDenom;
-                fromPartial(object: any): _88.GenesisDenom;
+                encode(message: _90.GenesisDenom, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _90.GenesisDenom;
+                fromPartial(object: any): _90.GenesisDenom;
             };
             DenomAuthorityMetadata: {
-                encode(message: _87.DenomAuthorityMetadata, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
-                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _87.DenomAuthorityMetadata;
-                fromPartial(object: any): _87.DenomAuthorityMetadata;
+                encode(message: _89.DenomAuthorityMetadata, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
+                decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _89.DenomAuthorityMetadata;
+                fromPartial(object: any): _89.DenomAuthorityMetadata;
             };
         };
     }
@@ -313,7 +360,7 @@ export declare namespace osmosis {
             };
             osmosis: {
                 tokenfactory: {
-                    v1beta1: _176.MsgClientImpl;
+                    v1beta1: _180.MsgClientImpl;
                 };
             };
         }>;
@@ -416,9 +463,9 @@ export declare namespace osmosis {
             osmosis: {
                 tokenfactory: {
                     v1beta1: {
-                        params(request?: _90.QueryParamsRequest): Promise<_90.QueryParamsResponse>;
-                        denomAuthorityMetadata(request: _90.QueryDenomAuthorityMetadataRequest): Promise<_90.QueryDenomAuthorityMetadataResponse>;
-                        denomsFromCreator(request: _90.QueryDenomsFromCreatorRequest): Promise<_90.QueryDenomsFromCreatorResponse>;
+                        params(request?: _92.QueryParamsRequest): Promise<_92.QueryParamsResponse>;
+                        denomAuthorityMetadata(request: _92.QueryDenomAuthorityMetadataRequest): Promise<_92.QueryDenomAuthorityMetadataResponse>;
+                        denomsFromCreator(request: _92.QueryDenomsFromCreatorRequest): Promise<_92.QueryDenomsFromCreatorResponse>;
                     };
                 };
             };
@@ -452,7 +499,7 @@ export declare namespace osmosis {
             };
             osmosis: {
                 tokenfactory: {
-                    v1beta1: _174.LCDQueryClient;
+                    v1beta1: _178.LCDQueryClient;
                 };
             };
         }>;

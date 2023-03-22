@@ -15,6 +15,7 @@ export interface ContractExecutionAuthorization {
  * Since: wasmd 0.30
  */
 export interface ContractExecutionAuthorizationSDKType {
+    /** Grants for contract executions */
     grants: ContractGrantSDKType[];
 }
 /**
@@ -30,6 +31,7 @@ export interface ContractMigrationAuthorization {
  * migration. Since: wasmd 0.30
  */
 export interface ContractMigrationAuthorizationSDKType {
+    /** Grants for contract migrations */
     grants: ContractGrantSDKType[];
 }
 /**
@@ -56,8 +58,18 @@ export interface ContractGrant {
  * Since: wasmd 0.30
  */
 export interface ContractGrantSDKType {
+    /** Contract is the bech32 address of the smart contract */
     contract: string;
+    /**
+     * Limit defines execution limits that are enforced and updated when the grant
+     * is applied. When the limit lapsed the grant is removed.
+     */
     limit?: AnySDKType;
+    /**
+     * Filter define more fine-grained control on the message payload passed
+     * to the contract in the operation. When no filter applies on execution, the
+     * operation is prohibited.
+     */
     filter?: AnySDKType;
 }
 /**
@@ -73,6 +85,7 @@ export interface MaxCallsLimit {
  * Since: wasmd 0.30
  */
 export interface MaxCallsLimitSDKType {
+    /** Remaining number that is decremented on each execution */
     remaining: Long;
 }
 /**
@@ -88,6 +101,7 @@ export interface MaxFundsLimit {
  * Since: wasmd 0.30
  */
 export interface MaxFundsLimitSDKType {
+    /** Amounts is the maximal amount of tokens transferable to the contract. */
     amounts: CoinSDKType[];
 }
 /**
@@ -107,7 +121,9 @@ export interface CombinedLimit {
  * Since: wasmd 0.30
  */
 export interface CombinedLimitSDKType {
+    /** Remaining number that is decremented on each execution */
     calls_remaining: Long;
+    /** Amounts is the maximal amount of tokens transferable to the contract. */
     amounts: CoinSDKType[];
 }
 /**
@@ -139,6 +155,7 @@ export interface AcceptedMessageKeysFilter {
  * Since: wasmd 0.30
  */
 export interface AcceptedMessageKeysFilterSDKType {
+    /** Messages is the list of unique keys */
     keys: string[];
 }
 /**
@@ -156,6 +173,7 @@ export interface AcceptedMessagesFilter {
  * Since: wasmd 0.30
  */
 export interface AcceptedMessagesFilterSDKType {
+    /** Messages is the list of raw contract messages */
     messages: Uint8Array[];
 }
 export declare const ContractExecutionAuthorization: {

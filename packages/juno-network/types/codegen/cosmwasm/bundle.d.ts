@@ -5,14 +5,14 @@ import * as _48 from "./wasm/v1/proposal";
 import * as _49 from "./wasm/v1/query";
 import * as _50 from "./wasm/v1/tx";
 import * as _51 from "./wasm/v1/types";
-import * as _142 from "./wasm/v1/query.lcd";
-import * as _143 from "./wasm/v1/query.rpc.Query";
-import * as _144 from "./wasm/v1/tx.rpc.msg";
+import * as _144 from "./wasm/v1/query.lcd";
+import * as _145 from "./wasm/v1/query.rpc.Query";
+import * as _146 from "./wasm/v1/tx.rpc.msg";
 export declare namespace cosmwasm {
     namespace wasm {
         const v1: {
-            MsgClientImpl: typeof _144.MsgClientImpl;
-            QueryClientImpl: typeof _143.QueryClientImpl;
+            MsgClientImpl: typeof _146.MsgClientImpl;
+            QueryClientImpl: typeof _145.QueryClientImpl;
             createRpcQueryExtension: (base: import("@cosmjs/stargate").QueryClient) => {
                 contractInfo(request: _49.QueryContractInfoRequest): Promise<_49.QueryContractInfoResponse>;
                 contractHistory(request: _49.QueryContractHistoryRequest): Promise<_49.QueryContractHistoryResponse>;
@@ -26,7 +26,7 @@ export declare namespace cosmwasm {
                 params(request?: _49.QueryParamsRequest): Promise<_49.QueryParamsResponse>;
                 contractsByCreator(request: _49.QueryContractsByCreatorRequest): Promise<_49.QueryContractsByCreatorResponse>;
             };
-            LCDQueryClient: typeof _142.LCDQueryClient;
+            LCDQueryClient: typeof _144.LCDQueryClient;
             registry: readonly [string, import("@cosmjs/proto-signing").GeneratedType][];
             load: (protoRegistry: import("@cosmjs/proto-signing").Registry) => void;
             MessageComposer: {
@@ -263,9 +263,9 @@ export declare namespace cosmwasm {
             contractCodeHistoryOperationTypeFromJSON(object: any): _51.ContractCodeHistoryOperationType;
             contractCodeHistoryOperationTypeToJSON(object: _51.ContractCodeHistoryOperationType): string;
             AccessType: typeof _51.AccessType;
-            AccessTypeSDKType: typeof _51.AccessType;
+            AccessTypeSDKType: typeof _51.AccessTypeSDKType;
             ContractCodeHistoryOperationType: typeof _51.ContractCodeHistoryOperationType;
-            ContractCodeHistoryOperationTypeSDKType: typeof _51.ContractCodeHistoryOperationType;
+            ContractCodeHistoryOperationTypeSDKType: typeof _51.ContractCodeHistoryOperationTypeSDKType;
             AccessTypeParam: {
                 encode(message: _51.AccessTypeParam, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
                 decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _51.AccessTypeParam;
@@ -660,7 +660,7 @@ export declare namespace cosmwasm {
             };
             cosmwasm: {
                 wasm: {
-                    v1: _144.MsgClientImpl;
+                    v1: _146.MsgClientImpl;
                 };
             };
         }>;
@@ -807,7 +807,7 @@ export declare namespace cosmwasm {
             };
             cosmwasm: {
                 wasm: {
-                    v1: _142.LCDQueryClient;
+                    v1: _144.LCDQueryClient;
                 };
             };
         }>;

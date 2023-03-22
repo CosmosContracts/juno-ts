@@ -3,7 +3,7 @@ import { AminoMsg } from "@cosmjs/amino";
 import { toBase64, fromBase64, fromUtf8, toUtf8 } from "@cosmjs/encoding";
 import { Long } from "../../../helpers";
 import { MsgStoreCode, MsgInstantiateContract, MsgInstantiateContract2, MsgExecuteContract, MsgMigrateContract, MsgUpdateAdmin, MsgClearAdmin } from "./tx";
-export interface MsgStoreCodeAminoType extends AminoMsg {
+export interface AminoMsgStoreCode extends AminoMsg {
   type: "wasm/MsgStoreCode";
   value: {
     sender: string;
@@ -15,7 +15,7 @@ export interface MsgStoreCodeAminoType extends AminoMsg {
     };
   };
 }
-export interface MsgInstantiateContractAminoType extends AminoMsg {
+export interface AminoMsgInstantiateContract extends AminoMsg {
   type: "wasm/MsgInstantiateContract";
   value: {
     sender: string;
@@ -29,7 +29,7 @@ export interface MsgInstantiateContractAminoType extends AminoMsg {
     }[];
   };
 }
-export interface MsgInstantiateContract2AminoType extends AminoMsg {
+export interface AminoMsgInstantiateContract2 extends AminoMsg {
   type: "wasm/MsgInstantiateContract2";
   value: {
     sender: string;
@@ -45,7 +45,7 @@ export interface MsgInstantiateContract2AminoType extends AminoMsg {
     fix_msg: boolean;
   };
 }
-export interface MsgExecuteContractAminoType extends AminoMsg {
+export interface AminoMsgExecuteContract extends AminoMsg {
   type: "wasm/MsgExecuteContract";
   value: {
     sender: string;
@@ -57,7 +57,7 @@ export interface MsgExecuteContractAminoType extends AminoMsg {
     }[];
   };
 }
-export interface MsgMigrateContractAminoType extends AminoMsg {
+export interface AminoMsgMigrateContract extends AminoMsg {
   type: "wasm/MsgMigrateContract";
   value: {
     sender: string;
@@ -66,7 +66,7 @@ export interface MsgMigrateContractAminoType extends AminoMsg {
     msg: Uint8Array;
   };
 }
-export interface MsgUpdateAdminAminoType extends AminoMsg {
+export interface AminoMsgUpdateAdmin extends AminoMsg {
   type: "wasm/MsgUpdateAdmin";
   value: {
     sender: string;
@@ -74,7 +74,7 @@ export interface MsgUpdateAdminAminoType extends AminoMsg {
     contract: string;
   };
 }
-export interface MsgClearAdminAminoType extends AminoMsg {
+export interface AminoMsgClearAdmin extends AminoMsg {
   type: "wasm/MsgClearAdmin";
   value: {
     sender: string;
@@ -88,7 +88,7 @@ export const AminoConverter = {
       sender,
       wasmByteCode,
       instantiatePermission
-    }: MsgStoreCode): MsgStoreCodeAminoType["value"] => {
+    }: MsgStoreCode): AminoMsgStoreCode["value"] => {
       return {
         sender,
         wasm_byte_code: toBase64(wasmByteCode),
@@ -103,7 +103,7 @@ export const AminoConverter = {
       sender,
       wasm_byte_code,
       instantiate_permission
-    }: MsgStoreCodeAminoType["value"]): MsgStoreCode => {
+    }: AminoMsgStoreCode["value"]): MsgStoreCode => {
       return {
         sender,
         wasmByteCode: fromBase64(wasm_byte_code),
@@ -124,7 +124,7 @@ export const AminoConverter = {
       label,
       msg,
       funds
-    }: MsgInstantiateContract): MsgInstantiateContractAminoType["value"] => {
+    }: MsgInstantiateContract): AminoMsgInstantiateContract["value"] => {
       return {
         sender,
         admin,
@@ -144,7 +144,7 @@ export const AminoConverter = {
       label,
       msg,
       funds
-    }: MsgInstantiateContractAminoType["value"]): MsgInstantiateContract => {
+    }: AminoMsgInstantiateContract["value"]): MsgInstantiateContract => {
       return {
         sender,
         admin,
@@ -169,7 +169,7 @@ export const AminoConverter = {
       funds,
       salt,
       fixMsg
-    }: MsgInstantiateContract2): MsgInstantiateContract2AminoType["value"] => {
+    }: MsgInstantiateContract2): AminoMsgInstantiateContract2["value"] => {
       return {
         sender,
         admin,
@@ -193,7 +193,7 @@ export const AminoConverter = {
       funds,
       salt,
       fix_msg
-    }: MsgInstantiateContract2AminoType["value"]): MsgInstantiateContract2 => {
+    }: AminoMsgInstantiateContract2["value"]): MsgInstantiateContract2 => {
       return {
         sender,
         admin,
@@ -216,7 +216,7 @@ export const AminoConverter = {
       contract,
       msg,
       funds
-    }: MsgExecuteContract): MsgExecuteContractAminoType["value"] => {
+    }: MsgExecuteContract): AminoMsgExecuteContract["value"] => {
       return {
         sender,
         contract,
@@ -232,7 +232,7 @@ export const AminoConverter = {
       contract,
       msg,
       funds
-    }: MsgExecuteContractAminoType["value"]): MsgExecuteContract => {
+    }: AminoMsgExecuteContract["value"]): MsgExecuteContract => {
       return {
         sender,
         contract,
@@ -251,7 +251,7 @@ export const AminoConverter = {
       contract,
       codeId,
       msg
-    }: MsgMigrateContract): MsgMigrateContractAminoType["value"] => {
+    }: MsgMigrateContract): AminoMsgMigrateContract["value"] => {
       return {
         sender,
         contract,
@@ -264,7 +264,7 @@ export const AminoConverter = {
       contract,
       code_id,
       msg
-    }: MsgMigrateContractAminoType["value"]): MsgMigrateContract => {
+    }: AminoMsgMigrateContract["value"]): MsgMigrateContract => {
       return {
         sender,
         contract,
@@ -279,7 +279,7 @@ export const AminoConverter = {
       sender,
       newAdmin,
       contract
-    }: MsgUpdateAdmin): MsgUpdateAdminAminoType["value"] => {
+    }: MsgUpdateAdmin): AminoMsgUpdateAdmin["value"] => {
       return {
         sender,
         new_admin: newAdmin,
@@ -290,7 +290,7 @@ export const AminoConverter = {
       sender,
       new_admin,
       contract
-    }: MsgUpdateAdminAminoType["value"]): MsgUpdateAdmin => {
+    }: AminoMsgUpdateAdmin["value"]): MsgUpdateAdmin => {
       return {
         sender,
         newAdmin: new_admin,
@@ -303,7 +303,7 @@ export const AminoConverter = {
     toAmino: ({
       sender,
       contract
-    }: MsgClearAdmin): MsgClearAdminAminoType["value"] => {
+    }: MsgClearAdmin): AminoMsgClearAdmin["value"] => {
       return {
         sender,
         contract
@@ -312,7 +312,7 @@ export const AminoConverter = {
     fromAmino: ({
       sender,
       contract
-    }: MsgClearAdminAminoType["value"]): MsgClearAdmin => {
+    }: AminoMsgClearAdmin["value"]): MsgClearAdmin => {
       return {
         sender,
         contract

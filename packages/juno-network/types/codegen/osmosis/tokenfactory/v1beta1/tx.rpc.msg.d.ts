@@ -1,5 +1,5 @@
 import { Rpc } from "../../../helpers";
-import { MsgCreateDenom, MsgCreateDenomResponse, MsgMint, MsgMintResponse, MsgBurn, MsgBurnResponse, MsgChangeAdmin, MsgChangeAdminResponse, MsgSetDenomMetadata, MsgSetDenomMetadataResponse } from "./tx";
+import { MsgCreateDenom, MsgCreateDenomResponse, MsgMint, MsgMintResponse, MsgBurn, MsgBurnResponse, MsgChangeAdmin, MsgChangeAdminResponse, MsgSetDenomMetadata, MsgSetDenomMetadataResponse, MsgForceTransfer, MsgForceTransferResponse } from "./tx";
 /** Msg defines the tokefactory module's gRPC message service. */
 export interface Msg {
     createDenom(request: MsgCreateDenom): Promise<MsgCreateDenomResponse>;
@@ -7,6 +7,7 @@ export interface Msg {
     burn(request: MsgBurn): Promise<MsgBurnResponse>;
     changeAdmin(request: MsgChangeAdmin): Promise<MsgChangeAdminResponse>;
     setDenomMetadata(request: MsgSetDenomMetadata): Promise<MsgSetDenomMetadataResponse>;
+    forceTransfer(request: MsgForceTransfer): Promise<MsgForceTransferResponse>;
 }
 export declare class MsgClientImpl implements Msg {
     private readonly rpc;
@@ -16,4 +17,5 @@ export declare class MsgClientImpl implements Msg {
     burn(request: MsgBurn): Promise<MsgBurnResponse>;
     changeAdmin(request: MsgChangeAdmin): Promise<MsgChangeAdminResponse>;
     setDenomMetadata(request: MsgSetDenomMetadata): Promise<MsgSetDenomMetadataResponse>;
+    forceTransfer(request: MsgForceTransfer): Promise<MsgForceTransferResponse>;
 }

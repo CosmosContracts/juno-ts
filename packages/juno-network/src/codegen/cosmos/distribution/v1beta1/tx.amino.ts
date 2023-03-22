@@ -1,26 +1,26 @@
 import { AminoMsg } from "@cosmjs/amino";
 import { MsgSetWithdrawAddress, MsgWithdrawDelegatorReward, MsgWithdrawValidatorCommission, MsgFundCommunityPool } from "./tx";
-export interface MsgSetWithdrawAddressAminoType extends AminoMsg {
+export interface AminoMsgSetWithdrawAddress extends AminoMsg {
   type: "cosmos-sdk/MsgModifyWithdrawAddress";
   value: {
     delegator_address: string;
     withdraw_address: string;
   };
 }
-export interface MsgWithdrawDelegatorRewardAminoType extends AminoMsg {
+export interface AminoMsgWithdrawDelegatorReward extends AminoMsg {
   type: "cosmos-sdk/MsgWithdrawDelegationReward";
   value: {
     delegator_address: string;
     validator_address: string;
   };
 }
-export interface MsgWithdrawValidatorCommissionAminoType extends AminoMsg {
+export interface AminoMsgWithdrawValidatorCommission extends AminoMsg {
   type: "cosmos-sdk/MsgWithdrawValidatorCommission";
   value: {
     validator_address: string;
   };
 }
-export interface MsgFundCommunityPoolAminoType extends AminoMsg {
+export interface AminoMsgFundCommunityPool extends AminoMsg {
   type: "cosmos-sdk/MsgFundCommunityPool";
   value: {
     amount: {
@@ -36,7 +36,7 @@ export const AminoConverter = {
     toAmino: ({
       delegatorAddress,
       withdrawAddress
-    }: MsgSetWithdrawAddress): MsgSetWithdrawAddressAminoType["value"] => {
+    }: MsgSetWithdrawAddress): AminoMsgSetWithdrawAddress["value"] => {
       return {
         delegator_address: delegatorAddress,
         withdraw_address: withdrawAddress
@@ -45,7 +45,7 @@ export const AminoConverter = {
     fromAmino: ({
       delegator_address,
       withdraw_address
-    }: MsgSetWithdrawAddressAminoType["value"]): MsgSetWithdrawAddress => {
+    }: AminoMsgSetWithdrawAddress["value"]): MsgSetWithdrawAddress => {
       return {
         delegatorAddress: delegator_address,
         withdrawAddress: withdraw_address
@@ -57,7 +57,7 @@ export const AminoConverter = {
     toAmino: ({
       delegatorAddress,
       validatorAddress
-    }: MsgWithdrawDelegatorReward): MsgWithdrawDelegatorRewardAminoType["value"] => {
+    }: MsgWithdrawDelegatorReward): AminoMsgWithdrawDelegatorReward["value"] => {
       return {
         delegator_address: delegatorAddress,
         validator_address: validatorAddress
@@ -66,7 +66,7 @@ export const AminoConverter = {
     fromAmino: ({
       delegator_address,
       validator_address
-    }: MsgWithdrawDelegatorRewardAminoType["value"]): MsgWithdrawDelegatorReward => {
+    }: AminoMsgWithdrawDelegatorReward["value"]): MsgWithdrawDelegatorReward => {
       return {
         delegatorAddress: delegator_address,
         validatorAddress: validator_address
@@ -77,14 +77,14 @@ export const AminoConverter = {
     aminoType: "cosmos-sdk/MsgWithdrawValidatorCommission",
     toAmino: ({
       validatorAddress
-    }: MsgWithdrawValidatorCommission): MsgWithdrawValidatorCommissionAminoType["value"] => {
+    }: MsgWithdrawValidatorCommission): AminoMsgWithdrawValidatorCommission["value"] => {
       return {
         validator_address: validatorAddress
       };
     },
     fromAmino: ({
       validator_address
-    }: MsgWithdrawValidatorCommissionAminoType["value"]): MsgWithdrawValidatorCommission => {
+    }: AminoMsgWithdrawValidatorCommission["value"]): MsgWithdrawValidatorCommission => {
       return {
         validatorAddress: validator_address
       };
@@ -95,7 +95,7 @@ export const AminoConverter = {
     toAmino: ({
       amount,
       depositor
-    }: MsgFundCommunityPool): MsgFundCommunityPoolAminoType["value"] => {
+    }: MsgFundCommunityPool): AminoMsgFundCommunityPool["value"] => {
       return {
         amount: amount.map(el0 => ({
           denom: el0.denom,
@@ -107,7 +107,7 @@ export const AminoConverter = {
     fromAmino: ({
       amount,
       depositor
-    }: MsgFundCommunityPoolAminoType["value"]): MsgFundCommunityPool => {
+    }: AminoMsgFundCommunityPool["value"]): MsgFundCommunityPool => {
       return {
         amount: amount.map(el0 => ({
           denom: el0.denom,

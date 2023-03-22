@@ -15,6 +15,7 @@ export interface DenomAuthorityMetadata {
  * permission, but is planned to be extended to the future.
  */
 export interface DenomAuthorityMetadataSDKType {
+    /** Can be empty for no admin, or a valid osmosis address */
     admin: string;
 }
 export declare const DenomAuthorityMetadata: {

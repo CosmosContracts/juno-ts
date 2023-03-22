@@ -14,6 +14,7 @@ export interface QueryParamsResponse {
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponseSDKType {
+    /** params defines the parameters of the module. */
     params?: ParamsSDKType;
 }
 export declare const QueryParamsRequest: {

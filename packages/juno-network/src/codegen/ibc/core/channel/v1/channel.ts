@@ -29,7 +29,34 @@ export enum State {
   STATE_CLOSED = 4,
   UNRECOGNIZED = -1,
 }
-export const StateSDKType = State;
+/**
+ * State defines if a channel is in one of the following states:
+ * CLOSED, INIT, TRYOPEN, OPEN or UNINITIALIZED.
+ */
+
+export enum StateSDKType {
+  /** STATE_UNINITIALIZED_UNSPECIFIED - Default State */
+  STATE_UNINITIALIZED_UNSPECIFIED = 0,
+
+  /** STATE_INIT - A channel has just started the opening handshake. */
+  STATE_INIT = 1,
+
+  /** STATE_TRYOPEN - A channel has acknowledged the handshake step on the counterparty chain. */
+  STATE_TRYOPEN = 2,
+
+  /**
+   * STATE_OPEN - A channel has completed the handshake. Open channels are
+   * ready to send and receive packets.
+   */
+  STATE_OPEN = 3,
+
+  /**
+   * STATE_CLOSED - A channel has been closed and can no longer be used to send or receive
+   * packets.
+   */
+  STATE_CLOSED = 4,
+  UNRECOGNIZED = -1,
+}
 export function stateFromJSON(object: any): State {
   switch (object) {
     case 0:
@@ -96,7 +123,22 @@ export enum Order {
   ORDER_ORDERED = 2,
   UNRECOGNIZED = -1,
 }
-export const OrderSDKType = Order;
+/** Order defines if a channel is ORDERED or UNORDERED */
+
+export enum OrderSDKType {
+  /** ORDER_NONE_UNSPECIFIED - zero-value for channel ordering */
+  ORDER_NONE_UNSPECIFIED = 0,
+
+  /**
+   * ORDER_UNORDERED - packets can be delivered in any order, which may differ from the order in
+   * which they were sent.
+   */
+  ORDER_UNORDERED = 1,
+
+  /** ORDER_ORDERED - packets are delivered exactly in the order which they were sent */
+  ORDER_ORDERED = 2,
+  UNRECOGNIZED = -1,
+}
 export function orderFromJSON(object: any): Order {
   switch (object) {
     case 0:
@@ -165,10 +207,22 @@ export interface Channel {
  */
 
 export interface ChannelSDKType {
-  state: State;
-  ordering: Order;
+  /** current state of the channel end */
+  state: StateSDKType;
+  /** whether the channel is ordered or unordered */
+
+  ordering: OrderSDKType;
+  /** counterparty channel end */
+
   counterparty?: CounterpartySDKType;
+  /**
+   * list of connection identifiers, in order, along which packets sent on
+   * this channel will travel
+   */
+
   connection_hops: string[];
+  /** opaque channel version, which is agreed upon during the handshake */
+
   version: string;
 }
 /**
@@ -207,12 +261,28 @@ export interface IdentifiedChannel {
  */
 
 export interface IdentifiedChannelSDKType {
-  state: State;
-  ordering: Order;
+  /** current state of the channel end */
+  state: StateSDKType;
+  /** whether the channel is ordered or unordered */
+
+  ordering: OrderSDKType;
+  /** counterparty channel end */
+
   counterparty?: CounterpartySDKType;
+  /**
+   * list of connection identifiers, in order, along which packets sent on
+   * this channel will travel
+   */
+
   connection_hops: string[];
+  /** opaque channel version, which is agreed upon during the handshake */
+
   version: string;
+  /** port identifier */
+
   port_id: string;
+  /** channel identifier */
+
   channel_id: string;
 }
 /** Counterparty defines a channel end counterparty */
@@ -227,7 +297,10 @@ export interface Counterparty {
 /** Counterparty defines a channel end counterparty */
 
 export interface CounterpartySDKType {
+  /** port on the counterparty chain which owns the other end of the channel. */
   port_id: string;
+  /** channel end on the counterparty chain */
+
   channel_id: string;
 }
 /** Packet defines a type that carries data across different chains through IBC */
@@ -264,13 +337,32 @@ export interface Packet {
 /** Packet defines a type that carries data across different chains through IBC */
 
 export interface PacketSDKType {
+  /**
+   * number corresponds to the order of sends and receives, where a Packet
+   * with an earlier sequence number must be sent and received before a Packet
+   * with a later sequence number.
+   */
   sequence: Long;
+  /** identifies the port on the sending chain. */
+
   source_port: string;
+  /** identifies the channel end on the sending chain. */
+
   source_channel: string;
+  /** identifies the port on the receiving chain. */
+
   destination_port: string;
+  /** identifies the channel end on the receiving chain. */
+
   destination_channel: string;
+  /** actual opaque bytes transferred directly to the application module */
+
   data: Uint8Array;
+  /** block height after which the packet times out */
+
   timeout_height?: HeightSDKType;
+  /** block timestamp (in nanoseconds) after which the packet times out */
+
   timeout_timestamp: Long;
 }
 /**
@@ -301,9 +393,16 @@ export interface PacketState {
  */
 
 export interface PacketStateSDKType {
+  /** channel port identifier. */
   port_id: string;
+  /** channel unique identifier. */
+
   channel_id: string;
+  /** packet sequence. */
+
   sequence: Long;
+  /** embedded data that represents packet state. */
+
   data: Uint8Array;
 }
 /**
