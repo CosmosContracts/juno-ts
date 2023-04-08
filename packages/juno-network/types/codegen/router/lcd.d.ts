@@ -18,6 +18,9 @@ export declare const createLCDClient: ({ restEndpoint }: {
         staking: {
             v1beta1: import("../cosmos/staking/v1beta1/query.lcd").LCDQueryClient;
         };
+        tokenfactory: {
+            v1beta1: import("../cosmos/tokenfactory/v1beta1/query.lcd").LCDQueryClient;
+        };
         tx: {
             v1beta1: import("../cosmos/tx/v1beta1/service.lcd").LCDQueryClient;
         };

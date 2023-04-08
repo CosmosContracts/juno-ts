@@ -118,6 +118,13 @@ export declare namespace router {
                         params(request?: import("../cosmos/staking/v1beta1/query").QueryParamsRequest): Promise<import("../cosmos/staking/v1beta1/query").QueryParamsResponse>;
                     };
                 };
+                tokenfactory: {
+                    v1beta1: {
+                        params(request?: import("../cosmos/tokenfactory/v1beta1/query").QueryParamsRequest): Promise<import("../cosmos/tokenfactory/v1beta1/query").QueryParamsResponse>;
+                        denomAuthorityMetadata(request: import("../cosmos/tokenfactory/v1beta1/query").QueryDenomAuthorityMetadataRequest): Promise<import("../cosmos/tokenfactory/v1beta1/query").QueryDenomAuthorityMetadataResponse>;
+                        denomsFromCreator(request: import("../cosmos/tokenfactory/v1beta1/query").QueryDenomsFromCreatorRequest): Promise<import("../cosmos/tokenfactory/v1beta1/query").QueryDenomsFromCreatorResponse>;
+                    };
+                };
                 tx: {
                     v1beta1: {
                         simulate(request: import("../cosmos/tx/v1beta1/service").SimulateRequest): Promise<import("../cosmos/tx/v1beta1/service").SimulateResponse>;
@@ -162,6 +169,9 @@ export declare namespace router {
                 };
                 staking: {
                     v1beta1: import("../cosmos/staking/v1beta1/query.lcd").LCDQueryClient;
+                };
+                tokenfactory: {
+                    v1beta1: import("../cosmos/tokenfactory/v1beta1/query.lcd").LCDQueryClient;
                 };
                 tx: {
                     v1beta1: import("../cosmos/tx/v1beta1/service.lcd").LCDQueryClient;

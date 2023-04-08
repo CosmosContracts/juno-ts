@@ -21,7 +21,10 @@ export interface MsgSoftwareUpgrade {
  */
 
 export interface MsgSoftwareUpgradeSDKType {
+  /** authority is the address of the governance account. */
   authority: string;
+  /** plan is the upgrade plan. */
+
   plan?: PlanSDKType;
 }
 /**
@@ -55,6 +58,7 @@ export interface MsgCancelUpgrade {
  */
 
 export interface MsgCancelUpgradeSDKType {
+  /** authority is the address of the governance account. */
   authority: string;
 }
 /**

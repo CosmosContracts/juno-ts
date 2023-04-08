@@ -19,6 +19,9 @@ export declare const createRPCMsgClient: ({ rpc }: {
         staking: {
             v1beta1: import("../cosmos/staking/v1beta1/tx.rpc.msg").MsgClientImpl;
         };
+        tokenfactory: {
+            v1beta1: import("../cosmos/tokenfactory/v1beta1/tx.rpc.msg").MsgClientImpl;
+        };
         upgrade: {
             v1beta1: import("../cosmos/upgrade/v1beta1/tx.rpc.msg").MsgClientImpl;
         };

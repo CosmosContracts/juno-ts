@@ -18,6 +18,9 @@ export declare const createLCDClient: ({ restEndpoint }: {
         staking: {
             v1beta1: import("./staking/v1beta1/query.lcd").LCDQueryClient;
         };
+        tokenfactory: {
+            v1beta1: import("./tokenfactory/v1beta1/query.lcd").LCDQueryClient;
+        };
         tx: {
             v1beta1: import("./tx/v1beta1/service.lcd").LCDQueryClient;
         };

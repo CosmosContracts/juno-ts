@@ -20,13 +20,13 @@ export declare namespace tendermint {
         evidenceTypeFromJSON(object: any): _94.EvidenceType;
         evidenceTypeToJSON(object: _94.EvidenceType): string;
         CheckTxType: typeof _94.CheckTxType;
-        CheckTxTypeSDKType: typeof _94.CheckTxType;
+        CheckTxTypeSDKType: typeof _94.CheckTxTypeSDKType;
         ResponseOfferSnapshot_Result: typeof _94.ResponseOfferSnapshot_Result;
-        ResponseOfferSnapshot_ResultSDKType: typeof _94.ResponseOfferSnapshot_Result;
+        ResponseOfferSnapshot_ResultSDKType: typeof _94.ResponseOfferSnapshot_ResultSDKType;
         ResponseApplySnapshotChunk_Result: typeof _94.ResponseApplySnapshotChunk_Result;
-        ResponseApplySnapshotChunk_ResultSDKType: typeof _94.ResponseApplySnapshotChunk_Result;
+        ResponseApplySnapshotChunk_ResultSDKType: typeof _94.ResponseApplySnapshotChunk_ResultSDKType;
         EvidenceType: typeof _94.EvidenceType;
-        EvidenceTypeSDKType: typeof _94.EvidenceType;
+        EvidenceTypeSDKType: typeof _94.EvidenceTypeSDKType;
         Request: {
             encode(message: _94.Request, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _94.Request;
@@ -337,9 +337,9 @@ export declare namespace tendermint {
         signedMsgTypeFromJSON(object: any): _102.SignedMsgType;
         signedMsgTypeToJSON(object: _102.SignedMsgType): string;
         BlockIDFlag: typeof _102.BlockIDFlag;
-        BlockIDFlagSDKType: typeof _102.BlockIDFlag;
+        BlockIDFlagSDKType: typeof _102.BlockIDFlagSDKType;
         SignedMsgType: typeof _102.SignedMsgType;
-        SignedMsgTypeSDKType: typeof _102.SignedMsgType;
+        SignedMsgTypeSDKType: typeof _102.SignedMsgTypeSDKType;
         PartSetHeader: {
             encode(message: _102.PartSetHeader, writer?: import("protobufjs").Writer): import("protobufjs").Writer;
             decode(input: Uint8Array | import("protobufjs").Reader, length?: number): _102.PartSetHeader;

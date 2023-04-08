@@ -21,6 +21,9 @@ export const createRPCMsgClient = async ({
     staking: {
       v1beta1: new (await import("../cosmos/staking/v1beta1/tx.rpc.msg")).MsgClientImpl(rpc)
     },
+    tokenfactory: {
+      v1beta1: new (await import("../cosmos/tokenfactory/v1beta1/tx.rpc.msg")).MsgClientImpl(rpc)
+    },
     upgrade: {
       v1beta1: new (await import("../cosmos/upgrade/v1beta1/tx.rpc.msg")).MsgClientImpl(rpc)
     }

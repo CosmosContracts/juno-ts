@@ -11,7 +11,9 @@ export interface QueryValidatorsRequest {
 }
 /** QueryValidatorsRequest is request type for Query/Validators RPC method. */
 export interface QueryValidatorsRequestSDKType {
+    /** status enables to query for validators matching a given status. */
     status: string;
+    /** pagination defines an optional pagination for the request. */
     pagination?: PageRequestSDKType;
 }
 /** QueryValidatorsResponse is response type for the Query/Validators RPC method */
@@ -23,7 +25,9 @@ export interface QueryValidatorsResponse {
 }
 /** QueryValidatorsResponse is response type for the Query/Validators RPC method */
 export interface QueryValidatorsResponseSDKType {
+    /** validators contains all the queried validators. */
     validators: ValidatorSDKType[];
+    /** pagination defines the pagination in the response. */
     pagination?: PageResponseSDKType;
 }
 /** QueryValidatorRequest is response type for the Query/Validator RPC method */
@@ -33,6 +37,7 @@ export interface QueryValidatorRequest {
 }
 /** QueryValidatorRequest is response type for the Query/Validator RPC method */
 export interface QueryValidatorRequestSDKType {
+    /** validator_addr defines the validator address to query for. */
     validator_addr: string;
 }
 /** QueryValidatorResponse is response type for the Query/Validator RPC method */
@@ -42,6 +47,7 @@ export interface QueryValidatorResponse {
 }
 /** QueryValidatorResponse is response type for the Query/Validator RPC method */
 export interface QueryValidatorResponseSDKType {
+    /** validator defines the the validator info. */
     validator?: ValidatorSDKType;
 }
 /**
@@ -59,7 +65,9 @@ export interface QueryValidatorDelegationsRequest {
  * Query/ValidatorDelegations RPC method
  */
 export interface QueryValidatorDelegationsRequestSDKType {
+    /** validator_addr defines the validator address to query for. */
     validator_addr: string;
+    /** pagination defines an optional pagination for the request. */
     pagination?: PageRequestSDKType;
 }
 /**
@@ -77,6 +85,7 @@ export interface QueryValidatorDelegationsResponse {
  */
 export interface QueryValidatorDelegationsResponseSDKType {
     delegation_responses: DelegationResponseSDKType[];
+    /** pagination defines the pagination in the response. */
     pagination?: PageResponseSDKType;
 }
 /**
@@ -94,7 +103,9 @@ export interface QueryValidatorUnbondingDelegationsRequest {
  * Query/ValidatorUnbondingDelegations RPC method
  */
 export interface QueryValidatorUnbondingDelegationsRequestSDKType {
+    /** validator_addr defines the validator address to query for. */
     validator_addr: string;
+    /** pagination defines an optional pagination for the request. */
     pagination?: PageRequestSDKType;
 }
 /**
@@ -112,6 +123,7 @@ export interface QueryValidatorUnbondingDelegationsResponse {
  */
 export interface QueryValidatorUnbondingDelegationsResponseSDKType {
     unbonding_responses: UnbondingDelegationSDKType[];
+    /** pagination defines the pagination in the response. */
     pagination?: PageResponseSDKType;
 }
 /** QueryDelegationRequest is request type for the Query/Delegation RPC method. */
@@ -123,7 +135,9 @@ export interface QueryDelegationRequest {
 }
 /** QueryDelegationRequest is request type for the Query/Delegation RPC method. */
 export interface QueryDelegationRequestSDKType {
+    /** delegator_addr defines the delegator address to query for. */
     delegator_addr: string;
+    /** validator_addr defines the validator address to query for. */
     validator_addr: string;
 }
 /** QueryDelegationResponse is response type for the Query/Delegation RPC method. */
@@ -133,6 +147,7 @@ export interface QueryDelegationResponse {
 }
 /** QueryDelegationResponse is response type for the Query/Delegation RPC method. */
 export interface QueryDelegationResponseSDKType {
+    /** delegation_responses defines the delegation info of a delegation. */
     delegation_response?: DelegationResponseSDKType;
 }
 /**
@@ -150,7 +165,9 @@ export interface QueryUnbondingDelegationRequest {
  * Query/UnbondingDelegation RPC method.
  */
 export interface QueryUnbondingDelegationRequestSDKType {
+    /** delegator_addr defines the delegator address to query for. */
     delegator_addr: string;
+    /** validator_addr defines the validator address to query for. */
     validator_addr: string;
 }
 /**
@@ -166,6 +183,7 @@ export interface QueryUnbondingDelegationResponse {
  * RPC method.
  */
 export interface QueryUnbondingDelegationResponseSDKType {
+    /** unbond defines the unbonding information of a delegation. */
     unbond?: UnbondingDelegationSDKType;
 }
 /**
@@ -183,7 +201,9 @@ export interface QueryDelegatorDelegationsRequest {
  * Query/DelegatorDelegations RPC method.
  */
 export interface QueryDelegatorDelegationsRequestSDKType {
+    /** delegator_addr defines the delegator address to query for. */
     delegator_addr: string;
+    /** pagination defines an optional pagination for the request. */
     pagination?: PageRequestSDKType;
 }
 /**
@@ -201,7 +221,9 @@ export interface QueryDelegatorDelegationsResponse {
  * Query/DelegatorDelegations RPC method.
  */
 export interface QueryDelegatorDelegationsResponseSDKType {
+    /** delegation_responses defines all the delegations' info of a delegator. */
     delegation_responses: DelegationResponseSDKType[];
+    /** pagination defines the pagination in the response. */
     pagination?: PageResponseSDKType;
 }
 /**
@@ -219,7 +241,9 @@ export interface QueryDelegatorUnbondingDelegationsRequest {
  * Query/DelegatorUnbondingDelegations RPC method.
  */
 export interface QueryDelegatorUnbondingDelegationsRequestSDKType {
+    /** delegator_addr defines the delegator address to query for. */
     delegator_addr: string;
+    /** pagination defines an optional pagination for the request. */
     pagination?: PageRequestSDKType;
 }
 /**
@@ -237,6 +261,7 @@ export interface QueryDelegatorUnbondingDelegationsResponse {
  */
 export interface QueryDelegatorUnbondingDelegationsResponseSDKType {
     unbonding_responses: UnbondingDelegationSDKType[];
+    /** pagination defines the pagination in the response. */
     pagination?: PageResponseSDKType;
 }
 /**
@@ -258,9 +283,13 @@ export interface QueryRedelegationsRequest {
  * method.
  */
 export interface QueryRedelegationsRequestSDKType {
+    /** delegator_addr defines the delegator address to query for. */
     delegator_addr: string;
+    /** src_validator_addr defines the validator address to redelegate from. */
     src_validator_addr: string;
+    /** dst_validator_addr defines the validator address to redelegate to. */
     dst_validator_addr: string;
+    /** pagination defines an optional pagination for the request. */
     pagination?: PageRequestSDKType;
 }
 /**
@@ -278,6 +307,7 @@ export interface QueryRedelegationsResponse {
  */
 export interface QueryRedelegationsResponseSDKType {
     redelegation_responses: RedelegationResponseSDKType[];
+    /** pagination defines the pagination in the response. */
     pagination?: PageResponseSDKType;
 }
 /**
@@ -295,7 +325,9 @@ export interface QueryDelegatorValidatorsRequest {
  * Query/DelegatorValidators RPC method.
  */
 export interface QueryDelegatorValidatorsRequestSDKType {
+    /** delegator_addr defines the delegator address to query for. */
     delegator_addr: string;
+    /** pagination defines an optional pagination for the request. */
     pagination?: PageRequestSDKType;
 }
 /**
@@ -313,7 +345,9 @@ export interface QueryDelegatorValidatorsResponse {
  * Query/DelegatorValidators RPC method.
  */
 export interface QueryDelegatorValidatorsResponseSDKType {
+    /** validators defines the the validators' info of a delegator. */
     validators: ValidatorSDKType[];
+    /** pagination defines the pagination in the response. */
     pagination?: PageResponseSDKType;
 }
 /**
@@ -331,7 +365,9 @@ export interface QueryDelegatorValidatorRequest {
  * Query/DelegatorValidator RPC method.
  */
 export interface QueryDelegatorValidatorRequestSDKType {
+    /** delegator_addr defines the delegator address to query for. */
     delegator_addr: string;
+    /** validator_addr defines the validator address to query for. */
     validator_addr: string;
 }
 /**
@@ -347,6 +383,7 @@ export interface QueryDelegatorValidatorResponse {
  * Query/DelegatorValidator RPC method.
  */
 export interface QueryDelegatorValidatorResponseSDKType {
+    /** validator defines the the validator info. */
     validator?: ValidatorSDKType;
 }
 /**
@@ -362,6 +399,7 @@ export interface QueryHistoricalInfoRequest {
  * method.
  */
 export interface QueryHistoricalInfoRequestSDKType {
+    /** height defines at which height to query the historical info. */
     height: Long;
 }
 /**
@@ -377,6 +415,7 @@ export interface QueryHistoricalInfoResponse {
  * method.
  */
 export interface QueryHistoricalInfoResponseSDKType {
+    /** hist defines the historical info at the given height. */
     hist?: HistoricalInfoSDKType;
 }
 /** QueryPoolRequest is request type for the Query/Pool RPC method. */
@@ -392,6 +431,7 @@ export interface QueryPoolResponse {
 }
 /** QueryPoolResponse is response type for the Query/Pool RPC method. */
 export interface QueryPoolResponseSDKType {
+    /** pool defines the pool info. */
     pool?: PoolSDKType;
 }
 /** QueryParamsRequest is request type for the Query/Params RPC method. */
@@ -407,6 +447,7 @@ export interface QueryParamsResponse {
 }
 /** QueryParamsResponse is response type for the Query/Params RPC method. */
 export interface QueryParamsResponseSDKType {
+    /** params holds all the parameters of this module. */
     params?: ParamsSDKType;
 }
 export declare const QueryValidatorsRequest: {

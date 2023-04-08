@@ -1,6 +1,6 @@
 import { AminoMsg } from "@cosmjs/amino";
 import { MsgCreateClient, MsgUpdateClient, MsgUpgradeClient, MsgSubmitMisbehaviour } from "./tx";
-export interface MsgCreateClientAminoType extends AminoMsg {
+export interface AminoMsgCreateClient extends AminoMsg {
   type: "cosmos-sdk/MsgCreateClient";
   value: {
     client_state: {
@@ -14,7 +14,7 @@ export interface MsgCreateClientAminoType extends AminoMsg {
     signer: string;
   };
 }
-export interface MsgUpdateClientAminoType extends AminoMsg {
+export interface AminoMsgUpdateClient extends AminoMsg {
   type: "cosmos-sdk/MsgUpdateClient";
   value: {
     client_id: string;
@@ -25,7 +25,7 @@ export interface MsgUpdateClientAminoType extends AminoMsg {
     signer: string;
   };
 }
-export interface MsgUpgradeClientAminoType extends AminoMsg {
+export interface AminoMsgUpgradeClient extends AminoMsg {
   type: "cosmos-sdk/MsgUpgradeClient";
   value: {
     client_id: string;
@@ -42,7 +42,7 @@ export interface MsgUpgradeClientAminoType extends AminoMsg {
     signer: string;
   };
 }
-export interface MsgSubmitMisbehaviourAminoType extends AminoMsg {
+export interface AminoMsgSubmitMisbehaviour extends AminoMsg {
   type: "cosmos-sdk/MsgSubmitMisbehaviour";
   value: {
     client_id: string;
@@ -60,7 +60,7 @@ export const AminoConverter = {
       clientState,
       consensusState,
       signer
-    }: MsgCreateClient): MsgCreateClientAminoType["value"] => {
+    }: MsgCreateClient): AminoMsgCreateClient["value"] => {
       return {
         client_state: {
           type_url: clientState.typeUrl,
@@ -77,7 +77,7 @@ export const AminoConverter = {
       client_state,
       consensus_state,
       signer
-    }: MsgCreateClientAminoType["value"]): MsgCreateClient => {
+    }: AminoMsgCreateClient["value"]): MsgCreateClient => {
       return {
         clientState: {
           typeUrl: client_state.type_url,
@@ -97,7 +97,7 @@ export const AminoConverter = {
       clientId,
       header,
       signer
-    }: MsgUpdateClient): MsgUpdateClientAminoType["value"] => {
+    }: MsgUpdateClient): AminoMsgUpdateClient["value"] => {
       return {
         client_id: clientId,
         header: {
@@ -111,7 +111,7 @@ export const AminoConverter = {
       client_id,
       header,
       signer
-    }: MsgUpdateClientAminoType["value"]): MsgUpdateClient => {
+    }: AminoMsgUpdateClient["value"]): MsgUpdateClient => {
       return {
         clientId: client_id,
         header: {
@@ -131,7 +131,7 @@ export const AminoConverter = {
       proofUpgradeClient,
       proofUpgradeConsensusState,
       signer
-    }: MsgUpgradeClient): MsgUpgradeClientAminoType["value"] => {
+    }: MsgUpgradeClient): AminoMsgUpgradeClient["value"] => {
       return {
         client_id: clientId,
         client_state: {
@@ -154,7 +154,7 @@ export const AminoConverter = {
       proof_upgrade_client,
       proof_upgrade_consensus_state,
       signer
-    }: MsgUpgradeClientAminoType["value"]): MsgUpgradeClient => {
+    }: AminoMsgUpgradeClient["value"]): MsgUpgradeClient => {
       return {
         clientId: client_id,
         clientState: {
@@ -177,7 +177,7 @@ export const AminoConverter = {
       clientId,
       misbehaviour,
       signer
-    }: MsgSubmitMisbehaviour): MsgSubmitMisbehaviourAminoType["value"] => {
+    }: MsgSubmitMisbehaviour): AminoMsgSubmitMisbehaviour["value"] => {
       return {
         client_id: clientId,
         misbehaviour: {
@@ -191,7 +191,7 @@ export const AminoConverter = {
       client_id,
       misbehaviour,
       signer
-    }: MsgSubmitMisbehaviourAminoType["value"]): MsgSubmitMisbehaviour => {
+    }: AminoMsgSubmitMisbehaviour["value"]): MsgSubmitMisbehaviour => {
       return {
         clientId: client_id,
         misbehaviour: {

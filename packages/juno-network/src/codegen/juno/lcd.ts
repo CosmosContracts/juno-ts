@@ -37,6 +37,11 @@ export const createLCDClient = async ({
           requestClient
         })
       },
+      tokenfactory: {
+        v1beta1: new (await import("../cosmos/tokenfactory/v1beta1/query.lcd")).LCDQueryClient({
+          requestClient
+        })
+      },
       tx: {
         v1beta1: new (await import("../cosmos/tx/v1beta1/service.lcd")).LCDQueryClient({
           requestClient

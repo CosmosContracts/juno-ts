@@ -2,7 +2,7 @@ import { stateFromJSON, orderFromJSON } from "./channel";
 import { AminoMsg } from "@cosmjs/amino";
 import { AminoHeight, omitDefault, Long } from "../../../../helpers";
 import { MsgChannelOpenInit, MsgChannelOpenTry, MsgChannelOpenAck, MsgChannelOpenConfirm, MsgChannelCloseInit, MsgChannelCloseConfirm, MsgRecvPacket, MsgTimeout, MsgTimeoutOnClose, MsgAcknowledgement } from "./tx";
-export interface MsgChannelOpenInitAminoType extends AminoMsg {
+export interface AminoMsgChannelOpenInit extends AminoMsg {
   type: "cosmos-sdk/MsgChannelOpenInit";
   value: {
     port_id: string;
@@ -19,7 +19,7 @@ export interface MsgChannelOpenInitAminoType extends AminoMsg {
     signer: string;
   };
 }
-export interface MsgChannelOpenTryAminoType extends AminoMsg {
+export interface AminoMsgChannelOpenTry extends AminoMsg {
   type: "cosmos-sdk/MsgChannelOpenTry";
   value: {
     port_id: string;
@@ -40,7 +40,7 @@ export interface MsgChannelOpenTryAminoType extends AminoMsg {
     signer: string;
   };
 }
-export interface MsgChannelOpenAckAminoType extends AminoMsg {
+export interface AminoMsgChannelOpenAck extends AminoMsg {
   type: "cosmos-sdk/MsgChannelOpenAck";
   value: {
     port_id: string;
@@ -52,7 +52,7 @@ export interface MsgChannelOpenAckAminoType extends AminoMsg {
     signer: string;
   };
 }
-export interface MsgChannelOpenConfirmAminoType extends AminoMsg {
+export interface AminoMsgChannelOpenConfirm extends AminoMsg {
   type: "cosmos-sdk/MsgChannelOpenConfirm";
   value: {
     port_id: string;
@@ -62,7 +62,7 @@ export interface MsgChannelOpenConfirmAminoType extends AminoMsg {
     signer: string;
   };
 }
-export interface MsgChannelCloseInitAminoType extends AminoMsg {
+export interface AminoMsgChannelCloseInit extends AminoMsg {
   type: "cosmos-sdk/MsgChannelCloseInit";
   value: {
     port_id: string;
@@ -70,7 +70,7 @@ export interface MsgChannelCloseInitAminoType extends AminoMsg {
     signer: string;
   };
 }
-export interface MsgChannelCloseConfirmAminoType extends AminoMsg {
+export interface AminoMsgChannelCloseConfirm extends AminoMsg {
   type: "cosmos-sdk/MsgChannelCloseConfirm";
   value: {
     port_id: string;
@@ -80,7 +80,7 @@ export interface MsgChannelCloseConfirmAminoType extends AminoMsg {
     signer: string;
   };
 }
-export interface MsgRecvPacketAminoType extends AminoMsg {
+export interface AminoMsgRecvPacket extends AminoMsg {
   type: "cosmos-sdk/MsgRecvPacket";
   value: {
     packet: {
@@ -98,7 +98,7 @@ export interface MsgRecvPacketAminoType extends AminoMsg {
     signer: string;
   };
 }
-export interface MsgTimeoutAminoType extends AminoMsg {
+export interface AminoMsgTimeout extends AminoMsg {
   type: "cosmos-sdk/MsgTimeout";
   value: {
     packet: {
@@ -117,7 +117,7 @@ export interface MsgTimeoutAminoType extends AminoMsg {
     signer: string;
   };
 }
-export interface MsgTimeoutOnCloseAminoType extends AminoMsg {
+export interface AminoMsgTimeoutOnClose extends AminoMsg {
   type: "cosmos-sdk/MsgTimeoutOnClose";
   value: {
     packet: {
@@ -137,7 +137,7 @@ export interface MsgTimeoutOnCloseAminoType extends AminoMsg {
     signer: string;
   };
 }
-export interface MsgAcknowledgementAminoType extends AminoMsg {
+export interface AminoMsgAcknowledgement extends AminoMsg {
   type: "cosmos-sdk/MsgAcknowledgement";
   value: {
     packet: {
@@ -163,7 +163,7 @@ export const AminoConverter = {
       portId,
       channel,
       signer
-    }: MsgChannelOpenInit): MsgChannelOpenInitAminoType["value"] => {
+    }: MsgChannelOpenInit): AminoMsgChannelOpenInit["value"] => {
       return {
         port_id: portId,
         channel: {
@@ -183,7 +183,7 @@ export const AminoConverter = {
       port_id,
       channel,
       signer
-    }: MsgChannelOpenInitAminoType["value"]): MsgChannelOpenInit => {
+    }: AminoMsgChannelOpenInit["value"]): MsgChannelOpenInit => {
       return {
         portId: port_id,
         channel: {
@@ -210,7 +210,7 @@ export const AminoConverter = {
       proofInit,
       proofHeight,
       signer
-    }: MsgChannelOpenTry): MsgChannelOpenTryAminoType["value"] => {
+    }: MsgChannelOpenTry): AminoMsgChannelOpenTry["value"] => {
       return {
         port_id: portId,
         previous_channel_id: previousChannelId,
@@ -241,7 +241,7 @@ export const AminoConverter = {
       proof_init,
       proof_height,
       signer
-    }: MsgChannelOpenTryAminoType["value"]): MsgChannelOpenTry => {
+    }: AminoMsgChannelOpenTry["value"]): MsgChannelOpenTry => {
       return {
         portId: port_id,
         previousChannelId: previous_channel_id,
@@ -275,7 +275,7 @@ export const AminoConverter = {
       proofTry,
       proofHeight,
       signer
-    }: MsgChannelOpenAck): MsgChannelOpenAckAminoType["value"] => {
+    }: MsgChannelOpenAck): AminoMsgChannelOpenAck["value"] => {
       return {
         port_id: portId,
         channel_id: channelId,
@@ -297,7 +297,7 @@ export const AminoConverter = {
       proof_try,
       proof_height,
       signer
-    }: MsgChannelOpenAckAminoType["value"]): MsgChannelOpenAck => {
+    }: AminoMsgChannelOpenAck["value"]): MsgChannelOpenAck => {
       return {
         portId: port_id,
         channelId: channel_id,
@@ -320,7 +320,7 @@ export const AminoConverter = {
       proofAck,
       proofHeight,
       signer
-    }: MsgChannelOpenConfirm): MsgChannelOpenConfirmAminoType["value"] => {
+    }: MsgChannelOpenConfirm): AminoMsgChannelOpenConfirm["value"] => {
       return {
         port_id: portId,
         channel_id: channelId,
@@ -338,7 +338,7 @@ export const AminoConverter = {
       proof_ack,
       proof_height,
       signer
-    }: MsgChannelOpenConfirmAminoType["value"]): MsgChannelOpenConfirm => {
+    }: AminoMsgChannelOpenConfirm["value"]): MsgChannelOpenConfirm => {
       return {
         portId: port_id,
         channelId: channel_id,
@@ -357,7 +357,7 @@ export const AminoConverter = {
       portId,
       channelId,
       signer
-    }: MsgChannelCloseInit): MsgChannelCloseInitAminoType["value"] => {
+    }: MsgChannelCloseInit): AminoMsgChannelCloseInit["value"] => {
       return {
         port_id: portId,
         channel_id: channelId,
@@ -368,7 +368,7 @@ export const AminoConverter = {
       port_id,
       channel_id,
       signer
-    }: MsgChannelCloseInitAminoType["value"]): MsgChannelCloseInit => {
+    }: AminoMsgChannelCloseInit["value"]): MsgChannelCloseInit => {
       return {
         portId: port_id,
         channelId: channel_id,
@@ -384,7 +384,7 @@ export const AminoConverter = {
       proofInit,
       proofHeight,
       signer
-    }: MsgChannelCloseConfirm): MsgChannelCloseConfirmAminoType["value"] => {
+    }: MsgChannelCloseConfirm): AminoMsgChannelCloseConfirm["value"] => {
       return {
         port_id: portId,
         channel_id: channelId,
@@ -402,7 +402,7 @@ export const AminoConverter = {
       proof_init,
       proof_height,
       signer
-    }: MsgChannelCloseConfirmAminoType["value"]): MsgChannelCloseConfirm => {
+    }: AminoMsgChannelCloseConfirm["value"]): MsgChannelCloseConfirm => {
       return {
         portId: port_id,
         channelId: channel_id,
@@ -422,7 +422,7 @@ export const AminoConverter = {
       proofCommitment,
       proofHeight,
       signer
-    }: MsgRecvPacket): MsgRecvPacketAminoType["value"] => {
+    }: MsgRecvPacket): AminoMsgRecvPacket["value"] => {
       return {
         packet: {
           sequence: packet.sequence.toString(),
@@ -450,7 +450,7 @@ export const AminoConverter = {
       proof_commitment,
       proof_height,
       signer
-    }: MsgRecvPacketAminoType["value"]): MsgRecvPacket => {
+    }: AminoMsgRecvPacket["value"]): MsgRecvPacket => {
       return {
         packet: {
           sequence: Long.fromString(packet.sequence),
@@ -482,7 +482,7 @@ export const AminoConverter = {
       proofHeight,
       nextSequenceRecv,
       signer
-    }: MsgTimeout): MsgTimeoutAminoType["value"] => {
+    }: MsgTimeout): AminoMsgTimeout["value"] => {
       return {
         packet: {
           sequence: packet.sequence.toString(),
@@ -512,7 +512,7 @@ export const AminoConverter = {
       proof_height,
       next_sequence_recv,
       signer
-    }: MsgTimeoutAminoType["value"]): MsgTimeout => {
+    }: AminoMsgTimeout["value"]): MsgTimeout => {
       return {
         packet: {
           sequence: Long.fromString(packet.sequence),
@@ -546,7 +546,7 @@ export const AminoConverter = {
       proofHeight,
       nextSequenceRecv,
       signer
-    }: MsgTimeoutOnClose): MsgTimeoutOnCloseAminoType["value"] => {
+    }: MsgTimeoutOnClose): AminoMsgTimeoutOnClose["value"] => {
       return {
         packet: {
           sequence: packet.sequence.toString(),
@@ -578,7 +578,7 @@ export const AminoConverter = {
       proof_height,
       next_sequence_recv,
       signer
-    }: MsgTimeoutOnCloseAminoType["value"]): MsgTimeoutOnClose => {
+    }: AminoMsgTimeoutOnClose["value"]): MsgTimeoutOnClose => {
       return {
         packet: {
           sequence: Long.fromString(packet.sequence),
@@ -612,7 +612,7 @@ export const AminoConverter = {
       proofAcked,
       proofHeight,
       signer
-    }: MsgAcknowledgement): MsgAcknowledgementAminoType["value"] => {
+    }: MsgAcknowledgement): AminoMsgAcknowledgement["value"] => {
       return {
         packet: {
           sequence: packet.sequence.toString(),
@@ -642,7 +642,7 @@ export const AminoConverter = {
       proof_acked,
       proof_height,
       signer
-    }: MsgAcknowledgementAminoType["value"]): MsgAcknowledgement => {
+    }: AminoMsgAcknowledgement["value"]): MsgAcknowledgement => {
       return {
         packet: {
           sequence: Long.fromString(packet.sequence),
