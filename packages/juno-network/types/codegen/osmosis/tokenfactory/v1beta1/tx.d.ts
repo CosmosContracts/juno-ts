@@ -31,6 +31,7 @@ export interface MsgCreateDenom {
  */
 export interface MsgCreateDenomSDKType {
     sender: string;
+    /** subdenom can be up to 44 "alphanumeric" characters long. */
     subdenom: string;
 }
 /**
@@ -54,6 +55,7 @@ export interface MsgCreateDenomResponseSDKType {
 export interface MsgMint {
     sender: string;
     amount?: Coin;
+    mintToAddress: string;
 }
 /**
  * MsgMint is the sdk.Msg type for allowing an admin account to mint
@@ -62,6 +64,7 @@ export interface MsgMint {
 export interface MsgMintSDKType {
     sender: string;
     amount?: CoinSDKType;
+    mintToAddress: string;
 }
 export interface MsgMintResponse {
 }
@@ -74,6 +77,7 @@ export interface MsgMintResponseSDKType {
 export interface MsgBurn {
     sender: string;
     amount?: Coin;
+    burnFromAddress: string;
 }
 /**
  * MsgBurn is the sdk.Msg type for allowing an admin account to burn
@@ -82,6 +86,7 @@ export interface MsgBurn {
 export interface MsgBurnSDKType {
     sender: string;
     amount?: CoinSDKType;
+    burnFromAddress: string;
 }
 export interface MsgBurnResponse {
 }
@@ -145,6 +150,22 @@ export interface MsgSetDenomMetadataResponse {
  */
 export interface MsgSetDenomMetadataResponseSDKType {
 }
+export interface MsgForceTransfer {
+    sender: string;
+    amount?: Coin;
+    transferFromAddress: string;
+    transferToAddress: string;
+}
+export interface MsgForceTransferSDKType {
+    sender: string;
+    amount?: CoinSDKType;
+    transferFromAddress: string;
+    transferToAddress: string;
+}
+export interface MsgForceTransferResponse {
+}
+export interface MsgForceTransferResponseSDKType {
+}
 export declare const MsgCreateDenom: {
     encode(message: MsgCreateDenom, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgCreateDenom;
@@ -194,4 +215,14 @@ export declare const MsgSetDenomMetadataResponse: {
     encode(_: MsgSetDenomMetadataResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): MsgSetDenomMetadataResponse;
     fromPartial(_: DeepPartial<MsgSetDenomMetadataResponse>): MsgSetDenomMetadataResponse;
+};
+export declare const MsgForceTransfer: {
+    encode(message: MsgForceTransfer, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgForceTransfer;
+    fromPartial(object: DeepPartial<MsgForceTransfer>): MsgForceTransfer;
+};
+export declare const MsgForceTransferResponse: {
+    encode(_: MsgForceTransferResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): MsgForceTransferResponse;
+    fromPartial(_: DeepPartial<MsgForceTransferResponse>): MsgForceTransferResponse;
 };

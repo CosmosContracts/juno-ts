@@ -16,7 +16,9 @@ export interface ClientState {
  * access to keys outside the client prefix.
  */
 export interface ClientStateSDKType {
+    /** self chain ID */
     chain_id: string;
+    /** self latest block height */
     height?: HeightSDKType;
 }
 export declare const ClientState: {

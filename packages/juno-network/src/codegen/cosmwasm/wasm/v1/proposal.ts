@@ -41,14 +41,37 @@ export interface StoreCodeProposal {
 /** StoreCodeProposal gov proposal content type to submit WASM code to the system */
 
 export interface StoreCodeProposalSDKType {
+  /** Title is a short summary */
   title: string;
+  /** Description is a human readable text */
+
   description: string;
+  /** RunAs is the address that is passed to the contract's environment as sender */
+
   run_as: string;
+  /** WASMByteCode can be raw or gzip compressed */
+
   wasm_byte_code: Uint8Array;
+  /** InstantiatePermission to apply on contract creation, optional */
+
   instantiate_permission?: AccessConfigSDKType;
+  /** UnpinCode code on upload, optional */
+
   unpin_code: boolean;
+  /** Source is the URL where the code is hosted */
+
   source: string;
+  /**
+   * Builder is the docker image used to build the code deterministically, used
+   * for smart contract verification
+   */
+
   builder: string;
+  /**
+   * CodeHash is the SHA256 sum of the code outputted by builder, used for smart
+   * contract verification
+   */
+
   code_hash: Uint8Array;
 }
 /**
@@ -87,13 +110,28 @@ export interface InstantiateContractProposal {
  */
 
 export interface InstantiateContractProposalSDKType {
+  /** Title is a short summary */
   title: string;
+  /** Description is a human readable text */
+
   description: string;
+  /** RunAs is the address that is passed to the contract's environment as sender */
+
   run_as: string;
+  /** Admin is an optional address that can execute migrations */
+
   admin: string;
+  /** CodeID is the reference to the stored WASM code */
+
   code_id: Long;
+  /** Label is optional metadata to be stored with a constract instance. */
+
   label: string;
+  /** Msg json encoded message to be passed to the contract on instantiation */
+
   msg: Uint8Array;
+  /** Funds coins that are transferred to the contract on instantiation */
+
   funds: CoinSDKType[];
 }
 /** MigrateContractProposal gov proposal content type to migrate a contract. */
@@ -117,10 +155,19 @@ export interface MigrateContractProposal {
 /** MigrateContractProposal gov proposal content type to migrate a contract. */
 
 export interface MigrateContractProposalSDKType {
+  /** Title is a short summary */
   title: string;
+  /** Description is a human readable text */
+
   description: string;
+  /** Contract is the address of the smart contract */
+
   contract: string;
+  /** CodeID references the new WASM code */
+
   code_id: Long;
+  /** Msg json encoded message to be passed to the contract on migration */
+
   msg: Uint8Array;
 }
 /** SudoContractProposal gov proposal content type to call sudo on a contract. */
@@ -141,9 +188,16 @@ export interface SudoContractProposal {
 /** SudoContractProposal gov proposal content type to call sudo on a contract. */
 
 export interface SudoContractProposalSDKType {
+  /** Title is a short summary */
   title: string;
+  /** Description is a human readable text */
+
   description: string;
+  /** Contract is the address of the smart contract */
+
   contract: string;
+  /** Msg json encoded message to be passed to the contract as sudo */
+
   msg: Uint8Array;
 }
 /**
@@ -176,11 +230,22 @@ export interface ExecuteContractProposal {
  */
 
 export interface ExecuteContractProposalSDKType {
+  /** Title is a short summary */
   title: string;
+  /** Description is a human readable text */
+
   description: string;
+  /** RunAs is the address that is passed to the contract's environment as sender */
+
   run_as: string;
+  /** Contract is the address of the smart contract */
+
   contract: string;
+  /** Msg json encoded message to be passed to the contract as execute */
+
   msg: Uint8Array;
+  /** Funds coins that are transferred to the contract on instantiation */
+
   funds: CoinSDKType[];
 }
 /** UpdateAdminProposal gov proposal content type to set an admin for a contract. */
@@ -201,9 +266,16 @@ export interface UpdateAdminProposal {
 /** UpdateAdminProposal gov proposal content type to set an admin for a contract. */
 
 export interface UpdateAdminProposalSDKType {
+  /** Title is a short summary */
   title: string;
+  /** Description is a human readable text */
+
   description: string;
+  /** NewAdmin address to be set */
+
   new_admin: string;
+  /** Contract is the address of the smart contract */
+
   contract: string;
 }
 /**
@@ -227,8 +299,13 @@ export interface ClearAdminProposal {
  */
 
 export interface ClearAdminProposalSDKType {
+  /** Title is a short summary */
   title: string;
+  /** Description is a human readable text */
+
   description: string;
+  /** Contract is the address of the smart contract */
+
   contract: string;
 }
 /**
@@ -252,8 +329,13 @@ export interface PinCodesProposal {
  */
 
 export interface PinCodesProposalSDKType {
+  /** Title is a short summary */
   title: string;
+  /** Description is a human readable text */
+
   description: string;
+  /** CodeIDs references the new WASM codes */
+
   code_ids: Long[];
 }
 /**
@@ -277,8 +359,13 @@ export interface UnpinCodesProposal {
  */
 
 export interface UnpinCodesProposalSDKType {
+  /** Title is a short summary */
   title: string;
+  /** Description is a human readable text */
+
   description: string;
+  /** CodeIDs references the WASM codes */
+
   code_ids: Long[];
 }
 /**
@@ -299,7 +386,10 @@ export interface AccessConfigUpdate {
  */
 
 export interface AccessConfigUpdateSDKType {
+  /** CodeID is the reference to the stored WASM code to be updated */
   code_id: Long;
+  /** InstantiatePermission to apply to the set of code ids */
+
   instantiate_permission?: AccessConfigSDKType;
 }
 /**
@@ -326,8 +416,16 @@ export interface UpdateInstantiateConfigProposal {
  */
 
 export interface UpdateInstantiateConfigProposalSDKType {
+  /** Title is a short summary */
   title: string;
+  /** Description is a human readable text */
+
   description: string;
+  /**
+   * AccessConfigUpdate contains the list of code ids and the access config
+   * to be applied.
+   */
+
   access_config_updates: AccessConfigUpdateSDKType[];
 }
 /**
@@ -387,18 +485,49 @@ export interface StoreAndInstantiateContractProposal {
  */
 
 export interface StoreAndInstantiateContractProposalSDKType {
+  /** Title is a short summary */
   title: string;
+  /** Description is a human readable text */
+
   description: string;
+  /** RunAs is the address that is passed to the contract's environment as sender */
+
   run_as: string;
+  /** WASMByteCode can be raw or gzip compressed */
+
   wasm_byte_code: Uint8Array;
+  /** InstantiatePermission to apply on contract creation, optional */
+
   instantiate_permission?: AccessConfigSDKType;
+  /** UnpinCode code on upload, optional */
+
   unpin_code: boolean;
+  /** Admin is an optional address that can execute migrations */
+
   admin: string;
+  /** Label is optional metadata to be stored with a constract instance. */
+
   label: string;
+  /** Msg json encoded message to be passed to the contract on instantiation */
+
   msg: Uint8Array;
+  /** Funds coins that are transferred to the contract on instantiation */
+
   funds: CoinSDKType[];
+  /** Source is the URL where the code is hosted */
+
   source: string;
+  /**
+   * Builder is the docker image used to build the code deterministically, used
+   * for smart contract verification
+   */
+
   builder: string;
+  /**
+   * CodeHash is the SHA256 sum of the code outputted by builder, used for smart
+   * contract verification
+   */
+
   code_hash: Uint8Array;
 }
 

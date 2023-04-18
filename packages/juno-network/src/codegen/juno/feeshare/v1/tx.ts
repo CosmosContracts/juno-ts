@@ -21,8 +21,19 @@ export interface MsgRegisterFeeShare {
 /** MsgRegisterFeeShare defines a message that registers a FeeShare */
 
 export interface MsgRegisterFeeShareSDKType {
+  /** contract_address in bech32 format */
   contract_address: string;
+  /**
+   * deployer_address is the bech32 address of message sender. It must be the
+   * same the contract's admin address
+   */
+
   deployer_address: string;
+  /**
+   * withdrawer_address is the bech32 address of account receiving the
+   * transaction fees
+   */
+
   withdrawer_address: string;
 }
 /** MsgRegisterFeeShareResponse defines the MsgRegisterFeeShare response type */
@@ -58,8 +69,19 @@ export interface MsgUpdateFeeShare {
  */
 
 export interface MsgUpdateFeeShareSDKType {
+  /** contract_address in bech32 format */
   contract_address: string;
+  /**
+   * deployer_address is the bech32 address of message sender. It must be the
+   * same the contract's admin address
+   */
+
   deployer_address: string;
+  /**
+   * withdrawer_address is the bech32 address of account receiving the
+   * transaction fees
+   */
+
   withdrawer_address: string;
 }
 /** MsgUpdateFeeShareResponse defines the MsgUpdateFeeShare response type */
@@ -83,7 +105,13 @@ export interface MsgCancelFeeShare {
 /** MsgCancelFeeShare defines a message that cancels a registered FeeShare */
 
 export interface MsgCancelFeeShareSDKType {
+  /** contract_address in bech32 format */
   contract_address: string;
+  /**
+   * deployer_address is the bech32 address of message sender. It must be the
+   * same the contract's admin address
+   */
+
   deployer_address: string;
 }
 /** MsgCancelFeeShareResponse defines the MsgCancelFeeShare response type */

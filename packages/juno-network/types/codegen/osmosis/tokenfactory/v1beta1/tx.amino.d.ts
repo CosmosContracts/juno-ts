@@ -1,13 +1,13 @@
 import { AminoMsg } from "@cosmjs/amino";
-import { MsgCreateDenom, MsgMint, MsgBurn, MsgChangeAdmin, MsgSetDenomMetadata } from "./tx";
-export interface MsgCreateDenomAminoType extends AminoMsg {
+import { MsgCreateDenom, MsgMint, MsgBurn, MsgChangeAdmin, MsgSetDenomMetadata, MsgForceTransfer } from "./tx";
+export interface AminoMsgCreateDenom extends AminoMsg {
     type: "osmosis/tokenfactory/create-denom";
     value: {
         sender: string;
         subdenom: string;
     };
 }
-export interface MsgMintAminoType extends AminoMsg {
+export interface AminoMsgMint extends AminoMsg {
     type: "osmosis/tokenfactory/mint";
     value: {
         sender: string;
@@ -15,9 +15,10 @@ export interface MsgMintAminoType extends AminoMsg {
             denom: string;
             amount: string;
         };
+        mintToAddress: string;
     };
 }
-export interface MsgBurnAminoType extends AminoMsg {
+export interface AminoMsgBurn extends AminoMsg {
     type: "osmosis/tokenfactory/burn";
     value: {
         sender: string;
@@ -25,9 +26,10 @@ export interface MsgBurnAminoType extends AminoMsg {
             denom: string;
             amount: string;
         };
+        burnFromAddress: string;
     };
 }
-export interface MsgChangeAdminAminoType extends AminoMsg {
+export interface AminoMsgChangeAdmin extends AminoMsg {
     type: "osmosis/tokenfactory/change-admin";
     value: {
         sender: string;
@@ -35,7 +37,7 @@ export interface MsgChangeAdminAminoType extends AminoMsg {
         new_admin: string;
     };
 }
-export interface MsgSetDenomMetadataAminoType extends AminoMsg {
+export interface AminoMsgSetDenomMetadata extends AminoMsg {
     type: "osmosis/tokenfactory/set-denom-metadata";
     value: {
         sender: string;
@@ -55,30 +57,47 @@ export interface MsgSetDenomMetadataAminoType extends AminoMsg {
         };
     };
 }
+export interface AminoMsgForceTransfer extends AminoMsg {
+    type: "osmosis/tokenfactory/force-transfer";
+    value: {
+        sender: string;
+        amount: {
+            denom: string;
+            amount: string;
+        };
+        transferFromAddress: string;
+        transferToAddress: string;
+    };
+}
 export declare const AminoConverter: {
     "/osmosis.tokenfactory.v1beta1.MsgCreateDenom": {
         aminoType: string;
-        toAmino: ({ sender, subdenom }: MsgCreateDenom) => MsgCreateDenomAminoType["value"];
-        fromAmino: ({ sender, subdenom }: MsgCreateDenomAminoType["value"]) => MsgCreateDenom;
+        toAmino: ({ sender, subdenom }: MsgCreateDenom) => AminoMsgCreateDenom["value"];
+        fromAmino: ({ sender, subdenom }: AminoMsgCreateDenom["value"]) => MsgCreateDenom;
     };
     "/osmosis.tokenfactory.v1beta1.MsgMint": {
         aminoType: string;
-        toAmino: ({ sender, amount }: MsgMint) => MsgMintAminoType["value"];
-        fromAmino: ({ sender, amount }: MsgMintAminoType["value"]) => MsgMint;
+        toAmino: ({ sender, amount, mintToAddress }: MsgMint) => AminoMsgMint["value"];
+        fromAmino: ({ sender, amount, mintToAddress }: AminoMsgMint["value"]) => MsgMint;
     };
     "/osmosis.tokenfactory.v1beta1.MsgBurn": {
         aminoType: string;
-        toAmino: ({ sender, amount }: MsgBurn) => MsgBurnAminoType["value"];
-        fromAmino: ({ sender, amount }: MsgBurnAminoType["value"]) => MsgBurn;
+        toAmino: ({ sender, amount, burnFromAddress }: MsgBurn) => AminoMsgBurn["value"];
+        fromAmino: ({ sender, amount, burnFromAddress }: AminoMsgBurn["value"]) => MsgBurn;
     };
     "/osmosis.tokenfactory.v1beta1.MsgChangeAdmin": {
         aminoType: string;
-        toAmino: ({ sender, denom, newAdmin }: MsgChangeAdmin) => MsgChangeAdminAminoType["value"];
-        fromAmino: ({ sender, denom, new_admin }: MsgChangeAdminAminoType["value"]) => MsgChangeAdmin;
+        toAmino: ({ sender, denom, newAdmin }: MsgChangeAdmin) => AminoMsgChangeAdmin["value"];
+        fromAmino: ({ sender, denom, new_admin }: AminoMsgChangeAdmin["value"]) => MsgChangeAdmin;
     };
     "/osmosis.tokenfactory.v1beta1.MsgSetDenomMetadata": {
         aminoType: string;
-        toAmino: ({ sender, metadata }: MsgSetDenomMetadata) => MsgSetDenomMetadataAminoType["value"];
-        fromAmino: ({ sender, metadata }: MsgSetDenomMetadataAminoType["value"]) => MsgSetDenomMetadata;
+        toAmino: ({ sender, metadata }: MsgSetDenomMetadata) => AminoMsgSetDenomMetadata["value"];
+        fromAmino: ({ sender, metadata }: AminoMsgSetDenomMetadata["value"]) => MsgSetDenomMetadata;
+    };
+    "/osmosis.tokenfactory.v1beta1.MsgForceTransfer": {
+        aminoType: string;
+        toAmino: ({ sender, amount, transferFromAddress, transferToAddress }: MsgForceTransfer) => AminoMsgForceTransfer["value"];
+        fromAmino: ({ sender, amount, transferFromAddress, transferToAddress }: AminoMsgForceTransfer["value"]) => MsgForceTransfer;
     };
 };

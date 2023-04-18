@@ -15,6 +15,7 @@ export interface QueryDenomTraceRequest {
  * method
  */
 export interface QueryDenomTraceRequestSDKType {
+    /** hash (in hex format) of the denomination trace information. */
     hash: string;
 }
 /**
@@ -30,6 +31,7 @@ export interface QueryDenomTraceResponse {
  * method.
  */
 export interface QueryDenomTraceResponseSDKType {
+    /** denom_trace returns the requested denomination trace information. */
     denom_trace?: DenomTraceSDKType;
 }
 /**
@@ -45,6 +47,7 @@ export interface QueryDenomTracesRequest {
  * method
  */
 export interface QueryDenomTracesRequestSDKType {
+    /** pagination defines an optional pagination for the request. */
     pagination?: PageRequestSDKType;
 }
 /**
@@ -62,7 +65,9 @@ export interface QueryDenomTracesResponse {
  * method.
  */
 export interface QueryDenomTracesResponseSDKType {
+    /** denom_traces returns all denominations trace information. */
     denom_traces: DenomTraceSDKType[];
+    /** pagination defines the pagination in the response. */
     pagination?: PageResponseSDKType;
 }
 /** QueryParamsRequest is the request type for the Query/Params RPC method. */
@@ -78,6 +83,7 @@ export interface QueryParamsResponse {
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 export interface QueryParamsResponseSDKType {
+    /** params defines the parameters of the module. */
     params?: ParamsSDKType;
 }
 export declare const QueryDenomTraceRequest: {

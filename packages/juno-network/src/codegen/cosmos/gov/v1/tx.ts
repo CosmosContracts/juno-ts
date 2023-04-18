@@ -1,6 +1,6 @@
 import { Any, AnySDKType } from "../../../google/protobuf/any";
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
-import { VoteOption, WeightedVoteOption, WeightedVoteOptionSDKType } from "./gov";
+import { VoteOption, VoteOptionSDKType, WeightedVoteOption, WeightedVoteOptionSDKType } from "./gov";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial, Long } from "../../../helpers";
 /**
@@ -25,6 +25,8 @@ export interface MsgSubmitProposalSDKType {
   messages: AnySDKType[];
   initial_deposit: CoinSDKType[];
   proposer: string;
+  /** metadata is any arbitrary metadata attached to the proposal. */
+
   metadata: string;
 }
 /** MsgSubmitProposalResponse defines the Msg/SubmitProposal response type. */
@@ -55,7 +57,10 @@ export interface MsgExecLegacyContent {
  */
 
 export interface MsgExecLegacyContentSDKType {
+  /** content is the proposal's content. */
   content?: AnySDKType;
+  /** authority must be the gov module address. */
+
   authority: string;
 }
 /** MsgExecLegacyContentResponse defines the Msg/ExecLegacyContent response type. */
@@ -77,7 +82,7 @@ export interface MsgVote {
 export interface MsgVoteSDKType {
   proposal_id: Long;
   voter: string;
-  option: VoteOption;
+  option: VoteOptionSDKType;
   metadata: string;
 }
 /** MsgVoteResponse defines the Msg/Vote response type. */

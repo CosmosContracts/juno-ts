@@ -17,6 +17,7 @@ export interface DenomAuthorityMetadata {
  */
 
 export interface DenomAuthorityMetadataSDKType {
+  /** Can be empty for no admin, or a valid osmosis address */
   admin: string;
 }
 

@@ -15,36 +15,40 @@ export declare const osmosisAminoConverters: {
     };
     "/osmosis.tokenfactory.v1beta1.MsgMint": {
         aminoType: string;
-        toAmino: ({ sender, amount }: import("./tokenfactory/v1beta1/tx").MsgMint) => {
+        toAmino: ({ sender, amount, mintToAddress }: import("./tokenfactory/v1beta1/tx").MsgMint) => {
             sender: string;
             amount: {
                 denom: string;
                 amount: string;
             };
+            mintToAddress: string;
         };
-        fromAmino: ({ sender, amount }: {
+        fromAmino: ({ sender, amount, mintToAddress }: {
             sender: string;
             amount: {
                 denom: string;
                 amount: string;
             };
+            mintToAddress: string;
         }) => import("./tokenfactory/v1beta1/tx").MsgMint;
     };
     "/osmosis.tokenfactory.v1beta1.MsgBurn": {
         aminoType: string;
-        toAmino: ({ sender, amount }: import("./tokenfactory/v1beta1/tx").MsgBurn) => {
+        toAmino: ({ sender, amount, burnFromAddress }: import("./tokenfactory/v1beta1/tx").MsgBurn) => {
             sender: string;
             amount: {
                 denom: string;
                 amount: string;
             };
+            burnFromAddress: string;
         };
-        fromAmino: ({ sender, amount }: {
+        fromAmino: ({ sender, amount, burnFromAddress }: {
             sender: string;
             amount: {
                 denom: string;
                 amount: string;
             };
+            burnFromAddress: string;
         }) => import("./tokenfactory/v1beta1/tx").MsgBurn;
     };
     "/osmosis.tokenfactory.v1beta1.MsgChangeAdmin": {
@@ -96,6 +100,27 @@ export declare const osmosisAminoConverters: {
                 uri_hash: string;
             };
         }) => import("./tokenfactory/v1beta1/tx").MsgSetDenomMetadata;
+    };
+    "/osmosis.tokenfactory.v1beta1.MsgForceTransfer": {
+        aminoType: string;
+        toAmino: ({ sender, amount, transferFromAddress, transferToAddress }: import("./tokenfactory/v1beta1/tx").MsgForceTransfer) => {
+            sender: string;
+            amount: {
+                denom: string;
+                amount: string;
+            };
+            transferFromAddress: string;
+            transferToAddress: string;
+        };
+        fromAmino: ({ sender, amount, transferFromAddress, transferToAddress }: {
+            sender: string;
+            amount: {
+                denom: string;
+                amount: string;
+            };
+            transferFromAddress: string;
+            transferToAddress: string;
+        }) => import("./tokenfactory/v1beta1/tx").MsgForceTransfer;
     };
 };
 export declare const osmosisProtoRegistry: ReadonlyArray<[string, GeneratedType]>;
