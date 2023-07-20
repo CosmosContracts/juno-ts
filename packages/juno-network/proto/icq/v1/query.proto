@@ -1,16 +1,17 @@
 syntax = "proto3";
-package router.v1;
+
+package icq.v1;
+
+option go_package = "github.com/cosmos/ibc-apps/modules/async-icq/v7/types";
 
 import "google/api/annotations.proto";
-import "router/v1/genesis.proto";
-
-option go_package = "github.com/cosmos/ibc-apps/middleware/packet-forward-middleware/v7/router/types";
+import "icq/v1/icq.proto";
 
 // Query provides defines the gRPC querier service.
 service Query {
-  // Params queries all parameters of the router module.
+  // Params queries all parameters of the ICQ module.
   rpc Params(QueryParamsRequest) returns (QueryParamsResponse) {
-    option (google.api.http).get = "/ibc/apps/router/v1/params";
+    option (google.api.http).get = "/async-icq/v1/params";
   }
 }
 

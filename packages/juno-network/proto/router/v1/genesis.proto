@@ -3,7 +3,7 @@ package router.v1;
 
 import "gogoproto/gogo.proto";
 
-option go_package = "github.com/strangelove-ventures/packet-forward-middleware/v7/router/types";
+option go_package = "github.com/cosmos/ibc-apps/middleware/packet-forward-middleware/v7/router/types";
 
 // GenesisState defines the router genesis state
 message GenesisState {
