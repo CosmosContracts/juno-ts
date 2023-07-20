@@ -1,6 +1,6 @@
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../../../cosmos/base/query/v1beta1/pagination";
 import { ConnectionEnd, ConnectionEndSDKType, IdentifiedConnection, IdentifiedConnectionSDKType } from "./connection";
-import { Height, HeightSDKType, IdentifiedClientState, IdentifiedClientStateSDKType } from "../../client/v1/client";
+import { Height, HeightSDKType, IdentifiedClientState, IdentifiedClientStateSDKType, Params, ParamsSDKType } from "../../client/v1/client";
 import { Any, AnySDKType } from "../../../../google/protobuf/any";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial, Long } from "../../../../helpers";
@@ -212,6 +212,22 @@ export interface QueryConnectionConsensusStateResponseSDKType {
     /** height at which the proof was retrieved */
     proof_height?: HeightSDKType;
 }
+/** QueryConnectionParamsRequest is the request type for the Query/ConnectionParams RPC method. */
+export interface QueryConnectionParamsRequest {
+}
+/** QueryConnectionParamsRequest is the request type for the Query/ConnectionParams RPC method. */
+export interface QueryConnectionParamsRequestSDKType {
+}
+/** QueryConnectionParamsResponse is the response type for the Query/ConnectionParams RPC method. */
+export interface QueryConnectionParamsResponse {
+    /** params defines the parameters of the module. */
+    params?: Params;
+}
+/** QueryConnectionParamsResponse is the response type for the Query/ConnectionParams RPC method. */
+export interface QueryConnectionParamsResponseSDKType {
+    /** params defines the parameters of the module. */
+    params?: ParamsSDKType;
+}
 export declare const QueryConnectionRequest: {
     encode(message: QueryConnectionRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryConnectionRequest;
@@ -261,4 +277,14 @@ export declare const QueryConnectionConsensusStateResponse: {
     encode(message: QueryConnectionConsensusStateResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): QueryConnectionConsensusStateResponse;
     fromPartial(object: DeepPartial<QueryConnectionConsensusStateResponse>): QueryConnectionConsensusStateResponse;
+};
+export declare const QueryConnectionParamsRequest: {
+    encode(_: QueryConnectionParamsRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConnectionParamsRequest;
+    fromPartial(_: DeepPartial<QueryConnectionParamsRequest>): QueryConnectionParamsRequest;
+};
+export declare const QueryConnectionParamsResponse: {
+    encode(message: QueryConnectionParamsResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): QueryConnectionParamsResponse;
+    fromPartial(object: DeepPartial<QueryConnectionParamsResponse>): QueryConnectionParamsResponse;
 };

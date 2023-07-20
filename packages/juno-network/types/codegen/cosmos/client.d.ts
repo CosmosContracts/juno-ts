@@ -185,6 +185,58 @@ export declare const cosmosAminoConverters: {
             };
         }) => import("./staking/v1beta1/tx").MsgUndelegate;
     };
+    "/cosmos.staking.v1beta1.MsgCancelUnbondingDelegation": {
+        aminoType: string;
+        toAmino: ({ delegatorAddress, validatorAddress, amount, creationHeight }: import("./staking/v1beta1/tx").MsgCancelUnbondingDelegation) => {
+            delegator_address: string;
+            validator_address: string;
+            amount: {
+                denom: string;
+                amount: string;
+            };
+            creation_height: string;
+        };
+        fromAmino: ({ delegator_address, validator_address, amount, creation_height }: {
+            delegator_address: string;
+            validator_address: string;
+            amount: {
+                denom: string;
+                amount: string;
+            };
+            creation_height: string;
+        }) => import("./staking/v1beta1/tx").MsgCancelUnbondingDelegation;
+    };
+    "/cosmos.staking.v1beta1.MsgUpdateParams": {
+        aminoType: string;
+        toAmino: ({ authority, params }: import("./staking/v1beta1/tx").MsgUpdateParams) => {
+            authority: string;
+            params: {
+                unbonding_time: {
+                    seconds: string;
+                    nanos: number;
+                };
+                max_validators: number;
+                max_entries: number;
+                historical_entries: number;
+                bond_denom: string;
+                min_commission_rate: string;
+            };
+        };
+        fromAmino: ({ authority, params }: {
+            authority: string;
+            params: {
+                unbonding_time: {
+                    seconds: string;
+                    nanos: number;
+                };
+                max_validators: number;
+                max_entries: number;
+                historical_entries: number;
+                bond_denom: string;
+                min_commission_rate: string;
+            };
+        }) => import("./staking/v1beta1/tx").MsgUpdateParams;
+    };
     "/cosmos.gov.v1beta1.MsgSubmitProposal": {
         aminoType: string;
         toAmino: ({ content, initialDeposit, proposer }: import("./gov/v1beta1/tx").MsgSubmitProposal) => {
@@ -263,7 +315,7 @@ export declare const cosmosAminoConverters: {
     };
     "/cosmos.gov.v1.MsgSubmitProposal": {
         aminoType: string;
-        toAmino: ({ messages, initialDeposit, proposer, metadata }: import("./gov/v1/tx").MsgSubmitProposal) => {
+        toAmino: ({ messages, initialDeposit, proposer, metadata, title, summary }: import("./gov/v1/tx").MsgSubmitProposal) => {
             messages: {
                 type_url: string;
                 value: Uint8Array;
@@ -274,8 +326,10 @@ export declare const cosmosAminoConverters: {
             }[];
             proposer: string;
             metadata: string;
+            title: string;
+            summary: string;
         };
-        fromAmino: ({ messages, initial_deposit, proposer, metadata }: {
+        fromAmino: ({ messages, initial_deposit, proposer, metadata, title, summary }: {
             messages: {
                 type_url: string;
                 value: Uint8Array;
@@ -286,6 +340,8 @@ export declare const cosmosAminoConverters: {
             }[];
             proposer: string;
             metadata: string;
+            title: string;
+            summary: string;
         }) => import("./gov/v1/tx").MsgSubmitProposal;
     };
     "/cosmos.gov.v1.MsgExecLegacyContent": {
@@ -360,6 +416,57 @@ export declare const cosmosAminoConverters: {
             }[];
         }) => import("./gov/v1/tx").MsgDeposit;
     };
+    "/cosmos.gov.v1.MsgUpdateParams": {
+        aminoType: string;
+        toAmino: ({ authority, params }: import("./gov/v1/tx").MsgUpdateParams) => {
+            authority: string;
+            params: {
+                min_deposit: {
+                    denom: string;
+                    amount: string;
+                }[];
+                max_deposit_period: {
+                    seconds: string;
+                    nanos: number;
+                };
+                voting_period: {
+                    seconds: string;
+                    nanos: number;
+                };
+                quorum: string;
+                threshold: string;
+                veto_threshold: string;
+                min_initial_deposit_ratio: string;
+                burn_vote_quorum: boolean;
+                burn_proposal_deposit_prevote: boolean;
+                burn_vote_veto: boolean;
+            };
+        };
+        fromAmino: ({ authority, params }: {
+            authority: string;
+            params: {
+                min_deposit: {
+                    denom: string;
+                    amount: string;
+                }[];
+                max_deposit_period: {
+                    seconds: string;
+                    nanos: number;
+                };
+                voting_period: {
+                    seconds: string;
+                    nanos: number;
+                };
+                quorum: string;
+                threshold: string;
+                veto_threshold: string;
+                min_initial_deposit_ratio: string;
+                burn_vote_quorum: boolean;
+                burn_proposal_deposit_prevote: boolean;
+                burn_vote_veto: boolean;
+            };
+        }) => import("./gov/v1/tx").MsgUpdateParams;
+    };
     "/cosmos.distribution.v1beta1.MsgSetWithdrawAddress": {
         aminoType: string;
         toAmino: ({ delegatorAddress, withdrawAddress }: import("./distribution/v1beta1/tx").MsgSetWithdrawAddress) => {
@@ -407,6 +514,85 @@ export declare const cosmosAminoConverters: {
             }[];
             depositor: string;
         }) => import("./distribution/v1beta1/tx").MsgFundCommunityPool;
+    };
+    "/cosmos.distribution.v1beta1.MsgUpdateParams": {
+        aminoType: string;
+        toAmino: ({ authority, params }: import("./distribution/v1beta1/tx").MsgUpdateParams) => {
+            authority: string;
+            params: {
+                community_tax: string;
+                base_proposer_reward: string;
+                bonus_proposer_reward: string;
+                withdraw_addr_enabled: boolean;
+            };
+        };
+        fromAmino: ({ authority, params }: {
+            authority: string;
+            params: {
+                community_tax: string;
+                base_proposer_reward: string;
+                bonus_proposer_reward: string;
+                withdraw_addr_enabled: boolean;
+            };
+        }) => import("./distribution/v1beta1/tx").MsgUpdateParams;
+    };
+    "/cosmos.distribution.v1beta1.MsgCommunityPoolSpend": {
+        aminoType: string;
+        toAmino: ({ authority, recipient, amount }: import("./distribution/v1beta1/tx").MsgCommunityPoolSpend) => {
+            authority: string;
+            recipient: string;
+            amount: {
+                denom: string;
+                amount: string;
+            }[];
+        };
+        fromAmino: ({ authority, recipient, amount }: {
+            authority: string;
+            recipient: string;
+            amount: {
+                denom: string;
+                amount: string;
+            }[];
+        }) => import("./distribution/v1beta1/tx").MsgCommunityPoolSpend;
+    };
+    "/cosmos.consensus.v1.MsgUpdateParams": {
+        aminoType: string;
+        toAmino: ({ authority, block, evidence, validator }: import("./consensus/v1/tx").MsgUpdateParams) => {
+            authority: string;
+            block: {
+                max_bytes: string;
+                max_gas: string;
+            };
+            evidence: {
+                max_age_num_blocks: string;
+                max_age_duration: {
+                    seconds: string;
+                    nanos: number;
+                };
+                max_bytes: string;
+            };
+            validator: {
+                pub_key_types: string[];
+            };
+        };
+        fromAmino: ({ authority, block, evidence, validator }: {
+            authority: string;
+            block: {
+                max_bytes: string;
+                max_gas: string;
+            };
+            evidence: {
+                max_age_num_blocks: string;
+                max_age_duration: {
+                    seconds: string;
+                    nanos: number;
+                };
+                max_bytes: string;
+            };
+            validator: {
+                pub_key_types: string[];
+            };
+        }) => import("./consensus/v1/tx").MsgUpdateParams;
     };
     "/cosmos.bank.v1beta1.MsgSend": {
         aminoType: string;
@@ -461,6 +647,48 @@ export declare const cosmosAminoConverters: {
                 }[];
             }[];
         }) => import("./bank/v1beta1/tx").MsgMultiSend;
+    };
+    "/cosmos.bank.v1beta1.MsgUpdateParams": {
+        aminoType: string;
+        toAmino: ({ authority, params }: import("./bank/v1beta1/tx").MsgUpdateParams) => {
+            authority: string;
+            params: {
+                send_enabled: {
+                    denom: string;
+                    enabled: boolean;
+                }[];
+                default_send_enabled: boolean;
+            };
+        };
+        fromAmino: ({ authority, params }: {
+            authority: string;
+            params: {
+                send_enabled: {
+                    denom: string;
+                    enabled: boolean;
+                }[];
+                default_send_enabled: boolean;
+            };
+        }) => import("./bank/v1beta1/tx").MsgUpdateParams;
+    };
+    "/cosmos.bank.v1beta1.MsgSetSendEnabled": {
+        aminoType: string;
+        toAmino: ({ authority, sendEnabled, useDefaultFor }: import("./bank/v1beta1/tx").MsgSetSendEnabled) => {
+            authority: string;
+            send_enabled: {
+                denom: string;
+                enabled: boolean;
+            }[];
+            use_default_for: string[];
+        };
+        fromAmino: ({ authority, send_enabled, use_default_for }: {
+            authority: string;
+            send_enabled: {
+                denom: string;
+                enabled: boolean;
+            }[];
+            use_default_for: string[];
+        }) => import("./bank/v1beta1/tx").MsgSetSendEnabled;
     };
 };
 export declare const cosmosProtoRegistry: ReadonlyArray<[string, GeneratedType]>;

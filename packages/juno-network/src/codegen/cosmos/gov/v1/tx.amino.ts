@@ -1,7 +1,7 @@
 import { voteOptionFromJSON } from "./gov";
 import { AminoMsg } from "@cosmjs/amino";
 import { Long } from "../../../helpers";
-import { MsgSubmitProposal, MsgExecLegacyContent, MsgVote, MsgVoteWeighted, MsgDeposit } from "./tx";
+import { MsgSubmitProposal, MsgExecLegacyContent, MsgVote, MsgVoteWeighted, MsgDeposit, MsgUpdateParams } from "./tx";
 export interface AminoMsgSubmitProposal extends AminoMsg {
   type: "cosmos-sdk/v1/MsgSubmitProposal";
   value: {
@@ -15,6 +15,8 @@ export interface AminoMsgSubmitProposal extends AminoMsg {
     }[];
     proposer: string;
     metadata: string;
+    title: string;
+    summary: string;
   };
 }
 export interface AminoMsgExecLegacyContent extends AminoMsg {
@@ -59,6 +61,33 @@ export interface AminoMsgDeposit extends AminoMsg {
     }[];
   };
 }
+export interface AminoMsgUpdateParams extends AminoMsg {
+  type: "cosmos-sdk/x/gov/v1/MsgUpdateParams";
+  value: {
+    authority: string;
+    params: {
+      min_deposit: {
+        denom: string;
+        amount: string;
+      }[];
+      max_deposit_period: {
+        seconds: string;
+        nanos: number;
+      };
+      voting_period: {
+        seconds: string;
+        nanos: number;
+      };
+      quorum: string;
+      threshold: string;
+      veto_threshold: string;
+      min_initial_deposit_ratio: string;
+      burn_vote_quorum: boolean;
+      burn_proposal_deposit_prevote: boolean;
+      burn_vote_veto: boolean;
+    };
+  };
+}
 export const AminoConverter = {
   "/cosmos.gov.v1.MsgSubmitProposal": {
     aminoType: "cosmos-sdk/v1/MsgSubmitProposal",
@@ -66,7 +95,9 @@ export const AminoConverter = {
       messages,
       initialDeposit,
       proposer,
-      metadata
+      metadata,
+      title,
+      summary
     }: MsgSubmitProposal): AminoMsgSubmitProposal["value"] => {
       return {
         messages: messages.map(el0 => ({
@@ -78,14 +109,18 @@ export const AminoConverter = {
           amount: el0.amount
         })),
         proposer,
-        metadata
+        metadata,
+        title,
+        summary
       };
     },
     fromAmino: ({
       messages,
       initial_deposit,
       proposer,
-      metadata
+      metadata,
+      title,
+      summary
     }: AminoMsgSubmitProposal["value"]): MsgSubmitProposal => {
       return {
         messages: messages.map(el0 => ({
@@ -97,7 +132,9 @@ export const AminoConverter = {
           amount: el0.amount
         })),
         proposer,
-        metadata
+        metadata,
+        title,
+        summary
       };
     }
   },
@@ -220,6 +257,61 @@ export const AminoConverter = {
           denom: el0.denom,
           amount: el0.amount
         }))
+      };
+    }
+  },
+  "/cosmos.gov.v1.MsgUpdateParams": {
+    aminoType: "cosmos-sdk/x/gov/v1/MsgUpdateParams",
+    toAmino: ({
+      authority,
+      params
+    }: MsgUpdateParams): AminoMsgUpdateParams["value"] => {
+      return {
+        authority,
+        params: {
+          min_deposit: params.minDeposit.map(el0 => ({
+            denom: el0.denom,
+            amount: el0.amount
+          })),
+          max_deposit_period: (params.maxDepositPeriod * 1_000_000_000).toString(),
+          voting_period: (params.votingPeriod * 1_000_000_000).toString(),
+          quorum: params.quorum,
+          threshold: params.threshold,
+          veto_threshold: params.vetoThreshold,
+          min_initial_deposit_ratio: params.minInitialDepositRatio,
+          burn_vote_quorum: params.burnVoteQuorum,
+          burn_proposal_deposit_prevote: params.burnProposalDepositPrevote,
+          burn_vote_veto: params.burnVoteVeto
+        }
+      };
+    },
+    fromAmino: ({
+      authority,
+      params
+    }: AminoMsgUpdateParams["value"]): MsgUpdateParams => {
+      return {
+        authority,
+        params: {
+          minDeposit: params.min_deposit.map(el1 => ({
+            denom: el1.denom,
+            amount: el1.amount
+          })),
+          maxDepositPeriod: {
+            seconds: Long.fromNumber(Math.floor(parseInt(params.max_deposit_period) / 1_000_000_000)),
+            nanos: parseInt(params.max_deposit_period) % 1_000_000_000
+          },
+          votingPeriod: {
+            seconds: Long.fromNumber(Math.floor(parseInt(params.voting_period) / 1_000_000_000)),
+            nanos: parseInt(params.voting_period) % 1_000_000_000
+          },
+          quorum: params.quorum,
+          threshold: params.threshold,
+          vetoThreshold: params.veto_threshold,
+          minInitialDepositRatio: params.min_initial_deposit_ratio,
+          burnVoteQuorum: params.burn_vote_quorum,
+          burnProposalDepositPrevote: params.burn_proposal_deposit_prevote,
+          burnVoteVeto: params.burn_vote_veto
+        }
       };
     }
   }

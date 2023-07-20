@@ -1,10 +1,10 @@
 import { Rpc } from "../../../helpers";
 import * as _m0 from "protobufjs/minimal";
-import { MsgSubmitProposal, MsgSubmitProposalResponse, MsgExecLegacyContent, MsgExecLegacyContentResponse, MsgVote, MsgVoteResponse, MsgVoteWeighted, MsgVoteWeightedResponse, MsgDeposit, MsgDepositResponse } from "./tx";
+import { MsgSubmitProposal, MsgSubmitProposalResponse, MsgExecLegacyContent, MsgExecLegacyContentResponse, MsgVote, MsgVoteResponse, MsgVoteWeighted, MsgVoteWeightedResponse, MsgDeposit, MsgDepositResponse, MsgUpdateParams, MsgUpdateParamsResponse } from "./tx";
 /** Msg defines the gov Msg service. */
 
 export interface Msg {
-  /** SubmitProposal defines a method to create new proposal given a content. */
+  /** SubmitProposal defines a method to create new proposal given the messages. */
   submitProposal(request: MsgSubmitProposal): Promise<MsgSubmitProposalResponse>;
   /**
    * ExecLegacyContent defines a Msg to be in included in a MsgSubmitProposal
@@ -21,6 +21,14 @@ export interface Msg {
   /** Deposit defines a method to add deposit on a specific proposal. */
 
   deposit(request: MsgDeposit): Promise<MsgDepositResponse>;
+  /**
+   * UpdateParams defines a governance operation for updating the x/gov module
+   * parameters. The authority is defined in the keeper.
+   * 
+   * Since: cosmos-sdk 0.47
+   */
+
+  updateParams(request: MsgUpdateParams): Promise<MsgUpdateParamsResponse>;
 }
 export class MsgClientImpl implements Msg {
   private readonly rpc: Rpc;
@@ -32,6 +40,7 @@ export class MsgClientImpl implements Msg {
     this.vote = this.vote.bind(this);
     this.voteWeighted = this.voteWeighted.bind(this);
     this.deposit = this.deposit.bind(this);
+    this.updateParams = this.updateParams.bind(this);
   }
 
   submitProposal(request: MsgSubmitProposal): Promise<MsgSubmitProposalResponse> {
@@ -62,6 +71,12 @@ export class MsgClientImpl implements Msg {
     const data = MsgDeposit.encode(request).finish();
     const promise = this.rpc.request("cosmos.gov.v1.Msg", "Deposit", data);
     return promise.then(data => MsgDepositResponse.decode(new _m0.Reader(data)));
+  }
+
+  updateParams(request: MsgUpdateParams): Promise<MsgUpdateParamsResponse> {
+    const data = MsgUpdateParams.encode(request).finish();
+    const promise = this.rpc.request("cosmos.gov.v1.Msg", "UpdateParams", data);
+    return promise.then(data => MsgUpdateParamsResponse.decode(new _m0.Reader(data)));
   }
 
 }

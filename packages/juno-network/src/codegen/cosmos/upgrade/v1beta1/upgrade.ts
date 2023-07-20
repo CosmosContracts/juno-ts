@@ -24,10 +24,7 @@ export interface Plan {
   /** @deprecated */
 
   time?: Date;
-  /**
-   * The height at which the upgrade must be performed.
-   * Only used if Time is not set.
-   */
+  /** The height at which the upgrade must be performed. */
 
   height: Long;
   /**
@@ -68,10 +65,7 @@ export interface PlanSDKType {
   /** @deprecated */
 
   time?: Date;
-  /**
-   * The height at which the upgrade must be performed.
-   * Only used if Time is not set.
-   */
+  /** The height at which the upgrade must be performed. */
 
   height: Long;
   /**
@@ -100,8 +94,13 @@ export interface PlanSDKType {
 /** @deprecated */
 
 export interface SoftwareUpgradeProposal {
+  /** title of the proposal */
   title: string;
+  /** description of the proposal */
+
   description: string;
+  /** plan of the proposal */
+
   plan?: Plan;
 }
 /**
@@ -114,8 +113,13 @@ export interface SoftwareUpgradeProposal {
 /** @deprecated */
 
 export interface SoftwareUpgradeProposalSDKType {
+  /** title of the proposal */
   title: string;
+  /** description of the proposal */
+
   description: string;
+  /** plan of the proposal */
+
   plan?: PlanSDKType;
 }
 /**
@@ -128,7 +132,10 @@ export interface SoftwareUpgradeProposalSDKType {
 /** @deprecated */
 
 export interface CancelSoftwareUpgradeProposal {
+  /** title of the proposal */
   title: string;
+  /** description of the proposal */
+
   description: string;
 }
 /**
@@ -141,7 +148,10 @@ export interface CancelSoftwareUpgradeProposal {
 /** @deprecated */
 
 export interface CancelSoftwareUpgradeProposalSDKType {
+  /** title of the proposal */
   title: string;
+  /** description of the proposal */
+
   description: string;
 }
 /**

@@ -33,25 +33,25 @@ export interface MsgCreateClientResponseSDKType {
 }
 /**
  * MsgUpdateClient defines an sdk.Msg to update a IBC client state using
- * the given header.
+ * the given client message.
  */
 export interface MsgUpdateClient {
     /** client unique identifier */
     clientId: string;
-    /** header to update the light client */
-    header?: Any;
+    /** client message to update the light client */
+    clientMessage?: Any;
     /** signer address */
     signer: string;
 }
 /**
  * MsgUpdateClient defines an sdk.Msg to update a IBC client state using
- * the given header.
+ * the given client message.
  */
 export interface MsgUpdateClientSDKType {
     /** client unique identifier */
     client_id: string;
-    /** header to update the light client */
-    header?: AnySDKType;
+    /** client message to update the light client */
+    client_message?: AnySDKType;
     /** signer address */
     signer: string;
 }
@@ -112,25 +112,33 @@ export interface MsgUpgradeClientResponseSDKType {
 /**
  * MsgSubmitMisbehaviour defines an sdk.Msg type that submits Evidence for
  * light client misbehaviour.
+ * Warning: DEPRECATED
  */
 export interface MsgSubmitMisbehaviour {
     /** client unique identifier */
+    /** @deprecated */
     clientId: string;
     /** misbehaviour used for freezing the light client */
+    /** @deprecated */
     misbehaviour?: Any;
     /** signer address */
+    /** @deprecated */
     signer: string;
 }
 /**
  * MsgSubmitMisbehaviour defines an sdk.Msg type that submits Evidence for
  * light client misbehaviour.
+ * Warning: DEPRECATED
  */
 export interface MsgSubmitMisbehaviourSDKType {
     /** client unique identifier */
+    /** @deprecated */
     client_id: string;
     /** misbehaviour used for freezing the light client */
+    /** @deprecated */
     misbehaviour?: AnySDKType;
     /** signer address */
+    /** @deprecated */
     signer: string;
 }
 /**

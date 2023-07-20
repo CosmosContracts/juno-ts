@@ -256,6 +256,32 @@ export interface PacketStateSDKType {
     data: Uint8Array;
 }
 /**
+ * PacketId is an identifer for a unique Packet
+ * Source chains refer to packets by source port/channel
+ * Destination chains refer to packets by destination port/channel
+ */
+export interface PacketId {
+    /** channel port identifier */
+    portId: string;
+    /** channel unique identifier */
+    channelId: string;
+    /** packet sequence */
+    sequence: Long;
+}
+/**
+ * PacketId is an identifer for a unique Packet
+ * Source chains refer to packets by source port/channel
+ * Destination chains refer to packets by destination port/channel
+ */
+export interface PacketIdSDKType {
+    /** channel port identifier */
+    port_id: string;
+    /** channel unique identifier */
+    channel_id: string;
+    /** packet sequence */
+    sequence: Long;
+}
+/**
  * Acknowledgement is the recommended acknowledgement format to be used by
  * app-specific protocols.
  * NOTE: The field numbers 21 and 22 were explicitly chosen to avoid accidental
@@ -305,6 +331,11 @@ export declare const PacketState: {
     encode(message: PacketState, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): PacketState;
     fromPartial(object: DeepPartial<PacketState>): PacketState;
+};
+export declare const PacketId: {
+    encode(message: PacketId, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): PacketId;
+    fromPartial(object: DeepPartial<PacketId>): PacketId;
 };
 export declare const Acknowledgement: {
     encode(message: Acknowledgement, writer?: _m0.Writer): _m0.Writer;

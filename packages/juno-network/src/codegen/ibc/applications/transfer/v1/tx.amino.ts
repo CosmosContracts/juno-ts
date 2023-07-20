@@ -14,6 +14,7 @@ export interface AminoMsgTransfer extends AminoMsg {
     receiver: string;
     timeout_height: AminoHeight;
     timeout_timestamp: string;
+    memo: string;
   };
 }
 export const AminoConverter = {
@@ -26,7 +27,8 @@ export const AminoConverter = {
       sender,
       receiver,
       timeoutHeight,
-      timeoutTimestamp
+      timeoutTimestamp,
+      memo
     }: MsgTransfer): AminoMsgTransfer["value"] => {
       return {
         source_port: sourcePort,
@@ -41,7 +43,8 @@ export const AminoConverter = {
           revision_height: omitDefault(timeoutHeight.revisionHeight)?.toString(),
           revision_number: omitDefault(timeoutHeight.revisionNumber)?.toString()
         } : {},
-        timeout_timestamp: timeoutTimestamp.toString()
+        timeout_timestamp: timeoutTimestamp.toString(),
+        memo
       };
     },
     fromAmino: ({
@@ -51,7 +54,8 @@ export const AminoConverter = {
       sender,
       receiver,
       timeout_height,
-      timeout_timestamp
+      timeout_timestamp,
+      memo
     }: AminoMsgTransfer["value"]): MsgTransfer => {
       return {
         sourcePort: source_port,
@@ -66,7 +70,8 @@ export const AminoConverter = {
           revisionHeight: Long.fromString(timeout_height.revision_height || "0", true),
           revisionNumber: Long.fromString(timeout_height.revision_number || "0", true)
         } : undefined,
-        timeoutTimestamp: Long.fromString(timeout_timestamp)
+        timeoutTimestamp: Long.fromString(timeout_timestamp),
+        memo
       };
     }
   }

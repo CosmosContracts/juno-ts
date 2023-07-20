@@ -9,8 +9,13 @@ import { DeepPartial, Long } from "../../../helpers";
  */
 
 export interface MsgSubmitProposal {
+  /** content is the proposal's content. */
   content?: Any;
+  /** initial_deposit is the deposit value that must be paid at proposal submission. */
+
   initialDeposit: Coin[];
+  /** proposer is the account address of the proposer. */
+
   proposer: string;
 }
 /**
@@ -19,32 +24,49 @@ export interface MsgSubmitProposal {
  */
 
 export interface MsgSubmitProposalSDKType {
+  /** content is the proposal's content. */
   content?: AnySDKType;
+  /** initial_deposit is the deposit value that must be paid at proposal submission. */
+
   initial_deposit: CoinSDKType[];
+  /** proposer is the account address of the proposer. */
+
   proposer: string;
 }
 /** MsgSubmitProposalResponse defines the Msg/SubmitProposal response type. */
 
 export interface MsgSubmitProposalResponse {
+  /** proposal_id defines the unique id of the proposal. */
   proposalId: Long;
 }
 /** MsgSubmitProposalResponse defines the Msg/SubmitProposal response type. */
 
 export interface MsgSubmitProposalResponseSDKType {
+  /** proposal_id defines the unique id of the proposal. */
   proposal_id: Long;
 }
 /** MsgVote defines a message to cast a vote. */
 
 export interface MsgVote {
+  /** proposal_id defines the unique id of the proposal. */
   proposalId: Long;
+  /** voter is the voter address for the proposal. */
+
   voter: string;
+  /** option defines the vote option. */
+
   option: VoteOption;
 }
 /** MsgVote defines a message to cast a vote. */
 
 export interface MsgVoteSDKType {
+  /** proposal_id defines the unique id of the proposal. */
   proposal_id: Long;
+  /** voter is the voter address for the proposal. */
+
   voter: string;
+  /** option defines the vote option. */
+
   option: VoteOptionSDKType;
 }
 /** MsgVoteResponse defines the Msg/Vote response type. */
@@ -60,8 +82,13 @@ export interface MsgVoteResponseSDKType {}
  */
 
 export interface MsgVoteWeighted {
+  /** proposal_id defines the unique id of the proposal. */
   proposalId: Long;
+  /** voter is the voter address for the proposal. */
+
   voter: string;
+  /** options defines the weighted vote options. */
+
   options: WeightedVoteOption[];
 }
 /**
@@ -71,8 +98,13 @@ export interface MsgVoteWeighted {
  */
 
 export interface MsgVoteWeightedSDKType {
+  /** proposal_id defines the unique id of the proposal. */
   proposal_id: Long;
+  /** voter is the voter address for the proposal. */
+
   voter: string;
+  /** options defines the weighted vote options. */
+
   options: WeightedVoteOptionSDKType[];
 }
 /**
@@ -92,15 +124,25 @@ export interface MsgVoteWeightedResponseSDKType {}
 /** MsgDeposit defines a message to submit a deposit to an existing proposal. */
 
 export interface MsgDeposit {
+  /** proposal_id defines the unique id of the proposal. */
   proposalId: Long;
+  /** depositor defines the deposit addresses from the proposals. */
+
   depositor: string;
+  /** amount to be deposited by depositor. */
+
   amount: Coin[];
 }
 /** MsgDeposit defines a message to submit a deposit to an existing proposal. */
 
 export interface MsgDepositSDKType {
+  /** proposal_id defines the unique id of the proposal. */
   proposal_id: Long;
+  /** depositor defines the deposit addresses from the proposals. */
+
   depositor: string;
+  /** amount to be deposited by depositor. */
+
   amount: CoinSDKType[];
 }
 /** MsgDepositResponse defines the Msg/Deposit response type. */

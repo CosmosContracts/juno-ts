@@ -14,12 +14,13 @@ export interface AminoMsgTransfer extends AminoMsg {
         receiver: string;
         timeout_height: AminoHeight;
         timeout_timestamp: string;
+        memo: string;
     };
 }
 export declare const AminoConverter: {
     "/ibc.applications.transfer.v1.MsgTransfer": {
         aminoType: string;
-        toAmino: ({ sourcePort, sourceChannel, token, sender, receiver, timeoutHeight, timeoutTimestamp }: MsgTransfer) => AminoMsgTransfer["value"];
-        fromAmino: ({ source_port, source_channel, token, sender, receiver, timeout_height, timeout_timestamp }: AminoMsgTransfer["value"]) => MsgTransfer;
+        toAmino: ({ sourcePort, sourceChannel, token, sender, receiver, timeoutHeight, timeoutTimestamp, memo }: MsgTransfer) => AminoMsgTransfer["value"];
+        fromAmino: ({ source_port, source_channel, token, sender, receiver, timeout_height, timeout_timestamp, memo }: AminoMsgTransfer["value"]) => MsgTransfer;
     };
 };

@@ -1,4 +1,4 @@
-import { Deposit, DepositSDKType, Vote, VoteSDKType, Proposal, ProposalSDKType, DepositParams, DepositParamsSDKType, VotingParams, VotingParamsSDKType, TallyParams, TallyParamsSDKType } from "./gov";
+import { Deposit, DepositSDKType, Vote, VoteSDKType, Proposal, ProposalSDKType, DepositParams, DepositParamsSDKType, VotingParams, VotingParamsSDKType, TallyParams, TallyParamsSDKType, Params, ParamsSDKType } from "./gov";
 import * as _m0 from "protobufjs/minimal";
 import { Long, DeepPartial } from "../../../helpers";
 /** GenesisState defines the gov module's genesis state. */
@@ -11,12 +11,30 @@ export interface GenesisState {
     votes: Vote[];
     /** proposals defines all the proposals present at genesis. */
     proposals: Proposal[];
-    /** params defines all the paramaters of related to deposit. */
+    /**
+     * Deprecated: Prefer to use `params` instead.
+     * deposit_params defines all the paramaters of related to deposit.
+     */
+    /** @deprecated */
     depositParams?: DepositParams;
-    /** params defines all the paramaters of related to voting. */
+    /**
+     * Deprecated: Prefer to use `params` instead.
+     * voting_params defines all the paramaters of related to voting.
+     */
+    /** @deprecated */
     votingParams?: VotingParams;
-    /** params defines all the paramaters of related to tally. */
+    /**
+     * Deprecated: Prefer to use `params` instead.
+     * tally_params defines all the paramaters of related to tally.
+     */
+    /** @deprecated */
     tallyParams?: TallyParams;
+    /**
+     * params defines all the paramaters of x/gov module.
+     *
+     * Since: cosmos-sdk 0.47
+     */
+    params?: Params;
 }
 /** GenesisState defines the gov module's genesis state. */
 export interface GenesisStateSDKType {
@@ -28,12 +46,30 @@ export interface GenesisStateSDKType {
     votes: VoteSDKType[];
     /** proposals defines all the proposals present at genesis. */
     proposals: ProposalSDKType[];
-    /** params defines all the paramaters of related to deposit. */
+    /**
+     * Deprecated: Prefer to use `params` instead.
+     * deposit_params defines all the paramaters of related to deposit.
+     */
+    /** @deprecated */
     deposit_params?: DepositParamsSDKType;
-    /** params defines all the paramaters of related to voting. */
+    /**
+     * Deprecated: Prefer to use `params` instead.
+     * voting_params defines all the paramaters of related to voting.
+     */
+    /** @deprecated */
     voting_params?: VotingParamsSDKType;
-    /** params defines all the paramaters of related to tally. */
+    /**
+     * Deprecated: Prefer to use `params` instead.
+     * tally_params defines all the paramaters of related to tally.
+     */
+    /** @deprecated */
     tally_params?: TallyParamsSDKType;
+    /**
+     * params defines all the paramaters of x/gov module.
+     *
+     * Since: cosmos-sdk 0.47
+     */
+    params?: ParamsSDKType;
 }
 export declare const GenesisState: {
     encode(message: GenesisState, writer?: _m0.Writer): _m0.Writer;

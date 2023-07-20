@@ -18,6 +18,9 @@ export interface FungibleTokenPacketData {
   /** the recipient address on the destination chain */
 
   receiver: string;
+  /** optional memo */
+
+  memo: string;
 }
 /**
  * FungibleTokenPacketData defines a struct for the packet payload
@@ -37,6 +40,9 @@ export interface FungibleTokenPacketDataSDKType {
   /** the recipient address on the destination chain */
 
   receiver: string;
+  /** optional memo */
+
+  memo: string;
 }
 
 function createBaseFungibleTokenPacketData(): FungibleTokenPacketData {
@@ -44,7 +50,8 @@ function createBaseFungibleTokenPacketData(): FungibleTokenPacketData {
     denom: "",
     amount: "",
     sender: "",
-    receiver: ""
+    receiver: "",
+    memo: ""
   };
 }
 
@@ -64,6 +71,10 @@ export const FungibleTokenPacketData = {
 
     if (message.receiver !== "") {
       writer.uint32(34).string(message.receiver);
+    }
+
+    if (message.memo !== "") {
+      writer.uint32(42).string(message.memo);
     }
 
     return writer;
@@ -94,6 +105,10 @@ export const FungibleTokenPacketData = {
           message.receiver = reader.string();
           break;
 
+        case 5:
+          message.memo = reader.string();
+          break;
+
         default:
           reader.skipType(tag & 7);
           break;
@@ -109,6 +124,7 @@ export const FungibleTokenPacketData = {
     message.amount = object.amount ?? "";
     message.sender = object.sender ?? "";
     message.receiver = object.receiver ?? "";
+    message.memo = object.memo ?? "";
     return message;
   }
 

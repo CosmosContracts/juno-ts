@@ -1,4 +1,4 @@
-import { CommitmentProof, CommitmentProofSDKType } from "../../../../confio/proofs";
+import { CommitmentProof, CommitmentProofSDKType } from "../../../../cosmos/ics23/v1/proofs";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial } from "../../../../helpers";
 /**

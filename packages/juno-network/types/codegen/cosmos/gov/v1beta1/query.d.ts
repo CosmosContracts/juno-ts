@@ -47,6 +47,7 @@ export interface QueryProposalsRequestSDKType {
  * method.
  */
 export interface QueryProposalsResponse {
+    /** proposals defines all the requested governance proposals. */
     proposals: Proposal[];
     /** pagination defines the pagination in the response. */
     pagination?: PageResponse;
@@ -56,6 +57,7 @@ export interface QueryProposalsResponse {
  * method.
  */
 export interface QueryProposalsResponseSDKType {
+    /** proposals defines all the requested governance proposals. */
     proposals: ProposalSDKType[];
     /** pagination defines the pagination in the response. */
     pagination?: PageResponseSDKType;
@@ -64,24 +66,24 @@ export interface QueryProposalsResponseSDKType {
 export interface QueryVoteRequest {
     /** proposal_id defines the unique id of the proposal. */
     proposalId: Long;
-    /** voter defines the oter address for the proposals. */
+    /** voter defines the voter address for the proposals. */
     voter: string;
 }
 /** QueryVoteRequest is the request type for the Query/Vote RPC method. */
 export interface QueryVoteRequestSDKType {
     /** proposal_id defines the unique id of the proposal. */
     proposal_id: Long;
-    /** voter defines the oter address for the proposals. */
+    /** voter defines the voter address for the proposals. */
     voter: string;
 }
 /** QueryVoteResponse is the response type for the Query/Vote RPC method. */
 export interface QueryVoteResponse {
-    /** vote defined the queried vote. */
+    /** vote defines the queried vote. */
     vote?: Vote;
 }
 /** QueryVoteResponse is the response type for the Query/Vote RPC method. */
 export interface QueryVoteResponseSDKType {
-    /** vote defined the queried vote. */
+    /** vote defines the queried vote. */
     vote?: VoteSDKType;
 }
 /** QueryVotesRequest is the request type for the Query/Votes RPC method. */
@@ -100,14 +102,14 @@ export interface QueryVotesRequestSDKType {
 }
 /** QueryVotesResponse is the response type for the Query/Votes RPC method. */
 export interface QueryVotesResponse {
-    /** votes defined the queried votes. */
+    /** votes defines the queried votes. */
     votes: Vote[];
     /** pagination defines the pagination in the response. */
     pagination?: PageResponse;
 }
 /** QueryVotesResponse is the response type for the Query/Votes RPC method. */
 export interface QueryVotesResponseSDKType {
-    /** votes defined the queried votes. */
+    /** votes defines the queried votes. */
     votes: VoteSDKType[];
     /** pagination defines the pagination in the response. */
     pagination?: PageResponseSDKType;
@@ -186,12 +188,14 @@ export interface QueryDepositsRequestSDKType {
 }
 /** QueryDepositsResponse is the response type for the Query/Deposits RPC method. */
 export interface QueryDepositsResponse {
+    /** deposits defines the requested deposits. */
     deposits: Deposit[];
     /** pagination defines the pagination in the response. */
     pagination?: PageResponse;
 }
 /** QueryDepositsResponse is the response type for the Query/Deposits RPC method. */
 export interface QueryDepositsResponseSDKType {
+    /** deposits defines the requested deposits. */
     deposits: DepositSDKType[];
     /** pagination defines the pagination in the response. */
     pagination?: PageResponseSDKType;

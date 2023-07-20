@@ -8,13 +8,13 @@ export interface Record {
     name: string;
     /** pub_key represents a public key in any format */
     pubKey?: Any;
-    /** local stores the public information about a locally stored key */
+    /** local stores the private key locally. */
     local?: Record_Local;
-    /** ledger stores the public information about a Ledger key */
+    /** ledger stores the information about a Ledger key. */
     ledger?: Record_Ledger;
-    /** Multi does not store any information. */
+    /** Multi does not store any other information. */
     multi?: Record_Multi;
-    /** Offline does not store any information. */
+    /** Offline does not store any other information. */
     offline?: Record_Offline;
 }
 /** Record is used for representing a key in the keyring. */
@@ -23,13 +23,13 @@ export interface RecordSDKType {
     name: string;
     /** pub_key represents a public key in any format */
     pub_key?: AnySDKType;
-    /** local stores the public information about a locally stored key */
+    /** local stores the private key locally. */
     local?: Record_LocalSDKType;
-    /** ledger stores the public information about a Ledger key */
+    /** ledger stores the information about a Ledger key. */
     ledger?: Record_LedgerSDKType;
-    /** Multi does not store any information. */
+    /** Multi does not store any other information. */
     multi?: Record_MultiSDKType;
-    /** Offline does not store any information. */
+    /** Offline does not store any other information. */
     offline?: Record_OfflineSDKType;
 }
 /**
@@ -38,7 +38,6 @@ export interface RecordSDKType {
  */
 export interface Record_Local {
     privKey?: Any;
-    privKeyType: string;
 }
 /**
  * Item is a keyring item stored in a keyring backend.
@@ -46,7 +45,6 @@ export interface Record_Local {
  */
 export interface Record_LocalSDKType {
     priv_key?: AnySDKType;
-    priv_key_type: string;
 }
 /** Ledger item */
 export interface Record_Ledger {

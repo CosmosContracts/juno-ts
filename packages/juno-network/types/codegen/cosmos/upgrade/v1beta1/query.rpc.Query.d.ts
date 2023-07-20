@@ -22,7 +22,11 @@ export interface Query {
      * Since: cosmos-sdk 0.43
      */
     moduleVersions(request: QueryModuleVersionsRequest): Promise<QueryModuleVersionsResponse>;
-    /** Returns the account with authority to conduct upgrades */
+    /**
+     * Returns the account with authority to conduct upgrades
+     *
+     * Since: cosmos-sdk 0.46
+     */
     authority(request?: QueryAuthorityRequest): Promise<QueryAuthorityResponse>;
 }
 export declare class QueryClientImpl implements Query {

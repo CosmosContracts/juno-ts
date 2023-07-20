@@ -1,5 +1,5 @@
 import { Rpc } from "../../../helpers";
-import { MsgSetWithdrawAddress, MsgSetWithdrawAddressResponse, MsgWithdrawDelegatorReward, MsgWithdrawDelegatorRewardResponse, MsgWithdrawValidatorCommission, MsgWithdrawValidatorCommissionResponse, MsgFundCommunityPool, MsgFundCommunityPoolResponse } from "./tx";
+import { MsgSetWithdrawAddress, MsgSetWithdrawAddressResponse, MsgWithdrawDelegatorReward, MsgWithdrawDelegatorRewardResponse, MsgWithdrawValidatorCommission, MsgWithdrawValidatorCommissionResponse, MsgFundCommunityPool, MsgFundCommunityPoolResponse, MsgUpdateParams, MsgUpdateParamsResponse, MsgCommunityPoolSpend, MsgCommunityPoolSpendResponse } from "./tx";
 /** Msg defines the distribution Msg service. */
 export interface Msg {
     /**
@@ -22,6 +22,22 @@ export interface Msg {
      * fund the community pool.
      */
     fundCommunityPool(request: MsgFundCommunityPool): Promise<MsgFundCommunityPoolResponse>;
+    /**
+     * UpdateParams defines a governance operation for updating the x/distribution
+     * module parameters. The authority is defined in the keeper.
+     *
+     * Since: cosmos-sdk 0.47
+     */
+    updateParams(request: MsgUpdateParams): Promise<MsgUpdateParamsResponse>;
+    /**
+     * CommunityPoolSpend defines a governance operation for sending tokens from
+     * the community pool in the x/distribution module to another account, which
+     * could be the governance module itself. The authority is defined in the
+     * keeper.
+     *
+     * Since: cosmos-sdk 0.47
+     */
+    communityPoolSpend(request: MsgCommunityPoolSpend): Promise<MsgCommunityPoolSpendResponse>;
 }
 export declare class MsgClientImpl implements Msg {
     private readonly rpc;
@@ -30,4 +46,6 @@ export declare class MsgClientImpl implements Msg {
     withdrawDelegatorReward(request: MsgWithdrawDelegatorReward): Promise<MsgWithdrawDelegatorRewardResponse>;
     withdrawValidatorCommission(request: MsgWithdrawValidatorCommission): Promise<MsgWithdrawValidatorCommissionResponse>;
     fundCommunityPool(request: MsgFundCommunityPool): Promise<MsgFundCommunityPoolResponse>;
+    updateParams(request: MsgUpdateParams): Promise<MsgUpdateParamsResponse>;
+    communityPoolSpend(request: MsgCommunityPoolSpend): Promise<MsgCommunityPoolSpendResponse>;
 }

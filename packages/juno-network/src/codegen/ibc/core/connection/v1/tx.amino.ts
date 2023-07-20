@@ -47,6 +47,7 @@ export interface AminoMsgConnectionOpenTry extends AminoMsg {
     proof_consensus: Uint8Array;
     consensus_height: AminoHeight;
     signer: string;
+    host_consensus_state_proof: Uint8Array;
   };
 }
 export interface AminoMsgConnectionOpenAck extends AminoMsg {
@@ -68,6 +69,7 @@ export interface AminoMsgConnectionOpenAck extends AminoMsg {
     proof_consensus: Uint8Array;
     consensus_height: AminoHeight;
     signer: string;
+    host_consensus_state_proof: Uint8Array;
   };
 }
 export interface AminoMsgConnectionOpenConfirm extends AminoMsg {
@@ -145,7 +147,8 @@ export const AminoConverter = {
       proofClient,
       proofConsensus,
       consensusHeight,
-      signer
+      signer,
+      hostConsensusStateProof
     }: MsgConnectionOpenTry): AminoMsgConnectionOpenTry["value"] => {
       return {
         client_id: clientId,
@@ -177,7 +180,8 @@ export const AminoConverter = {
           revision_height: omitDefault(consensusHeight.revisionHeight)?.toString(),
           revision_number: omitDefault(consensusHeight.revisionNumber)?.toString()
         } : {},
-        signer
+        signer,
+        host_consensus_state_proof: hostConsensusStateProof
       };
     },
     fromAmino: ({
@@ -192,7 +196,8 @@ export const AminoConverter = {
       proof_client,
       proof_consensus,
       consensus_height,
-      signer
+      signer,
+      host_consensus_state_proof
     }: AminoMsgConnectionOpenTry["value"]): MsgConnectionOpenTry => {
       return {
         clientId: client_id,
@@ -224,7 +229,8 @@ export const AminoConverter = {
           revisionHeight: Long.fromString(consensus_height.revision_height || "0", true),
           revisionNumber: Long.fromString(consensus_height.revision_number || "0", true)
         } : undefined,
-        signer
+        signer,
+        hostConsensusStateProof: host_consensus_state_proof
       };
     }
   },
@@ -240,7 +246,8 @@ export const AminoConverter = {
       proofClient,
       proofConsensus,
       consensusHeight,
-      signer
+      signer,
+      hostConsensusStateProof
     }: MsgConnectionOpenAck): AminoMsgConnectionOpenAck["value"] => {
       return {
         connection_id: connectionId,
@@ -264,7 +271,8 @@ export const AminoConverter = {
           revision_height: omitDefault(consensusHeight.revisionHeight)?.toString(),
           revision_number: omitDefault(consensusHeight.revisionNumber)?.toString()
         } : {},
-        signer
+        signer,
+        host_consensus_state_proof: hostConsensusStateProof
       };
     },
     fromAmino: ({
@@ -277,7 +285,8 @@ export const AminoConverter = {
       proof_client,
       proof_consensus,
       consensus_height,
-      signer
+      signer,
+      host_consensus_state_proof
     }: AminoMsgConnectionOpenAck["value"]): MsgConnectionOpenAck => {
       return {
         connectionId: connection_id,
@@ -301,7 +310,8 @@ export const AminoConverter = {
           revisionHeight: Long.fromString(consensus_height.revision_height || "0", true),
           revisionNumber: Long.fromString(consensus_height.revision_number || "0", true)
         } : undefined,
-        signer
+        signer,
+        hostConsensusStateProof: host_consensus_state_proof
       };
     }
   },

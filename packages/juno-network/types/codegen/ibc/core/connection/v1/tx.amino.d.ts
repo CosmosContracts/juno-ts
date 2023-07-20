@@ -47,6 +47,7 @@ export interface AminoMsgConnectionOpenTry extends AminoMsg {
         proof_consensus: Uint8Array;
         consensus_height: AminoHeight;
         signer: string;
+        host_consensus_state_proof: Uint8Array;
     };
 }
 export interface AminoMsgConnectionOpenAck extends AminoMsg {
@@ -68,6 +69,7 @@ export interface AminoMsgConnectionOpenAck extends AminoMsg {
         proof_consensus: Uint8Array;
         consensus_height: AminoHeight;
         signer: string;
+        host_consensus_state_proof: Uint8Array;
     };
 }
 export interface AminoMsgConnectionOpenConfirm extends AminoMsg {
@@ -87,13 +89,13 @@ export declare const AminoConverter: {
     };
     "/ibc.core.connection.v1.MsgConnectionOpenTry": {
         aminoType: string;
-        toAmino: ({ clientId, previousConnectionId, clientState, counterparty, delayPeriod, counterpartyVersions, proofHeight, proofInit, proofClient, proofConsensus, consensusHeight, signer }: MsgConnectionOpenTry) => AminoMsgConnectionOpenTry["value"];
-        fromAmino: ({ client_id, previous_connection_id, client_state, counterparty, delay_period, counterparty_versions, proof_height, proof_init, proof_client, proof_consensus, consensus_height, signer }: AminoMsgConnectionOpenTry["value"]) => MsgConnectionOpenTry;
+        toAmino: ({ clientId, previousConnectionId, clientState, counterparty, delayPeriod, counterpartyVersions, proofHeight, proofInit, proofClient, proofConsensus, consensusHeight, signer, hostConsensusStateProof }: MsgConnectionOpenTry) => AminoMsgConnectionOpenTry["value"];
+        fromAmino: ({ client_id, previous_connection_id, client_state, counterparty, delay_period, counterparty_versions, proof_height, proof_init, proof_client, proof_consensus, consensus_height, signer, host_consensus_state_proof }: AminoMsgConnectionOpenTry["value"]) => MsgConnectionOpenTry;
     };
     "/ibc.core.connection.v1.MsgConnectionOpenAck": {
         aminoType: string;
-        toAmino: ({ connectionId, counterpartyConnectionId, version, clientState, proofHeight, proofTry, proofClient, proofConsensus, consensusHeight, signer }: MsgConnectionOpenAck) => AminoMsgConnectionOpenAck["value"];
-        fromAmino: ({ connection_id, counterparty_connection_id, version, client_state, proof_height, proof_try, proof_client, proof_consensus, consensus_height, signer }: AminoMsgConnectionOpenAck["value"]) => MsgConnectionOpenAck;
+        toAmino: ({ connectionId, counterpartyConnectionId, version, clientState, proofHeight, proofTry, proofClient, proofConsensus, consensusHeight, signer, hostConsensusStateProof }: MsgConnectionOpenAck) => AminoMsgConnectionOpenAck["value"];
+        fromAmino: ({ connection_id, counterparty_connection_id, version, client_state, proof_height, proof_try, proof_client, proof_consensus, consensus_height, signer, host_consensus_state_proof }: AminoMsgConnectionOpenAck["value"]) => MsgConnectionOpenAck;
     };
     "/ibc.core.connection.v1.MsgConnectionOpenConfirm": {
         aminoType: string;

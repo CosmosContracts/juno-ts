@@ -1,4 +1,4 @@
-import { Deposit, DepositSDKType, Vote, VoteSDKType, Proposal, ProposalSDKType, DepositParams, DepositParamsSDKType, VotingParams, VotingParamsSDKType, TallyParams, TallyParamsSDKType } from "./gov";
+import { Deposit, DepositSDKType, Vote, VoteSDKType, Proposal, ProposalSDKType, DepositParams, DepositParamsSDKType, VotingParams, VotingParamsSDKType, TallyParams, TallyParamsSDKType, Params, ParamsSDKType } from "./gov";
 import * as _m0 from "protobufjs/minimal";
 import { Long, DeepPartial } from "../../../helpers";
 /** GenesisState defines the gov module's genesis state. */
@@ -15,15 +15,37 @@ export interface GenesisState {
   /** proposals defines all the proposals present at genesis. */
 
   proposals: Proposal[];
-  /** params defines all the paramaters of related to deposit. */
+  /**
+   * Deprecated: Prefer to use `params` instead.
+   * deposit_params defines all the paramaters of related to deposit.
+   */
+
+  /** @deprecated */
 
   depositParams?: DepositParams;
-  /** params defines all the paramaters of related to voting. */
+  /**
+   * Deprecated: Prefer to use `params` instead.
+   * voting_params defines all the paramaters of related to voting.
+   */
+
+  /** @deprecated */
 
   votingParams?: VotingParams;
-  /** params defines all the paramaters of related to tally. */
+  /**
+   * Deprecated: Prefer to use `params` instead.
+   * tally_params defines all the paramaters of related to tally.
+   */
+
+  /** @deprecated */
 
   tallyParams?: TallyParams;
+  /**
+   * params defines all the paramaters of x/gov module.
+   * 
+   * Since: cosmos-sdk 0.47
+   */
+
+  params?: Params;
 }
 /** GenesisState defines the gov module's genesis state. */
 
@@ -39,15 +61,37 @@ export interface GenesisStateSDKType {
   /** proposals defines all the proposals present at genesis. */
 
   proposals: ProposalSDKType[];
-  /** params defines all the paramaters of related to deposit. */
+  /**
+   * Deprecated: Prefer to use `params` instead.
+   * deposit_params defines all the paramaters of related to deposit.
+   */
+
+  /** @deprecated */
 
   deposit_params?: DepositParamsSDKType;
-  /** params defines all the paramaters of related to voting. */
+  /**
+   * Deprecated: Prefer to use `params` instead.
+   * voting_params defines all the paramaters of related to voting.
+   */
+
+  /** @deprecated */
 
   voting_params?: VotingParamsSDKType;
-  /** params defines all the paramaters of related to tally. */
+  /**
+   * Deprecated: Prefer to use `params` instead.
+   * tally_params defines all the paramaters of related to tally.
+   */
+
+  /** @deprecated */
 
   tally_params?: TallyParamsSDKType;
+  /**
+   * params defines all the paramaters of x/gov module.
+   * 
+   * Since: cosmos-sdk 0.47
+   */
+
+  params?: ParamsSDKType;
 }
 
 function createBaseGenesisState(): GenesisState {
@@ -58,7 +102,8 @@ function createBaseGenesisState(): GenesisState {
     proposals: [],
     depositParams: undefined,
     votingParams: undefined,
-    tallyParams: undefined
+    tallyParams: undefined,
+    params: undefined
   };
 }
 
@@ -90,6 +135,10 @@ export const GenesisState = {
 
     if (message.tallyParams !== undefined) {
       TallyParams.encode(message.tallyParams, writer.uint32(58).fork()).ldelim();
+    }
+
+    if (message.params !== undefined) {
+      Params.encode(message.params, writer.uint32(66).fork()).ldelim();
     }
 
     return writer;
@@ -132,6 +181,10 @@ export const GenesisState = {
           message.tallyParams = TallyParams.decode(reader, reader.uint32());
           break;
 
+        case 8:
+          message.params = Params.decode(reader, reader.uint32());
+          break;
+
         default:
           reader.skipType(tag & 7);
           break;
@@ -150,6 +203,7 @@ export const GenesisState = {
     message.depositParams = object.depositParams !== undefined && object.depositParams !== null ? DepositParams.fromPartial(object.depositParams) : undefined;
     message.votingParams = object.votingParams !== undefined && object.votingParams !== null ? VotingParams.fromPartial(object.votingParams) : undefined;
     message.tallyParams = object.tallyParams !== undefined && object.tallyParams !== null ? TallyParams.fromPartial(object.tallyParams) : undefined;
+    message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   }
 

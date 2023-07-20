@@ -4,7 +4,7 @@ import { TxResponse, TxResponseSDKType, GasInfo, GasInfoSDKType, Result, ResultS
 import { BlockID, BlockIDSDKType } from "../../../tendermint/types/types";
 import { Block, BlockSDKType } from "../../../tendermint/types/block";
 import * as _m0 from "protobufjs/minimal";
-import { DeepPartial, Long } from "../../../helpers";
+import { Long, DeepPartial } from "../../../helpers";
 /** OrderBy defines the sorting order */
 export declare enum OrderBy {
     /** ORDER_BY_UNSPECIFIED - ORDER_BY_UNSPECIFIED specifies an unknown sorting order. OrderBy defaults to ASC in this case. */
@@ -32,8 +32,8 @@ export declare enum BroadcastMode {
     /** BROADCAST_MODE_UNSPECIFIED - zero-value for mode ordering */
     BROADCAST_MODE_UNSPECIFIED = 0,
     /**
-     * BROADCAST_MODE_BLOCK - BROADCAST_MODE_BLOCK defines a tx broadcasting mode where the client waits for
-     * the tx to be committed in a block.
+     * BROADCAST_MODE_BLOCK - DEPRECATED: use BROADCAST_MODE_SYNC instead,
+     * BROADCAST_MODE_BLOCK is not supported by the SDK from v0.47.x onwards.
      */
     BROADCAST_MODE_BLOCK = 1,
     /**
@@ -53,8 +53,8 @@ export declare enum BroadcastModeSDKType {
     /** BROADCAST_MODE_UNSPECIFIED - zero-value for mode ordering */
     BROADCAST_MODE_UNSPECIFIED = 0,
     /**
-     * BROADCAST_MODE_BLOCK - BROADCAST_MODE_BLOCK defines a tx broadcasting mode where the client waits for
-     * the tx to be committed in a block.
+     * BROADCAST_MODE_BLOCK - DEPRECATED: use BROADCAST_MODE_SYNC instead,
+     * BROADCAST_MODE_BLOCK is not supported by the SDK from v0.47.x onwards.
      */
     BROADCAST_MODE_BLOCK = 1,
     /**
@@ -78,9 +78,20 @@ export declare function broadcastModeToJSON(object: BroadcastMode): string;
 export interface GetTxsEventRequest {
     /** events is the list of transaction event type. */
     events: string[];
-    /** pagination defines a pagination for the request. */
+    /**
+     * pagination defines a pagination for the request.
+     * Deprecated post v0.46.x: use page and limit instead.
+     */
+    /** @deprecated */
     pagination?: PageRequest;
     orderBy: OrderBy;
+    /** page is the page number to query, starts at 1. If not provided, will default to first page. */
+    page: Long;
+    /**
+     * limit is the total number of results to be returned in the result page.
+     * If left empty it will default to a value to be set by each app.
+     */
+    limit: Long;
 }
 /**
  * GetTxsEventRequest is the request type for the Service.TxsByEvents
@@ -89,9 +100,20 @@ export interface GetTxsEventRequest {
 export interface GetTxsEventRequestSDKType {
     /** events is the list of transaction event type. */
     events: string[];
-    /** pagination defines a pagination for the request. */
+    /**
+     * pagination defines a pagination for the request.
+     * Deprecated post v0.46.x: use page and limit instead.
+     */
+    /** @deprecated */
     pagination?: PageRequestSDKType;
     order_by: OrderBySDKType;
+    /** page is the page number to query, starts at 1. If not provided, will default to first page. */
+    page: Long;
+    /**
+     * limit is the total number of results to be returned in the result page.
+     * If left empty it will default to a value to be set by each app.
+     */
+    limit: Long;
 }
 /**
  * GetTxsEventResponse is the response type for the Service.TxsByEvents
@@ -102,8 +124,14 @@ export interface GetTxsEventResponse {
     txs: Tx[];
     /** tx_responses is the list of queried TxResponses. */
     txResponses: TxResponse[];
-    /** pagination defines a pagination for the response. */
+    /**
+     * pagination defines a pagination for the response.
+     * Deprecated post v0.46.x: use total instead.
+     */
+    /** @deprecated */
     pagination?: PageResponse;
+    /** total is total number of results available */
+    total: Long;
 }
 /**
  * GetTxsEventResponse is the response type for the Service.TxsByEvents
@@ -114,8 +142,14 @@ export interface GetTxsEventResponseSDKType {
     txs: TxSDKType[];
     /** tx_responses is the list of queried TxResponses. */
     tx_responses: TxResponseSDKType[];
-    /** pagination defines a pagination for the response. */
+    /**
+     * pagination defines a pagination for the response.
+     * Deprecated post v0.46.x: use total instead.
+     */
+    /** @deprecated */
     pagination?: PageResponseSDKType;
+    /** total is total number of results available */
+    total: Long;
 }
 /**
  * BroadcastTxRequest is the request type for the Service.BroadcastTxRequest
@@ -287,6 +321,158 @@ export interface GetBlockWithTxsResponseSDKType {
     /** pagination defines a pagination for the response. */
     pagination?: PageResponseSDKType;
 }
+/**
+ * TxDecodeRequest is the request type for the Service.TxDecode
+ * RPC method.
+ *
+ * Since: cosmos-sdk 0.47
+ */
+export interface TxDecodeRequest {
+    /** tx_bytes is the raw transaction. */
+    txBytes: Uint8Array;
+}
+/**
+ * TxDecodeRequest is the request type for the Service.TxDecode
+ * RPC method.
+ *
+ * Since: cosmos-sdk 0.47
+ */
+export interface TxDecodeRequestSDKType {
+    /** tx_bytes is the raw transaction. */
+    tx_bytes: Uint8Array;
+}
+/**
+ * TxDecodeResponse is the response type for the
+ * Service.TxDecode method.
+ *
+ * Since: cosmos-sdk 0.47
+ */
+export interface TxDecodeResponse {
+    /** tx is the decoded transaction. */
+    tx?: Tx;
+}
+/**
+ * TxDecodeResponse is the response type for the
+ * Service.TxDecode method.
+ *
+ * Since: cosmos-sdk 0.47
+ */
+export interface TxDecodeResponseSDKType {
+    /** tx is the decoded transaction. */
+    tx?: TxSDKType;
+}
+/**
+ * TxEncodeRequest is the request type for the Service.TxEncode
+ * RPC method.
+ *
+ * Since: cosmos-sdk 0.47
+ */
+export interface TxEncodeRequest {
+    /** tx is the transaction to encode. */
+    tx?: Tx;
+}
+/**
+ * TxEncodeRequest is the request type for the Service.TxEncode
+ * RPC method.
+ *
+ * Since: cosmos-sdk 0.47
+ */
+export interface TxEncodeRequestSDKType {
+    /** tx is the transaction to encode. */
+    tx?: TxSDKType;
+}
+/**
+ * TxEncodeResponse is the response type for the
+ * Service.TxEncode method.
+ *
+ * Since: cosmos-sdk 0.47
+ */
+export interface TxEncodeResponse {
+    /** tx_bytes is the encoded transaction bytes. */
+    txBytes: Uint8Array;
+}
+/**
+ * TxEncodeResponse is the response type for the
+ * Service.TxEncode method.
+ *
+ * Since: cosmos-sdk 0.47
+ */
+export interface TxEncodeResponseSDKType {
+    /** tx_bytes is the encoded transaction bytes. */
+    tx_bytes: Uint8Array;
+}
+/**
+ * TxEncodeAminoRequest is the request type for the Service.TxEncodeAmino
+ * RPC method.
+ *
+ * Since: cosmos-sdk 0.47
+ */
+export interface TxEncodeAminoRequest {
+    aminoJson: string;
+}
+/**
+ * TxEncodeAminoRequest is the request type for the Service.TxEncodeAmino
+ * RPC method.
+ *
+ * Since: cosmos-sdk 0.47
+ */
+export interface TxEncodeAminoRequestSDKType {
+    amino_json: string;
+}
+/**
+ * TxEncodeAminoResponse is the response type for the Service.TxEncodeAmino
+ * RPC method.
+ *
+ * Since: cosmos-sdk 0.47
+ */
+export interface TxEncodeAminoResponse {
+    aminoBinary: Uint8Array;
+}
+/**
+ * TxEncodeAminoResponse is the response type for the Service.TxEncodeAmino
+ * RPC method.
+ *
+ * Since: cosmos-sdk 0.47
+ */
+export interface TxEncodeAminoResponseSDKType {
+    amino_binary: Uint8Array;
+}
+/**
+ * TxDecodeAminoRequest is the request type for the Service.TxDecodeAmino
+ * RPC method.
+ *
+ * Since: cosmos-sdk 0.47
+ */
+export interface TxDecodeAminoRequest {
+    aminoBinary: Uint8Array;
+}
+/**
+ * TxDecodeAminoRequest is the request type for the Service.TxDecodeAmino
+ * RPC method.
+ *
+ * Since: cosmos-sdk 0.47
+ */
+export interface TxDecodeAminoRequestSDKType {
+    amino_binary: Uint8Array;
+}
+/**
+ * TxDecodeAminoResponse is the response type for the Service.TxDecodeAmino
+ * RPC method.
+ *
+ * Since: cosmos-sdk 0.47
+ */
+export interface TxDecodeAminoResponse {
+    aminoJson: string;
+}
+/**
+ * TxDecodeAminoResponse is the response type for the Service.TxDecodeAmino
+ * RPC method.
+ *
+ * Since: cosmos-sdk 0.47
+ */
+export interface TxDecodeAminoResponseSDKType {
+    amino_json: string;
+}
 export declare const GetTxsEventRequest: {
     encode(message: GetTxsEventRequest, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): GetTxsEventRequest;
@@ -336,4 +522,44 @@ export declare const GetBlockWithTxsResponse: {
     encode(message: GetBlockWithTxsResponse, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): GetBlockWithTxsResponse;
     fromPartial(object: DeepPartial<GetBlockWithTxsResponse>): GetBlockWithTxsResponse;
+};
+export declare const TxDecodeRequest: {
+    encode(message: TxDecodeRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxDecodeRequest;
+    fromPartial(object: DeepPartial<TxDecodeRequest>): TxDecodeRequest;
+};
+export declare const TxDecodeResponse: {
+    encode(message: TxDecodeResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxDecodeResponse;
+    fromPartial(object: DeepPartial<TxDecodeResponse>): TxDecodeResponse;
+};
+export declare const TxEncodeRequest: {
+    encode(message: TxEncodeRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxEncodeRequest;
+    fromPartial(object: DeepPartial<TxEncodeRequest>): TxEncodeRequest;
+};
+export declare const TxEncodeResponse: {
+    encode(message: TxEncodeResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxEncodeResponse;
+    fromPartial(object: DeepPartial<TxEncodeResponse>): TxEncodeResponse;
+};
+export declare const TxEncodeAminoRequest: {
+    encode(message: TxEncodeAminoRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxEncodeAminoRequest;
+    fromPartial(object: DeepPartial<TxEncodeAminoRequest>): TxEncodeAminoRequest;
+};
+export declare const TxEncodeAminoResponse: {
+    encode(message: TxEncodeAminoResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxEncodeAminoResponse;
+    fromPartial(object: DeepPartial<TxEncodeAminoResponse>): TxEncodeAminoResponse;
+};
+export declare const TxDecodeAminoRequest: {
+    encode(message: TxDecodeAminoRequest, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxDecodeAminoRequest;
+    fromPartial(object: DeepPartial<TxDecodeAminoRequest>): TxDecodeAminoRequest;
+};
+export declare const TxDecodeAminoResponse: {
+    encode(message: TxDecodeAminoResponse, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): TxDecodeAminoResponse;
+    fromPartial(object: DeepPartial<TxDecodeAminoResponse>): TxDecodeAminoResponse;
 };

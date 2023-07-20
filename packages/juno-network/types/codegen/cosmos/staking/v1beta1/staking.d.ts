@@ -2,6 +2,7 @@ import { Header, HeaderSDKType } from "../../../tendermint/types/types";
 import { Any, AnySDKType } from "../../../google/protobuf/any";
 import { Duration, DurationSDKType } from "../../../google/protobuf/duration";
 import { Coin, CoinSDKType } from "../../base/v1beta1/coin";
+import { ValidatorUpdate, ValidatorUpdateSDKType } from "../../../tendermint/abci/types";
 import * as _m0 from "protobufjs/minimal";
 import { DeepPartial, Long } from "../../../helpers";
 /** BondStatus is the status of a validator. */
@@ -30,6 +31,28 @@ export declare enum BondStatusSDKType {
 }
 export declare function bondStatusFromJSON(object: any): BondStatus;
 export declare function bondStatusToJSON(object: BondStatus): string;
+/** Infraction indicates the infraction a validator commited. */
+export declare enum Infraction {
+    /** INFRACTION_UNSPECIFIED - UNSPECIFIED defines an empty infraction. */
+    INFRACTION_UNSPECIFIED = 0,
+    /** INFRACTION_DOUBLE_SIGN - DOUBLE_SIGN defines a validator that double-signs a block. */
+    INFRACTION_DOUBLE_SIGN = 1,
+    /** INFRACTION_DOWNTIME - DOWNTIME defines a validator that missed signing too many blocks. */
+    INFRACTION_DOWNTIME = 2,
+    UNRECOGNIZED = -1
+}
+/** Infraction indicates the infraction a validator commited. */
+export declare enum InfractionSDKType {
+    /** INFRACTION_UNSPECIFIED - UNSPECIFIED defines an empty infraction. */
+    INFRACTION_UNSPECIFIED = 0,
+    /** INFRACTION_DOUBLE_SIGN - DOUBLE_SIGN defines a validator that double-signs a block. */
+    INFRACTION_DOUBLE_SIGN = 1,
+    /** INFRACTION_DOWNTIME - DOWNTIME defines a validator that missed signing too many blocks. */
+    INFRACTION_DOWNTIME = 2,
+    UNRECOGNIZED = -1
+}
+export declare function infractionFromJSON(object: any): Infraction;
+export declare function infractionToJSON(object: Infraction): string;
 /**
  * HistoricalInfo contains header and validator information for a given block.
  * It is stored as part of staking module's state, which persists the `n` most
@@ -145,8 +168,16 @@ export interface Validator {
     unbondingTime?: Date;
     /** commission defines the commission parameters. */
     commission?: Commission;
-    /** min_self_delegation is the validator's self declared minimum self delegation. */
+    /**
+     * min_self_delegation is the validator's self declared minimum self delegation.
+     *
+     * Since: cosmos-sdk 0.46
+     */
     minSelfDelegation: string;
+    /** strictly positive if this validator's unbonding has been stopped by external modules */
+    unbondingOnHoldRefCount: Long;
+    /** list of unbonding ids, each uniquely identifing an unbonding of this validator */
+    unbondingIds: Long[];
 }
 /**
  * Validator defines a validator, together with the total amount of the
@@ -179,8 +210,16 @@ export interface ValidatorSDKType {
     unbonding_time?: Date;
     /** commission defines the commission parameters. */
     commission?: CommissionSDKType;
-    /** min_self_delegation is the validator's self declared minimum self delegation. */
+    /**
+     * min_self_delegation is the validator's self declared minimum self delegation.
+     *
+     * Since: cosmos-sdk 0.46
+     */
     min_self_delegation: string;
+    /** strictly positive if this validator's unbonding has been stopped by external modules */
+    unbonding_on_hold_ref_count: Long;
+    /** list of unbonding ids, each uniquely identifing an unbonding of this validator */
+    unbonding_ids: Long[];
 }
 /** ValAddresses defines a repeated set of validator addresses. */
 export interface ValAddresses {
@@ -306,6 +345,10 @@ export interface UnbondingDelegationEntry {
     initialBalance: string;
     /** balance defines the tokens to receive at completion. */
     balance: string;
+    /** Incrementing id that uniquely identifies this entry */
+    unbondingId: Long;
+    /** Strictly positive if this entry's unbonding has been stopped by external modules */
+    unbondingOnHoldRefCount: Long;
 }
 /** UnbondingDelegationEntry defines an unbonding object with relevant metadata. */
 export interface UnbondingDelegationEntrySDKType {
@@ -317,6 +360,10 @@ export interface UnbondingDelegationEntrySDKType {
     initial_balance: string;
     /** balance defines the tokens to receive at completion. */
     balance: string;
+    /** Incrementing id that uniquely identifies this entry */
+    unbonding_id: Long;
+    /** Strictly positive if this entry's unbonding has been stopped by external modules */
+    unbonding_on_hold_ref_count: Long;
 }
 /** RedelegationEntry defines a redelegation object with relevant metadata. */
 export interface RedelegationEntry {
@@ -328,6 +375,10 @@ export interface RedelegationEntry {
     initialBalance: string;
     /** shares_dst is the amount of destination-validator shares created by redelegation. */
     sharesDst: string;
+    /** Incrementing id that uniquely identifies this entry */
+    unbondingId: Long;
+    /** Strictly positive if this entry's unbonding has been stopped by external modules */
+    unbondingOnHoldRefCount: Long;
 }
 /** RedelegationEntry defines a redelegation object with relevant metadata. */
 export interface RedelegationEntrySDKType {
@@ -339,6 +390,10 @@ export interface RedelegationEntrySDKType {
     initial_balance: string;
     /** shares_dst is the amount of destination-validator shares created by redelegation. */
     shares_dst: string;
+    /** Incrementing id that uniquely identifies this entry */
+    unbonding_id: Long;
+    /** Strictly positive if this entry's unbonding has been stopped by external modules */
+    unbonding_on_hold_ref_count: Long;
 }
 /**
  * Redelegation contains the list of a particular delegator's redelegating bonds
@@ -368,7 +423,7 @@ export interface RedelegationSDKType {
     /** entries are the redelegation entries. */
     entries: RedelegationEntrySDKType[];
 }
-/** Params defines the parameters for the staking module. */
+/** Params defines the parameters for the x/staking module. */
 export interface Params {
     /** unbonding_time is the time duration of unbonding. */
     unbondingTime?: Duration;
@@ -383,7 +438,7 @@ export interface Params {
     /** min_commission_rate is the chain-wide minimum commission rate that a validator can charge their delegators */
     minCommissionRate: string;
 }
-/** Params defines the parameters for the staking module. */
+/** Params defines the parameters for the x/staking module. */
 export interface ParamsSDKType {
     /** unbonding_time is the time duration of unbonding. */
     unbonding_time?: DurationSDKType;
@@ -465,6 +520,20 @@ export interface Pool {
 export interface PoolSDKType {
     not_bonded_tokens: string;
     bonded_tokens: string;
+}
+/**
+ * ValidatorUpdates defines an array of abci.ValidatorUpdate objects.
+ * TODO: explore moving this to proto/cosmos/base to separate modules from tendermint dependence
+ */
+export interface ValidatorUpdates {
+    updates: ValidatorUpdate[];
+}
+/**
+ * ValidatorUpdates defines an array of abci.ValidatorUpdate objects.
+ * TODO: explore moving this to proto/cosmos/base to separate modules from tendermint dependence
+ */
+export interface ValidatorUpdatesSDKType {
+    updates: ValidatorUpdateSDKType[];
 }
 export declare const HistoricalInfo: {
     encode(message: HistoricalInfo, writer?: _m0.Writer): _m0.Writer;
@@ -565,4 +634,9 @@ export declare const Pool: {
     encode(message: Pool, writer?: _m0.Writer): _m0.Writer;
     decode(input: _m0.Reader | Uint8Array, length?: number): Pool;
     fromPartial(object: DeepPartial<Pool>): Pool;
+};
+export declare const ValidatorUpdates: {
+    encode(message: ValidatorUpdates, writer?: _m0.Writer): _m0.Writer;
+    decode(input: _m0.Reader | Uint8Array, length?: number): ValidatorUpdates;
+    fromPartial(object: DeepPartial<ValidatorUpdates>): ValidatorUpdates;
 };

@@ -1,6 +1,6 @@
 import { Duration, DurationSDKType } from "../../../../google/protobuf/duration";
 import { Height, HeightSDKType } from "../../../core/client/v1/client";
-import { ProofSpec, ProofSpecSDKType } from "../../../../confio/proofs";
+import { ProofSpec, ProofSpecSDKType } from "../../../../cosmos/ics23/v1/proofs";
 import { MerkleRoot, MerkleRootSDKType } from "../../../core/commitment/v1/commitment";
 import { SignedHeader, SignedHeaderSDKType } from "../../../../tendermint/types/types";
 import { ValidatorSet, ValidatorSetSDKType } from "../../../../tendermint/types/validator";
@@ -38,15 +38,11 @@ export interface ClientState {
      * "upgradedIBCState"}`
      */
     upgradePath: string[];
-    /**
-     * This flag, when set to true, will allow governance to recover a client
-     * which has expired
-     */
+    /** allow_update_after_expiry is deprecated */
+    /** @deprecated */
     allowUpdateAfterExpiry: boolean;
-    /**
-     * This flag, when set to true, will allow governance to unfreeze a client
-     * whose chain has experienced a misbehaviour event
-     */
+    /** allow_update_after_misbehaviour is deprecated */
+    /** @deprecated */
     allowUpdateAfterMisbehaviour: boolean;
 }
 /**
@@ -81,15 +77,11 @@ export interface ClientStateSDKType {
      * "upgradedIBCState"}`
      */
     upgrade_path: string[];
-    /**
-     * This flag, when set to true, will allow governance to recover a client
-     * which has expired
-     */
+    /** allow_update_after_expiry is deprecated */
+    /** @deprecated */
     allow_update_after_expiry: boolean;
-    /**
-     * This flag, when set to true, will allow governance to unfreeze a client
-     * whose chain has experienced a misbehaviour event
-     */
+    /** allow_update_after_misbehaviour is deprecated */
+    /** @deprecated */
     allow_update_after_misbehaviour: boolean;
 }
 /** ConsensusState defines the consensus state from Tendermint. */
@@ -119,6 +111,8 @@ export interface ConsensusStateSDKType {
  * that implements Misbehaviour interface expected by ICS-02
  */
 export interface Misbehaviour {
+    /** ClientID is deprecated */
+    /** @deprecated */
     clientId: string;
     header1?: Header;
     header2?: Header;
@@ -128,6 +122,8 @@ export interface Misbehaviour {
  * that implements Misbehaviour interface expected by ICS-02
  */
 export interface MisbehaviourSDKType {
+    /** ClientID is deprecated */
+    /** @deprecated */
     client_id: string;
     header_1?: HeaderSDKType;
     header_2?: HeaderSDKType;

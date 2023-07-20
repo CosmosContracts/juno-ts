@@ -18,7 +18,7 @@ export interface AminoMsgUpdateClient extends AminoMsg {
     type: "cosmos-sdk/MsgUpdateClient";
     value: {
         client_id: string;
-        header: {
+        client_message: {
             type_url: string;
             value: Uint8Array;
         };
@@ -61,8 +61,8 @@ export declare const AminoConverter: {
     };
     "/ibc.core.client.v1.MsgUpdateClient": {
         aminoType: string;
-        toAmino: ({ clientId, header, signer }: MsgUpdateClient) => AminoMsgUpdateClient["value"];
-        fromAmino: ({ client_id, header, signer }: AminoMsgUpdateClient["value"]) => MsgUpdateClient;
+        toAmino: ({ clientId, clientMessage, signer }: MsgUpdateClient) => AminoMsgUpdateClient["value"];
+        fromAmino: ({ client_id, client_message, signer }: AminoMsgUpdateClient["value"]) => MsgUpdateClient;
     };
     "/ibc.core.client.v1.MsgUpgradeClient": {
         aminoType: string;

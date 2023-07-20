@@ -18,7 +18,7 @@ export interface AminoMsgUpdateClient extends AminoMsg {
   type: "cosmos-sdk/MsgUpdateClient";
   value: {
     client_id: string;
-    header: {
+    client_message: {
       type_url: string;
       value: Uint8Array;
     };
@@ -95,28 +95,28 @@ export const AminoConverter = {
     aminoType: "cosmos-sdk/MsgUpdateClient",
     toAmino: ({
       clientId,
-      header,
+      clientMessage,
       signer
     }: MsgUpdateClient): AminoMsgUpdateClient["value"] => {
       return {
         client_id: clientId,
-        header: {
-          type_url: header.typeUrl,
-          value: header.value
+        client_message: {
+          type_url: clientMessage.typeUrl,
+          value: clientMessage.value
         },
         signer
       };
     },
     fromAmino: ({
       client_id,
-      header,
+      client_message,
       signer
     }: AminoMsgUpdateClient["value"]): MsgUpdateClient => {
       return {
         clientId: client_id,
-        header: {
-          typeUrl: header.type_url,
-          value: header.value
+        clientMessage: {
+          typeUrl: client_message.type_url,
+          value: client_message.value
         },
         signer
       };

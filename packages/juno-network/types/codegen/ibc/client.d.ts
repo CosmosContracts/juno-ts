@@ -39,7 +39,7 @@ export declare const ibcAminoConverters: {
     };
     "/ibc.core.connection.v1.MsgConnectionOpenTry": {
         aminoType: string;
-        toAmino: ({ clientId, previousConnectionId, clientState, counterparty, delayPeriod, counterpartyVersions, proofHeight, proofInit, proofClient, proofConsensus, consensusHeight, signer }: import("./core/connection/v1/tx").MsgConnectionOpenTry) => {
+        toAmino: ({ clientId, previousConnectionId, clientState, counterparty, delayPeriod, counterpartyVersions, proofHeight, proofInit, proofClient, proofConsensus, consensusHeight, signer, hostConsensusStateProof }: import("./core/connection/v1/tx").MsgConnectionOpenTry) => {
             client_id: string;
             previous_connection_id: string;
             client_state: {
@@ -64,8 +64,9 @@ export declare const ibcAminoConverters: {
             proof_consensus: Uint8Array;
             consensus_height: import("../helpers").AminoHeight;
             signer: string;
+            host_consensus_state_proof: Uint8Array;
         };
-        fromAmino: ({ client_id, previous_connection_id, client_state, counterparty, delay_period, counterparty_versions, proof_height, proof_init, proof_client, proof_consensus, consensus_height, signer }: {
+        fromAmino: ({ client_id, previous_connection_id, client_state, counterparty, delay_period, counterparty_versions, proof_height, proof_init, proof_client, proof_consensus, consensus_height, signer, host_consensus_state_proof }: {
             client_id: string;
             previous_connection_id: string;
             client_state: {
@@ -90,11 +91,12 @@ export declare const ibcAminoConverters: {
             proof_consensus: Uint8Array;
             consensus_height: import("../helpers").AminoHeight;
             signer: string;
+            host_consensus_state_proof: Uint8Array;
         }) => import("./core/connection/v1/tx").MsgConnectionOpenTry;
     };
     "/ibc.core.connection.v1.MsgConnectionOpenAck": {
         aminoType: string;
-        toAmino: ({ connectionId, counterpartyConnectionId, version, clientState, proofHeight, proofTry, proofClient, proofConsensus, consensusHeight, signer }: import("./core/connection/v1/tx").MsgConnectionOpenAck) => {
+        toAmino: ({ connectionId, counterpartyConnectionId, version, clientState, proofHeight, proofTry, proofClient, proofConsensus, consensusHeight, signer, hostConsensusStateProof }: import("./core/connection/v1/tx").MsgConnectionOpenAck) => {
             connection_id: string;
             counterparty_connection_id: string;
             version: {
@@ -111,8 +113,9 @@ export declare const ibcAminoConverters: {
             proof_consensus: Uint8Array;
             consensus_height: import("../helpers").AminoHeight;
             signer: string;
+            host_consensus_state_proof: Uint8Array;
         };
-        fromAmino: ({ connection_id, counterparty_connection_id, version, client_state, proof_height, proof_try, proof_client, proof_consensus, consensus_height, signer }: {
+        fromAmino: ({ connection_id, counterparty_connection_id, version, client_state, proof_height, proof_try, proof_client, proof_consensus, consensus_height, signer, host_consensus_state_proof }: {
             connection_id: string;
             counterparty_connection_id: string;
             version: {
@@ -129,6 +132,7 @@ export declare const ibcAminoConverters: {
             proof_consensus: Uint8Array;
             consensus_height: import("../helpers").AminoHeight;
             signer: string;
+            host_consensus_state_proof: Uint8Array;
         }) => import("./core/connection/v1/tx").MsgConnectionOpenAck;
     };
     "/ibc.core.connection.v1.MsgConnectionOpenConfirm": {
@@ -173,17 +177,17 @@ export declare const ibcAminoConverters: {
     };
     "/ibc.core.client.v1.MsgUpdateClient": {
         aminoType: string;
-        toAmino: ({ clientId, header, signer }: import("./core/client/v1/tx").MsgUpdateClient) => {
+        toAmino: ({ clientId, clientMessage, signer }: import("./core/client/v1/tx").MsgUpdateClient) => {
             client_id: string;
-            header: {
+            client_message: {
                 type_url: string;
                 value: Uint8Array;
             };
             signer: string;
         };
-        fromAmino: ({ client_id, header, signer }: {
+        fromAmino: ({ client_id, client_message, signer }: {
             client_id: string;
-            header: {
+            client_message: {
                 type_url: string;
                 value: Uint8Array;
             };
@@ -520,7 +524,7 @@ export declare const ibcAminoConverters: {
     };
     "/ibc.applications.transfer.v1.MsgTransfer": {
         aminoType: string;
-        toAmino: ({ sourcePort, sourceChannel, token, sender, receiver, timeoutHeight, timeoutTimestamp }: import("./applications/transfer/v1/tx").MsgTransfer) => {
+        toAmino: ({ sourcePort, sourceChannel, token, sender, receiver, timeoutHeight, timeoutTimestamp, memo }: import("./applications/transfer/v1/tx").MsgTransfer) => {
             source_port: string;
             source_channel: string;
             token: {
@@ -531,8 +535,9 @@ export declare const ibcAminoConverters: {
             receiver: string;
             timeout_height: import("../helpers").AminoHeight;
             timeout_timestamp: string;
+            memo: string;
         };
-        fromAmino: ({ source_port, source_channel, token, sender, receiver, timeout_height, timeout_timestamp }: {
+        fromAmino: ({ source_port, source_channel, token, sender, receiver, timeout_height, timeout_timestamp, memo }: {
             source_port: string;
             source_channel: string;
             token: {
@@ -543,6 +548,7 @@ export declare const ibcAminoConverters: {
             receiver: string;
             timeout_height: import("../helpers").AminoHeight;
             timeout_timestamp: string;
+            memo: string;
         }) => import("./applications/transfer/v1/tx").MsgTransfer;
     };
 };

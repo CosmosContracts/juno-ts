@@ -1,4 +1,4 @@
-import { ProposalStatus, ProposalStatusSDKType, Proposal, ProposalSDKType, Vote, VoteSDKType, VotingParams, VotingParamsSDKType, DepositParams, DepositParamsSDKType, TallyParams, TallyParamsSDKType, Deposit, DepositSDKType, TallyResult, TallyResultSDKType } from "./gov";
+import { ProposalStatus, ProposalStatusSDKType, Proposal, ProposalSDKType, Vote, VoteSDKType, VotingParams, VotingParamsSDKType, DepositParams, DepositParamsSDKType, TallyParams, TallyParamsSDKType, Params, ParamsSDKType, Deposit, DepositSDKType, TallyResult, TallyResultSDKType } from "./gov";
 import { PageRequest, PageRequestSDKType, PageResponse, PageResponseSDKType } from "../../base/query/v1beta1/pagination";
 import * as _m0 from "protobufjs/minimal";
 import { Long, DeepPartial } from "../../../helpers";
@@ -17,11 +17,13 @@ export interface QueryProposalRequestSDKType {
 /** QueryProposalResponse is the response type for the Query/Proposal RPC method. */
 
 export interface QueryProposalResponse {
+  /** proposal is the requested governance proposal. */
   proposal?: Proposal;
 }
 /** QueryProposalResponse is the response type for the Query/Proposal RPC method. */
 
 export interface QueryProposalResponseSDKType {
+  /** proposal is the requested governance proposal. */
   proposal?: ProposalSDKType;
 }
 /** QueryProposalsRequest is the request type for the Query/Proposals RPC method. */
@@ -60,6 +62,7 @@ export interface QueryProposalsRequestSDKType {
  */
 
 export interface QueryProposalsResponse {
+  /** proposals defines all the requested governance proposals. */
   proposals: Proposal[];
   /** pagination defines the pagination in the response. */
 
@@ -71,6 +74,7 @@ export interface QueryProposalsResponse {
  */
 
 export interface QueryProposalsResponseSDKType {
+  /** proposals defines all the requested governance proposals. */
   proposals: ProposalSDKType[];
   /** pagination defines the pagination in the response. */
 
@@ -81,7 +85,7 @@ export interface QueryProposalsResponseSDKType {
 export interface QueryVoteRequest {
   /** proposal_id defines the unique id of the proposal. */
   proposalId: Long;
-  /** voter defines the oter address for the proposals. */
+  /** voter defines the voter address for the proposals. */
 
   voter: string;
 }
@@ -90,20 +94,20 @@ export interface QueryVoteRequest {
 export interface QueryVoteRequestSDKType {
   /** proposal_id defines the unique id of the proposal. */
   proposal_id: Long;
-  /** voter defines the oter address for the proposals. */
+  /** voter defines the voter address for the proposals. */
 
   voter: string;
 }
 /** QueryVoteResponse is the response type for the Query/Vote RPC method. */
 
 export interface QueryVoteResponse {
-  /** vote defined the queried vote. */
+  /** vote defines the queried vote. */
   vote?: Vote;
 }
 /** QueryVoteResponse is the response type for the Query/Vote RPC method. */
 
 export interface QueryVoteResponseSDKType {
-  /** vote defined the queried vote. */
+  /** vote defines the queried vote. */
   vote?: VoteSDKType;
 }
 /** QueryVotesRequest is the request type for the Query/Votes RPC method. */
@@ -127,7 +131,7 @@ export interface QueryVotesRequestSDKType {
 /** QueryVotesResponse is the response type for the Query/Votes RPC method. */
 
 export interface QueryVotesResponse {
-  /** votes defined the queried votes. */
+  /** votes defines the queried votes. */
   votes: Vote[];
   /** pagination defines the pagination in the response. */
 
@@ -136,7 +140,7 @@ export interface QueryVotesResponse {
 /** QueryVotesResponse is the response type for the Query/Votes RPC method. */
 
 export interface QueryVotesResponseSDKType {
-  /** votes defined the queried votes. */
+  /** votes defines the queried votes. */
   votes: VoteSDKType[];
   /** pagination defines the pagination in the response. */
 
@@ -163,26 +167,70 @@ export interface QueryParamsRequestSDKType {
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 
 export interface QueryParamsResponse {
-  /** voting_params defines the parameters related to voting. */
+  /**
+   * Deprecated: Prefer to use `params` instead.
+   * voting_params defines the parameters related to voting.
+   */
+
+  /** @deprecated */
   votingParams?: VotingParams;
-  /** deposit_params defines the parameters related to deposit. */
+  /**
+   * Deprecated: Prefer to use `params` instead.
+   * deposit_params defines the parameters related to deposit.
+   */
+
+  /** @deprecated */
 
   depositParams?: DepositParams;
-  /** tally_params defines the parameters related to tally. */
+  /**
+   * Deprecated: Prefer to use `params` instead.
+   * tally_params defines the parameters related to tally.
+   */
+
+  /** @deprecated */
 
   tallyParams?: TallyParams;
+  /**
+   * params defines all the paramaters of x/gov module.
+   * 
+   * Since: cosmos-sdk 0.47
+   */
+
+  params?: Params;
 }
 /** QueryParamsResponse is the response type for the Query/Params RPC method. */
 
 export interface QueryParamsResponseSDKType {
-  /** voting_params defines the parameters related to voting. */
+  /**
+   * Deprecated: Prefer to use `params` instead.
+   * voting_params defines the parameters related to voting.
+   */
+
+  /** @deprecated */
   voting_params?: VotingParamsSDKType;
-  /** deposit_params defines the parameters related to deposit. */
+  /**
+   * Deprecated: Prefer to use `params` instead.
+   * deposit_params defines the parameters related to deposit.
+   */
+
+  /** @deprecated */
 
   deposit_params?: DepositParamsSDKType;
-  /** tally_params defines the parameters related to tally. */
+  /**
+   * Deprecated: Prefer to use `params` instead.
+   * tally_params defines the parameters related to tally.
+   */
+
+  /** @deprecated */
 
   tally_params?: TallyParamsSDKType;
+  /**
+   * params defines all the paramaters of x/gov module.
+   * 
+   * Since: cosmos-sdk 0.47
+   */
+
+  params?: ParamsSDKType;
 }
 /** QueryDepositRequest is the request type for the Query/Deposit RPC method. */
 
@@ -235,6 +283,7 @@ export interface QueryDepositsRequestSDKType {
 /** QueryDepositsResponse is the response type for the Query/Deposits RPC method. */
 
 export interface QueryDepositsResponse {
+  /** deposits defines the requested deposits. */
   deposits: Deposit[];
   /** pagination defines the pagination in the response. */
 
@@ -243,6 +292,7 @@ export interface QueryDepositsResponse {
 /** QueryDepositsResponse is the response type for the Query/Deposits RPC method. */
 
 export interface QueryDepositsResponseSDKType {
+  /** deposits defines the requested deposits. */
   deposits: DepositSDKType[];
   /** pagination defines the pagination in the response. */
 
@@ -752,7 +802,8 @@ function createBaseQueryParamsResponse(): QueryParamsResponse {
   return {
     votingParams: undefined,
     depositParams: undefined,
-    tallyParams: undefined
+    tallyParams: undefined,
+    params: undefined
   };
 }
 
@@ -768,6 +819,10 @@ export const QueryParamsResponse = {
 
     if (message.tallyParams !== undefined) {
       TallyParams.encode(message.tallyParams, writer.uint32(26).fork()).ldelim();
+    }
+
+    if (message.params !== undefined) {
+      Params.encode(message.params, writer.uint32(34).fork()).ldelim();
     }
 
     return writer;
@@ -794,6 +849,10 @@ export const QueryParamsResponse = {
           message.tallyParams = TallyParams.decode(reader, reader.uint32());
           break;
 
+        case 4:
+          message.params = Params.decode(reader, reader.uint32());
+          break;
+
         default:
           reader.skipType(tag & 7);
           break;
@@ -808,6 +867,7 @@ export const QueryParamsResponse = {
     message.votingParams = object.votingParams !== undefined && object.votingParams !== null ? VotingParams.fromPartial(object.votingParams) : undefined;
     message.depositParams = object.depositParams !== undefined && object.depositParams !== null ? DepositParams.fromPartial(object.depositParams) : undefined;
     message.tallyParams = object.tallyParams !== undefined && object.tallyParams !== null ? TallyParams.fromPartial(object.tallyParams) : undefined;
+    message.params = object.params !== undefined && object.params !== null ? Params.fromPartial(object.params) : undefined;
     return message;
   }
 
