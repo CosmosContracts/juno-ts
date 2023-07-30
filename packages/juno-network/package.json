@@ -58,7 +58,7 @@
     "@babel/plugin-transform-runtime": "7.19.1",
     "@babel/preset-env": "7.19.4",
     "@babel/preset-typescript": "^7.18.6",
-    "@osmonauts/telescope": "^0.88.3",
+    "@cosmology/telescope": "^0.102.0",
     "@protobufs/cosmos": "^0.1.0",
     "@protobufs/cosmwasm": "^0.1.1",
     "@protobufs/ibc": "^0.1.0",
@@ -87,7 +87,7 @@
     "@cosmjs/proto-signing": "0.29.5",
     "@cosmjs/stargate": "0.29.5",
     "@cosmjs/tendermint-rpc": "^0.29.5",
-    "@osmonauts/lcd": "0.8.0",
+    "@cosmology/lcd": "^0.12.0",
     "protobufjs": "^6.11.2"
   }
 }
