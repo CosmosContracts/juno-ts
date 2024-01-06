@@ -3,7 +3,8 @@ import { defaultRegistryTypes, AminoTypes, SigningStargateClient } from "@cosmjs
 import { HttpEndpoint } from "@cosmjs/tendermint-rpc";
 import * as osmosisTokenfactoryV1beta1TxRegistry from "./tokenfactory/v1beta1/tx.registry";
 import * as osmosisTokenfactoryV1beta1TxAmino from "./tokenfactory/v1beta1/tx.amino";
-export const osmosisAminoConverters = { ...osmosisTokenfactoryV1beta1TxAmino.AminoConverter
+export const osmosisAminoConverters = {
+  ...osmosisTokenfactoryV1beta1TxAmino.AminoConverter
 };
 export const osmosisProtoRegistry: ReadonlyArray<[string, GeneratedType]> = [...osmosisTokenfactoryV1beta1TxRegistry.registry];
 export const getSigningOsmosisClientOptions = ({
@@ -15,7 +16,8 @@ export const getSigningOsmosisClientOptions = ({
   aminoTypes: AminoTypes;
 } => {
   const registry = new Registry([...defaultTypes, ...osmosisProtoRegistry]);
-  const aminoTypes = new AminoTypes({ ...osmosisAminoConverters
+  const aminoTypes = new AminoTypes({
+    ...osmosisAminoConverters
   });
   return {
     registry,
@@ -38,7 +40,7 @@ export const getSigningOsmosisClient = async ({
     defaultTypes
   });
   const client = await SigningStargateClient.connectWithSigner(rpcEndpoint, signer, {
-    registry,
+    registry: (registry as any),
     aminoTypes
   });
   return client;
