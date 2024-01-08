@@ -14,49 +14,42 @@ export const MessageComposer = {
         value: MsgStoreCode.encode(value).finish()
       };
     },
-
     instantiateContract(value: MsgInstantiateContract) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgInstantiateContract",
         value: MsgInstantiateContract.encode(value).finish()
       };
     },
-
     instantiateContract2(value: MsgInstantiateContract2) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgInstantiateContract2",
         value: MsgInstantiateContract2.encode(value).finish()
       };
     },
-
     executeContract(value: MsgExecuteContract) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgExecuteContract",
         value: MsgExecuteContract.encode(value).finish()
       };
     },
-
     migrateContract(value: MsgMigrateContract) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgMigrateContract",
         value: MsgMigrateContract.encode(value).finish()
       };
     },
-
     updateAdmin(value: MsgUpdateAdmin) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgUpdateAdmin",
         value: MsgUpdateAdmin.encode(value).finish()
       };
     },
-
     clearAdmin(value: MsgClearAdmin) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgClearAdmin",
         value: MsgClearAdmin.encode(value).finish()
       };
     }
-
   },
   withTypeUrl: {
     storeCode(value: MsgStoreCode) {
@@ -65,49 +58,42 @@ export const MessageComposer = {
         value
       };
     },
-
     instantiateContract(value: MsgInstantiateContract) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgInstantiateContract",
         value
       };
     },
-
     instantiateContract2(value: MsgInstantiateContract2) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgInstantiateContract2",
         value
       };
     },
-
     executeContract(value: MsgExecuteContract) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgExecuteContract",
         value
       };
     },
-
     migrateContract(value: MsgMigrateContract) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgMigrateContract",
         value
       };
     },
-
     updateAdmin(value: MsgUpdateAdmin) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgUpdateAdmin",
         value
       };
     },
-
     clearAdmin(value: MsgClearAdmin) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgClearAdmin",
         value
       };
     }
-
   },
   fromPartial: {
     storeCode(value: MsgStoreCode) {
@@ -116,48 +102,41 @@ export const MessageComposer = {
         value: MsgStoreCode.fromPartial(value)
       };
     },
-
     instantiateContract(value: MsgInstantiateContract) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgInstantiateContract",
         value: MsgInstantiateContract.fromPartial(value)
       };
     },
-
     instantiateContract2(value: MsgInstantiateContract2) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgInstantiateContract2",
         value: MsgInstantiateContract2.fromPartial(value)
       };
     },
-
     executeContract(value: MsgExecuteContract) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgExecuteContract",
         value: MsgExecuteContract.fromPartial(value)
       };
     },
-
     migrateContract(value: MsgMigrateContract) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgMigrateContract",
         value: MsgMigrateContract.fromPartial(value)
       };
     },
-
     updateAdmin(value: MsgUpdateAdmin) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgUpdateAdmin",
         value: MsgUpdateAdmin.fromPartial(value)
       };
     },
-
     clearAdmin(value: MsgClearAdmin) {
       return {
         typeUrl: "/cosmwasm.wasm.v1.MsgClearAdmin",
         value: MsgClearAdmin.fromPartial(value)
       };
     }
-
   }
 };
