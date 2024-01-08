@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.17.0](https://github.com/CosmosContracts/typescript/compare/juno-network@0.16.0...juno-network@0.17.0) (2024-01-08)
+
+**Note:** Version bump only for package juno-network
+
+
+
+
+
 # [0.16.0](https://github.com/CosmosContracts/typescript/compare/juno-network@0.15.1...juno-network@0.16.0) (2024-01-08)
 
 **Note:** Version bump only for package juno-network
