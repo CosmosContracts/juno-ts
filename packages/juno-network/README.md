@@ -19,7 +19,6 @@ npm install juno-network
 
 ```js
 import { juno } from 'juno-network';
-
 const main = async () => {
    const client = await juno.ClientFactory.createLCDClient({ restEndpoint: REST_ENDPOINT });
 
